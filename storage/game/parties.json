@@ -1,0 +1,17 @@
+[
+	{
+		"id": 1,
+		"name": "Name",
+		"description": "Beschreibung",
+		"origin": 1,
+		"race": "Human",
+		"diplomacy": {
+			"acquaintances": [],
+			"relations": []
+		},
+		"people": [
+			1,
+			2
+		]
+	}
+]

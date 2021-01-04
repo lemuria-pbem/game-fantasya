@@ -1,0 +1,13 @@
+[
+	{
+		"id": 1,
+		"name": "Name",
+		"description": "Beschreibung",
+		"anchor": "E",
+		"ship": "Boat",
+		"completion": 1.0,
+		"passengers": [
+			2
+		]
+	}
+]

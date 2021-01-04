@@ -1,0 +1,9 @@
+/storage/save/[0123456789]*
+/vendor
+
+/.idea/workspace.xml
+/composer.lock
+/storage/log/*.log
+/storage/turn/*.cr
+/storage/turn/*.html
+/storage/turn/*.txt

@@ -1,0 +1,36 @@
+[
+	{
+		"id": 1,
+		"name": "Name",
+		"description": "Beschreibung",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 10000,
+			"Silver": 1000000,
+			"Food": 1000000,
+			"Tree": 100
+		},
+		"estate": [
+			1
+		],
+		"fleet": [
+			1
+		],
+		"residents": [
+			1,
+			2
+		],
+		"luxuries": {
+			"offer": "Gem",
+			"demand": {
+				"Balsam": 400,
+				"Fur": 700,
+				"Myrrh": 500,
+				"Oil": 300,
+				"Olibanum": 400,
+				"Silk": 600,
+				"Spice": 500
+			}
+		}
+	}
+]

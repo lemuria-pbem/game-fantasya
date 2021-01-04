@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"name": "Name",
+		"description": "Beschreibung",
+		"race": "Human",
+		"size": 1,
+		"isGuarding": false,
+		"battleRow": 1,
+		"camouflage": 0,
+		"disguiseAs": false,
+		"inventory": {
+			"Food": 10,
+			"Silver": 100
+		},
+		"knowledge": {
+			"Entertaining": 600
+		}
+	},
+	{
+		"id": 2,
+		"name": "Name",
+		"description": "Beschreibung",
+		"race": "Human",
+		"size": 1,
+		"isGuarding": false,
+		"battleRow": 1,
+		"camouflage": 0,
+		"disguiseAs": false,
+		"inventory": {
+			"Food": 10,
+			"Silver": 100
+		},
+		"knowledge": {
+			"Navigation": 100
+		}
+	}
+]
