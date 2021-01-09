@@ -1,26 +1,35 @@
 [
 	{
 		"id": 1,
-		"name": "Name",
-		"description": "Beschreibung",
+		"name": "Herr der Schatten",
+		"description": "Dieser mysteriöse Mann leitet die Geschicke der Lemurianer.",
 		"race": "Human",
 		"size": 1,
 		"isGuarding": false,
-		"battleRow": 1,
-		"camouflage": 0,
+		"battleRow": 2,
+		"camouflage": 12,
 		"disguiseAs": false,
 		"inventory": {
-			"Food": 10,
-			"Silver": 100
+			"Food": 10000,
+			"Silver": 100000,
+			"Wood": 1000,
+			"Stone": 1000,
+			"Iron": 1000,
+			"Sword": 1,
+			"Crossbow": 1,
+			"Mail": 1
 		},
 		"knowledge": {
-			"Entertaining": 600
+			"Bladefighting": 2500,
+			"Camouflage": 14400,
+			"Crossbowing": 2500,
+			"Perception": 14400
 		}
 	},
 	{
 		"id": 2,
-		"name": "Name",
-		"description": "Beschreibung",
+		"name": "Kapitän Jon",
+		"description": "Noch recht jung und unerfahren, aber dafür umso ehrgeiziger.",
 		"race": "Human",
 		"size": 1,
 		"isGuarding": false,
@@ -32,7 +41,56 @@
 			"Silver": 100
 		},
 		"knowledge": {
-			"Navigation": 100
+			"Navigation": 2500
+		}
+	},
+	{
+		"id": 3,
+		"name": "Oromiel Sasewan",
+		"description": "Weisester der Mittwaldelben.",
+		"race": "Elf",
+		"size": 1,
+		"isGuarding": true,
+		"battleRow": 2,
+		"camouflage": 12,
+		"disguiseAs": false,
+		"inventory": {
+			"Food": 10000,
+			"Silver": 100000,
+			"Wood": 1000,
+			"Stone": 1000,
+			"Iron": 1000,
+			"Bow": 1
+		},
+		"knowledge": {
+			"Archery": 6400,
+			"Camouflage": 14400,
+			"Perception": 14400
+		}
+	},
+	{
+		"id": 4,
+		"name": "König Thorin",
+		"description": "König Thorin, Herrscher der Erben der Sieben.",
+		"race": "Dwarf",
+		"size": 1,
+		"isGuarding": true,
+		"battleRow": 4,
+		"camouflage": 0,
+		"disguiseAs": false,
+		"inventory": {
+			"Food": 10000,
+			"Silver": 100000,
+			"Wood": 1000,
+			"Stone": 1000,
+			"Iron": 1000,
+			"Warhammer": 1,
+			"Armor": 1,
+			"Ironshield": 1
+		},
+		"knowledge": {
+			"Perception": 6400,
+			"Spearfighting": 2500
 		}
 	}
 ]

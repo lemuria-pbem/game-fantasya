@@ -1,10 +1,32 @@
 [
 	{
 		"id": 1,
-		"name": "Name",
-		"description": "Beschreibung",
-		"building": "Tower",
-		"size": 10,
-		"inhabitants": [1]
+		"name": "Schattenhort",
+		"description": "",
+		"building": "Palace",
+		"size": 100,
+		"inhabitants": [
+			1
+		]
+	},
+	{
+		"id": 2,
+		"name": "Baum der Weisen",
+		"description": "",
+		"building": "Palace",
+		"size": 100,
+		"inhabitants": [
+			3
+		]
+	},
+	{
+		"id": 3,
+		"name": "Hallen unter dem Berg",
+		"description": "",
+		"building": "Palace",
+		"size": 100,
+		"inhabitants": [
+			4
+		]
 	}
 ]

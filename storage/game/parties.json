@@ -1,9 +1,9 @@
 [
 	{
-		"id": 1,
-		"name": "Name",
-		"description": "Beschreibung",
-		"origin": 1,
+		"id": 27742,
+		"name": "Lemurianer",
+		"description": "Die Lemurianer streben die Vorherrschaft über den ganzen Kontinent Lemuria an.",
+		"origin": 54,
 		"race": "Human",
 		"diplomacy": {
 			"acquaintances": [],
@@ -12,6 +12,34 @@
 		"people": [
 			1,
 			2
+		]
+	},
+	{
+		"id": 824,
+		"name": "Mittwaldelben",
+		"description": "Die Mittwaldelben leben in den weiten Waldgebieten im Norden.",
+		"origin": 68,
+		"race": "Elf",
+		"diplomacy": {
+			"acquaintances": [],
+			"relations": []
+		},
+		"people": [
+			3
+		]
+	},
+	{
+		"id": 7,
+		"name": "Erben der Sieben",
+		"description": "Sie verstehen sich als die Nachfahren der Sieben Zwerge, die der Legende nach einst in Lemuria herrschten.",
+		"origin": 29,
+		"race": "Dwarf",
+		"diplomacy": {
+			"acquaintances": [],
+			"relations": []
+		},
+		"people": [
+			4
 		]
 	}
 ]

@@ -1,10 +1,10 @@
 [
 	{
 		"id": 1,
-		"name": "Name",
-		"description": "Beschreibung",
+		"name": "Sturmvogel",
+		"description": "Nicht der schnellste Segler, jedoch gibt es wenige, die den Stürmen besser standhalten können als die Sturmvogel.",
 		"anchor": "E",
-		"ship": "Boat",
+		"ship": "Caravel",
 		"completion": 1.0,
 		"passengers": [
 			2

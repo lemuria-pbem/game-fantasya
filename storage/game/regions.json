@@ -1,14 +1,1002 @@
 [
 	{
 		"id": 1,
-		"name": "Name",
-		"description": "Beschreibung",
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 2,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 3,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 4,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 5,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 6,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 7,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 8,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 9,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 10,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 11,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 12,
+		"name": "Südstrand",
+		"description": "",
 		"landscape": "Plain",
 		"resources": {
-			"Peasant": 10000,
-			"Silver": 1000000,
-			"Food": 1000000,
-			"Tree": 100
+			"Peasant": 2347,
+			"Food": 123000,
+			"Silver": 234636,
+			"Tree": 80
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Silk",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 13,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 14,
+		"name": "Salzmarschen",
+		"description": "",
+		"landscape": "Swamp",
+		"resources": {
+			"Peasant": 50,
+			"Food": 180,
+			"Silver": 880,
+			"Tree": 10
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Balsam",
+			"demand": {
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 15,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 16,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 17,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 18,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 19,
+		"name": "West-Lanar",
+		"description": "",
+		"landscape": "Highland",
+		"resources": {
+			"Peasant": 634,
+			"Food": 9344,
+			"Silver": 13023,
+			"Tree": 50
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Fur",
+			"demand": {
+				"Balsam": 4,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 20,
+		"name": "Ost-Lanar",
+		"description": "",
+		"landscape": "Highland",
+		"resources": {
+			"Peasant": 635,
+			"Food": 32002,
+			"Silver": 87450,
+			"Tree": 80
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Fur",
+			"demand": {
+				"Balsam": 4,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 21,
+		"name": "Coronia",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 100,
+			"Food": 3072,
+			"Silver": 50213,
+			"Tree": 965
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Balsam",
+			"demand": {
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 22,
+		"name": "Tiefengrund",
+		"description": "",
+		"landscape": "Swamp",
+		"resources": {
+			"Peasant": 178,
+			"Food": 5432,
+			"Silver": 22000,
+			"Tree": 15
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Balsam",
+			"demand": {
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 23,
+		"name": "Ollodrin",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 672,
+			"Food": 21072,
+			"Silver": 100213,
+			"Tree": 789
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Balsam",
+			"demand": {
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 24,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 25,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 26,
+		"name": "Abendrotwald",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 1000,
+			"Food": 12072,
+			"Silver": 90213,
+			"Tree": 734
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Fur",
+			"demand": {
+				"Balsam": 4,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 27,
+		"name": "Holowan",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 90,
+			"Food": 1023,
+			"Silver": 10078,
+			"Tree": 999
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Fur",
+			"demand": {
+				"Balsam": 4,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 28,
+		"name": "Pinneo",
+		"description": "",
+		"landscape": "Desert",
+		"resources": {
+			"Peasant": 200,
+			"Food": 250,
+			"Silver": 7100,
+			"Tree": 1
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Oil",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 29,
+		"name": "Otorten",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 2000,
+			"Food": 12333,
+			"Silver": 158923,
+			"Tree": 40
+		},
+		"estate": [
+			3
+		],
+		"fleet": [],
+		"residents": [
+			4
+		],
+		"luxuries": {
+			"offer": "Balsam",
+			"demand": {
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 30,
+		"name": "Tiefenfurt",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 3456,
+			"Food": 102046,
+			"Silver": 534678,
+			"Tree": 120
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Balsam",
+			"demand": {
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+
+	},
+	{
+		"id": 31,
+		"name": "Seehaven",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 6763,
+			"Food": 258732,
+			"Silver": 2655143,
+			"Tree": 30
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Oil",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 32,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 33,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 34,
+		"name": "Westernis",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 3100,
+			"Food": 90766,
+			"Silver": 523777,
+			"Tree": 55
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Fur",
+			"demand": {
+				"Balsam": 4,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 35,
+		"name": "Umbrias",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 1504,
+			"Food": 8990,
+			"Silver": 103401,
+			"Tree": 8
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Gem",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 36,
+		"name": "Kahler Berg",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 936,
+			"Food": 5800,
+			"Silver": 92012,
+			"Tree": 20
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Gem",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 37,
+		"name": "Tolero",
+		"description": "",
+		"landscape": "Glacier",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 38,
+		"name": "Schattensümpfe",
+		"description": "",
+		"landscape": "Swamp",
+		"resources": {
+			"Peasant": 98,
+			"Food": 1034,
+			"Silver": 22500,
+			"Tree": 25
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Fur",
+			"demand": {
+				"Balsam": 4,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 39,
+		"name": "Mangrovenwald",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 1688,
+			"Food": 6555,
+			"Silver": 58000,
+			"Tree": 887
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Fur",
+			"demand": {
+				"Balsam": 4,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 40,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 41,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 42,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 43,
+		"name": "Dürrland",
+		"description": "",
+		"landscape": "Highland",
+		"resources": {
+			"Peasant": 500,
+			"Food": 1880,
+			"Silver": 30213,
+			"Tree": 98
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Gem",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 44,
+		"name": "Hoher Pass",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 784,
+			"Food": 6334,
+			"Silver": 80413,
+			"Tree": 5
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Gem",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 45,
+		"name": "Matiss",
+		"description": "",
+		"landscape": "Glacier",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 46,
+		"name": "Ostspitze",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 305,
+			"Food": 1023,
+			"Silver": 10020,
+			"Tree": 3
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Spice",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6
+			}
+		}
+	},
+	{
+		"id": 47,
+		"name": "Dunkle Auen",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 4,
+			"Food": 30,
+			"Silver": 502,
+			"Tree": 999
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Gem",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 48,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 49,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 50,
+		"name": "Trock",
+		"description": "",
+		"landscape": "Highland",
+		"resources": {
+			"Peasant": 1304,
+			"Food": 5446,
+			"Silver": 100234,
+			"Tree": 74
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Olibanum",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 51,
+		"name": "Eisnadel",
+		"description": "",
+		"landscape": "Glacier",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 52,
+		"name": "Nordwand",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 205,
+			"Food": 999,
+			"Silver": 9034,
+			"Tree": 4
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Olibanum",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 53,
+		"name": "Gordorod",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 500,
+			"Food": 2012,
+			"Silver": 47800,
+			"Tree": 14
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Spice",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6
+			}
+		}
+	},
+	{
+		"id": 54,
+		"name": "Schattental",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 5327,
+			"Food": 337683,
+			"Silver": 1045224,
+			"Tree": 23
 		},
 		"estate": [
 			1
@@ -23,14 +1011,632 @@
 		"luxuries": {
 			"offer": "Gem",
 			"demand": {
-				"Balsam": 400,
-				"Fur": 700,
-				"Myrrh": 500,
-				"Oil": 300,
-				"Olibanum": 400,
-				"Silk": 600,
-				"Spice": 500
+				"Balsam": 111,
+				"Fur": 220,
+				"Myrrh": 155,
+				"Oil": 84,
+				"Olibanum": 121,
+				"Silk": 182,
+				"Spice": 155
 			}
 		}
+	},
+	{
+		"id": 55,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 56,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 57,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 58,
+		"name": "Leran",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 2300,
+			"Food": 103500,
+			"Silver": 874255,
+			"Tree": 15
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Olibanum",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 59,
+		"name": "Andamando",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 1340,
+			"Food": 9800,
+			"Silver": 99034,
+			"Tree": 26
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Olibanum",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 60,
+		"name": "Kalter Wald",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 0,
+			"Food": 0,
+			"Silver": 0,
+			"Tree": 1013
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Spice",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6
+			}
+		}
+	},
+	{
+		"id": 61,
+		"name": "Kaltlingen",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 4000,
+			"Food": 87635,
+			"Silver": 198770,
+			"Tree": 180
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Spice",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6
+			}
+		}
+	},
+	{
+		"id": 62,
+		"name": "Langbruck",
+		"description": "",
+		"landscape": "Highland",
+		"resources": {
+			"Peasant": 2300,
+			"Food": 9945,
+			"Silver": 60723,
+			"Tree": 34
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Spice",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6
+			}
+		}
+	},
+	{
+		"id": 63,
+		"name": "Hügelheim",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 1765,
+			"Food": 8076,
+			"Silver": 123040,
+			"Tree": 43
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Spice",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6
+			}
+		}
+	},
+	{
+		"id": 64,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 65,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 66,
+		"name": "Velatan",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 2045,
+			"Food": 135000,
+			"Silver": 304600,
+			"Tree": 88
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Oil",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 67,
+		"name": "Pilcaya",
+		"description": "",
+		"landscape": "Swamp",
+		"resources": {
+			"Peasant": 100,
+			"Food": 3072,
+			"Silver": 50213,
+			"Tree": 965
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Myrrh",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 68,
+		"name": "Mittwald",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 450,
+			"Food": 1001,
+			"Silver": 10344,
+			"Tree": 903
+		},
+		"estate": [
+			2
+		],
+		"fleet": [],
+		"residents": [
+			3
+		],
+		"luxuries": {
+			"offer": "Myrrh",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 69,
+		"name": "Stille Bucht",
+		"description": "",
+		"landscape": "Plain",
+		"resources": {
+			"Peasant": 4800,
+			"Food": 234440,
+			"Silver": 505656,
+			"Tree": 33
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Myrrh",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 70,
+		"name": "Hochwall",
+		"description": "",
+		"landscape": "Highland",
+		"resources": {
+			"Peasant": 1874,
+			"Food": 6774,
+			"Silver": 90234,
+			"Tree": 71
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Myrrh",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 71,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 72,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 73,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 74,
+		"name": "Nordkap",
+		"description": "",
+		"landscape": "Mountain",
+		"resources": {
+			"Peasant": 90,
+			"Food": 150,
+			"Silver": 7474,
+			"Tree": 80
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Silk",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 75,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 76,
+		"name": "Sturmforst",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 2000,
+			"Food": 10000,
+			"Silver": 77000,
+			"Tree": 777
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Myrrh",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 77,
+		"name": "Dunkelfleck",
+		"description": "",
+		"landscape": "Forest",
+		"resources": {
+			"Peasant": 233,
+			"Food": 987,
+			"Silver": 8400,
+			"Tree": 980
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Myrrh",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Oil": 3,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 78,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 79,
+		"name": "Untiefen",
+		"description": "",
+		"landscape": "Swamp",
+		"resources": {
+			"Peasant": 4,
+			"Food": 10,
+			"Silver": 35,
+			"Tree": 101
+		},
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": {
+			"offer": "Oil",
+			"demand": {
+				"Balsam": 4,
+				"Fur": 7,
+				"Gem": 7,
+				"Myrrh": 5,
+				"Olibanum": 4,
+				"Silk": 6,
+				"Spice": 5
+			}
+		}
+	},
+	{
+		"id": 80,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 81,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 82,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 83,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 84,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 85,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 86,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 87,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
+	},
+	{
+		"id": 88,
+		"name": "",
+		"description": "",
+		"landscape": "Ocean",
+		"resources": [],
+		"estate": [],
+		"fleet": [],
+		"residents": [],
+		"luxuries": null
 	}
 ]
