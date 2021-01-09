@@ -4,6 +4,7 @@ declare (strict_types = 1);
 use Lemuria\Engine\Lemuria\LemuriaTurn;
 use Lemuria\Engine\Lemuria\Message\LemuriaMessage;
 use Lemuria\Engine\Move\CommandFile;
+use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Id;
 use Lemuria\Lemuria;
@@ -14,18 +15,31 @@ use Lemuria\Test\TestConfig;
 try {
 	require realpath(__DIR__ . '/../vendor/autoload.php');
 
+	$round = 0;
+
+	$dir    = __DIR__ . '/../storage/orders/' . ($round + 1);
+	$orders = realpath($dir);
+	if (!$orders) {
+		throw new DirectoryNotFoundException($dir);
+	}
+	$parties = glob($orders . DIRECTORY_SEPARATOR . '*.txt');
+
 	try {
-		Lemuria::init(new TestConfig());
+		Lemuria::init(new TestConfig($round));
 		Lemuria::Log()->debug('Turn starts.', ['timestamp' => date('r')]);
 		Lemuria::load();
 		Lemuria::Log()->debug('Evaluating round ' . Lemuria::Calendar()->Round() . '.', ['calendar' => Lemuria::Calendar()]);
 		$turn = new LemuriaTurn();
-		$turn->add(new CommandFile(realpath(__DIR__ . '/../storage/orders/1.txt')));
+		foreach ($parties as $path) {
+			$turn->add(new CommandFile($path));
+		}
 		$turn->evaluate();
 		Lemuria::Calendar()->nextRound();
 
-		foreach (['1'] as $party) {
-			$party = Party::get(Id::fromId($party));
+		foreach ($parties as $path) {
+			$file  = basename($path);
+			$id    = substr($file, 0, strpos($file, '.'));
+			$party = Party::get(Id::fromId($id));
 			Lemuria::Log()->debug('Logging game messages for party ' . $party . ':');
 			foreach (Lemuria::Report()->getAll($party) as $message/* @var LemuriaMessage $message */) {
 				Lemuria::Log()->log($message->Level(), $message);
