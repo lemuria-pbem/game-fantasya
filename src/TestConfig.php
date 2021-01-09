@@ -19,6 +19,9 @@ use Lemuria\Model\World\OctagonalMap;
 
 class TestConfig implements Config
 {
+	public function __construct(private int $round = 0) {
+	}
+
 	public function Builder(): Builder {
 		$builder = new DefaultBuilder();
 		return $builder->register(new ModelSingletonCatalog())->register(new EngineSingletonCatalog());
@@ -33,7 +36,7 @@ class TestConfig implements Config
 	}
 
 	public function Game(): Game {
-		return new TestGame();
+		return new TestGame($this->round);
 	}
 
 	public function Report(): Report {
