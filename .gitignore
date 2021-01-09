@@ -2,8 +2,8 @@
 
 /.idea/workspace.xml
 /composer.lock
-/storage/log/*.log
-/storage/save/*
+/doc/Lemuria.pdf
+/storage/log/lemuria.log
+/storage/save/*/*.json
 /storage/turn/*.cr
-/storage/turn/*.html
-/storage/turn/*.txt
+/storage/turn/*/*
