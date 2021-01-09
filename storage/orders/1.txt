@@ -1,9 +1,0 @@
-PARTEI 1
-
-EINHEIT 1
-LERNEN Unterhaltung
-
-EINHEIT 2
-LERNEN Segeln
-
-NÄCHSTER
