@@ -11,10 +11,6 @@ final class TestGame extends JsonGame
 		parent::__construct();
 	}
 
-	public function getMessages(): array {
-		return [];
-	}
-
 	protected function getLoadStorage(): string {
 		if ($this->round > 0) {
 			$dir  = __DIR__ . '/../storage/save/' . $this->round;

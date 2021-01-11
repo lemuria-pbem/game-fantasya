@@ -12,7 +12,15 @@
 		"people": [
 			1,
 			2
-		]
+		],
+		"chronicle": {
+			"entities": [
+				54
+			],
+			"rounds": [
+				1
+			]
+		}
 	},
 	{
 		"id": 824,
@@ -26,7 +34,15 @@
 		},
 		"people": [
 			3
-		]
+		],
+		"chronicle": {
+			"entities": [
+				68
+			],
+			"rounds": [
+				1
+			]
+		}
 	},
 	{
 		"id": 7,
@@ -40,6 +56,14 @@
 		},
 		"people": [
 			4
-		]
+		],
+		"chronicle": {
+			"entities": [
+				29
+			],
+			"rounds": [
+				1
+			]
+		}
 	}
 ]

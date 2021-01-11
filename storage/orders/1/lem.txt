@@ -2,7 +2,7 @@ PARTEI lem
 
 EINHEIT 1
 NUMMER herr
-LERNEE Armbrustschießen
+LERNE Armbrustschießen
 GIB TEMP 2 3500 Silber
 MACHE TEMP 2
 BENENNE EINHEIT "Händler"
@@ -12,6 +12,6 @@ ENDE
 
 EINHEIT 2
 NUMMER jon
-LERNEN Segeln
+LERNE Segeln
 
 NÄCHSTER
