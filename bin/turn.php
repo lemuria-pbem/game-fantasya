@@ -5,17 +5,18 @@ use Lemuria\Engine\Lemuria\LemuriaTurn;
 use Lemuria\Engine\Lemuria\Message\LemuriaMessage;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
+use Lemuria\Exception\FileException;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Id;
 use Lemuria\Lemuria;
-use Lemuria\Model\Exception\FileException;
 use Lemuria\Model\Lemuria\Party;
 use Lemuria\Test\TestConfig;
 
 try {
 	require realpath(__DIR__ . '/../vendor/autoload.php');
 
-	$round = 0;
+	$config = new TestConfig();
+	$round  = $config[TestConfig::ROUND];
 
 	$dir    = __DIR__ . '/../storage/orders/' . ($round + 1);
 	$orders = realpath($dir);
@@ -25,7 +26,7 @@ try {
 	$parties = glob($orders . DIRECTORY_SEPARATOR . '*.txt');
 
 	try {
-		Lemuria::init(new TestConfig($round));
+		Lemuria::init($config);
 		Lemuria::Log()->debug('Turn starts.', ['timestamp' => date('r')]);
 		Lemuria::load();
 		Lemuria::Log()->debug('Evaluating round ' . Lemuria::Calendar()->Round() . '.', ['calendar' => Lemuria::Calendar()]);
@@ -35,6 +36,7 @@ try {
 		}
 		$turn->evaluate();
 		Lemuria::Calendar()->nextRound();
+
 
 		foreach ($parties as $path) {
 			$file  = basename($path);
@@ -53,6 +55,7 @@ try {
 
 		try {
 			Lemuria::save();
+			$config[TestConfig::ROUND] = ++$round;
 			Lemuria::Log()->debug('Turn ended.');
 			exit(0);
 		} catch (FileException $e) {

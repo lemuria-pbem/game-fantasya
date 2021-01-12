@@ -3,6 +3,7 @@
 /.idea/workspace.xml
 /composer.lock
 /doc/Lemuria.pdf
+/storage/config.json
 /storage/log/lemuria.log
 /storage/save/*/*.json
 /storage/turn/*.cr

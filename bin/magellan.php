@@ -9,11 +9,12 @@ use Lemuria\Test\TestConfig;
 
 require realpath(__DIR__ . '/../vendor/autoload.php');
 
-$round   = 1;
+$config  = new TestConfig();
+$round   = $config[TestConfig::ROUND];
 $parties = ['7' => 'Erben_der_Sieben', 'lem' => 'Lemurianer', 'mw' => 'Mittwaldelben'];
 
 try {
-	Lemuria::init(new TestConfig($round));
+	Lemuria::init($config);
 	Lemuria::load();
 
 	foreach ($parties as $i => $name) {

@@ -1,6 +1,7 @@
 PARTEI 7
 
 EINHEIT 4
+URSPRUNG Partei lem
 NUMMER thor
 LERNE Stangenwaffen
 GIB TEMP 3 2000 Silber

@@ -8,16 +8,14 @@ use Lemuria\Test\TestConfig;
 use Lemuria\Renderer\Text\TextWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 
-/**
- * Lemuria.
- */
 require __DIR__ . '/../vendor/autoload.php';
 
-$round   = 1;
+$config  = new TestConfig();
+$round   = $config[TestConfig::ROUND];
 $parties = ['7' => 'Erben_der_Sieben', 'lem' => 'Lemurianer', 'mw' => 'Mittwaldelben'];
 
 try {
-	Lemuria::init(new TestConfig($round));
+	Lemuria::init($config);
 	Lemuria::Log()->debug('Report starts.', ['timestamp' => date('r')]);
 	Lemuria::load();
 
@@ -43,6 +41,8 @@ try {
 		$writer->render($id);
 		$reports[$i] = [$htmlPath, $txtPath];
 	}
+
+	Lemuria::Log()->debug('Report finished.', ['timestamp' => date('r')]);
 } catch (Exception $e) {
 	$output = (string)$e;
 }
@@ -59,7 +59,7 @@ try {
 		<script type="text/javascript" src="/js/script.js"></script>
 	</head>
 	<body>
-		<?php if ($output): ?>
+		<?php if (isset($output)): ?>
 			<?= $output ?>
 		<?php else: ?>
 			<?php foreach ($parties as $id => $name): ?>

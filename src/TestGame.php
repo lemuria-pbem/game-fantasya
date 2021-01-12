@@ -3,7 +3,7 @@ declare(strict_types = 1);
 namespace Lemuria\Test;
 
 use Lemuria\Engine\Lemuria\Storage\LemuriaGame;
-use Lemuria\Storage\FileProvider;
+use Lemuria\Model\Lemuria\Storage\JsonProvider;
 
 final class TestGame extends LemuriaGame
 {
@@ -16,7 +16,7 @@ final class TestGame extends LemuriaGame
 	 */
 	protected function getLoadStorage(): array {
 		$dir     = $this->round > 0 ? 'save/' . $this->round : 'game';
-		$storage = [FileProvider::DEFAULT => new FileProvider(__DIR__ . '/../storage/' . $dir)];
+		$storage = [JsonProvider::DEFAULT => new JsonProvider(__DIR__ . '/../storage/' . $dir)];
 		return array_merge($storage, $this->getStringStorage());
 	}
 
@@ -24,6 +24,6 @@ final class TestGame extends LemuriaGame
 	 * @return array(string=>string)
 	 */
 	protected function getSaveStorage(): array {
-		return [FileProvider::DEFAULT => new FileProvider(__DIR__ . '/../storage/save/' . ($this->round + 1))];
+		return [JsonProvider::DEFAULT => new JsonProvider(__DIR__ . '/../storage/save/' . ($this->round + 1))];
 	}
 }
