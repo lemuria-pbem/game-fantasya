@@ -2,28 +2,28 @@
 declare(strict_types = 1);
 namespace Lemuria\Test;
 
-use Lemuria\Exception\DirectoryNotFoundException;
-use Lemuria\Model\Lemuria\Storage\JsonGame;
+use Lemuria\Engine\Lemuria\Storage\LemuriaGame;
+use Lemuria\Storage\FileProvider;
 
-final class TestGame extends JsonGame
+final class TestGame extends LemuriaGame
 {
 	public function __construct(private int $round) {
 		parent::__construct();
 	}
 
-	protected function getLoadStorage(): string {
-		if ($this->round > 0) {
-			$dir  = __DIR__ . '/../storage/save/' . $this->round;
-			$path = realpath($dir);
-			if (!$path) {
-				throw new DirectoryNotFoundException($dir);
-			}
-			return $path;
-		}
-		return realpath(__DIR__ . '/../storage/game');
+	/**
+	 * @return array(string=>string)
+	 */
+	protected function getLoadStorage(): array {
+		$dir     = $this->round > 0 ? 'save/' . $this->round : 'game';
+		$storage = [FileProvider::DEFAULT => new FileProvider(__DIR__ . '/../storage/' . $dir)];
+		return array_merge($storage, $this->getStringStorage());
 	}
 
-	protected function getSaveStorage(): string {
-		return realpath(__DIR__ . '/../storage/save') . DIRECTORY_SEPARATOR . ($this->round + 1);
+	/**
+	 * @return array(string=>string)
+	 */
+	protected function getSaveStorage(): array {
+		return [FileProvider::DEFAULT => new FileProvider(__DIR__ . '/../storage/save/' . ($this->round + 1))];
 	}
 }
