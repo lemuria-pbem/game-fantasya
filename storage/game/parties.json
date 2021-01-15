@@ -1,6 +1,6 @@
 [
 	{
-		"id": 27742,
+		"id": 1,
 		"name": "Lemurianer",
 		"description": "Die Lemurianer streben die Vorherrschaft über den ganzen Kontinent Lemuria an.",
 		"origin": 54,
@@ -26,7 +26,7 @@
 		}
 	},
 	{
-		"id": 824,
+		"id": 2,
 		"name": "Mittwaldelben",
 		"description": "Die Mittwaldelben leben in den weiten Waldgebieten im Norden.",
 		"origin": 68,
@@ -51,7 +51,7 @@
 		}
 	},
 	{
-		"id": 7,
+		"id": 3,
 		"name": "Erben der Sieben",
 		"description": "Sie verstehen sich als die Nachfahren der Sieben Zwerge, die der Legende nach einst in Lemuria herrschten.",
 		"origin": 29,

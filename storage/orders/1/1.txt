@@ -1,7 +1,7 @@
-PARTEI lem
+PARTEI 1
 
 EINHEIT 1
-URSPRUNG
+NUMMER Partei lem
 NUMMER herr
 LERNE Armbrustschießen
 GIB TEMP 2 3500 Silber

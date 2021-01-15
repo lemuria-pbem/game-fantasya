@@ -9,6 +9,7 @@ use Lemuria\Exception\FileException;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Id;
 use Lemuria\Lemuria;
+use Lemuria\Model\Catalog;
 use Lemuria\Model\Lemuria\Party;
 use Lemuria\Test\TestConfig;
 
@@ -38,10 +39,7 @@ try {
 		Lemuria::Calendar()->nextRound();
 
 
-		foreach ($parties as $path) {
-			$file  = basename($path);
-			$id    = substr($file, 0, strpos($file, '.'));
-			$party = Party::get(Id::fromId($id));
+		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
 			Lemuria::Log()->debug('Logging game messages for party ' . $party . ':');
 			foreach (Lemuria::Report()->getAll($party) as $message/* @var LemuriaMessage $message */) {
 				Lemuria::Log()->log($message->Level(), $message);

@@ -1,6 +1,7 @@
-PARTEI mw
+PARTEI 2
 
 EINHEIT 3
+NUMMER Partei mw
 URSPRUNG Region 1i
 NUMMER oro
 LERNE Bogenschießen

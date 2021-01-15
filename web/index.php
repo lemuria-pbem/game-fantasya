@@ -2,17 +2,17 @@
 declare (strict_types = 1);
 
 use Lemuria\Exception\DirectoryNotFoundException;
-use Lemuria\Id;
 use Lemuria\Lemuria;
+use Lemuria\Model\Catalog;
+use Lemuria\Model\Lemuria\Party;
 use Lemuria\Test\TestConfig;
 use Lemuria\Renderer\Text\TextWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$config  = new TestConfig();
-$round   = $config[TestConfig::ROUND];
-$parties = ['7' => 'Erben_der_Sieben', 'lem' => 'Lemurianer', 'mw' => 'Mittwaldelben'];
+$config = new TestConfig();
+$round  = $config[TestConfig::ROUND];
 
 try {
 	Lemuria::init($config);
@@ -31,15 +31,16 @@ try {
 	}
 
 	$reports = [];
-	foreach ($parties as $i => $name) {
-		$id = Id::fromId((string)$i);
+	foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
+		$id = $party->Id();
+		$name = str_replace(' ', '_', $party->Name());
 		$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
 		$writer   = new HtmlWriter($htmlPath);
 		$writer->render($id);
 		$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
 		$writer  = new TextWriter($txtPath);
 		$writer->render($id);
-		$reports[$i] = [$htmlPath, $txtPath];
+		$reports[(string)$id] = [$htmlPath, $txtPath];
 	}
 
 	Lemuria::Log()->debug('Report finished.', ['timestamp' => date('r')]);
@@ -62,13 +63,13 @@ try {
 		<?php if (isset($output)): ?>
 			<?= $output ?>
 		<?php else: ?>
-			<?php foreach ($parties as $id => $name): ?>
+			<?php foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $id => $name): ?>
 				<ul>
 					<li>
-						<a href="#<?= $id ?>_html"><?= str_replace('_', ' ', $name) ?> (HTML)</a>
+						<a href="#<?= $id ?>_html"><?= $name ?> (HTML)</a>
 					</li>
 					<li>
-						<a href="#<?= $id ?>_txt"><?= str_replace('_', ' ', $name) ?> (Text)</a>
+						<a href="#<?= $id ?>_txt"><?= $name ?> (Text)</a>
 					</li>
 				</ul>
 			<?php endforeach ?>
