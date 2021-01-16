@@ -7,7 +7,6 @@ use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Exception\FileException;
 use Lemuria\Exception\LemuriaException;
-use Lemuria\Id;
 use Lemuria\Lemuria;
 use Lemuria\Model\Catalog;
 use Lemuria\Model\Lemuria\Party;

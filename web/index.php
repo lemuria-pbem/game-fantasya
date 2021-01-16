@@ -11,8 +11,9 @@ use Lemuria\Renderer\Text\HtmlWriter;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$config = new TestConfig();
-$round  = $config[TestConfig::ROUND];
+$config  = new TestConfig();
+$round   = $config[TestConfig::ROUND];
+$reports = [];
 
 try {
 	Lemuria::init($config);
@@ -30,7 +31,6 @@ try {
 		chmod($dir, 0775);
 	}
 
-	$reports = [];
 	foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
 		$id = $party->Id();
 		$name = str_replace(' ', '_', $party->Name());

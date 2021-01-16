@@ -2,6 +2,8 @@
 declare(strict_types = 1);
 namespace Lemuria\Test;
 
+use JetBrains\PhpStorm\ArrayShape;
+
 use Lemuria\Engine\Lemuria\Storage\LemuriaGame;
 use Lemuria\Model\Lemuria\Storage\JsonProvider;
 
@@ -23,7 +25,7 @@ final class TestGame extends LemuriaGame
 	/**
 	 * @return array(string=>string)
 	 */
-	protected function getSaveStorage(): array {
+	#[ArrayShape([JsonProvider::DEFAULT => "\Lemuria\Model\Lemuria\Storage\JsonProvider"])] protected function getSaveStorage(): array {
 		return [JsonProvider::DEFAULT => new JsonProvider(__DIR__ . '/../storage/save/' . ($this->round + 1))];
 	}
 }

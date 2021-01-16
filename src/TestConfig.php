@@ -2,6 +2,8 @@
 declare(strict_types = 1);
 namespace Lemuria\Test;
 
+use JetBrains\PhpStorm\Pure;
+
 use Lemuria\Engine\Lemuria\Factory\DefaultReport;
 use Lemuria\Engine\Lemuria\SingletonCatalog as EngineSingletonCatalog;
 use Lemuria\Engine\Report;
@@ -12,6 +14,7 @@ use Lemuria\Model\Calendar;
 use Lemuria\Model\Catalog;
 use Lemuria\Model\Config;
 use Lemuria\Model\Calendar\BaseCalendar;
+use Lemuria\Model\Exception\JsonException;
 use Lemuria\Model\Game;
 use Lemuria\Model\Lemuria\Factory\DefaultCatalog;
 use Lemuria\Model\Lemuria\SingletonCatalog as ModelSingletonCatalog;
@@ -33,8 +36,11 @@ final class TestConfig implements \ArrayAccess, Config
 
 	private JsonProvider $file;
 
-	private ?array $config = null;
+	private ?array $config;
 
+	/**
+	 * @throws JsonException
+	 */
 	public function __construct() {
 		$this->file = new JsonProvider(self::DIRECTORY);
 		if ($this->file->exists(self::FILE)) {
@@ -44,6 +50,9 @@ final class TestConfig implements \ArrayAccess, Config
 		}
 	}
 
+	/**
+	 * @throws JsonException
+	 */
 	function __destruct() {
 		$this->file->write(self::FILE, $this->config);
 	}
@@ -86,7 +95,7 @@ final class TestConfig implements \ArrayAccess, Config
 		return new DefaultCatalog();
 	}
 
-	public function Calendar(): Calendar {
+	#[Pure] public function Calendar(): Calendar {
 		return new BaseCalendar();
 	}
 
@@ -98,11 +107,11 @@ final class TestConfig implements \ArrayAccess, Config
 		return new DefaultReport();
 	}
 
-	public function World(): World {
+	#[Pure] public function World(): World {
 		return new OctagonalMap();
 	}
 
-	public function getPathToLog(): string {
+	#[Pure] public function getPathToLog(): string {
 		return realpath(__DIR__ . '/../storage/log') . DIRECTORY_SEPARATOR . 'lemuria.log';
 	}
 }
