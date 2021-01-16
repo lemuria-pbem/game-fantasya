@@ -4,8 +4,10 @@ namespace Lemuria\Test;
 
 use JetBrains\PhpStorm\Pure;
 
-use Lemuria\Engine\Lemuria\Factory\DefaultReport;
+use Lemuria\Engine\Lemuria\LemuriaOrders;
+use Lemuria\Engine\Lemuria\LemuriaReport;
 use Lemuria\Engine\Lemuria\SingletonCatalog as EngineSingletonCatalog;
+use Lemuria\Engine\Orders;
 use Lemuria\Engine\Report;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Factory\DefaultBuilder;
@@ -103,8 +105,13 @@ final class TestConfig implements \ArrayAccess, Config
 		return new TestGame($this[self::ROUND]);
 	}
 
+	#[Pure]
+	public function Orders(): Orders {
+		return new LemuriaOrders();
+	}
+
 	public function Report(): Report {
-		return new DefaultReport();
+		return new LemuriaReport();
 	}
 
 	#[Pure] public function World(): World {
