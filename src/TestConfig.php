@@ -18,7 +18,7 @@ use Lemuria\Model\Config;
 use Lemuria\Model\Calendar\BaseCalendar;
 use Lemuria\Model\Exception\JsonException;
 use Lemuria\Model\Game;
-use Lemuria\Model\Lemuria\Factory\DefaultCatalog;
+use Lemuria\Model\Lemuria\Factory\LemuriaCatalog;
 use Lemuria\Model\Lemuria\SingletonCatalog as ModelSingletonCatalog;
 use Lemuria\Model\Lemuria\Storage\JsonProvider;
 use Lemuria\Model\World;
@@ -94,7 +94,7 @@ final class TestConfig implements \ArrayAccess, Config
 	}
 
 	public function Catalog(): Catalog {
-		return new DefaultCatalog();
+		return new LemuriaCatalog();
 	}
 
 	#[Pure] public function Calendar(): Calendar {

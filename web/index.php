@@ -63,13 +63,13 @@ try {
 		<?php if (isset($output)): ?>
 			<?= $output ?>
 		<?php else: ?>
-			<?php foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $id => $name): ?>
+			<?php foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party): ?>
 				<ul>
 					<li>
-						<a href="#<?= $id ?>_html"><?= $name ?> (HTML)</a>
+						<a href="#<?= $party->Id() ?>_html"><?= $party ?> (HTML)</a>
 					</li>
 					<li>
-						<a href="#<?= $id ?>_txt"><?= $name ?> (Text)</a>
+						<a href="#<?= $party->Id() ?>_txt"><?= $party ?> (Text)</a>
 					</li>
 				</ul>
 			<?php endforeach ?>
