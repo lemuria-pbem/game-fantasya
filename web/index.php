@@ -6,8 +6,9 @@ use Lemuria\Lemuria;
 use Lemuria\Model\Catalog;
 use Lemuria\Model\Lemuria\Party;
 use Lemuria\Test\TestConfig;
-use Lemuria\Renderer\Text\TextWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
+use Lemuria\Renderer\Text\OrderWriter;
+use Lemuria\Renderer\Text\TextWriter;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -34,13 +35,20 @@ try {
 	foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
 		$id = $party->Id();
 		$name = str_replace(' ', '_', $party->Name());
+
 		$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
 		$writer   = new HtmlWriter($htmlPath);
 		$writer->render($id);
+
 		$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
 		$writer  = new TextWriter($txtPath);
 		$writer->render($id);
-		$reports[(string)$id] = [$htmlPath, $txtPath];
+
+		$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
+		$writer = new OrderWriter($orderPath);
+		$writer->render($id);
+
+		$reports[(string)$id] = [$htmlPath, $txtPath, $orderPath];
 	}
 
 	Lemuria::Log()->debug('Report finished.', ['timestamp' => date('r')]);
@@ -71,6 +79,9 @@ try {
 					<li>
 						<a href="#<?= $party->Id() ?>_txt"><?= $party ?> (Text)</a>
 					</li>
+					<li>
+						<a href="#<?= $party->Id() ?>_orders"><?= $party ?> (Zugvorlage)</a>
+					</li>
 				</ul>
 			<?php endforeach ?>
 			<?php foreach ($reports as $id => $files): ?>
@@ -81,6 +92,10 @@ try {
 				<hr>
 				<div id="<?= $id ?>_txt">
 					<pre><?= file_get_contents($files[1]) ?></pre>
+				</div>
+				<hr>
+				<div id="<?= $id ?>_orders">
+					<pre><?= file_get_contents($files[2]) ?></pre>
 				</div>
 			<?php endforeach ?>
 		<?php endif ?>
