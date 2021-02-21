@@ -16,8 +16,8 @@ use Lemuria\Model\Calendar;
 use Lemuria\Model\Catalog;
 use Lemuria\Model\Config;
 use Lemuria\Model\Calendar\BaseCalendar;
-use Lemuria\Model\Exception\JsonException;
 use Lemuria\Model\Game;
+use Lemuria\Model\Lemuria\Exception\JsonException;
 use Lemuria\Model\Lemuria\Factory\LemuriaCatalog;
 use Lemuria\Model\Lemuria\SingletonCatalog as ModelSingletonCatalog;
 use Lemuria\Model\Lemuria\Storage\JsonProvider;
@@ -105,7 +105,6 @@ final class TestConfig implements \ArrayAccess, Config
 		return new TestGame($this[self::ROUND]);
 	}
 
-	#[Pure]
 	public function Orders(): Orders {
 		return new LemuriaOrders();
 	}

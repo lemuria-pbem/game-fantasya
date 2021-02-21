@@ -89,6 +89,7 @@
 			"Ironshield": 1
 		},
 		"knowledge": {
+			"Constructing": 3600,
 			"Perception": 6400,
 			"Spearfighting": 2500
 		}

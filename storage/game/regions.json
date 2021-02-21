@@ -996,7 +996,10 @@
 			"Peasant": 5327,
 			"Food": 337683,
 			"Silver": 1045224,
-			"Tree": 23
+			"Tree": 23,
+			"Horse": 33,
+			"Camel": 15,
+			"Elephant": 7
 		},
 		"estate": [
 			1
