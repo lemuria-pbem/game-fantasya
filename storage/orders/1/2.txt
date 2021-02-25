@@ -6,6 +6,7 @@ URSPRUNG Region 1i
 NUMMER oro
 LERNE Bogenschießen
 GIB TEMP 1 140 Silber
+GIB Temp 3 200 Silber
 VOR NÄCHST
 
 MACHE TEMP 1; ID 10
@@ -17,6 +18,10 @@ ENDE
 MACHE Temp 2; ID 11
 REKRUTIERE 10
 LERNE Bogenschießen
+ENDE
+
+MACHE Temp 3; ID 12
+BENENNE Einheit "Ohne Leute"
 ENDE
 
 NÄCHSTER
