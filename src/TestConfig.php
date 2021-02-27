@@ -6,9 +6,11 @@ use JetBrains\PhpStorm\Pure;
 
 use Lemuria\Engine\Lemuria\LemuriaOrders;
 use Lemuria\Engine\Lemuria\LemuriaReport;
+use Lemuria\Engine\Lemuria\LemuriaScore;
 use Lemuria\Engine\Lemuria\SingletonCatalog as EngineSingletonCatalog;
 use Lemuria\Engine\Orders;
 use Lemuria\Engine\Report;
+use Lemuria\Engine\Score;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Factory\DefaultBuilder;
 use Lemuria\Model\Builder;
@@ -115,6 +117,10 @@ final class TestConfig implements \ArrayAccess, Config
 
 	#[Pure] public function World(): World {
 		return new OctagonalMap();
+	}
+
+	public function Score(): Score {
+		return new LemuriaScore();
 	}
 
 	#[Pure] public function getPathToLog(): string {
