@@ -24,7 +24,7 @@ use Lemuria\Model\Lemuria\Factory\LemuriaCatalog;
 use Lemuria\Model\Lemuria\SingletonCatalog as ModelSingletonCatalog;
 use Lemuria\Model\Lemuria\Storage\JsonProvider;
 use Lemuria\Model\World;
-use Lemuria\Model\World\OctagonalMap;
+use Lemuria\Model\World\HexagonalMap;
 
 final class TestConfig implements \ArrayAccess, Config
 {
@@ -116,7 +116,7 @@ final class TestConfig implements \ArrayAccess, Config
 	}
 
 	#[Pure] public function World(): World {
-		return new OctagonalMap();
+		return new HexagonalMap();
 	}
 
 	public function Score(): Score {
