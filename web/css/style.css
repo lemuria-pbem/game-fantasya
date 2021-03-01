@@ -6,7 +6,23 @@ h2, h3, h4, h5 {
     margin-top: 2rem;
 }
 
-span.report, span.report span {
-    display: block;
+ul {
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+.report {
+    padding-left: 0;
+}
+
+.report .badge.text-monospace {
+    font-size: 96%;
+}
+
+.unit p {
+    margin-bottom: 0;
+}
+
+.unit .report li {
     font-size: small;
 }
