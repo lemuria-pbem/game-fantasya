@@ -129,7 +129,9 @@
 			"Peasant": 2347,
 			"Food": 123000,
 			"Silver": 234636,
-			"Tree": 80
+			"Tree": 80,
+			"Horse": 33,
+			"Camel": 5
 		},
 		"estate": [],
 		"fleet": [],
@@ -167,7 +169,9 @@
 			"Peasant": 50,
 			"Food": 180,
 			"Silver": 880,
-			"Tree": 10
+			"Tree": 10,
+			"Horse": 15,
+			"Elephant": 31
 		},
 		"estate": [],
 		"fleet": [],
@@ -238,7 +242,9 @@
 			"Peasant": 634,
 			"Food": 9344,
 			"Silver": 13023,
-			"Tree": 50
+			"Tree": 50,
+			"Horse": 25,
+			"Camel": 75
 		},
 		"estate": [],
 		"fleet": [],
@@ -265,7 +271,9 @@
 			"Peasant": 635,
 			"Food": 32002,
 			"Silver": 87450,
-			"Tree": 80
+			"Tree": 80,
+			"Horse": 42,
+			"Camel": 90
 		},
 		"estate": [],
 		"fleet": [],
@@ -292,7 +300,9 @@
 			"Peasant": 100,
 			"Food": 3072,
 			"Silver": 50213,
-			"Tree": 965
+			"Tree": 965,
+			"Horse": 30,
+			"Elephant": 3
 		},
 		"estate": [],
 		"fleet": [],
@@ -319,7 +329,9 @@
 			"Peasant": 178,
 			"Food": 5432,
 			"Silver": 22000,
-			"Tree": 15
+			"Tree": 15,
+			"Horse": 47,
+			"Elephant": 120
 		},
 		"estate": [],
 		"fleet": [],
@@ -346,7 +358,9 @@
 			"Peasant": 672,
 			"Food": 21072,
 			"Silver": 100213,
-			"Tree": 789
+			"Tree": 789,
+			"Horse": 34,
+			"Elephant": 10
 		},
 		"estate": [],
 		"fleet": [],
@@ -395,7 +409,8 @@
 			"Peasant": 1000,
 			"Food": 12072,
 			"Silver": 90213,
-			"Tree": 734
+			"Tree": 734,
+			"Horse": 9
 		},
 		"estate": [],
 		"fleet": [],
@@ -422,7 +437,10 @@
 			"Peasant": 90,
 			"Food": 1023,
 			"Silver": 10078,
-			"Tree": 999
+			"Tree": 999,
+			"Horse": 20,
+			"Camel": 5,
+			"Elephant": 3
 		},
 		"estate": [],
 		"fleet": [],
@@ -449,7 +467,9 @@
 			"Peasant": 200,
 			"Food": 250,
 			"Silver": 7100,
-			"Tree": 1
+			"Tree": 1,
+			"Horse": 22,
+			"Camel": 89
 		},
 		"estate": [],
 		"fleet": [],
@@ -476,7 +496,9 @@
 			"Peasant": 2000,
 			"Food": 12333,
 			"Silver": 158923,
-			"Tree": 40
+			"Tree": 40,
+			"Horse": 30,
+			"Camel": 10
 		},
 		"estate": [
 			3
@@ -507,7 +529,10 @@
 			"Peasant": 3456,
 			"Food": 102046,
 			"Silver": 534678,
-			"Tree": 120
+			"Tree": 120,
+			"Horse": 135,
+			"Camel": 8,
+			"Elephant": 10
 		},
 		"estate": [],
 		"fleet": [],
@@ -535,7 +560,9 @@
 			"Peasant": 6763,
 			"Food": 258732,
 			"Silver": 2655143,
-			"Tree": 30
+			"Tree": 30,
+			"Horse": 30,
+			"Camel": 8
 		},
 		"estate": [],
 		"fleet": [],
@@ -584,7 +611,9 @@
 			"Peasant": 3100,
 			"Food": 90766,
 			"Silver": 523777,
-			"Tree": 55
+			"Tree": 55,
+			"Horse": 92,
+			"Camel": 28
 		},
 		"estate": [],
 		"fleet": [],
@@ -611,7 +640,9 @@
 			"Peasant": 1504,
 			"Food": 8990,
 			"Silver": 103401,
-			"Tree": 8
+			"Tree": 8,
+			"Horse": 30,
+			"Camel": 18
 		},
 		"estate": [],
 		"fleet": [],
@@ -638,7 +669,8 @@
 			"Peasant": 936,
 			"Food": 5800,
 			"Silver": 92012,
-			"Tree": 20
+			"Tree": 20,
+			"Camel": 30
 		},
 		"estate": [],
 		"fleet": [],
@@ -676,7 +708,9 @@
 			"Peasant": 98,
 			"Food": 1034,
 			"Silver": 22500,
-			"Tree": 25
+			"Tree": 25,
+			"Horse": 5,
+			"Elephant": 5
 		},
 		"estate": [],
 		"fleet": [],
@@ -703,7 +737,9 @@
 			"Peasant": 1688,
 			"Food": 6555,
 			"Silver": 58000,
-			"Tree": 887
+			"Tree": 887,
+			"Horse": 30,
+			"Elephant": 40
 		},
 		"estate": [],
 		"fleet": [],
@@ -763,7 +799,9 @@
 			"Peasant": 500,
 			"Food": 1880,
 			"Silver": 30213,
-			"Tree": 98
+			"Tree": 98,
+			"Horse": 80,
+			"Camel": 34
 		},
 		"estate": [],
 		"fleet": [],
@@ -790,7 +828,9 @@
 			"Peasant": 784,
 			"Food": 6334,
 			"Silver": 80413,
-			"Tree": 5
+			"Tree": 5,
+			"Horse": 17,
+			"Camel": 32
 		},
 		"estate": [],
 		"fleet": [],
@@ -813,7 +853,10 @@
 		"name": "Matiss",
 		"description": "",
 		"landscape": "Glacier",
-		"resources": [],
+		"resources": {
+			"Griffin": 13,
+			"Griffinegg": 7
+		},
 		"estate": [],
 		"fleet": [],
 		"residents": [],
@@ -828,7 +871,8 @@
 			"Peasant": 305,
 			"Food": 1023,
 			"Silver": 10020,
-			"Tree": 3
+			"Tree": 3,
+			"Horse": 21
 		},
 		"estate": [],
 		"fleet": [],
@@ -855,7 +899,10 @@
 			"Peasant": 4,
 			"Food": 30,
 			"Silver": 502,
-			"Tree": 999
+			"Tree": 999,
+			"Horse": 11,
+			"Camel": 4,
+			"Elephant": 20
 		},
 		"estate": [],
 		"fleet": [],
@@ -904,7 +951,10 @@
 			"Peasant": 1304,
 			"Food": 5446,
 			"Silver": 100234,
-			"Tree": 74
+			"Tree": 74,
+			"Horse": 38,
+			"Camel": 20,
+			"Elephant": 1
 		},
 		"estate": [],
 		"fleet": [],
@@ -942,7 +992,10 @@
 			"Peasant": 205,
 			"Food": 999,
 			"Silver": 9034,
-			"Tree": 4
+			"Tree": 4,
+			"Horse": 70,
+			"Camel": 30,
+			"Elephant": 6
 		},
 		"estate": [],
 		"fleet": [],
@@ -969,7 +1022,10 @@
 			"Peasant": 500,
 			"Food": 2012,
 			"Silver": 47800,
-			"Tree": 14
+			"Tree": 14,
+			"Horse": 22,
+			"Camel": 20,
+			"Elephant": 9
 		},
 		"estate": [],
 		"fleet": [],
@@ -997,8 +1053,8 @@
 			"Food": 337683,
 			"Silver": 1045224,
 			"Tree": 23,
-			"Horse": 33,
-			"Camel": 15,
+			"Horse": 133,
+			"Camel": 45,
 			"Elephant": 7
 		},
 		"estate": [
@@ -1066,7 +1122,10 @@
 			"Peasant": 2300,
 			"Food": 103500,
 			"Silver": 874255,
-			"Tree": 15
+			"Tree": 15,
+			"Horse": 80,
+			"Camel": 34,
+			"Elephant": 14
 		},
 		"estate": [],
 		"fleet": [],
@@ -1093,7 +1152,10 @@
 			"Peasant": 1340,
 			"Food": 9800,
 			"Silver": 99034,
-			"Tree": 26
+			"Tree": 26,
+			"Horse": 32,
+			"Camel": 26,
+			"Elephant": 18
 		},
 		"estate": [],
 		"fleet": [],
@@ -1120,7 +1182,10 @@
 			"Peasant": 0,
 			"Food": 0,
 			"Silver": 0,
-			"Tree": 1013
+			"Tree": 1013,
+			"Horse": 92,
+			"Camel": 54,
+			"Elephant": 37
 		},
 		"estate": [],
 		"fleet": [],
@@ -1147,7 +1212,10 @@
 			"Peasant": 4000,
 			"Food": 87635,
 			"Silver": 198770,
-			"Tree": 180
+			"Tree": 180,
+			"Horse": 30,
+			"Camel": 13,
+			"Elephant": 12
 		},
 		"estate": [],
 		"fleet": [],
@@ -1174,7 +1242,10 @@
 			"Peasant": 2300,
 			"Food": 9945,
 			"Silver": 60723,
-			"Tree": 34
+			"Tree": 34,
+			"Horse": 33,
+			"Camel": 34,
+			"Elephant": 1
 		},
 		"estate": [],
 		"fleet": [],
@@ -1201,7 +1272,9 @@
 			"Peasant": 1765,
 			"Food": 8076,
 			"Silver": 123040,
-			"Tree": 43
+			"Tree": 43,
+			"Horse": 33,
+			"Camel": 10
 		},
 		"estate": [],
 		"fleet": [],
@@ -1250,7 +1323,10 @@
 			"Peasant": 2045,
 			"Food": 135000,
 			"Silver": 304600,
-			"Tree": 88
+			"Tree": 88,
+			"Horse": 67,
+			"Camel": 10,
+			"Elephant": 22
 		},
 		"estate": [],
 		"fleet": [],
@@ -1277,7 +1353,9 @@
 			"Peasant": 100,
 			"Food": 3072,
 			"Silver": 50213,
-			"Tree": 965
+			"Tree": 965,
+			"Horse": 19,
+			"Elephant": 121
 		},
 		"estate": [],
 		"fleet": [],
@@ -1304,7 +1382,9 @@
 			"Peasant": 450,
 			"Food": 1001,
 			"Silver": 10344,
-			"Tree": 903
+			"Tree": 903,
+			"Horse": 30,
+			"Elephant": 76
 		},
 		"estate": [
 			2
@@ -1335,7 +1415,10 @@
 			"Peasant": 4800,
 			"Food": 234440,
 			"Silver": 505656,
-			"Tree": 33
+			"Tree": 33,
+			"Horse": 70,
+			"Camel": 77,
+			"Elephant": 8
 		},
 		"estate": [],
 		"fleet": [],
@@ -1362,7 +1445,10 @@
 			"Peasant": 1874,
 			"Food": 6774,
 			"Silver": 90234,
-			"Tree": 71
+			"Tree": 71,
+			"Horse": 144,
+			"Camel": 80,
+			"Elephant": 5
 		},
 		"estate": [],
 		"fleet": [],
@@ -1460,7 +1546,9 @@
 			"Peasant": 2000,
 			"Food": 10000,
 			"Silver": 77000,
-			"Tree": 777
+			"Tree": 777,
+			"Horse": 38,
+			"Elephant": 65
 		},
 		"estate": [],
 		"fleet": [],
@@ -1487,7 +1575,10 @@
 			"Peasant": 233,
 			"Food": 987,
 			"Silver": 8400,
-			"Tree": 980
+			"Tree": 980,
+			"Horse": 180,
+			"Camel": 3,
+			"Elephant": 30
 		},
 		"estate": [],
 		"fleet": [],
@@ -1525,7 +1616,10 @@
 			"Peasant": 4,
 			"Food": 10,
 			"Silver": 35,
-			"Tree": 101
+			"Tree": 101,
+			"Horse": 18,
+			"Camel": 8,
+			"Elephant": 80
 		},
 		"estate": [],
 		"fleet": [],
