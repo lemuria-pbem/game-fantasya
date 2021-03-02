@@ -243,6 +243,7 @@
 			"Food": 9344,
 			"Silver": 13023,
 			"Tree": 50,
+			"Granite": 35,
 			"Horse": 25,
 			"Camel": 75
 		},
@@ -272,6 +273,8 @@
 			"Food": 32002,
 			"Silver": 87450,
 			"Tree": 80,
+			"Granite": 67,
+			"Ore": 21,
 			"Horse": 42,
 			"Camel": 90
 		},
@@ -468,6 +471,7 @@
 			"Food": 250,
 			"Silver": 7100,
 			"Tree": 1,
+			"Granite": 18,
 			"Horse": 22,
 			"Camel": 89
 		},
@@ -497,6 +501,8 @@
 			"Food": 12333,
 			"Silver": 158923,
 			"Tree": 40,
+			"Granite": 66,
+			"Ore": 40,
 			"Horse": 30,
 			"Camel": 10
 		},
@@ -641,6 +647,8 @@
 			"Food": 8990,
 			"Silver": 103401,
 			"Tree": 8,
+			"Granite": 78,
+			"Ore": 55,
 			"Horse": 30,
 			"Camel": 18
 		},
@@ -670,6 +678,8 @@
 			"Food": 5800,
 			"Silver": 92012,
 			"Tree": 20,
+			"Granite": 90,
+			"Ore": 98,
 			"Camel": 30
 		},
 		"estate": [],
@@ -693,7 +703,10 @@
 		"name": "Tolero",
 		"description": "",
 		"landscape": "Glacier",
-		"resources": [],
+		"resources": {
+			"Granite": 52,
+			"Ore": 57
+		},
 		"estate": [],
 		"fleet": [],
 		"residents": [],
@@ -800,6 +813,8 @@
 			"Food": 1880,
 			"Silver": 30213,
 			"Tree": 98,
+			"Granite": 46,
+			"Ore": 10,
 			"Horse": 80,
 			"Camel": 34
 		},
@@ -829,6 +844,8 @@
 			"Food": 6334,
 			"Silver": 80413,
 			"Tree": 5,
+			"Granite": 58,
+			"Ore": 37,
 			"Horse": 17,
 			"Camel": 32
 		},
@@ -854,6 +871,8 @@
 		"description": "",
 		"landscape": "Glacier",
 		"resources": {
+			"Granite": 46,
+			"Ore": 33,
 			"Griffin": 13,
 			"Griffinegg": 7
 		},
@@ -872,6 +891,8 @@
 			"Food": 1023,
 			"Silver": 10020,
 			"Tree": 3,
+			"Granite": 113,
+			"Ore": 78,
 			"Horse": 21
 		},
 		"estate": [],
@@ -952,6 +973,8 @@
 			"Food": 5446,
 			"Silver": 100234,
 			"Tree": 74,
+			"Granite": 57,
+			"Ore": 19,
 			"Horse": 38,
 			"Camel": 20,
 			"Elephant": 1
@@ -977,7 +1000,10 @@
 		"name": "Eisnadel",
 		"description": "",
 		"landscape": "Glacier",
-		"resources": [],
+		"resources": {
+			"Granite": 38,
+			"Ore": 22
+		},
 		"estate": [],
 		"fleet": [],
 		"residents": [],
@@ -993,6 +1019,8 @@
 			"Food": 999,
 			"Silver": 9034,
 			"Tree": 4,
+			"Granite": 99,
+			"Ore": 103,
 			"Horse": 70,
 			"Camel": 30,
 			"Elephant": 6
@@ -1023,6 +1051,8 @@
 			"Food": 2012,
 			"Silver": 47800,
 			"Tree": 14,
+			"Granite": 109,
+			"Ore": 96,
 			"Horse": 22,
 			"Camel": 20,
 			"Elephant": 9
@@ -1153,6 +1183,8 @@
 			"Food": 9800,
 			"Silver": 99034,
 			"Tree": 26,
+			"Granite": 62,
+			"Ore": 57,
 			"Horse": 32,
 			"Camel": 26,
 			"Elephant": 18
@@ -1183,6 +1215,7 @@
 			"Food": 0,
 			"Silver": 0,
 			"Tree": 1013,
+			"Granite": 20,
 			"Horse": 92,
 			"Camel": 54,
 			"Elephant": 37
@@ -1213,6 +1246,7 @@
 			"Food": 87635,
 			"Silver": 198770,
 			"Tree": 180,
+			"Granite": 30,
 			"Horse": 30,
 			"Camel": 13,
 			"Elephant": 12
@@ -1243,6 +1277,8 @@
 			"Food": 9945,
 			"Silver": 60723,
 			"Tree": 34,
+			"Granite": 60,
+			"Ore": 32,
 			"Horse": 33,
 			"Camel": 34,
 			"Elephant": 1
@@ -1273,6 +1309,8 @@
 			"Food": 8076,
 			"Silver": 123040,
 			"Tree": 43,
+			"Granite": 88,
+			"Ore": 87,
 			"Horse": 33,
 			"Camel": 10
 		},
@@ -1324,6 +1362,7 @@
 			"Food": 135000,
 			"Silver": 304600,
 			"Tree": 88,
+			"Granite": 26,
 			"Horse": 67,
 			"Camel": 10,
 			"Elephant": 22
@@ -1446,6 +1485,8 @@
 			"Food": 6774,
 			"Silver": 90234,
 			"Tree": 71,
+			"Granite": 35,
+			"Ore": 11,
 			"Horse": 144,
 			"Camel": 80,
 			"Elephant": 5
@@ -1508,7 +1549,9 @@
 			"Peasant": 90,
 			"Food": 150,
 			"Silver": 7474,
-			"Tree": 80
+			"Tree": 80,
+			"Granite": 59,
+			"Ore": 25
 		},
 		"estate": [],
 		"fleet": [],
