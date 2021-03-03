@@ -21,10 +21,12 @@ use Lemuria\Model\Calendar\BaseCalendar;
 use Lemuria\Model\Game;
 use Lemuria\Model\Lemuria\Exception\JsonException;
 use Lemuria\Model\Lemuria\Factory\LemuriaCatalog;
+use Lemuria\Model\Lemuria\Factory\LemuriaRegistry;
 use Lemuria\Model\Lemuria\SingletonCatalog as ModelSingletonCatalog;
 use Lemuria\Model\Lemuria\Storage\JsonProvider;
 use Lemuria\Model\World;
 use Lemuria\Model\World\HexagonalMap;
+use Lemuria\Registry;
 
 final class TestConfig implements \ArrayAccess, Config
 {
@@ -121,6 +123,10 @@ final class TestConfig implements \ArrayAccess, Config
 
 	public function Score(): Score {
 		return new LemuriaScore();
+	}
+
+	#[Pure] public function Registry(): Registry {
+		return new LemuriaRegistry();
 	}
 
 	#[Pure] public function getPathToLog(): string {
