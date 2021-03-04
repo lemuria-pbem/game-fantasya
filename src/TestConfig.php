@@ -28,7 +28,7 @@ use Lemuria\Model\World;
 use Lemuria\Model\World\HexagonalMap;
 use Lemuria\Registry;
 
-final class TestConfig implements \ArrayAccess, Config
+class TestConfig implements \ArrayAccess, Config
 {
 	public const ROUND = 'round';
 
