@@ -1,5 +1,5 @@
 {
-	"name": "lemuria-pbem/lemuria-game",
+	"name": "lemuria-pbem/game-lemuria",
 	"description": "A Lemuria game instance for developing purposes.",
 	"type": "library",
 	"keywords": [
@@ -10,7 +10,7 @@
 		"pbem"
 	],
 	"version": "0.0.5",
-	"time": "2021-03-03",
+	"time": "2021-03-04",
 	"license": "GPL-3.0",
 	"authors": [
 		{
