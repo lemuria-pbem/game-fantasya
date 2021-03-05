@@ -53,6 +53,7 @@ try {
 		try {
 			Lemuria::save();
 			$config[TestConfig::ROUND] = ++$round;
+			$config[TestConfig::MDD]   = time();
 			Lemuria::Log()->debug('Turn ended.');
 			exit(0);
 		} catch (FileException $e) {

@@ -4,7 +4,8 @@
 /composer.lock
 /doc/Lemuria.pdf
 /storage/config.json
+/storage/game
+!/storage/game/0
 /storage/log/lemuria.log
-/storage/save/*/*.json
 /storage/turn/*.cr
 /storage/turn/*/*
