@@ -18,12 +18,12 @@ try {
 	$config = new TestConfig();
 	$round  = $config[TestConfig::ROUND];
 
-	$dir    = __DIR__ . '/../storage/orders/' . ($round + 1);
+	$dir    = __DIR__ . '/../storage/orders/' . $round;
 	$orders = realpath($dir);
 	if (!$orders) {
 		throw new DirectoryNotFoundException($dir);
 	}
-	$parties = glob($orders . DIRECTORY_SEPARATOR . '*.txt');
+	$parties = glob($orders . DIRECTORY_SEPARATOR . '*.order');
 
 	try {
 		Lemuria::init($config);
