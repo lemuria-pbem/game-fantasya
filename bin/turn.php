@@ -1,15 +1,15 @@
 <?php
 declare (strict_types = 1);
 
-use Lemuria\Engine\Lemuria\LemuriaTurn;
-use Lemuria\Engine\Lemuria\Message\LemuriaMessage;
+use Lemuria\Engine\Fantasya\LemuriaTurn;
+use Lemuria\Engine\Fantasya\Message\LemuriaMessage;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Exception\FileException;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Catalog;
-use Lemuria\Model\Lemuria\Party;
+use Lemuria\Model\Fantasya\Party;
 use Lemuria\Test\TestConfig;
 
 try {

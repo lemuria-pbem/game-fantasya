@@ -11,7 +11,6 @@
 		"camouflage": 12,
 		"disguiseAs": false,
 		"inventory": {
-			"Food": 10000,
 			"Silver": 100000,
 			"Wood": 1000,
 			"Stone": 1000,
@@ -39,7 +38,6 @@
 		"camouflage": 0,
 		"disguiseAs": false,
 		"inventory": {
-			"Food": 10,
 			"Silver": 100
 		},
 		"knowledge": {
@@ -58,7 +56,6 @@
 		"camouflage": 12,
 		"disguiseAs": false,
 		"inventory": {
-			"Food": 10000,
 			"Silver": 100000,
 			"Wood": 1000,
 			"Stone": 1000,
@@ -83,7 +80,6 @@
 		"camouflage": 0,
 		"disguiseAs": false,
 		"inventory": {
-			"Food": 10000,
 			"Silver": 100000,
 			"Wood": 1000,
 			"Stone": 1000,

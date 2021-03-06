@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 namespace Lemuria\Test;
 
-use Lemuria\Engine\Lemuria\Storage\LemuriaConfig;
+use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 
 class TestConfig extends LemuriaConfig
 {

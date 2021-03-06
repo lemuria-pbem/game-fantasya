@@ -1,5 +1,5 @@
 {
-	"name": "lemuria-pbem/game-lemuria",
+	"name": "lemuria-pbem/lemuria-alpha",
 	"description": "A Lemuria game instance for developing purposes.",
 	"type": "library",
 	"keywords": [
@@ -9,8 +9,8 @@
 		"lemuria",
 		"pbem"
 	],
-	"version": "0.0.6",
-	"time": "2021-03-05",
+	"version": "0.1.0",
+	"time": "2021-03-06",
 	"license": "GPL-3.0",
 	"authors": [
 		{
@@ -26,8 +26,8 @@
 		"twbs/bootstrap": "~4.5",
 
 		"lemuria-pbem/lemuria": "dev-master",
-		"lemuria-pbem/engine-lemuria": "dev-master",
-		"lemuria-pbem/model-lemuria": "dev-master",
+		"lemuria-pbem/engine-fantasya": "dev-master",
+		"lemuria-pbem/model-fantasya": "dev-master",
 		"lemuria-pbem/renderer-magellan": "dev-master",
 		"lemuria-pbem/renderer-text": "dev-master",
 		"lemuria-pbem/tools-lemuria": "dev-master"
@@ -42,11 +42,11 @@
 		},
 		{
 			"type": "vcs",
-			"url": "git@github.com:lemuria-pbem/engine-lemuria.git"
+			"url": "git@github.com:lemuria-pbem/engine-fantasya.git"
 		},
 		{
 			"type": "vcs",
-			"url": "git@github.com:lemuria-pbem/model-lemuria.git"
+			"url": "git@github.com:lemuria-pbem/model-fantasya.git"
 		},
 		{
 			"type": "vcs",

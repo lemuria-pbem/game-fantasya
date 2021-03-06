@@ -4,7 +4,7 @@ declare (strict_types = 1);
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Catalog;
-use Lemuria\Model\Lemuria\Party;
+use Lemuria\Model\Fantasya\Party;
 use Lemuria\Test\TestConfig;
 use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;

@@ -3,7 +3,7 @@
 use Ramsey\Uuid\Uuid;
 
 use Lemuria\Lemuria;
-use Lemuria\Model\Lemuria\Party;
+use Lemuria\Model\Fantasya\Party;
 use Lemuria\Test\TestConfig;
 
 require realpath(__DIR__ . '/../vendor/autoload.php');
