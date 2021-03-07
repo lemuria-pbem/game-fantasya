@@ -10,7 +10,7 @@
 		"pbem"
 	],
 	"version": "0.1.0",
-	"time": "2021-03-06",
+	"time": "2021-03-07",
 	"license": "GPL-3.0",
 	"authors": [
 		{
@@ -64,7 +64,7 @@
 
 	"autoload": {
 		"psr-4": {
-			"Lemuria\\Test\\": "src/"
+			"Lemuria\\Alpha\\": "src/"
 		}
 	}
 }

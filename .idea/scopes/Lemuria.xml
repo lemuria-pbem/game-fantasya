@@ -1,3 +1,3 @@
 <component name="DependencyValidationManager">
-  <scope name="Lemuria" pattern="file[lemuria-alpha]:bin/*||file[lemuria-alpha]:src/*||file:web/css/style.css||file:web/js/script.js||file:web/index.php" />
+  <scope name="Lemuria" pattern="file[lemuria-alpha]:src//*" />
 </component>

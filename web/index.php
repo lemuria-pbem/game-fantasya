@@ -1,32 +1,12 @@
 <?php
 declare (strict_types = 1);
 
-use Lemuria\Lemuria;
-use Lemuria\Model\Catalog;
-use Lemuria\Model\Fantasya\Party;
-use Lemuria\Test\TestConfig;
+use Lemuria\Alpha\LemuriaAlpha;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$config  = new TestConfig();
-$round   = $config[TestConfig::ROUND];
-$reports = [];
+$lemuriaAlpha = new LemuriaAlpha();
 
-Lemuria::init($config);
-Lemuria::load();
-
-$dir  = __DIR__ . '/../storage/turn';
-$turn = realpath($dir);
-$dir  = $turn . DIRECTORY_SEPARATOR . $round;
-
-foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-	$id        = $party->Id();
-	$name      = str_replace(' ', '_', $party->Name());
-	$htmlPath  = $dir . DIRECTORY_SEPARATOR . $name . '.html';
-	$txtPath   = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
-	$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
-	$reports[(string)$id] = [$htmlPath, $txtPath, $orderPath];
-}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="de" xmlns="http://www.w3.org/1999/html">
@@ -39,36 +19,11 @@ foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $p
 		<script type="text/javascript" src="/js/script.js"></script>
 	</head>
 	<body>
-		<?php if (isset($output)): ?>
-			<?= $output ?>
-		<?php else: ?>
-			<?php foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party): ?>
-				<ul>
-					<li>
-						<a href="#<?= $party->Id() ?>_html"><?= $party ?> (HTML)</a>
-					</li>
-					<li>
-						<a href="#<?= $party->Id() ?>_txt"><?= $party ?> (Text)</a>
-					</li>
-					<li>
-						<a href="#<?= $party->Id() ?>_orders"><?= $party ?> (Zugvorlage)</a>
-					</li>
-				</ul>
-			<?php endforeach ?>
-			<?php foreach ($reports as $id => $files): ?>
-				<hr>
-				<div id="<?= $id ?>_html">
-					<?= file_get_contents($files[0]) ?>
-				</div>
-				<hr>
-				<div id="<?= $id ?>_txt">
-					<pre><?= file_get_contents($files[1]) ?></pre>
-				</div>
-				<hr>
-				<div id="<?= $id ?>_orders">
-					<pre><?= file_get_contents($files[2]) ?></pre>
-				</div>
-			<?php endforeach ?>
-		<?php endif ?>
+		<?php foreach ($lemuriaAlpha->getReports() as $path): ?>
+			<hr>
+			<div>
+				<?= file_get_contents($path) ?>
+			</div>
+		<?php endforeach ?>
 	</body>
 </html>
