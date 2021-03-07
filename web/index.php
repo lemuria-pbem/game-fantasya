@@ -1,14 +1,10 @@
 <?php
 declare (strict_types = 1);
 
-use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Catalog;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Test\TestConfig;
-use Lemuria\Renderer\Text\HtmlWriter;
-use Lemuria\Renderer\Text\OrderWriter;
-use Lemuria\Renderer\Text\TextWriter;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -16,46 +12,21 @@ $config  = new TestConfig();
 $round   = $config[TestConfig::ROUND];
 $reports = [];
 
-try {
-	Lemuria::init($config);
-	Lemuria::Log()->debug('Report starts.', ['timestamp' => date('r')]);
-	Lemuria::load();
+Lemuria::init($config);
+Lemuria::load();
 
-	$dir  = __DIR__ . '/../storage/turn';
-	$turn = realpath($dir);
-	if (!$turn) {
-		throw new DirectoryNotFoundException($dir);
-	}
-	$dir = $turn . DIRECTORY_SEPARATOR . $round;
-	if (!is_dir($dir)) {
-		mkdir($dir);
-		chmod($dir, 0775);
-	}
+$dir  = __DIR__ . '/../storage/turn';
+$turn = realpath($dir);
+$dir  = $turn . DIRECTORY_SEPARATOR . $round;
 
-	foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-		$id = $party->Id();
-		$name = str_replace(' ', '_', $party->Name());
-
-		$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
-		$writer   = new HtmlWriter($htmlPath);
-		$writer->render($id);
-
-		$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
-		$writer  = new TextWriter($txtPath);
-		$writer->render($id);
-
-		$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
-		$writer = new OrderWriter($orderPath);
-		$writer->render($id);
-
-		$reports[(string)$id] = [$htmlPath, $txtPath, $orderPath];
-	}
-
-	Lemuria::Log()->debug('Report finished.', ['timestamp' => date('r')]);
-} catch (Exception $e) {
-	$output = (string)$e;
+foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
+	$id        = $party->Id();
+	$name      = str_replace(' ', '_', $party->Name());
+	$htmlPath  = $dir . DIRECTORY_SEPARATOR . $name . '.html';
+	$txtPath   = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
+	$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
+	$reports[(string)$id] = [$htmlPath, $txtPath, $orderPath];
 }
-
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="de" xmlns="http://www.w3.org/1999/html">
