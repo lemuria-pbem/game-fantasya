@@ -13,9 +13,12 @@ use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
 use Lemuria\Renderer\Text\TextWriter;
+use Lemuria\Renderer\Text\Wrapper\FileWrapper;
 
 final class LemuriaAlpha
 {
+	private const HTML_WRAPPER = __DIR__ . '/../resources/turn.html';
+
 	private LemuriaConfig $config;
 
 	private int $round;
@@ -44,11 +47,12 @@ final class LemuriaAlpha
 	}
 
 	public function readOrders(): self {
-		$dir = realpath($this->storage . '/orders/' . $this->round);
-		if (!$dir) {
+		$dir  = $this->storage . '/orders/' . $this->round;
+		$path = realpath($dir);
+		if (!$path) {
 			throw new DirectoryNotFoundException($dir);
 		}
-		$parties = glob($dir . DIRECTORY_SEPARATOR . '*.order');
+		$parties = glob($path . DIRECTORY_SEPARATOR . '*.order');
 		Lemuria::Log()->debug('Found ' . count($parties) . ' order files.', ['orders' => $parties]);
 		foreach ($parties as $path) {
 			$this->turn->add(new CommandFile($path));
@@ -92,7 +96,7 @@ final class LemuriaAlpha
 
 			$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
 			$writer   = new HtmlWriter($htmlPath);
-			$writer->render($id);
+			$writer->add(new FileWrapper(self::HTML_WRAPPER))->render($id);
 
 			$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
 			$writer  = new TextWriter($txtPath);
