@@ -25,6 +25,8 @@ final class LemuriaAlpha
 
 	private int $round;
 
+	private ?int $nextRound;
+
 	private string $storage;
 
 	private LemuriaTurn $turn;
@@ -36,6 +38,10 @@ final class LemuriaAlpha
 		}
 		$this->config = new LemuriaConfig($this->storage);
 		$this->round  = $this->config[LemuriaConfig::ROUND];
+	}
+
+	public function Round(): int {
+		return $this->round;
 	}
 
 	public function init(): self {
@@ -73,7 +79,8 @@ final class LemuriaAlpha
 
 	public function finish(): self {
 		Lemuria::save();
-		$this->config[LemuriaConfig::ROUND] = ++$this->round;
+		$this->nextRound                    = $this->round + 1;
+		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
 		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
 
@@ -86,7 +93,7 @@ final class LemuriaAlpha
 		if (!$dir) {
 			throw new DirectoryNotFoundException($dir);
 		}
-		$dir .= DIRECTORY_SEPARATOR . $this->round;
+		$dir .= DIRECTORY_SEPARATOR . $this->nextRound;
 		if (!is_dir($dir)) {
 			mkdir($dir);
 			chmod($dir, 0775);
@@ -119,9 +126,12 @@ final class LemuriaAlpha
 		return $this;
 	}
 
-	public function createArchives(): void {
+	/**
+	 * @return string[]
+	 */
+	public function createArchives(): array {
 		Lemuria::Log()->debug('Generating ZIP files.');
-		$turnDir = realpath($this->storage . '/turn/' . $this->round);
+		$turnDir = realpath($this->storage . '/turn/' . $this->nextRound);
 		if (!$turnDir) {
 			throw new DirectoryNotFoundException($turnDir);
 		}
@@ -129,15 +139,16 @@ final class LemuriaAlpha
 		if (!$reportDir) {
 			throw new DirectoryNotFoundException($reportDir);
 		}
-		$reportDir .= DIRECTORY_SEPARATOR . $this->round;
+		$reportDir .= DIRECTORY_SEPARATOR . $this->nextRound;
 		if (!is_dir($reportDir)) {
 			mkdir($reportDir);
 			chmod($reportDir, 0775);
 		}
 
+		$archives = [];
 		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
 			$id       = (string)$party->Id();
-			$name     = $this->round . '-' . $id . '.zip';
+			$name     = $this->nextRound . '-' . $id . '.zip';
 			$zipPath  = $reportDir . DIRECTORY_SEPARATOR . $name;
 			$turnPath = $turnDir . DIRECTORY_SEPARATOR . $id . '.*';
 
@@ -154,11 +165,44 @@ final class LemuriaAlpha
 			if (!$result) {
 				throw new \RuntimeException('Error on closing ZIP.');
 			}
+			$archives[] = $id . ':' . $party->Uuid() . ':' . $zipPath;
 		}
+
+		return $archives;
+	}
+
+	public function archiveLog(): self {
+		Lemuria::Log()->debug('Archiving log file.');
+		$logDir = realpath($this->storage . '/' . LemuriaConfig::LOG_DIR);
+		if (!$logDir) {
+			throw new DirectoryNotFoundException($logDir);
+		}
+		$destinationDir = $logDir . DIRECTORY_SEPARATOR . $this->round;
+		if (!is_dir($destinationDir)) {
+			mkdir($destinationDir);
+			chmod($destinationDir, 0775);
+		}
+		$source      = $logDir . DIRECTORY_SEPARATOR . LemuriaConfig::LOG_FILE;
+		$destination = $destinationDir . DIRECTORY_SEPARATOR . LemuriaConfig::LOG_FILE;
+		if (!rename($source, $destination)) {
+			throw new \RuntimeException('Could not archive log file.');
+		}
+
+		return $this;
+	}
+
+	public function logException(\Throwable $throwable): self {
+		try {
+			Lemuria::Log()->critical($throwable->getMessage(), ['exception' => $throwable]);
+		} catch (\Throwable) {
+			throw $throwable;
+		}
+
+		return $this;
 	}
 
 	public function getReports(): array {
-		$dir = realpath($this->storage . '/turn/' . $this->round);
+		$dir = realpath($this->storage . '/turn/' . $this->nextRound);
 		if (!$dir) {
 			throw new DirectoryNotFoundException($dir);
 		}

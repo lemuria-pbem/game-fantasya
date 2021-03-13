@@ -1,11 +1,13 @@
 /vendor
 
+/.idea/deployment.xml
 /.idea/workspace.xml
 /composer.lock
 /doc/Lemuria.pdf
 /storage/config.json
 /storage/game/*/*.json
 /storage/log/lemuria.log
+/storage/log/*/*.log
 /storage/orders/*/*.order
 /storage/report/*/*.zip
 /storage/turn/*/*.*

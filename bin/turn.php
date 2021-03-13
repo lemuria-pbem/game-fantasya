@@ -5,6 +5,15 @@ use Lemuria\Alpha\LemuriaAlpha;
 
 require realpath(__DIR__ . '/../vendor/autoload.php');
 
+$archives     = [];
 $lemuriaAlpha = new LemuriaAlpha();
+try {
+	$archives = $lemuriaAlpha->init()->readOrders()->evaluate()->finish()->createReports()->createArchives();
+} catch (\Throwable $e) {
+	$lemuriaAlpha->logException($e);
+}
+$lemuriaAlpha->archiveLog();
 
-$lemuriaAlpha->init()->readOrders()->evaluate()->finish()->createReports()->createArchives();
+foreach ($archives as $archive) {
+	echo $archive . PHP_EOL;
+}
