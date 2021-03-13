@@ -19,6 +19,8 @@ final class LemuriaAlpha
 {
 	private const HTML_WRAPPER = __DIR__ . '/../resources/turn.html';
 
+	private const ZIP_OPTIONS = ['remove_all_path' => true];
+
 	private LemuriaConfig $config;
 
 	private int $round;
@@ -78,8 +80,8 @@ final class LemuriaAlpha
 		return $this;
 	}
 
-	public function createReports(): void {
-		Lemuria::Log()->debug('Generating reports.', ['config' => $this->config]);
+	public function createReports(): self {
+		Lemuria::Log()->debug('Generating reports.');
 		$dir = realpath($this->storage . '/turn');
 		if (!$dir) {
 			throw new DirectoryNotFoundException($dir);
@@ -113,6 +115,46 @@ final class LemuriaAlpha
 			$p++;
 		}
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');
+
+		return $this;
+	}
+
+	public function createArchives(): void {
+		Lemuria::Log()->debug('Generating ZIP files.');
+		$turnDir = realpath($this->storage . '/turn/' . $this->round);
+		if (!$turnDir) {
+			throw new DirectoryNotFoundException($turnDir);
+		}
+		$reportDir = realpath($this->storage . '/report');
+		if (!$reportDir) {
+			throw new DirectoryNotFoundException($reportDir);
+		}
+		$reportDir .= DIRECTORY_SEPARATOR . $this->round;
+		if (!is_dir($reportDir)) {
+			mkdir($reportDir);
+			chmod($reportDir, 0775);
+		}
+
+		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
+			$id       = (string)$party->Id();
+			$name     = $this->round . '-' . $id . '.zip';
+			$zipPath  = $reportDir . DIRECTORY_SEPARATOR . $name;
+			$turnPath = $turnDir . DIRECTORY_SEPARATOR . $id . '.*';
+
+			$zip    = new \ZipArchive();
+			$result = $zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
+			if (is_int($result)) {
+				throw new \RuntimeException('Could not create ZIP file.', $result);
+			}
+			$result = $zip->addGlob($turnPath, 0, self::ZIP_OPTIONS);
+			if (empty($result)) {
+				throw new \RuntimeException('No files were added to ZIP for party ' . $id . '.');
+			}
+			$result = $zip->close();
+			if (!$result) {
+				throw new \RuntimeException('Error on closing ZIP.');
+			}
+		}
 	}
 
 	public function getReports(): array {

@@ -7,4 +7,5 @@
 /storage/game/*/*.json
 /storage/log/lemuria.log
 /storage/orders/*/*.order
+/storage/report/*/*.zip
 /storage/turn/*/*.*
