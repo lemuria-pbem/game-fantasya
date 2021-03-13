@@ -17,7 +17,7 @@ EMAIL_SUBJECT="Lemuria AW $TURN"
 EMAIL_TEMPLATE=$EMAIL_DIR/turn.email.template
 EMAIL_TEXT=$EMAIL_DIR/turn.email.txt
 EMAIL_LINK='https://www.fantasya-pbem.de/report/t'
-FANTASYACOMMAND=/var/customers/webs/fantasya/website/bin/console
+FANTASYACOMMAND="php8.0 /var/customers/webs/fantasya/website/bin/console"
 EMAIL_LOG=$EMAIL_DIR/log/$TURN
 LOG=$LOG_DIR/run-$TURN.log
 
