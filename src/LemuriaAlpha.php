@@ -25,7 +25,7 @@ final class LemuriaAlpha
 
 	private int $round;
 
-	private ?int $nextRound;
+	private int $nextRound;
 
 	private string $storage;
 
@@ -36,8 +36,9 @@ final class LemuriaAlpha
 		if (!$this->storage) {
 			throw new DirectoryNotFoundException($this->storage);
 		}
-		$this->config = new LemuriaConfig($this->storage);
-		$this->round  = $this->config[LemuriaConfig::ROUND];
+		$this->config    = new LemuriaConfig($this->storage);
+		$this->round     = $this->config[LemuriaConfig::ROUND];
+		$this->nextRound = $this->round;
 	}
 
 	public function Round(): int {
