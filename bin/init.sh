@@ -8,8 +8,7 @@ GAME=lemuria
 GAME_ID=4
 BASE_DIR=/home/fantasya/games/$GAME
 BIN_DIR=$BASE_DIR/lemuria-alpha/bin
-LAST_TURN=`php8.0 $BIN_DIR/last-turn.php`
-TURN=`expr $LAST_TURN + 1`
+TURN=0
 ZIP_DIR=zip
 LOG_DIR=log
 EMAIL_DIR=email
@@ -31,16 +30,10 @@ fi
 cd $BASE_DIR
 touch $LOG
 
-echo "Lemuria ZAT start: `date`" >> $LOG
-echo "Running turn $TURN..." >> $LOG
-echo "Running the game..." >> $LOG
-TIMER_START=`date +%s`
-ZAT_REPORTS=`php8.0 $BIN_DIR/turn.php`
+echo "Lemuria init: `date`" >> $LOG
+ZAT_REPORTS=`php8.0 $BIN_DIR/init.php`
 ZAT_RESULT=$?
 echo "Lemuria exit code: $ZAT_RESULT" >> $LOG
-TIMER_END=`date +%s`
-let DURATION=($TIMER_END-$TIMER_START+30)/60
-echo "This AW took $DURATION minutes." >> $LOG
 if [ $ZAT_RESULT -gt 0 ]
 then
 	echo "Game aborted!" >> $LOG
@@ -83,5 +76,5 @@ do
 done
 echo >> $LOG
 
-echo "Lemuria ZAT end: `date`" >> $LOG
+echo "Lemuria init end: `date`" >> $LOG
 echo "Finished." >> $LOG
