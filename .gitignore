@@ -1,6 +1,7 @@
 /vendor
 
 /.idea/deployment.xml
+/.idea/webServers.xml
 /.idea/workspace.xml
 /composer.lock
 /doc/Lemuria.pdf
