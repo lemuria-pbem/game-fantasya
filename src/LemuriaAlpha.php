@@ -69,8 +69,11 @@ final class LemuriaAlpha
 		$parties = glob($path . DIRECTORY_SEPARATOR . '*.order');
 		Lemuria::Log()->debug('Found ' . count($parties) . ' order files.', ['orders' => $parties]);
 		foreach ($parties as $path) {
-			$this->turn->add(new CommandFile($path));
+			//TODO: Check for units that have no activity yet and call substitute().
+			$units = $this->turn->add(new CommandFile($path));
 		}
+
+		//TODO: Check for additional parties that have not been added yet and call substitute().
 
 		return $this;
 	}
