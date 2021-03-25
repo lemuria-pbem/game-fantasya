@@ -3,7 +3,9 @@ declare(strict_types = 1);
 namespace Lemuria\Alpha;
 
 use Lemuria\Engine\Fantasya\LemuriaTurn;
-use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Engine\Message\Filter;
+use Lemuria\Engine\Message\Filter\DebugFilter;
+use Lemuria\Engine\Message\Filter\NullFilter;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
@@ -21,11 +23,13 @@ final class LemuriaAlpha
 
 	private const ZIP_OPTIONS = ['remove_all_path' => true];
 
-	private LemuriaConfig $config;
+	private AlphaConfig $config;
 
 	private int $round;
 
 	private int $nextRound;
+
+	private array $debugParties;
 
 	private string $storage;
 
@@ -36,9 +40,10 @@ final class LemuriaAlpha
 		if (!$this->storage) {
 			throw new DirectoryNotFoundException($this->storage);
 		}
-		$this->config    = new LemuriaConfig($this->storage);
-		$this->round     = $this->config[LemuriaConfig::ROUND];
-		$this->nextRound = $this->round;
+		$this->config       = new AlphaConfig($this->storage);
+		$this->round        = $this->config[AlphaConfig::ROUND];
+		$this->nextRound    = $this->round;
+		$this->debugParties = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
 	}
 
 	public function Round(): int {
@@ -81,8 +86,8 @@ final class LemuriaAlpha
 	public function finish(): self {
 		Lemuria::save();
 		$this->nextRound                    = $this->round + 1;
-		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
-		$this->config[LemuriaConfig::MDD]   = time();
+		$this->config[AlphaConfig::ROUND] = $this->nextRound;
+		$this->config[AlphaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
 
 		return $this;
@@ -101,24 +106,26 @@ final class LemuriaAlpha
 		}
 		$p = 0;
 		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			$id   = $party->Id();
-			$name = (string)$id;
+			$id     = $party->Id();
+			$name   = (string)$id;
+			$filter = $this->getMessageFilter($party);
+			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
 
 			$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
 			$writer   = new HtmlWriter($htmlPath);
-			$writer->add(new FileWrapper(self::HTML_WRAPPER))->render($id);
+			$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
 
 			$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
 			$writer  = new TextWriter($txtPath);
-			$writer->render($id);
+			$writer->setFilter($filter)->render($id);
 
 			$crPath = $dir . DIRECTORY_SEPARATOR . $name . '.cr';
 			$writer = new MagellanWriter($crPath);
-			$writer->render($id);
+			$writer->setFilter($filter)->render($id);
 
 			$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
 			$writer = new OrderWriter($orderPath);
-			$writer->render($id);
+			$writer->setFilter($filter)->render($id);
 
 			$p++;
 		}
@@ -174,7 +181,7 @@ final class LemuriaAlpha
 
 	public function archiveLog(): self {
 		Lemuria::Log()->debug('Archiving log file.');
-		$logDir = realpath($this->storage . '/' . LemuriaConfig::LOG_DIR);
+		$logDir = realpath($this->storage . '/' . AlphaConfig::LOG_DIR);
 		if (!$logDir) {
 			throw new DirectoryNotFoundException($logDir);
 		}
@@ -183,8 +190,8 @@ final class LemuriaAlpha
 			mkdir($destinationDir);
 			chmod($destinationDir, 0775);
 		}
-		$source      = $logDir . DIRECTORY_SEPARATOR . LemuriaConfig::LOG_FILE;
-		$destination = $destinationDir . DIRECTORY_SEPARATOR . LemuriaConfig::LOG_FILE;
+		$source      = $logDir . DIRECTORY_SEPARATOR . AlphaConfig::LOG_FILE;
+		$destination = $destinationDir . DIRECTORY_SEPARATOR . AlphaConfig::LOG_FILE;
 		if (!rename($source, $destination)) {
 			throw new \RuntimeException('Could not archive log file.');
 		}
@@ -208,5 +215,10 @@ final class LemuriaAlpha
 			throw new DirectoryNotFoundException($dir);
 		}
 		return glob($dir . DIRECTORY_SEPARATOR . '*.html');
+	}
+
+	private function getMessageFilter(Party $party): Filter {
+		$id = $party->Uuid();
+		return isset($this->debugParties[$id]) ? new NullFilter() : new DebugFilter();
 	}
 }
