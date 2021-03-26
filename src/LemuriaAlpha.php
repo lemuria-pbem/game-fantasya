@@ -7,10 +7,13 @@ use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\NullFilter;
 use Lemuria\Engine\Move\CommandFile;
+use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Catalog;
+use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
+use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
@@ -68,12 +71,17 @@ final class LemuriaAlpha
 		}
 		$parties = glob($path . DIRECTORY_SEPARATOR . '*.order');
 		Lemuria::Log()->debug('Found ' . count($parties) . ' order files.', ['orders' => $parties]);
-		foreach ($parties as $path) {
-			//TODO: Check for units that have no activity yet and call substitute().
-			$units = $this->turn->add(new CommandFile($path));
-		}
 
-		//TODO: Check for additional parties that have not been added yet and call substitute().
+		$gathering = new Gathering();
+		foreach ($parties as $path) {
+			$units = $this->turn->add(new CommandFile($path));
+			$party = $this->getPartyFrom($units);
+			if ($party) {
+				$this->addDefaultOrders($party, $units);
+				$gathering->add($party);
+			}
+		}
+		$this->addMissingParties($gathering);
 
 		return $this;
 	}
@@ -223,5 +231,31 @@ final class LemuriaAlpha
 	private function getMessageFilter(Party $party): Filter {
 		$id = $party->Uuid();
 		return isset($this->debugParties[$id]) ? new NullFilter() : new DebugFilter();
+	}
+
+	private function getPartyFrom(EntitySet $units): ?Party {
+		if ($units->count() > 0) {
+			$units->rewind();
+			/** @var Unit $unit */
+			$unit = $units->current();
+			return $unit->Party();
+		}
+		return null;
+	}
+
+	private function addDefaultOrders(Party $party, EntitySet $units): void {
+		foreach ($party->People() as $unit /* @var Unit $unit */) {
+			if (!$units->has($unit->Id())) {
+				$this->turn->substitute($unit);
+			}
+		}
+	}
+
+	private function addMissingParties(Gathering $gathering): void {
+		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
+			if (!$gathering->has($party->Id())) {
+				$this->turn->substitute($party);
+			}
+		}
 	}
 }
