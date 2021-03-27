@@ -34,6 +34,8 @@ final class LemuriaAlpha
 
 	private array $debugParties;
 
+	private bool $throwExceptions;
+
 	private string $storage;
 
 	private LemuriaTurn $turn;
@@ -43,10 +45,11 @@ final class LemuriaAlpha
 		if (!$this->storage) {
 			throw new DirectoryNotFoundException($this->storage);
 		}
-		$this->config       = new AlphaConfig($this->storage);
-		$this->round        = $this->config[AlphaConfig::ROUND];
-		$this->nextRound    = $this->round;
-		$this->debugParties = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
+		$this->config          = new AlphaConfig($this->storage);
+		$this->round           = $this->config[AlphaConfig::ROUND];
+		$this->nextRound       = $this->round;
+		$this->debugParties    = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
+		$this->throwExceptions = $this->config[AlphaConfig::THROW_EXCEPTIONS];
 	}
 
 	public function Round(): int {
@@ -58,7 +61,7 @@ final class LemuriaAlpha
 		Lemuria::Log()->debug('Turn starts.', ['config' => $this->config]);
 		Lemuria::load();
 		Lemuria::Log()->debug('Evaluating round ' . Lemuria::Calendar()->Round() . '.', ['calendar' => Lemuria::Calendar()]);
-		$this->turn = new LemuriaTurn();
+		$this->turn = new LemuriaTurn($this->throwExceptions);
 
 		return $this;
 	}
@@ -211,6 +214,9 @@ final class LemuriaAlpha
 	}
 
 	public function logException(\Throwable $throwable): self {
+		if ($this->throwExceptions) {
+			throw $throwable;
+		}
 		try {
 			Lemuria::Log()->critical($throwable->getMessage(), ['exception' => $throwable]);
 		} catch (\Throwable) {
