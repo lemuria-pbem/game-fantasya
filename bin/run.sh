@@ -21,13 +21,6 @@ FANTASYACOMMAND="php8.0 /var/customers/webs/fantasya/website/bin/console"
 EMAIL_LOG=$EMAIL_DIR/log/$TURN
 LOG=$LOG_DIR/run-$TURN.log
 
-which b36 > /dev/null
-if [ "$?" -gt 0 ]
-then
-	echo "b36 tool not found."
-	exit 1
-fi
-
 cd $BASE_DIR
 touch $LOG
 
@@ -52,8 +45,7 @@ echo "Sending e-mails..." >> $LOG
 mkdir -p $EMAIL_LOG
 for REPORT_LINE in $ZAT_REPORTS
 do
-	PARTY=`echo $REPORT_LINE | cut -d : -f 1`
-	ID=`b36 -d $PARTY`
+	ID=`echo $REPORT_LINE | cut -d : -f 1`
 	UUID=`echo $REPORT_LINE | cut -d : -f 2`
 	REPORT=`echo $REPORT_LINE | cut -d : -f 3`
 	EMAIL=`$FANTASYACOMMAND email:lemuria $UUID`
