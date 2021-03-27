@@ -6,22 +6,22 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/archive" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/components/jquery" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/jetbrains/phpstorm-attributes" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/engine-fantasya" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-magellan" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/lemuria" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/model-fantasya" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/lemuria" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-magellan" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/engine-fantasya" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/tools-lemuria" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-text" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/twbs/bootstrap" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jetbrains/phpstorm-attributes" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/components/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twbs/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-text" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/tools-lemuria" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
