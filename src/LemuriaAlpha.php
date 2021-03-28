@@ -2,7 +2,9 @@
 declare(strict_types = 1);
 namespace Lemuria\Alpha;
 
+use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
+use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\NullFilter;
@@ -90,6 +92,8 @@ final class LemuriaAlpha
 	}
 
 	public function evaluate(): self {
+		Lemuria::Log()->debug('Add effects and events.');
+		$this->turn->addScore(Lemuria::Score())->addProgress(new DefaultProgress(State::getInstance()));
 		Lemuria::Log()->debug('Starting evaluation.');
 		$this->turn->evaluate();
 		Lemuria::Calendar()->nextRound();
