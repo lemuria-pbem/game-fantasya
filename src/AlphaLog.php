@@ -8,7 +8,7 @@ use Lemuria\Engine\Fantasya\LemuriaLog;
 
 final class AlphaLog extends LemuriaLog
 {
-	protected ?int $consoleLevel = Logger::ERROR;
+	protected ?int $consoleLevel = Logger::ALERT;
 
 	protected ?int $fileLevel = Logger::DEBUG;
 }
