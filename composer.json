@@ -26,10 +26,10 @@
 		"twbs/bootstrap": "~4.5",
 
 		"lemuria-pbem/lemuria": "~0.1.3",
-		"lemuria-pbem/engine-fantasya": "~0.1.3",
+		"lemuria-pbem/engine-fantasya": "~0.1.4",
 		"lemuria-pbem/model-fantasya": "~0.1.4",
 		"lemuria-pbem/renderer-magellan": "~0.1.0",
-		"lemuria-pbem/renderer-text": "~0.1.0",
+		"lemuria-pbem/renderer-text": "~0.1.1",
 		"lemuria-pbem/tools-lemuria": "~0.1.0"
 	},
 	"require-dev": {
