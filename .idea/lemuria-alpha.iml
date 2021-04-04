@@ -21,7 +21,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-text" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/tools-lemuria" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
