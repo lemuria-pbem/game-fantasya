@@ -19,8 +19,16 @@ ul {
     font-size: 96%;
 }
 
+.unit {
+    margin-bottom: 1rem;
+}
+
 .unit p {
     margin-bottom: 0;
+}
+
+.unit ul {
+    margin-bottom: unset;
 }
 
 .unit .report li {

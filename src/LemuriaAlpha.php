@@ -91,6 +91,20 @@ final class LemuriaAlpha
 		return $this;
 	}
 
+	public function initiate(): self {
+		$n = Lemuria::Debut()->count();
+		if ($n > 0) {
+			Lemuria::Log()->debug('Initiate ' . $n . ' newcomers.');
+			foreach (Lemuria::Debut()->getAll() as $newcomer) {
+				$this->turn->initiate($newcomer);
+			}
+			Lemuria::Debut()->clear();
+		} else {
+			Lemuria::Log()->debug('No newcomers to initiate.');
+		}
+		return $this;
+	}
+
 	public function evaluate(): self {
 		Lemuria::Log()->debug('Add effects and events.');
 		$this->turn->addScore(Lemuria::Score())->addProgress(new DefaultProgress(State::getInstance()));
