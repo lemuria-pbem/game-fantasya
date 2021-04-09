@@ -10,7 +10,7 @@
 		"pbem"
 	],
 	"version": "0.2.0",
-	"time": "2021-04-08",
+	"time": "2021-04-09",
 	"license": "GPL-3.0",
 	"authors": [
 		{
@@ -54,10 +54,6 @@
 		{
 			"type": "vcs",
 			"url": "git@github.com:lemuria-pbem/renderer-text.git"
-		},
-		{
-			"type": "vcs",
-			"url": "git@github.com:lemuria-pbem/tools-lemuria.git"
 		}
 	],
 
