@@ -61,5 +61,18 @@
 		"psr-4": {
 			"Lemuria\\Alpha\\": "src/"
 		}
+	},
+
+	"scripts": {
+		"compile-report-css": "scripts/compile-report-scss.sh",
+		"post-install-cmd": [
+			"@compile-report-css"
+		],
+		"post-update-cmd": [
+			"@compile-report-css"
+		]
+	},
+	"scripts-descriptions": {
+		"compile-report-css": "Compile Bootstrap and style.scss to report.min.css."
 	}
 }

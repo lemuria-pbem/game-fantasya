@@ -13,3 +13,4 @@
 /storage/orders/*/*.order
 /storage/report/*/*.zip
 /storage/turn/*/*.*
+/web/css/report.min.css
