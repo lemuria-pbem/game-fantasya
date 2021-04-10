@@ -13,24 +13,24 @@ ul {
 
 .report {
     padding-left: 0;
-}
 
-.report .badge.text-monospace {
-    font-size: 96%;
+    .badge.text-monospace {
+        font-size: 96%;
+    }
 }
 
 .unit {
     margin-bottom: 1rem;
-}
 
-.unit p {
-    margin-bottom: 0;
-}
+    p {
+        margin-bottom: 0;
+    }
 
-.unit ul {
-    margin-bottom: unset;
-}
+    ul {
+        margin-bottom: unset;
+    }
 
-.unit .report li {
-    font-size: small;
+    .report li {
+        font-size: small;
+    }
 }
