@@ -1,0 +1,40 @@
+body {
+    margin: 1rem;
+}
+
+h2, h3, h4, h5 {
+    margin-top: 2rem;
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+.report {
+    padding-left: 0;
+
+    .badge.text-monospace {
+        font-size: 96%;
+    }
+}
+
+.unit {
+    margin-bottom: 1rem;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    ul {
+        margin-bottom: unset;
+    }
+
+    .report li {
+        font-size: small;
+    }
+}
+
+.diplomacy > li {
+    margin-bottom: 1rem;
+}
