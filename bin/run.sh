@@ -10,6 +10,7 @@ BASE_DIR=/home/fantasya/games/$GAME
 ALPHA_DIR=$BASE_DIR/lemuria-alpha
 BIN_DIR=$ALPHA_DIR/bin
 LAST_TURN=`php8.0 $BIN_DIR/last-turn.php`
+LAST_NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$LAST_TURN/newcomers.json
 TURN=`expr $LAST_TURN + 1`
 NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$TURN/newcomers.json
 ZIP_DIR=zip
@@ -45,6 +46,8 @@ echo >> $LOG
 
 # Allow website to write newcomers.json.
 chmod go+w $NEWCOMERS_FILE
+# Reset last newcomers.json.
+chmod go-w $LAST_NEWCOMERS_FILE
 
 echo "Sending e-mails..." >> $LOG
 mkdir -p $EMAIL_LOG
