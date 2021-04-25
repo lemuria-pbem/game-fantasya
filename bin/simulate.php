@@ -22,15 +22,20 @@ try {
 		$orders = __DIR__ . '/../storage/orders/' . $simulator->Round() . '/' . $uuid . '.order';
 		$move   = new CommandFile($orders);
 		$report = $simulator->simulate($move)->getReport($party);
+		$eol    = false;
 		foreach ($report as $entity => $messages) {
+			if ($eol) {
+				echo PHP_EOL;
+			}
 			if ($entity) {
-				echo PHP_EOL . $entity . ':' . PHP_EOL;
+				echo $entity . ':' . PHP_EOL;
 			} else {
 				echo 'Parteimeldungen:' . PHP_EOL;
 			}
 			foreach ($messages as $message/* @var Message $message */) {
 				echo $simulator->render($message) . PHP_EOL;
 			}
+			$eol = true;
 		}
 		exit(0);
 	}
