@@ -49,7 +49,7 @@ final class LemuriaAlpha
 		}
 		$this->config          = new AlphaConfig($this->storage);
 		$this->round           = $this->config[AlphaConfig::ROUND];
-		$this->nextRound       = $this->round;
+		$this->nextRound       = $this->round + 1;
 		$this->debugParties    = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
 		$this->throwExceptions = $this->config[AlphaConfig::THROW_EXCEPTIONS];
 	}
@@ -62,7 +62,8 @@ final class LemuriaAlpha
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Turn starts.', ['config' => $this->config]);
 		Lemuria::load();
-		Lemuria::Log()->debug('Evaluating round ' . Lemuria::Calendar()->Round() . '.', ['calendar' => Lemuria::Calendar()]);
+		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
+		Lemuria::Calendar()->nextRound();
 		$this->turn = new LemuriaTurn($this->throwExceptions);
 
 		return $this;
@@ -110,14 +111,12 @@ final class LemuriaAlpha
 		$this->turn->addScore(Lemuria::Score())->addProgress(new DefaultProgress(State::getInstance()));
 		Lemuria::Log()->debug('Starting evaluation.');
 		$this->turn->evaluate();
-		Lemuria::Calendar()->nextRound();
 
 		return $this;
 	}
 
 	public function finish(): self {
 		Lemuria::save();
-		$this->nextRound                    = $this->round + 1;
 		$this->config[AlphaConfig::ROUND] = $this->nextRound;
 		$this->config[AlphaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
