@@ -3,6 +3,7 @@
 /.idea/deployment.xml
 /.idea/webServers.xml
 /.idea/workspace.xml
+/bin/sync.sh
 /composer.lock
 /doc/Lemuria.pdf
 /storage/config.json
