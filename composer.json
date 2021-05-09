@@ -25,11 +25,11 @@
 		"components/jquery": "~3.5",
 		"twbs/bootstrap": "~4.5",
 
-		"lemuria-pbem/lemuria": "~0.4.0",
-		"lemuria-pbem/engine-fantasya": "~0.4.0",
-		"lemuria-pbem/model-fantasya": "~0.4.0",
-		"lemuria-pbem/renderer-magellan": "~0.4.0",
-		"lemuria-pbem/renderer-text": "~0.4.0"
+		"lemuria-pbem/lemuria": "~0.4.1",
+		"lemuria-pbem/engine-fantasya": "~0.4.1",
+		"lemuria-pbem/model-fantasya": "~0.4.1",
+		"lemuria-pbem/renderer-magellan": "~0.4.1",
+		"lemuria-pbem/renderer-text": "~0.4.1"
 	},
 	"require-dev": {
 		"jetbrains/phpstorm-attributes": "~1.0"
