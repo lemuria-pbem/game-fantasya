@@ -5,6 +5,7 @@ namespace Lemuria\Alpha;
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\State;
+use Lemuria\Engine\Fantasya\TurnOptions;
 use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\NullFilter;
@@ -64,7 +65,8 @@ final class LemuriaAlpha
 		Lemuria::load();
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
-		$this->turn = new LemuriaTurn($this->throwExceptions);
+		$options    = new TurnOptions();
+		$this->turn = new LemuriaTurn($options->setThrowExceptions($this->throwExceptions));
 
 		return $this;
 	}
