@@ -4,6 +4,7 @@ namespace Lemuria\Alpha;
 
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Engine\Fantasya\TurnOptions;
 use Lemuria\Engine\Message;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Move\CommandFile;
@@ -34,7 +35,8 @@ final class AlphaSimulator
 	public function simulate(CommandFile $move): AlphaSimulator {
 		Lemuria::Log()->debug('Simulating move.', ['move' => $move]);
 		Lemuria::Calendar()->nextRound();
-		$turn = new LemuriaTurn();
+		$options = new TurnOptions();
+		$turn    = new LemuriaTurn($options->setIsSimulation(true));
 		$turn->add($move);
 		$turn->evaluate();
 		return $this;
