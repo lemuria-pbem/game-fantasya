@@ -22,6 +22,8 @@ use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
 use Lemuria\Renderer\Text\TextWriter;
 use Lemuria\Renderer\Text\Wrapper\FileWrapper;
+use Lemuria\Version;
+use Lemuria\Version\VersionFinder;
 
 final class LemuriaAlpha
 {
@@ -67,6 +69,11 @@ final class LemuriaAlpha
 		Lemuria::Calendar()->nextRound();
 		$options    = new TurnOptions();
 		$this->turn = new LemuriaTurn($options->setThrowExceptions($this->throwExceptions));
+
+		$version                  = Lemuria::Version();
+		$version[Version::ENGINE] = $this->turn->getVersion();
+		$versionFinder            = new VersionFinder(__DIR__ . '/..');
+		$version[Version::GAME]   = $versionFinder->get();
 
 		return $this;
 	}
@@ -137,30 +144,40 @@ final class LemuriaAlpha
 			mkdir($dir);
 			chmod($dir, 0775);
 		}
-		$p = 0;
+		$version = Lemuria::Version();
+
+		$p          = 0;
+		$hasVersion = false;
 		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
 			$id     = $party->Id();
 			$name   = (string)$id;
 			$filter = $this->getMessageFilter($party);
 			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
 
+			$crPath = $dir . DIRECTORY_SEPARATOR . $name . '.cr';
+			$writer = new MagellanWriter($crPath);
+			if (!$hasVersion) {
+				$version[Version::RENDERERS] = $writer->getVersion();
+			}
+			$writer->setFilter($filter)->render($id);
+
 			$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
 			$writer   = new HtmlWriter($htmlPath);
+			if (!$hasVersion) {
+				$version[Version::RENDERERS] = $writer->getVersion();
+			}
 			$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
 
 			$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
 			$writer  = new TextWriter($txtPath);
 			$writer->setFilter($filter)->render($id);
 
-			$crPath = $dir . DIRECTORY_SEPARATOR . $name . '.cr';
-			$writer = new MagellanWriter($crPath);
-			$writer->setFilter($filter)->render($id);
-
 			$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
-			$writer = new OrderWriter($orderPath);
+			$writer    = new OrderWriter($orderPath);
 			$writer->setFilter($filter)->render($id);
 
 			$p++;
+			$hasVersion = true;
 		}
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');
 
