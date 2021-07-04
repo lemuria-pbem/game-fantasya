@@ -10,7 +10,7 @@
 		"pbem"
 	],
 	"version": "0.6.0",
-	"time": "2021-06-27",
+	"time": "2021-07-04",
 	"license": "GPL-3.0",
 	"authors": [
 		{
@@ -23,13 +23,13 @@
 		"php": "~8.0",
 		"ext-zip": "~1.2",
 		"components/jquery": "~3.5",
-		"twbs/bootstrap": "~4.5",
+		"twbs/bootstrap": "~4.6",
 
-		"lemuria-pbem/lemuria": "~0.5.0",
-		"lemuria-pbem/engine-fantasya": "~0.5.0",
-		"lemuria-pbem/model-fantasya": "~0.5.0",
-		"lemuria-pbem/renderer-magellan": "~0.5.0",
-		"lemuria-pbem/renderer-text": "~0.5.0"
+		"lemuria-pbem/lemuria": "~0.6.0",
+		"lemuria-pbem/engine-fantasya": "~0.6.0",
+		"lemuria-pbem/model-fantasya": "~0.6.0",
+		"lemuria-pbem/renderer-magellan": "~0.6.0",
+		"lemuria-pbem/renderer-text": "~0.6.0"
 	},
 	"require-dev": {
 		"jetbrains/phpstorm-attributes": "~1.0"
