@@ -20,6 +20,7 @@ use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
+use Lemuria\Renderer\Text\SpellBookWriter;
 use Lemuria\Renderer\Text\TextWriter;
 use Lemuria\Renderer\Text\Wrapper\FileWrapper;
 use Lemuria\Version;
@@ -174,7 +175,13 @@ final class LemuriaAlpha
 
 			$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
 			$writer    = new OrderWriter($orderPath);
-			$writer->setFilter($filter)->render($id);
+			$writer->render($id);
+
+			if ($party->SpellBook()->count() > 0) {
+				$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.spells.txt';
+				$writer    = new SpellBookWriter($orderPath);
+				$writer->render($id);
+			}
 
 			$p++;
 			$hasVersion = true;
