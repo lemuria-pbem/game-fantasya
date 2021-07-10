@@ -40,6 +40,8 @@ final class LemuriaAlpha
 
 	private array $debugParties;
 
+	private bool $createArchives;
+
 	private bool $throwExceptions;
 
 	private string $storage;
@@ -55,6 +57,7 @@ final class LemuriaAlpha
 		$this->round           = $this->config[AlphaConfig::ROUND];
 		$this->nextRound       = $this->round + 1;
 		$this->debugParties    = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
+		$this->createArchives  = $this->config[AlphaConfig::CREATE_ARCHIVES];
 		$this->throwExceptions = $this->config[AlphaConfig::THROW_EXCEPTIONS];
 	}
 
@@ -195,6 +198,11 @@ final class LemuriaAlpha
 	 * @return string[]
 	 */
 	public function createArchives(): array {
+		if (!$this->createArchives) {
+			Lemuria::Log()->debug('Generating ZIP files has been disabled.');
+			return [];
+		}
+
 		Lemuria::Log()->debug('Generating ZIP files.');
 		$turnDir = realpath($this->storage . '/turn/' . $this->nextRound);
 		if (!$turnDir) {
