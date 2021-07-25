@@ -153,26 +153,29 @@ final class LemuriaAlpha
 		$p          = 0;
 		$hasVersion = false;
 		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			$id     = $party->Id();
-			$name   = (string)$id;
-			$filter = $this->getMessageFilter($party);
+			$id       = $party->Id();
+			$isPlayer = $party->Type() === Party::PLAYER;
+			$name     = (string)$id;
+			$filter   = $this->getMessageFilter($party);
 			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
 
-			if ($party->Type() === Party::PLAYER) {
-				$crPath = $dir . DIRECTORY_SEPARATOR . $name . '.cr';
-				$writer = new MagellanWriter($crPath);
-				if (!$hasVersion) {
-					$version[Version::RENDERERS] = $writer->getVersion();
-				}
+			$crPath = $dir . DIRECTORY_SEPARATOR . $name . '.cr';
+			$writer = new MagellanWriter($crPath);
+			if (!$hasVersion) {
+				$version[Version::RENDERERS] = $writer->getVersion();
+			}
+			if ($isPlayer) {
 				$writer->setFilter($filter)->render($id);
+			}
 
-				$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
-				$writer   = new HtmlWriter($htmlPath);
-				if (!$hasVersion) {
-					$version[Version::RENDERERS] = $writer->getVersion();
-				}
-				$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
+			$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
+			$writer   = new HtmlWriter($htmlPath);
+			if (!$hasVersion) {
+				$version[Version::RENDERERS] = $writer->getVersion();
+			}
+			$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
 
+			if ($isPlayer) {
 				$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
 				$writer  = new TextWriter($txtPath);
 				$writer->setFilter($filter)->render($id);
@@ -186,13 +189,6 @@ final class LemuriaAlpha
 					$writer    = new SpellBookWriter($orderPath);
 					$writer->render($id);
 				}
-			} else {
-				$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
-				$writer   = new HtmlWriter($htmlPath);
-				if (!$hasVersion) {
-					$version[Version::RENDERERS] = $writer->getVersion();
-				}
-				$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
 			}
 
 			$p++;
