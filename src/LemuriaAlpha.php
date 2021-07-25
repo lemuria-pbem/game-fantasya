@@ -153,9 +153,10 @@ final class LemuriaAlpha
 		$p          = 0;
 		$hasVersion = false;
 		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			$id     = $party->Id();
-			$name   = (string)$id;
-			$filter = $this->getMessageFilter($party);
+			$id       = $party->Id();
+			$isPlayer = $party->Type() === Party::PLAYER;
+			$name     = (string)$id;
+			$filter   = $this->getMessageFilter($party);
 			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
 
 			$crPath = $dir . DIRECTORY_SEPARATOR . $name . '.cr';
@@ -163,7 +164,9 @@ final class LemuriaAlpha
 			if (!$hasVersion) {
 				$version[Version::RENDERERS] = $writer->getVersion();
 			}
-			$writer->setFilter($filter)->render($id);
+			if ($isPlayer) {
+				$writer->setFilter($filter)->render($id);
+			}
 
 			$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
 			$writer   = new HtmlWriter($htmlPath);
@@ -172,18 +175,20 @@ final class LemuriaAlpha
 			}
 			$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
 
-			$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
-			$writer  = new TextWriter($txtPath);
-			$writer->setFilter($filter)->render($id);
+			if ($isPlayer) {
+				$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
+				$writer  = new TextWriter($txtPath);
+				$writer->setFilter($filter)->render($id);
 
-			$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
-			$writer    = new OrderWriter($orderPath);
-			$writer->render($id);
-
-			if ($party->SpellBook()->count() > 0) {
-				$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.spells.txt';
-				$writer    = new SpellBookWriter($orderPath);
+				$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
+				$writer    = new OrderWriter($orderPath);
 				$writer->render($id);
+
+				if ($party->SpellBook()->count() > 0) {
+					$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.spells.txt';
+					$writer    = new SpellBookWriter($orderPath);
+					$writer->render($id);
+				}
 			}
 
 			$p++;
@@ -220,6 +225,10 @@ final class LemuriaAlpha
 
 		$archives = [];
 		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
+			if ($party->Type() !== Party::PLAYER) {
+				continue;
+			}
+
 			$id       = (string)$party->Id();
 			$name     = $this->nextRound . '-' . $id . '.zip';
 			$zipPath  = $reportDir . DIRECTORY_SEPARATOR . $name;
@@ -310,7 +319,7 @@ final class LemuriaAlpha
 
 	private function addMissingParties(Gathering $gathering): void {
 		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			if (!$gathering->has($party->Id())) {
+			if ($party->Type() === Party::PLAYER && !$gathering->has($party->Id())) {
 				$this->turn->substitute($party);
 			}
 		}
