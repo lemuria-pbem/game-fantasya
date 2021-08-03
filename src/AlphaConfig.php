@@ -4,6 +4,8 @@ namespace Lemuria\Alpha;
 
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Log;
+use Lemuria\Model\Fantasya\Exception\JsonException;
+use Lemuria\Model\Fantasya\Storage\JsonProvider;
 
 final class AlphaConfig extends LemuriaConfig
 {
@@ -13,11 +15,21 @@ final class AlphaConfig extends LemuriaConfig
 
 	public const THROW_EXCEPTIONS = 'throwExceptions';
 
+	protected const LOCAL_CONFIG = 'config.local.json';
+
 	private const DEBUG_PARTIES_DEFAULT = [];
 
 	private const CREATE_ARCHIVES_DEFAULT = true;
 
 	private const THROW_EXCEPTIONS_DEFAULT = false;
+
+	/**
+	 * @throws JsonException
+	 */
+	public function __construct(string $storagePath) {
+		parent::__construct($storagePath);
+		$this->overrideWithLocalConfig($storagePath);
+	}
 
 	protected function initDefaults(): void {
 		parent::initDefaults();
@@ -29,5 +41,14 @@ final class AlphaConfig extends LemuriaConfig
 	protected function createLog(string $logPath): Log {
 		$addErrorHandler = !$this[self::THROW_EXCEPTIONS];
 		return new AlphaLog($logPath, $addErrorHandler);
+	}
+
+	protected function overrideWithLocalConfig(string $storagePath): void {
+		$file = new JsonProvider($storagePath);
+		if ($file->exists(self::LOCAL_CONFIG)) {
+			foreach ($file->read(self::LOCAL_CONFIG) as $key => $value) {
+				$this->offsetSet($key, $value);
+			}
+		}
 	}
 }

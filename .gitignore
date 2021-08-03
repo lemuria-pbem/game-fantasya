@@ -7,6 +7,7 @@
 /composer.lock
 /doc/Lemuria.pdf
 /storage/config.json
+/storage/config.local.json
 /storage/game/*/*.json
 /storage/log/lemuria.log
 /storage/log/run-*.log
