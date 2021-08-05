@@ -5,6 +5,7 @@ namespace Lemuria\Alpha;
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\State;
+use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\TurnOptions;
 use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
@@ -54,7 +55,7 @@ final class LemuriaAlpha
 			throw new DirectoryNotFoundException($this->storage);
 		}
 		$this->config          = new AlphaConfig($this->storage);
-		$this->round           = $this->config[AlphaConfig::ROUND];
+		$this->round           = $this->config[LemuriaConfig::ROUND];
 		$this->nextRound       = $this->round + 1;
 		$this->debugParties    = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
 		$this->createArchives  = $this->config[AlphaConfig::CREATE_ARCHIVES];
@@ -130,8 +131,8 @@ final class LemuriaAlpha
 
 	public function finish(): self {
 		Lemuria::save();
-		$this->config[AlphaConfig::ROUND] = $this->nextRound;
-		$this->config[AlphaConfig::MDD]   = time();
+		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
+		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
 
 		return $this;
@@ -255,7 +256,7 @@ final class LemuriaAlpha
 
 	public function archiveLog(): self {
 		Lemuria::Log()->debug('Archiving log file.');
-		$logDir = realpath($this->storage . '/' . AlphaConfig::LOG_DIR);
+		$logDir = realpath($this->storage . '/' . LemuriaConfig::LOG_DIR);
 		if (!$logDir) {
 			throw new DirectoryNotFoundException($logDir);
 		}
@@ -264,8 +265,8 @@ final class LemuriaAlpha
 			mkdir($destinationDir);
 			chmod($destinationDir, 0775);
 		}
-		$source      = $logDir . DIRECTORY_SEPARATOR . AlphaConfig::LOG_FILE;
-		$destination = $destinationDir . DIRECTORY_SEPARATOR . AlphaConfig::LOG_FILE;
+		$source      = $logDir . DIRECTORY_SEPARATOR . LemuriaConfig::LOG_FILE;
+		$destination = $destinationDir . DIRECTORY_SEPARATOR . LemuriaConfig::LOG_FILE;
 		if (!rename($source, $destination)) {
 			throw new \RuntimeException('Could not archive log file.');
 		}
