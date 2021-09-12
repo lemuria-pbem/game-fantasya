@@ -39,6 +39,8 @@ final class LemuriaAlpha
 
 	private int $nextRound;
 
+	private bool $debugBattles;
+
 	private array $debugParties;
 
 	private bool $createArchives;
@@ -57,6 +59,7 @@ final class LemuriaAlpha
 		$this->config          = new AlphaConfig($this->storage);
 		$this->round           = $this->config[LemuriaConfig::ROUND];
 		$this->nextRound       = $this->round + 1;
+		$this->debugBattles    = $this->config[AlphaConfig::DEBUG_BATTLES];
 		$this->debugParties    = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
 		$this->createArchives  = $this->config[AlphaConfig::CREATE_ARCHIVES];
 		$this->throwExceptions = $this->config[AlphaConfig::THROW_EXCEPTIONS];
@@ -72,8 +75,11 @@ final class LemuriaAlpha
 		Lemuria::load();
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
-		$options    = new TurnOptions();
-		$this->turn = new LemuriaTurn($options->setThrowExceptions($this->throwExceptions));
+
+		$options = new TurnOptions();
+		$options->setDebugBattles($this->debugBattles);
+		$options->setThrowExceptions($this->throwExceptions);
+		$this->turn = new LemuriaTurn($options);
 
 		$version                  = Lemuria::Version();
 		$version[Version::ENGINE] = $this->turn->getVersion();

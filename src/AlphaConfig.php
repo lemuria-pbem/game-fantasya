@@ -9,6 +9,8 @@ use Lemuria\Model\Fantasya\Storage\JsonProvider;
 
 final class AlphaConfig extends LemuriaConfig
 {
+	public const DEBUG_BATTLES = 'debugBattles';
+
 	public const DEBUG_PARTIES = 'debugParties';
 
 	public const CREATE_ARCHIVES = 'createArchives';
@@ -16,6 +18,8 @@ final class AlphaConfig extends LemuriaConfig
 	public const THROW_EXCEPTIONS = 'throwExceptions';
 
 	protected const LOCAL_CONFIG = 'config.local.json';
+
+	private const DEBUG_BATTLES_DEFAULT = false;
 
 	private const DEBUG_PARTIES_DEFAULT = [];
 
@@ -33,6 +37,7 @@ final class AlphaConfig extends LemuriaConfig
 
 	protected function initDefaults(): void {
 		parent::initDefaults();
+		$this->defaults[self::DEBUG_BATTLES]    = self::DEBUG_BATTLES_DEFAULT;
 		$this->defaults[self::DEBUG_PARTIES]    = self::DEBUG_PARTIES_DEFAULT;
 		$this->defaults[self::CREATE_ARCHIVES]  = self::CREATE_ARCHIVES_DEFAULT;
 		$this->defaults[self::THROW_EXCEPTIONS] = self::THROW_EXCEPTIONS_DEFAULT;
