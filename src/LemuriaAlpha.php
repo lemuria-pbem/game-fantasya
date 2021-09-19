@@ -19,6 +19,7 @@ use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Renderer\Magellan\MagellanWriter;
+use Lemuria\Renderer\Text\BattleLogWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
 use Lemuria\Renderer\Text\SpellBookWriter;
@@ -196,6 +197,10 @@ final class LemuriaAlpha
 					$writer    = new SpellBookWriter($orderPath);
 					$writer->render($id);
 				}
+
+				$suffix = '.battle.' . BattleLogWriter::LOCATION_PLACEHOLDER . '.txt';
+				$writer = new BattleLogWriter($dir . DIRECTORY_SEPARATOR . $name . $suffix);
+				$writer->render($id);
 			}
 
 			$p++;
