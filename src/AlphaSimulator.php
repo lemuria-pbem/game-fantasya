@@ -16,7 +16,7 @@ use Lemuria\Model\Fantasya\Region;
 
 final class AlphaSimulator
 {
-	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => 'M'];
+	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => ' '];
 
 	private LemuriaConfig $config;
 
