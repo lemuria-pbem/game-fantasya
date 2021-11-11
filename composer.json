@@ -9,8 +9,8 @@
 		"lemuria",
 		"pbem"
 	],
-	"version": "0.7.2",
-	"time": "2021-10-24",
+	"version": "0.8.0",
+	"time": "2021-10-29",
 	"license": "GPL-3.0",
 	"authors": [
 		{
@@ -22,7 +22,7 @@
 	"require": {
 		"php": "~8.0",
 		"ext-zip": "~1.2",
-		"components/jquery": "~3.5",
+		"components/jquery": "~3.6",
 		"twbs/bootstrap": "~4.6",
 
 		"lemuria-pbem/lemuria": "~0.7.0",
