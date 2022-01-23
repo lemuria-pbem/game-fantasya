@@ -9,14 +9,36 @@ use Lemuria\Model\Fantasya\Party;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+const STDOUT_ONLY = '--stdout-only';
+
 if ($argc < 2) {
 	file_put_contents('php://stderr', 'Fehler: Keine Partei-UUID angegeben.' . PHP_EOL);
 	exit(1);
 }
 
+$uuid       = $argv[1];
+$stdoutOnly = false;
+if ($argc === 3) {
+	$stdoutOnly = $argv[2] === STDOUT_ONLY;
+	if ($uuid === STDOUT_ONLY) {
+		if ($stdoutOnly) {
+			file_put_contents('php://stderr', 'Fehler: Keine Partei-UUID angegeben.' . PHP_EOL);
+			exit(1);
+		}
+		$uuid       = $argv[2];
+		$stdoutOnly = true;
+	}
+	if (!$stdoutOnly) {
+		file_put_contents('php://stderr', 'Fehler: Unbekannter Parameter angegeben.' . PHP_EOL);
+		exit(1);
+	}
+} elseif ($argc > 3) {
+	file_put_contents('php://stderr', 'Fehler: Zu viele Parameter angegeben.' . PHP_EOL);
+	exit(1);
+}
+
 try {
 	$simulator = new AlphaSimulator();
-	$uuid      = $argv[1];
 	$party     = Lemuria::Registry()->find($uuid);
 	if ($party instanceof Party) {
 		$orders = __DIR__ . '/../storage/orders/' . $simulator->Round() . '/' . $uuid . '.order';
@@ -40,9 +62,17 @@ try {
 		exit(0);
 	}
 } catch (\Throwable $e) {
-	file_put_contents('php://stderr', (string)$e);
+	if ($stdoutOnly) {
+		echo 'Simulation abgebrochen: ' . $e->getMessage() . PHP_EOL . $e->getFile() . ':' . $e->getLine();
+	} else {
+		file_put_contents('php://stderr', (string)$e);
+	}
 	exit(2);
 }
 
-file_put_contents('php://stderr', 'Fehler: Partei nicht gefunden.' . PHP_EOL);
+if ($stdoutOnly) {
+	echo 'Fehler: Partei nicht gefunden.' . PHP_EOL;
+} else {
+	file_put_contents('php://stderr', 'Fehler: Partei nicht gefunden.' . PHP_EOL);
+}
 exit(1);
