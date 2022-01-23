@@ -8,7 +8,7 @@ LAST_TURN=`php8.0 $BIN_DIR/last-turn.php`
 LAST_NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$LAST_TURN/newcomers.json
 TURN=`expr $LAST_TURN + 1`
 NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$TURN/newcomers.json
-EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria -vvv"
+EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria $GAME -vvv"
 LOG_DIR=log
 LOG=$LOG_DIR/run-$TURN.log
 
