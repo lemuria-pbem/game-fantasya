@@ -14,9 +14,10 @@ use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
-use Lemuria\Model\Catalog;
+use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
+use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\BattleLogWriter;
@@ -160,9 +161,9 @@ final class LemuriaAlpha
 
 		$p          = 0;
 		$hasVersion = false;
-		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
+		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
 			$id       = $party->Id();
-			$isPlayer = $party->Type() === Party::PLAYER;
+			$isPlayer = $party->Type() === Type::PLAYER;
 			$name     = (string)$id;
 			$filter   = $this->getMessageFilter($party);
 			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
@@ -236,8 +237,8 @@ final class LemuriaAlpha
 		}
 
 		$archives = [];
-		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			if ($party->Type() !== Party::PLAYER) {
+		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
+			if ($party->Type() !== Type::PLAYER) {
 				continue;
 			}
 
@@ -330,8 +331,8 @@ final class LemuriaAlpha
 	}
 
 	private function addMissingParties(Gathering $gathering): void {
-		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			if ($party->Type() === Party::PLAYER && !$gathering->has($party->Id())) {
+		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
+			if ($party->Type() === Type::PLAYER && !$gathering->has($party->Id())) {
 				$this->turn->substitute($party);
 			}
 		}
