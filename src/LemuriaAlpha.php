@@ -35,23 +35,23 @@ final class LemuriaAlpha
 
 	private const ZIP_OPTIONS = ['remove_all_path' => true];
 
-	private AlphaConfig $config;
+	private readonly AlphaConfig $config;
 
-	private int $round;
+	private readonly int $round;
 
-	private int $nextRound;
+	private readonly int $nextRound;
 
-	private bool $debugBattles;
+	private readonly bool $debugBattles;
 
-	private array $debugParties;
+	private readonly array $debugParties;
 
-	private bool $createArchives;
+	private readonly bool $createArchives;
 
-	private bool $throwExceptions;
+	private readonly bool $throwExceptions;
 
-	private string $storage;
+	private readonly string $storage;
 
-	private LemuriaTurn $turn;
+	private readonly LemuriaTurn $turn;
 
 	public function __construct() {
 		$this->storage = realpath(__DIR__ . '/../storage');

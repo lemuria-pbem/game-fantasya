@@ -18,7 +18,7 @@ final class AlphaSimulator
 {
 	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => ' '];
 
-	private LemuriaConfig $config;
+	private readonly LemuriaConfig $config;
 
 	public function __construct() {
 		$storage = realpath(__DIR__ . '/../storage');
