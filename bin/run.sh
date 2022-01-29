@@ -38,7 +38,7 @@ chmod go+w $NEWCOMERS_FILE
 chmod go-w $LAST_NEWCOMERS_FILE
 # Send emails via website command.
 echo "Sending e-mails..." >> $LOG
-EMAIL_RESULT=`EMAIL_COMMAND 2>&! >> $LOG`
+EMAIL_RESULT=`EMAIL_COMMAND >> $LOG 2>&1`
 if [ $EMAIL_RESULT -ne 0 ]
 then
 	echo "Sending e-mails failed (code $EMAIL_RESULT)!" >> $LOG
