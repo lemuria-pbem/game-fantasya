@@ -271,7 +271,7 @@ final class LemuriaAlpha
 		if (!$logDir) {
 			throw new DirectoryNotFoundException($logDir);
 		}
-		$destinationDir = $logDir . DIRECTORY_SEPARATOR . $this->round;
+		$destinationDir = $logDir . DIRECTORY_SEPARATOR . $this->nextRound;
 		if (!is_dir($destinationDir)) {
 			mkdir($destinationDir);
 			chmod($destinationDir, 0775);
