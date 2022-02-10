@@ -3,6 +3,7 @@ declare(strict_types = 1);
 namespace Lemuria\Alpha;
 
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
+use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
@@ -18,6 +19,7 @@ use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
+use Lemuria\Model\Fantasya\Unicum;
 use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\BattleLogWriter;
@@ -25,6 +27,7 @@ use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
 use Lemuria\Renderer\Text\SpellBookWriter;
 use Lemuria\Renderer\Text\TextWriter;
+use Lemuria\Renderer\Text\UnicumWriter;
 use Lemuria\Renderer\Text\Wrapper\FileWrapper;
 use Lemuria\Version;
 use Lemuria\Version\VersionFinder;
@@ -197,6 +200,14 @@ final class LemuriaAlpha
 					$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.spells.txt';
 					$writer    = new SpellBookWriter($orderPath);
 					$writer->render($id);
+				}
+
+				$unica = new PartyUnica($party);
+				foreach ($unica->Treasury() as $unicum /* @var Unicum $unicum */) {
+					$fileName   = $name . '.' . $unicum->Composition() . '_' . $unicum->Id();
+					$unicumPath = $dir . DIRECTORY_SEPARATOR . $fileName . '.txt';
+					$writer     = new UnicumWriter($unicumPath);
+					$writer->render($unicum);
 				}
 
 				$suffix = '.battle.' . BattleLogWriter::LOCATION_PLACEHOLDER . '.txt';
