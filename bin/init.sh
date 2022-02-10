@@ -6,7 +6,7 @@ BIN_DIR=$BASE_DIR/lemuria-alpha/bin
 TURN=0
 LOG_DIR=log
 EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria -vvv"
-LOG=$LOG_DIR/run-$TURN.log
+LOG=$LOG_DIR/run.log
 
 cd $BASE_DIR
 touch $LOG
@@ -32,3 +32,6 @@ echo >> $LOG
 
 echo "Lemuria init end: `date`" >> $LOG
 echo "Finished." >> $LOG
+
+# Move run log to the game log directory of this turn.
+mv $LOG $LOG_DIR/$TURN/

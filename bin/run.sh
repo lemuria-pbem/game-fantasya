@@ -10,7 +10,7 @@ TURN=`expr $LAST_TURN + 1`
 NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$TURN/newcomers.json
 EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria $GAME -vvv"
 LOG_DIR=log
-LOG=$LOG_DIR/run-$TURN.log
+LOG=$LOG_DIR/run.log
 
 cd $BASE_DIR
 touch $LOG
@@ -38,7 +38,8 @@ chmod go+w $NEWCOMERS_FILE
 chmod go-w $LAST_NEWCOMERS_FILE
 # Send emails via website command.
 echo "Sending e-mails..." >> $LOG
-EMAIL_RESULT=`EMAIL_COMMAND 2>&! >> $LOG`
+$EMAIL_COMMAND >> $LOG 2>&1
+EMAIL_RESULT=$?
 if [ $EMAIL_RESULT -ne 0 ]
 then
 	echo "Sending e-mails failed (code $EMAIL_RESULT)!" >> $LOG
@@ -47,3 +48,6 @@ echo >> $LOG
 
 echo "Lemuria ZAT end: `date`" >> $LOG
 echo "Finished." >> $LOG
+
+# Move run log to the game log directory of this turn.
+mv $LOG $LOG_DIR/$TURN/
