@@ -10,7 +10,7 @@ TURN=`expr $LAST_TURN + 1`
 NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$TURN/newcomers.json
 EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria $GAME -vvv"
 LOG_DIR=log
-LOG=$LOG_DIR/run-$TURN.log
+LOG=$LOG_DIR/run.log
 
 cd $BASE_DIR
 touch $LOG
@@ -48,3 +48,6 @@ echo >> $LOG
 
 echo "Lemuria ZAT end: `date`" >> $LOG
 echo "Finished." >> $LOG
+
+# Move run log to the game log directory of this turn.
+mv $LOG $LOG_DIR/$TURN/

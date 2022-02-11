@@ -9,10 +9,13 @@
 /storage/config.json
 /storage/config.local.json
 /storage/game/*/*.json
+/storage/game/year.*/*/*.json
 /storage/log/lemuria.log
-/storage/log/run-*.log
 /storage/log/*/*.log
+/storage/log/year.*/*/*.log
 /storage/orders/*/*.order
+/storage/orders/year.*/*/*.order
 /storage/report/*/*.zip
 /storage/turn/*/*.*
+/storage/turn/year.*/*/*.*
 /web/css/report.min.css
