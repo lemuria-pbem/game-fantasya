@@ -3,6 +3,7 @@ declare(strict_types = 1);
 namespace Lemuria\Alpha;
 
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
+use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
@@ -14,9 +15,11 @@ use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
-use Lemuria\Model\Catalog;
+use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
+use Lemuria\Model\Fantasya\Party\Type;
+use Lemuria\Model\Fantasya\Unicum;
 use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\BattleLogWriter;
@@ -24,6 +27,7 @@ use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
 use Lemuria\Renderer\Text\SpellBookWriter;
 use Lemuria\Renderer\Text\TextWriter;
+use Lemuria\Renderer\Text\UnicumWriter;
 use Lemuria\Renderer\Text\Wrapper\FileWrapper;
 use Lemuria\Version;
 use Lemuria\Version\VersionFinder;
@@ -34,23 +38,23 @@ final class LemuriaAlpha
 
 	private const ZIP_OPTIONS = ['remove_all_path' => true];
 
-	private AlphaConfig $config;
+	private readonly AlphaConfig $config;
 
-	private int $round;
+	private readonly int $round;
 
-	private int $nextRound;
+	private readonly int $nextRound;
 
-	private bool $debugBattles;
+	private readonly bool $debugBattles;
 
-	private array $debugParties;
+	private readonly array $debugParties;
 
-	private bool $createArchives;
+	private readonly bool $createArchives;
 
-	private bool $throwExceptions;
+	private readonly bool $throwExceptions;
 
-	private string $storage;
+	private readonly string $storage;
 
-	private LemuriaTurn $turn;
+	private readonly LemuriaTurn $turn;
 
 	public function __construct() {
 		$this->storage = realpath(__DIR__ . '/../storage');
@@ -160,9 +164,9 @@ final class LemuriaAlpha
 
 		$p          = 0;
 		$hasVersion = false;
-		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
+		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
 			$id       = $party->Id();
-			$isPlayer = $party->Type() === Party::PLAYER;
+			$isPlayer = $party->Type() === Type::PLAYER;
 			$name     = (string)$id;
 			$filter   = $this->getMessageFilter($party);
 			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
@@ -196,6 +200,14 @@ final class LemuriaAlpha
 					$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.spells.txt';
 					$writer    = new SpellBookWriter($orderPath);
 					$writer->render($id);
+				}
+
+				$unica = new PartyUnica($party);
+				foreach ($unica->Treasury() as $unicum /* @var Unicum $unicum */) {
+					$fileName   = $name . '.' . $unicum->Composition() . '_' . $unicum->Id();
+					$unicumPath = $dir . DIRECTORY_SEPARATOR . $fileName . '.txt';
+					$writer     = new UnicumWriter($unicumPath);
+					$writer->render($unicum);
 				}
 
 				$suffix = '.battle.' . BattleLogWriter::LOCATION_PLACEHOLDER . '.txt';
@@ -236,8 +248,8 @@ final class LemuriaAlpha
 		}
 
 		$archives = [];
-		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			if ($party->Type() !== Party::PLAYER) {
+		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
+			if ($party->Type() !== Type::PLAYER) {
 				continue;
 			}
 
@@ -330,8 +342,8 @@ final class LemuriaAlpha
 	}
 
 	private function addMissingParties(Gathering $gathering): void {
-		foreach (Lemuria::Catalog()->getAll(Catalog::PARTIES) as $party /* @var Party $party */) {
-			if ($party->Type() === Party::PLAYER && !$gathering->has($party->Id())) {
+		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
+			if ($party->Type() === Type::PLAYER && !$gathering->has($party->Id())) {
 				$this->turn->substitute($party);
 			}
 		}
