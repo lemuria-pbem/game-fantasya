@@ -141,6 +141,7 @@ final class LemuriaAlpha
 	}
 
 	public function finish(): self {
+		$this->turn->prepareNext();
 		Lemuria::save();
 		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
 		$this->config[LemuriaConfig::MDD]   = time();

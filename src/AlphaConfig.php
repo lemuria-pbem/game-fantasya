@@ -7,7 +7,7 @@ use Lemuria\Log;
 use Lemuria\Model\Fantasya\Exception\JsonException;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
 
-final class AlphaConfig extends LemuriaConfig
+class AlphaConfig extends LemuriaConfig
 {
 	public final const DEBUG_BATTLES = 'debugBattles';
 
