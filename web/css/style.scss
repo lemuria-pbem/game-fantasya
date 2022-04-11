@@ -43,3 +43,22 @@ ul {
 .diplomacy > li {
     margin-bottom: 1rem;
 }
+
+.statistics.table tbody {
+    .change-less {
+        .less-is-good {
+            color: #28a745;
+        }
+        .more-is-good {
+            color: #dc3545;
+        }
+    }
+    .change-more {
+        .less-is-good {
+            color: #dc3545;
+        }
+        .more-is-good {
+            color: #28a745;
+        }
+    }
+}
