@@ -3,9 +3,11 @@ declare(strict_types = 1);
 namespace Lemuria\Alpha;
 
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Statistics\Fantasya\LemuriaStatistics;
 use Lemuria\Log;
 use Lemuria\Model\Fantasya\Exception\JsonException;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
+use Lemuria\Statistics;
 
 class AlphaConfig extends LemuriaConfig
 {
@@ -33,6 +35,10 @@ class AlphaConfig extends LemuriaConfig
 	public function __construct(string $storagePath) {
 		parent::__construct($storagePath);
 		$this->overrideWithLocalConfig($storagePath);
+	}
+
+	public function Statistics(): Statistics {
+		return new LemuriaStatistics();
 	}
 
 	protected function initDefaults(): void {
