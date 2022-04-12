@@ -1,3 +1,8 @@
+@import "../../vendor/twbs/bootstrap/scss/functions";
+@import "../../vendor/twbs/bootstrap/scss/variables";
+
+$unicumColor: #e724c7;
+
 body {
     margin: 1rem;
 }
@@ -13,7 +18,7 @@ ul {
 
 .badge-dark {
     color: #fff;
-    background-color: #e724c7;
+    background-color: $unicumColor;
 }
 
 .report {
@@ -46,19 +51,43 @@ ul {
 
 .statistics.table tbody {
     .change-less {
-        .less-is-good {
-            color: #28a745;
+        .less-is-good,
+        &.less-is-good {
+            color: $success;
         }
-        .more-is-good {
-            color: #dc3545;
+        .more-is-good,
+        &.more-is-good {
+            color: $danger;
         }
     }
     .change-more {
-        .less-is-good {
-            color: #dc3545;
+        .less-is-good,
+        &.less-is-good {
+            color: $danger;
         }
-        .more-is-good {
-            color: #28a745;
+        .more-is-good,
+        &.more-is-good {
+            color: $success;
+        }
+    }
+    table {
+        margin-bottom: 0;
+        tr {
+            background-color: unset;
+            &.td-16 td {
+                width: 6.25%;
+            }
+        }
+    }
+}
+
+.statistics.table.table-sm {
+    table {
+        caption {
+            caption-side: top;
+            color: unset;
+            font-weight: $font-weight-bold;
+            padding: 0 0 $table-cell-padding-sm;
         }
     }
 }
