@@ -74,8 +74,17 @@ ul {
         margin-bottom: 0;
         tr {
             background-color: unset;
+            &.td-8 td {
+                width: 12.5%;
+            }
+            &.td-12 td {
+                width: 8.333%;
+            }
             &.td-16 td {
                 width: 6.25%;
+            }
+            &.td-20 td {
+                width: 5.0%;
             }
         }
     }
