@@ -18,7 +18,7 @@ final class AlphaSimulator
 {
 	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => ' '];
 
-	private readonly LemuriaConfig $config;
+	private readonly AlphaConfig $config;
 
 	public function __construct() {
 		$storage = realpath(__DIR__ . '/../storage');
@@ -26,7 +26,7 @@ final class AlphaSimulator
 			throw new DirectoryNotFoundException($storage);
 		}
 
-		$this->config = new LemuriaConfig($storage);
+		$this->config = new AlphaConfig($storage);
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 		Lemuria::load();
