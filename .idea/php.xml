@@ -9,13 +9,13 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/lemuria" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/model-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/engine-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-text" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-magellan" />
+      <path value="$PROJECT_DIR$/vendor/lemuria-pbem/statistics-fantasya" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

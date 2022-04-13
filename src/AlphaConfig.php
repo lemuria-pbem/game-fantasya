@@ -3,12 +3,16 @@ declare(strict_types = 1);
 namespace Lemuria\Alpha;
 
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Statistics\Fantasya\LemuriaStatistics;
 use Lemuria\Log;
 use Lemuria\Model\Fantasya\Exception\JsonException;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
+use Lemuria\Statistics;
 
 class AlphaConfig extends LemuriaConfig
 {
+	public final const DEVELOPMENT_MODE = 'developmentMode';
+
 	public final const DEBUG_BATTLES = 'debugBattles';
 
 	public final const DEBUG_PARTIES = 'debugParties';
@@ -18,6 +22,8 @@ class AlphaConfig extends LemuriaConfig
 	public final const THROW_EXCEPTIONS = 'throwExceptions';
 
 	protected final const LOCAL_CONFIG = 'config.local.json';
+
+	private const DEVELOPMENT_MODE_DEFAULT = false;
 
 	private const DEBUG_BATTLES_DEFAULT = false;
 
@@ -33,10 +39,16 @@ class AlphaConfig extends LemuriaConfig
 	public function __construct(string $storagePath) {
 		parent::__construct($storagePath);
 		$this->overrideWithLocalConfig($storagePath);
+		$this->featureFlag->setIsDevelopment($this->offsetGet(self::DEVELOPMENT_MODE));
+	}
+
+	public function Statistics(): Statistics {
+		return new LemuriaStatistics();
 	}
 
 	protected function initDefaults(): void {
 		parent::initDefaults();
+		$this->defaults[self::DEVELOPMENT_MODE] = self::DEVELOPMENT_MODE_DEFAULT;
 		$this->defaults[self::DEBUG_BATTLES]    = self::DEBUG_BATTLES_DEFAULT;
 		$this->defaults[self::DEBUG_PARTIES]    = self::DEBUG_PARTIES_DEFAULT;
 		$this->defaults[self::CREATE_ARCHIVES]  = self::CREATE_ARCHIVES_DEFAULT;
