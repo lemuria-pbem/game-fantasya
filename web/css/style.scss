@@ -20,6 +20,16 @@ ul {
     list-style-type: none;
 }
 
+div.fixed-top.vh-100 {
+    left: unset;
+    overflow-y: scroll;
+}
+
+#navbar-toggle {
+    left: unset;
+    z-index: 1;
+}
+
 .badge-dark {
     color: #fff;
     background-color: $unicumColor;
