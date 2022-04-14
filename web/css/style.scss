@@ -11,6 +11,10 @@ h2, h3, h4, h5 {
     margin-top: 2rem;
 }
 
+p.h7 {
+    margin: 0.5rem 0 0;
+}
+
 ul {
     list-style-position: inside;
     list-style-type: none;
@@ -49,6 +53,18 @@ ul {
 
     p {
         margin-bottom: 0;
+    }
+
+    .blockquote {
+        margin: 0 1.0rem 0.5rem;
+        color: $info;
+        font-size: unset;
+        ol {
+            font-style: italic;
+            list-style-type: none;
+            margin: 0;
+            padding: unset;
+        }
     }
 
     ul {
