@@ -18,16 +18,18 @@ p.h7 {
 ul {
     list-style-position: inside;
     list-style-type: none;
+    /* alternative to [1]
+    padding-left: 0;
+    */
+}
+
+.container-fluid .row > div ul {
+    padding-left: 0;
 }
 
 div.fixed-top.vh-100 {
     left: unset;
     overflow-y: scroll;
-}
-
-#navbar-toggle {
-    left: unset;
-    z-index: 1;
 }
 
 .badge-dark {
@@ -50,7 +52,24 @@ div.fixed-top.vh-100 {
     }
 }
 
+#navbar-toggle {
+    left: unset;
+    z-index: 1;
+}
+
+#acquaintances {
+    margin-top: 0.75rem;
+    small {
+        display: block;
+        margin: 0.5rem 0;
+    }
+    h4 {
+        margin-top: 0.5rem;
+    }
+}
+
 .report {
+    /* deprecated [1] */
     padding-left: 0;
 
     .badge.text-monospace {
@@ -86,6 +105,7 @@ div.fixed-top.vh-100 {
     }
 }
 
+/* deprecated */
 .diplomacy > li {
     margin-bottom: 1rem;
 }
