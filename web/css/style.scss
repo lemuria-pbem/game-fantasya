@@ -1,5 +1,6 @@
 @import "../../vendor/twbs/bootstrap/scss/functions";
 @import "../../vendor/twbs/bootstrap/scss/variables";
+@import "../../vendor/twbs/bootstrap/scss/mixins/breakpoints";
 
 $unicumColor: #e724c7;
 
@@ -57,6 +58,13 @@ div.fixed-top.vh-100 {
     z-index: 1;
 }
 
+#toggle-responsive {
+    @media (min-width: breakpoint-min("lg")) {
+        position: absolute;
+        top: 5.0rem;
+    }
+}
+
 #acquaintances {
     margin-top: 0.75rem;
     small {
@@ -66,6 +74,12 @@ div.fixed-top.vh-100 {
     h4 {
         margin-top: 0.5rem;
     }
+}
+
+.non-responsive .container-fluid .row > div {
+    flex: unset;
+    max-width: unset;
+    padding: unset !important;
 }
 
 .report {
