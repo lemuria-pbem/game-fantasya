@@ -18,6 +18,8 @@ final class AlphaSimulator
 {
 	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => ' '];
 
+	private const LOG_FILE = 'simulation.log';
+
 	private readonly AlphaConfig $config;
 
 	public function __construct() {
@@ -27,7 +29,7 @@ final class AlphaSimulator
 		}
 
 		$this->config = new AlphaConfig($storage);
-		Lemuria::init($this->config);
+		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 		Lemuria::load();
 	}
