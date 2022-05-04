@@ -11,6 +11,7 @@
 /storage/game/*/*.json
 /storage/game/year.*/*/*.json
 /storage/log/lemuria.log
+/storage/log/simulation.log
 /storage/log/*/*.log
 /storage/log/year.*/*/*.log
 /storage/orders/*/*.order
