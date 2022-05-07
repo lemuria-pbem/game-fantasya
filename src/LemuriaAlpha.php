@@ -211,7 +211,7 @@ final class LemuriaAlpha
 					$writer->render($unicum);
 				}
 
-				$suffix = '.battle.' . BattleLogWriter::LOCATION_PLACEHOLDER . '.txt';
+				$suffix = '.battle.' . BattleLogWriter::LOCATION_PLACEHOLDER . '.' . BattleLogWriter::COUNTER_PLACEHOLDER . '.txt';
 				$writer = new BattleLogWriter($dir . DIRECTORY_SEPARATOR . $name . $suffix);
 				$writer->render($id);
 			}
