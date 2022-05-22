@@ -152,28 +152,24 @@ final class LemuriaAlpha
 
 	public function createReports(): self {
 		Lemuria::Log()->debug('Generating reports.');
-		$dir = realpath($this->storage . '/turn');
-		if (!$dir) {
-			throw new DirectoryNotFoundException($dir);
+		$directory = realpath($this->storage . '/turn');
+		if (!$directory) {
+			throw new DirectoryNotFoundException($directory);
 		}
-		$dir .= DIRECTORY_SEPARATOR . $this->nextRound;
-		if (!is_dir($dir)) {
-			mkdir($dir);
-			chmod($dir, 0775);
-		}
-		$version = Lemuria::Version();
+		$directory  .= DIRECTORY_SEPARATOR . $this->nextRound;
+		$pathFactory = new AlphaPathFactory($directory);
+		$version     = Lemuria::Version();
 
 		$p          = 0;
 		$hasVersion = false;
 		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
 			$id       = $party->Id();
 			$isPlayer = $party->Type() === Type::PLAYER;
-			$name     = (string)$id;
 			$filter   = $this->getMessageFilter($party);
+			$pathFactory->setPrefix((string)$id);
 			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
 
-			$crPath = $dir . DIRECTORY_SEPARATOR . $name . '.cr';
-			$writer = new MagellanWriter($crPath);
+			$writer = new MagellanWriter($pathFactory);
 			if (!$hasVersion) {
 				$version[Version::RENDERERS] = $writer->getVersion();
 			}
@@ -181,39 +177,28 @@ final class LemuriaAlpha
 				$writer->setFilter($filter)->render($id);
 			}
 
-			$htmlPath = $dir . DIRECTORY_SEPARATOR . $name . '.html';
-			$writer   = new HtmlWriter($htmlPath);
+			$writer = new HtmlWriter($pathFactory);
 			if (!$hasVersion) {
 				$version[Version::RENDERERS] = $writer->getVersion();
 			}
 			$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
 
 			if ($isPlayer) {
-				$txtPath = $dir . DIRECTORY_SEPARATOR . $name . '.txt';
-				$writer  = new TextWriter($txtPath);
+				$writer = new TextWriter($pathFactory);
 				$writer->setFilter($filter)->render($id);
-
-				$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.orders.txt';
-				$writer    = new OrderWriter($orderPath);
+				$writer = new OrderWriter($pathFactory);
 				$writer->render($id);
-
+				$writer = new BattleLogWriter($pathFactory);
+				$writer->render($id);
 				if ($party->SpellBook()->count() > 0) {
-					$orderPath = $dir . DIRECTORY_SEPARATOR . $name . '.spells.txt';
-					$writer    = new SpellBookWriter($orderPath);
+					$writer = new SpellBookWriter($pathFactory);
 					$writer->render($id);
 				}
-
 				$unica = new PartyUnica($party);
 				foreach ($unica->Treasury() as $unicum /* @var Unicum $unicum */) {
-					$fileName   = $name . '.' . $unicum->Composition() . '_' . $unicum->Id();
-					$unicumPath = $dir . DIRECTORY_SEPARATOR . $fileName . '.txt';
-					$writer     = new UnicumWriter($unicumPath);
-					$writer->render($unicum);
+					$writer = new UnicumWriter($pathFactory);
+					$writer->render($unicum->Id());
 				}
-
-				$suffix = '.battle.' . BattleLogWriter::LOCATION_PLACEHOLDER . '.' . BattleLogWriter::COUNTER_PLACEHOLDER . '.txt';
-				$writer = new BattleLogWriter($dir . DIRECTORY_SEPARATOR . $name . $suffix);
-				$writer->render($id);
 			}
 
 			$p++;
