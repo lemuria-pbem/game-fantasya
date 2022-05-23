@@ -11,7 +11,7 @@
 		}
 	],
 	"version": "0.12.4",
-	"time": "2022-05-22",
+	"time": "2022-05-23",
 
 	"require": {
 		"php": "~8.1",
@@ -26,9 +26,6 @@
 		"lemuria-pbem/renderer-magellan": "dev-dev",
 		"lemuria-pbem/renderer-text": "dev-dev",
 		"lemuria-pbem/statistics-fantasya": "dev-dev"
-	},
-	"require-dev": {
-		"jetbrains/phpstorm-attributes": "~1.0"
 	},
 	"repositories": [
 		{
