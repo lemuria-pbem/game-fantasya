@@ -10,8 +10,8 @@
 			"email": "lemuria@online.de"
 		}
 	],
-	"version": "0.12.3",
-	"time": "2022-05-19",
+	"version": "0.12.4",
+	"time": "2022-05-25",
 
 	"require": {
 		"php": "~8.1",
@@ -26,9 +26,6 @@
 		"lemuria-pbem/renderer-magellan": "~0.12.0",
 		"lemuria-pbem/renderer-text": "~0.12.0",
 		"lemuria-pbem/statistics-fantasya": "~0.12.0"
-	},
-	"require-dev": {
-		"jetbrains/phpstorm-attributes": "~1.0"
 	},
 	"repositories": [
 		{

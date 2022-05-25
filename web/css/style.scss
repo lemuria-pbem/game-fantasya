@@ -158,19 +158,31 @@ div.fixed-top.vh-100 {
         margin-bottom: 0;
         tr {
             background-color: unset;
-            &.td-8 td {
-                width: 12.5%;
-            }
-            &.td-12 td {
-                width: 8.333%;
-            }
-            &.td-16 td {
-                width: 6.25%;
-            }
-            &.td-20 td {
-                width: 5.0%;
-            }
         }
+    }
+}
+
+.statistics.table tr {
+    &.td-8 td {
+        width: 12.5%;
+    }
+    &.td-9 td {
+        width: 11.111%;
+    }
+    &.td-12 td {
+        width: 8.333%;
+    }
+    &.td-16 td {
+        width: 6.25%;
+    }
+    &.td-18 td {
+        width: 5.555%;
+    }
+    &.td-20 td {
+        width: 5.0%;
+    }
+    &.td-27 td {
+        width: 3.703%;
     }
 }
 
