@@ -5,12 +5,13 @@ namespace Lemuria\Alpha;
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
+use Lemuria\Engine\Fantasya\Message\Filter\PartyAnnouncementFilter;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\TurnOptions;
 use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
-use Lemuria\Engine\Message\Filter\NullFilter;
+use Lemuria\Engine\Message\Filter\CompositeFilter;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
@@ -306,7 +307,11 @@ final class LemuriaAlpha
 
 	private function getMessageFilter(Party $party): Filter {
 		$id = $party->Uuid();
-		return isset($this->debugParties[$id]) ? new NullFilter() : new DebugFilter();
+		if (isset($this->debugParties[$id])) {
+			return new PartyAnnouncementFilter();
+		}
+		$filter = new CompositeFilter();
+		return $filter->add(new DebugFilter())->add(new PartyAnnouncementFilter());
 	}
 
 	private function getPartyFrom(EntitySet $units): ?Party {
