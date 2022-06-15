@@ -4,7 +4,6 @@ Dies ist die letzte Entwicklungsversion vor Version 1.0.
 
 ## Verbesserungen und Fehler
 
-- Statistik für Arbeitsplätze, Wohlstand, Arbeitslosigkeit integrieren
 
 ## Ideen
 
