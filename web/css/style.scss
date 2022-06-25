@@ -66,6 +66,27 @@ div.fixed-top.vh-100 {
     z-index: 1;
 }
 
+#navbar .nav-link {
+    &.region {
+        color: $success;
+        &:before {
+            content: '🌳 ';
+        }
+    }
+    &.construction {
+        color: $dark;
+        &:before {
+            content: '🏰 ';
+        }
+    }
+    &.vessel {
+        color: $primary;
+        &:before {
+            content: '⛵ ';
+        }
+    }
+}
+
 #toggle-responsive {
     @media (min-width: breakpoint-min("lg")) {
         position: absolute;
