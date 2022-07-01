@@ -4,6 +4,7 @@ Dies ist die letzte Entwicklungsversion vor Version 1.0.
 
 ## Verbesserungen und Fehler
 
+- Sprungfunktion zu Einheiten im HTML-Report (wie in Magellan)
 
 ## Ideen
 

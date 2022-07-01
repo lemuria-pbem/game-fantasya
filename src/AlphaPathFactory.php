@@ -8,6 +8,7 @@ use Lemuria\Model\Fantasya\Unicum;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\PathFactory;
 use Lemuria\Renderer\Text\BattleLogWriter;
+use Lemuria\Renderer\Text\HerbalBookWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
 use Lemuria\Renderer\Text\SpellBookWriter;
@@ -38,6 +39,9 @@ class AlphaPathFactory implements PathFactory
 		if ($writer instanceof BattleLogWriter && $object instanceof BattleLog) {
 			$fileName = $this->name . '.battle.' . $object->Location()->Id() . '.' . $object->Battle()->counter;
 			return $this->directory . DIRECTORY_SEPARATOR . $fileName . '.txt';
+		}
+		if ($writer instanceof HerbalBookWriter) {
+			return $this->directory . DIRECTORY_SEPARATOR . $this->name . '.herbs.txt';
 		}
 		if ($writer instanceof HtmlWriter) {
 			return $this->directory . DIRECTORY_SEPARATOR . $this->name . '.html';

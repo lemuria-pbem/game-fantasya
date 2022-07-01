@@ -24,6 +24,7 @@ use Lemuria\Model\Fantasya\Unicum;
 use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\BattleLogWriter;
+use Lemuria\Renderer\Text\HerbalBookWriter;
 use Lemuria\Renderer\Text\HtmlWriter;
 use Lemuria\Renderer\Text\OrderWriter;
 use Lemuria\Renderer\Text\SpellBookWriter;
@@ -193,6 +194,10 @@ final class LemuriaAlpha
 				$writer->render($id);
 				if ($party->SpellBook()->count() > 0) {
 					$writer = new SpellBookWriter($pathFactory);
+					$writer->render($id);
+				}
+				if ($party->HerbalBook()->count() > 0) {
+					$writer = new HerbalBookWriter($pathFactory);
 					$writer->render($id);
 				}
 				$unica = new PartyUnica($party);
