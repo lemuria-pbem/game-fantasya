@@ -70,19 +70,19 @@ div.fixed-top.vh-100 {
     &.region {
         color: $success;
         &:before {
-            content: '🌳 ';
+            content: '\1f333\a0';
         }
     }
     &.construction {
         color: $dark;
         &:before {
-            content: '🏰 ';
+            content: '\1f3f0\a0';
         }
     }
     &.vessel {
         color: $primary;
         &:before {
-            content: '⛵ ';
+            content: '\26f5\a0';
         }
     }
 }
