@@ -66,7 +66,7 @@ div.fixed-top.vh-100 {
     z-index: 1;
 }
 
-#navbar .nav-link {
+#navbar .nav-pills .nav-link {
     &.region {
         color: $success;
         &:before {
@@ -84,6 +84,9 @@ div.fixed-top.vh-100 {
         &:before {
             content: '\26f5\a0';
         }
+    }
+    &.active {
+        background-color: transparentize($primary, 0.7);
     }
 }
 

@@ -17,6 +17,11 @@ $(function() {
         button.click();
     };
 
+    const gotoHandled = function(event) {
+        event.preventDefault();
+        gotoModal.modal('show');
+    };
+
     const locationHandled = function(event, location) {
         event.preventDefault();
         document.location.href = location;
@@ -63,7 +68,7 @@ $(function() {
             return buttonHandled(event, toggleButton);
         }
         if (event.key === 'g') {
-            return buttonHandled(event, gotoButton);
+            return gotoHandled(event, gotoButton);
         }
         if (event.key === 'i') {
             return buttonHandled(event, navButton);
