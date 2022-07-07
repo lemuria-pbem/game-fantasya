@@ -2,6 +2,7 @@
 $(function() {
     const toggleButton = $('#toggle-responsive');
     const toggleClass = 'non-responsive';
+    const toggleItem = 'LemuriaAlphaIsResponsive';
     const gotoButton = $('#toggle-goto');
     const gotoModal = $('#modal-goto');
     const gotoId = $('#modal-goto-id');
@@ -27,12 +28,27 @@ $(function() {
         document.location.href = location;
     };
 
+    const initToggleState = function() {
+        let body = $('body');
+        const current = body.hasClass(toggleClass);
+        const last = (window.localStorage.getItem(toggleItem) === '1');
+        if (last && current) {
+            body.removeClass(toggleClass);
+            return;
+        }
+        if (!last && !current){
+            body.addClass(toggleClass);
+        }
+    };
+
     toggleButton.click(function () {
         let body = $('body');
         if (body.hasClass(toggleClass)) {
             body.removeClass(toggleClass);
+            window.localStorage.setItem(toggleItem, '1');
         } else {
             body.addClass(toggleClass);
+            window.localStorage.setItem(toggleItem, '0');
         }
     });
 
@@ -83,4 +99,6 @@ $(function() {
             return locationHandled(event, spellBook.attr('href'));
         }
     });
+
+    initToggleState();
 });
