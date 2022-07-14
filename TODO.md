@@ -5,6 +5,82 @@ Dies ist die letzte Entwicklungsversion vor Version 1.0.
 ## Verbesserungen und Fehler
 
 
+## Feature: Märkte
+
+In Regionen mit einem Turm kann ein Markt gebaut werden. Händlereinheiten können
+den Markt betreten und preisen damit automatisch ihre Waren an. Um als Kunde mit
+einem  Händler zu handeln, muss der Markt nicht betreten werden.
+
+Der Herrscher der Region legt die Bedingungen für den Handel auf Märkten fest:
+
+- Er kann eine Marktgebühr für Händler festlegen.
+- Er kann verbieten, dass bestimmte Waren gehandelt werden.
+- Er kann über das ALlianzrecht "Betreten" Händler vom Markt ausschließen.
+- Er kann über das Allianzrecht "Markt" Kunden vom Handel ausschließen.
+
+### Angebot und Nachfrage
+
+Händler können Waren anbieten und Gesuche veröffentlichen. Dabei kann eine fixe
+Menge zu einem festen Preis oder in einem Preisbereich bestimmt werden, oder
+es wird ein Stückpreis für eine maximale Menge definiert. Angebote und Gesuche
+erhalten beim Erstellen eine Nummer, die beim Handel und zum Beenden verwendet
+wird.
+
+- BEENDEN Nummer
+
+#### Fix-Angebot
+
+Es wird eine feste Menge an Ware gegen einen nicht verhandelbaren Preis
+gehandelt.
+
+- ANGEBOT n Ware p Preis
+- NACHFRAGE n Ware p Preis
+
+#### Preisbereich mit Feilschen
+
+Eine feste Menge wird mit einer Preisvorstellung festgelegt, der Kunde kann
+versuchen zu handeln.
+
+- ANGEBOT n Ware p-q Preis
+- NACHFRAGE n Ware p-q Preis
+
+#### Stückpreis
+
+Wenn die Menge variabel und der Preis fest gewählt wird, handelt es sich um ein
+Stückpreis-Angebot.
+
+- ANGEBOT n-m Ware p Preis
+- NACHFRAGE n-m Ware p Preis
+
+#### Stückpreis mit Feilschen
+
+Werden Menge und Preis variabel gewählt, kann der Kunde versuchen, die
+gewünschte Menge zu einem Wunschpreis zu handeln.
+
+- ANGEBOT n-m Ware p-q Preis
+- NACHFRAGE n-m Ware p-q Preis
+
+### Gerüchte austauschen
+
+#### BESUCHEN
+
+Kunden können Händler besuchen, um mit ihnen Gerüchte auszutauschen.
+
+#### GERÜCHT
+
+Händler können mehrere kurze Texte festlegen, die sie den Besuchern erzählen.
+(Kunden können mit den besuchten Händlern über das herkömmliche BOTSCHAFT in
+Kontakt treten.)
+
+BESUCHEN und GERÜCHT funktionieren auch dann, wenn ihnen der Handel verboten
+ist. Auf diese Weise kann ein Schwarzmarkt organisiert werden, um die
+Handelsbeschränkungen zu unterlaufen und über GEBEN-Befehle dennoch Waren
+auszutauschen.
+
+### Handel mit NPC
+
+Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden. 
+
 ## Ideen
 
 - neue Gebäude, die Arbeitsplätze verdoppeln
