@@ -9,13 +9,13 @@ Dies ist die letzte Entwicklungsversion vor Version 1.0.
 
 In Regionen mit einem Turm kann ein Markt gebaut werden. Händlereinheiten können
 den Markt betreten und preisen damit automatisch ihre Waren an. Um als Kunde mit
-einem  Händler zu handeln, muss der Markt nicht betreten werden.
+einem Händler zu handeln, muss der Markt nicht betreten werden.
 
 Der Herrscher der Region legt die Bedingungen für den Handel auf Märkten fest:
 
 - Er kann eine Marktgebühr für Händler festlegen.
 - Er kann verbieten, dass bestimmte Waren gehandelt werden.
-- Er kann über das ALlianzrecht "Betreten" Händler vom Markt ausschließen.
+- Er kann über das Allianzrecht "Betreten" Händler vom Markt ausschließen.
 - Er kann über das Allianzrecht "Markt" Kunden vom Handel ausschließen.
 
 ### Angebot und Nachfrage

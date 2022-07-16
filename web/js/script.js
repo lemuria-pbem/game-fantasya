@@ -10,8 +10,11 @@ $(function() {
     const statistics = '#statistics';
     const spellBook = $('#spell-book');
     const herbalBook = $('#herbal-book');
+    const messagesButton = $('#messages-button');
+    const messages = $('ul.report[class!="party report"] span.badge-info, ul.report[class!="party report"] span.badge-warning').get();
 
     let enableKeys = true;
+    let messageIndex = 0;
 
     const buttonHandled = function(event, button) {
         event.preventDefault();
@@ -76,12 +79,36 @@ $(function() {
         }
     });
 
+    const initMessagesButton = function () {
+        if (messages.length) {
+            $('#messages-button-count').html(messages.length);
+            if (messages.length < 2) {
+                $('#messages-button-text').html('weiteres Ereignis');
+            } else {
+                $('#messages-button-text').html('weitere Ereignisse');
+            }
+            messagesButton.removeClass('d-none');
+        }
+    };
+
+    messagesButton.click(function() {
+        if (messages.length) {
+            if (messageIndex >= messages.length) {
+                messageIndex = 0;
+            }
+            messages[messageIndex++].scrollIntoView({block: 'center'});
+        }
+    });
+
     $(document).keydown(function(event) {
         if (!enableKeys) {
             return;
         }
         if (event.key === '#') {
             return buttonHandled(event, toggleButton);
+        }
+        if (event.key === 'e') {
+            return buttonHandled(event, messagesButton);
         }
         if (event.key === 'g') {
             return gotoHandled(event, gotoButton);
@@ -101,4 +128,5 @@ $(function() {
     });
 
     initToggleState();
+    initMessagesButton();
 });
