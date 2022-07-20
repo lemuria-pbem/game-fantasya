@@ -98,6 +98,7 @@ Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden.
 - Gerüchte durch NPC oder Bauern
   - Monstervorkommen in Nachbarregionen
   - Kämpfe in Nachbarregionen
+- Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine 
 - Weltumseglung ermöglichen
 - Ereignis "Juwelen gefunden" beim Bergbau in Gebirgen/Gletschern ohne Luxuswaren
 - Umweltereignisse
