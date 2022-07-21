@@ -11,7 +11,7 @@
 		}
 	],
 	"version": "0.12.11",
-	"time": "2022-07-16",
+	"time": "2022-07-21",
 
 	"require": {
 		"php": "~8.1",
@@ -25,7 +25,8 @@
 		"lemuria-pbem/model-fantasya": "dev-dev",
 		"lemuria-pbem/renderer-magellan": "dev-dev",
 		"lemuria-pbem/renderer-text": "dev-dev",
-		"lemuria-pbem/statistics-fantasya": "dev-dev"
+		"lemuria-pbem/statistics-fantasya": "dev-dev",
+		"lemuria-pbem/tools-lemuria": "dev-dev"
 	},
 	"repositories": [
 		{
@@ -51,6 +52,10 @@
 		{
 			"type": "vcs",
 			"url": "git@github.com:lemuria-pbem/statistics-fantasya.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:lemuria-pbem/tools-lemuria.git"
 		}
 	],
 
