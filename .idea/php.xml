@@ -18,6 +18,7 @@
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-text" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-magellan" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/statistics-fantasya" />
+      <path value="$PROJECT_DIR$/vendor/lemuria-pbem/tools-lemuria" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
