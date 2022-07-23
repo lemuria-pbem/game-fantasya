@@ -24,6 +24,13 @@ p.h8, ol.small {
     font-size: small;
 }
 
+mark {
+    background-color: #eef6f7;
+    padding: 0.25em 1.0em;
+    text-align: justify;
+    display: inline-block;
+}
+
 ul {
     list-style-position: inside;
     list-style-type: none;
