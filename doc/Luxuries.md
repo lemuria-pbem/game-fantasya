@@ -42,13 +42,13 @@ Maulbeere als Nahrungsquelle benötigt, die in gemäßigtem Klima gedeiht.
 
 ## Vorkommen
 
-| Luxusgut      | Landschaften                          | Höhe      | Temperatur | Bäume  |
-|---------------|---------------------------------------|-----------|------------|--------|
-| **Balsam**    | Ebene, Gebirge, Hochland, Sumpf, Wald |           | ≥ 20 °C    | ≥ 500  |
-| **Gewürze**   | Ebene, Hochland, Wüste                |           | ≥ 20 °C    | < 300  |
-| **Juwelen**   | Gebirge, Gletscher, Hochland          | ≥ 650 m   |            |        |
-| **Myrrhe**    | Ebene, Gebirge, Hochland, Wüste       | 350–800 m | ≥ 15 °C    | < 500  |
-| **Öl**        | Ebene, Gebirge, Hochland, Wüste       |           | ≥ 15 °C    |        |
-| **Pelze**     |                                       |           |            |        |
-| **Seide**     | Ebene, Hochland, Sumpf, Wald          | < 650 m   | 5–15 °C    | < 300  |
-| **Weihrauch** | Gebirge, Hochland, Wüste              |           |            | < 300  |
+| Luxusgut      | Landschaften                                            | Höhe      | Temperatur | Bäume  |
+|---------------|---------------------------------------------------------|-----------|------------|--------|
+| **Balsam**    | Wald, Sumpf, Hochland, Gebirge, Ebene                   |           | ≥ 20 °C    | ≥ 500  |
+| **Gewürze**   | Hochland, Ebene, Wüste                                  |           | ≥ 20 °C    | < 300  |
+| **Juwelen**   | Gebirge, Gletscher, Hochland                            | ≥ 650 m   |            |        |
+| **Myrrhe**    | Wüste, Hochland, Gebirge, Ebene                         | 350–800 m | ≥ 15 °C    | < 500  |
+| **Öl**        | Ebene, Wüste, Hochland, Gebirge                         |           | ≥ 15 °C    |        |
+| **Pelze**     | Gletscher, Gebirge, Hochland, Wald, Ebene, Wüste, Sumpf |           |            |        |
+| **Seide**     | Sumpf, Wald, Ebene, Hochland                            | < 650 m   | 5–15 °C    | < 300  |
+| **Weihrauch** | Hochland, Gebirge, Wüste                                |           |            | < 300  |

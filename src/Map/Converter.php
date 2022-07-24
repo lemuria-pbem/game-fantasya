@@ -55,16 +55,19 @@ class Converter
 
 	protected const MAX_GLACIER = 0.45;
 
-	protected Map $map;
-
 	protected Dictionary $dictionary;
+
+	protected HerbFinder $herbFinder;
+
+	protected LuxuryFinder $luxuryFinder;
 
 	protected float $maximum;
 
-	public function __construct(protected MapConfig $config, Map &$map) {
-		$this->map        = &$map;
-		$this->dictionary = new Dictionary();
-		$this->maximum    = $config->square * 100.0;
+	public function __construct(protected MapConfig $config, protected Map $map) {
+		$this->dictionary   = new Dictionary();
+		$this->luxuryFinder = new LuxuryFinder($map);
+		$this->herbFinder   = new HerbFinder();
+		$this->maximum      = $config->square * 100.0;
 	}
 
 	public function createRegion(int $x, int $y): Region {
@@ -72,6 +75,7 @@ class Converter
 		if (!$data) {
 			throw new MissingRegionException($x, $y);
 		}
+		$this->map->setX($x)->setY($y);
 
 		$id        = Lemuria::Catalog()->nextId(Domain::LOCATION);
 		$landscape = $this->getLandscape($x, $y, $data[Map::VEGETATION] ?? 0);
@@ -93,7 +97,7 @@ class Converter
 				Iron::class    => $this->calculateIron($landscape, $data),
 				$animal        => $this->calculateAnimals($animal, $data[Map::GOOD], $data[Map::ALTITUDE])
 			], $region);
-			$this->setLuxuries($region, $data);
+			$this->setLuxuries($region);
 			$this->setHerbage($region, $landscape, $x, $y);
 		}
 		return $region;
@@ -193,8 +197,8 @@ class Converter
 		}
 	}
 
-	protected function setLuxuries(Region $region, array $data): void {
-		throw new LemuriaException('Not implemented yet.');
+	protected function setLuxuries(Region $region): void {
+		$this->luxuryFinder->setRegion($region)->setLuxuries();
 	}
 
 	protected function setHerbage(Region $region, string $landscape, int $x, int $y): void {
