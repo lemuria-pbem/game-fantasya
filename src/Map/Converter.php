@@ -5,7 +5,6 @@ namespace Lemuria\Alpha\Map;
 use Lemuria\Alpha\Map\Exception\MissingRegionException;
 use Lemuria\Alpha\Map\Exception\RegionTypeException;
 use Lemuria\Engine\Fantasya\Factory\Workplaces;
-use Lemuria\Exception\LemuriaException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Dictionary;
 use Lemuria\Model\Domain;
@@ -63,10 +62,24 @@ class Converter
 
 	protected float $maximum;
 
+	public static function convertLandscape(int $vegetation): ?string {
+		return match ($vegetation) {
+			Terrain::OCEAN,    Moisture::LAKE,        Area::ICE           => Ocean::class,
+			Terrain::PLAIN,    Area::TUNDRA                               => Plain::class,
+			Area::RAIN_FOREST                                             => Forest::class,
+			Terrain::HIGHLAND, Area::HIGH_DESERT,     Area::HIGH_FOREST   => Highland::class,
+			Terrain::MOUNTAIN, Area::DESERT_MOUNTAIN, Area::RAIN_MOUNTAIN => Mountain::class,
+			Moisture::MOOR                                                => Swamp::class,
+			Moisture::OASIS,   Area::DESERT                               => Desert::class,
+			Area::GLACIER                                                 => Glacier::class,
+			default                                                       => null
+		};
+	}
+
 	public function __construct(protected MapConfig $config, protected Map $map) {
 		$this->dictionary   = new Dictionary();
 		$this->luxuryFinder = new LuxuryFinder($map);
-		$this->herbFinder   = new HerbFinder();
+		$this->herbFinder   = new HerbFinder($map);
 		$this->maximum      = $config->square * 100.0;
 	}
 
@@ -98,23 +111,17 @@ class Converter
 				$animal        => $this->calculateAnimals($animal, $data[Map::GOOD], $data[Map::ALTITUDE])
 			], $region);
 			$this->setLuxuries($region);
-			$this->setHerbage($region, $landscape, $x, $y);
+			$this->setHerbage($region, $x, $y);
 		}
 		return $region;
 	}
 
 	protected function getLandscape(int $x, int $y, int $vegetation): string {
-		return match ($vegetation) {
-			Terrain::OCEAN,    Moisture::LAKE,        Area::ICE           => Ocean::class,
-			Terrain::PLAIN,    Area::TUNDRA                               => Plain::class,
-			Area::RAIN_FOREST                                             => Forest::class,
-			Terrain::HIGHLAND, Area::HIGH_DESERT,     Area::HIGH_FOREST   => Highland::class,
-			Terrain::MOUNTAIN, Area::DESERT_MOUNTAIN, Area::RAIN_MOUNTAIN => Mountain::class,
-			Moisture::MOOR                                                => Swamp::class,
-			Moisture::OASIS,   Area::DESERT                               => Desert::class,
-			Area::GLACIER                                                 => Glacier::class,
-			default                                                       => throw new RegionTypeException($x, $y, $vegetation)
-		};
+		$landscape = self::convertLandscape($vegetation);
+		if ($landscape) {
+			return $landscape;
+		}
+		throw new RegionTypeException($x, $y, $vegetation);
 	}
 
 	protected function getAnimal(string $landscape): ?string {
@@ -201,7 +208,7 @@ class Converter
 		$this->luxuryFinder->setRegion($region)->setLuxuries();
 	}
 
-	protected function setHerbage(Region $region, string $landscape, int $x, int $y): void {
-		throw new LemuriaException('Not implemented yet.');
+	protected function setHerbage(Region $region, int $x, int $y): void {
+		$this->herbFinder->setRegion($region)->findNeighbours($x, $y)->setHerbage();
 	}
 }
