@@ -24,10 +24,9 @@ class ConvertedMap extends BaseMap
 	}
 
 	public function insertX(int $count): ConvertedMap {
-		$w = count($this->map[0]);
 		$h = count($this->map);
 		for ($y = 0; $y < $h; $y++) {
-			$row           = array_fill(0, $w + $count, null);
+			$row           = array_fill(0, $count, null);
 			$this->map[$y] = array_merge($row, $this->map[$y]);
 		}
 		return $this;

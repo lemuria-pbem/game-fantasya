@@ -28,7 +28,7 @@ try {
 
 	$convertedMap = new ConvertedMap();
 	$convertedMap->unserialize(Lemuria::World()->serialize());
-	$convertedMap->insertX(7)->addX(61)->insertY(68)->addY(19);
+	$convertedMap->insertX(13)->addX(51)->insertY(58)->addY(9 + 5);
 	Lemuria::Log()->debug('New map initialized.');
 
 	$json      = new JsonProvider(__DIR__ . '/../doc/Map');
@@ -38,14 +38,16 @@ try {
 	$converter = new Converter($mapConfig, $map);
 	Lemuria::Log()->debug('Map and MapConfig read.');
 
-	for ($y = 0; $y < $mapConfig->width; $y++) {
-		for ($x = 0; $x < $mapConfig->height; $x++) {
-			if ($convertedMap->hasLocation($x, $y)) {
-				Lemuria::Log()->critical('World already has a region at (' . $x . '/' . $y . ').');
+	for ($y = $mapConfig->offsetY; $y < $mapConfig->maxY + 5; $y++) {
+		$v = $y - $mapConfig->offsetY;
+		for ($x = $mapConfig->offsetX; $x < $mapConfig->maxX; $x++) {
+			$h = $x - $mapConfig->offsetX;
+			if ($convertedMap->hasLocation($h, $v)) {
+				Lemuria::Log()->critical('World already has a region at (' . $h . '/' . $v . ').');
 			} else {
 				$region = $converter->createRegion($x, $y);
-				$convertedMap->setLocation($x, $y, $region);
-				Lemuria::Log()->debug('New region ' . $region . ' added to world at (' . $x . '/' . $y . ').');
+				$convertedMap->setLocation($h, $v, $region);
+				Lemuria::Log()->debug('New region ' . $region . ' added to world at (' . $h . '/' . $v . ').');
 			}
 		}
 	}
