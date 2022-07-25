@@ -9,8 +9,10 @@
 /doc/Lemuria.pdf
 /storage/config.json
 /storage/config.local.json
+/storage/game/*.json
 /storage/game/*/*.json
 /storage/game/year.*/*/*.json
+/storage/log/converter.log
 /storage/log/lemuria.log
 /storage/log/simulation.log
 /storage/log/*/*.log

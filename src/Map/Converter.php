@@ -35,6 +35,7 @@ use Lemuria\Tools\Lemuria\Map;
 use Lemuria\Tools\Lemuria\MapConfig;
 use Lemuria\Tools\Lemuria\Moisture;
 use Lemuria\Tools\Lemuria\Terrain;
+use function Lemuria\getClass;
 
 class Converter
 {
@@ -92,16 +93,16 @@ class Converter
 
 		$id        = Lemuria::Catalog()->nextId(Domain::LOCATION);
 		$landscape = $this->getLandscape($x, $y, $data[Map::VEGETATION] ?? 0);
-		$peasants  = $this->calculatePeasants($landscape, $data[Map::GOOD]);
-		$animal    = $this->getAnimal($landscape);
 
 		$region = new Region();
 		$region->setId($id);
 		$region->setLandscape(self::createLandscape($landscape));
 		if ($landscape === Ocean::class) {
-			$region->setName($this->dictionary->get('region.' . $landscape));
+			$region->setName($this->dictionary->get('landscape.' . getClass($landscape)));
 		} else {
-			$region->setName($this->dictionary->get('region.' . $landscape) . ' ' . $id);
+			$peasants = $this->calculatePeasants($landscape, $data[Map::GOOD]);
+			$animal   = $this->getAnimal($landscape);
+			$region->setName($this->dictionary->get('landscape.' . getClass($landscape)) . ' ' . $id);
 			$this->addResources([
 				Peasant::class => $peasants,
 				Silver::class  => $this->calculateSilver($peasants, $data[Map::FERTILITY]),
@@ -183,7 +184,7 @@ class Converter
 			$difference = max(0, $altitude - $this->config->mountain);
 			$maximum    = $this->config->maxHeight + $this->config->maxDiff;
 			$percentage = min($difference / $maximum, 1.0);
-			return $percentage * self::MAX_GRIFFINS;
+			return (int)floor($percentage * self::MAX_GRIFFINS);
 		}
 
 		$animals    = $goods[Good::GAME] / ($this->maximum / $this->config->hunting);

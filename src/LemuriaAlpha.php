@@ -80,6 +80,7 @@ final class LemuriaAlpha
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Turn starts.', ['config' => $this->config]);
 		Lemuria::load();
+		Lemuria::Log()->debug('The world has ' . count(Lemuria::Catalog()->getAll(Domain::LOCATION)) . ' regions.');
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
 
