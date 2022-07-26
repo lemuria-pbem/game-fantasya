@@ -20,6 +20,7 @@
 /storage/orders/*/*.order
 /storage/orders/year.*/*/*.order
 /storage/report/*/*.zip
+/storage/turn/world.cr
 /storage/turn/*/*.*
 /storage/turn/year.*/*/*.*
 /web/css/report.min.css

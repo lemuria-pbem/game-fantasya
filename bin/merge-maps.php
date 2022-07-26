@@ -2,13 +2,16 @@
 declare(strict_types = 1);
 
 use Lemuria\Alpha\AlphaConfig;
+use Lemuria\Alpha\AlphaPathFactory;
 use Lemuria\Alpha\Map\Converter;
 use Lemuria\Alpha\Model\World\ConvertedMap;
 use Lemuria\Exception\DirectoryNotFoundException;
+use Lemuria\Id;
 use Lemuria\Lemuria;
 use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
+use Lemuria\Renderer\Magellan\WorldInspector;
 use Lemuria\Tools\Lemuria\Map;
 use Lemuria\Tools\Lemuria\MapConfig;
 
@@ -52,7 +55,7 @@ try {
 		}
 	}
 
-	$json = new JsonProvider(__DIR__ . '/../storage/game');
+	$json = new JsonProvider($storage . '/game');
 	$json->write('world.json', $convertedMap->serialize());
 	Lemuria::Log()->debug('New world saved.');
 
@@ -62,6 +65,11 @@ try {
 	}
 	$json->write('regions.json', $locations);
 	Lemuria::Log()->debug('New locations saved.');
+
+	$mapFile   = $storage . '/turn/world.cr';
+	$inspector = new WorldInspector(new AlphaPathFactory($storage));
+	$inspector->setWorld($convertedMap)->setPath($mapFile)->render(new Id(0));
+	Lemuria::Log()->debug('Magellan map saved to ' . realpath($mapFile) . '.');
 } catch (\Throwable $e) {
 	Lemuria::Log()->emergency($e->getMessage(), ['exception' => $e]);
 }

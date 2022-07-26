@@ -7,6 +7,7 @@ use Lemuria\Model\Location;
 use Lemuria\Model\Neighbours;
 use Lemuria\Model\World\BaseMap;
 use Lemuria\Model\World\Direction;
+use Lemuria\Model\World\MapCoordinates;
 use Lemuria\Model\World\Path;
 
 class ConvertedMap extends BaseMap
@@ -29,6 +30,9 @@ class ConvertedMap extends BaseMap
 			$row           = array_fill(0, $count, null);
 			$this->map[$y] = array_merge($row, $this->map[$y]);
 		}
+		foreach ($this->coordinates as $id => $coordinate) {
+			$this->coordinates[$id] = new MapCoordinates($coordinate->X() + $count, $coordinate->Y());
+		}
 		return $this;
 	}
 
@@ -46,6 +50,9 @@ class ConvertedMap extends BaseMap
 		$row       = array_fill(0, $w, null);
 		$rows      = array_fill(0, $count, $row);
 		$this->map = array_merge($rows, $this->map);
+		foreach ($this->coordinates as $id => $coordinate) {
+			$this->coordinates[$id] = new MapCoordinates($coordinate->X(), $coordinate->Y() + $count);
+		}
 		return $this;
 	}
 
@@ -62,7 +69,9 @@ class ConvertedMap extends BaseMap
 	}
 
 	public function setLocation(int $x, int $y, Location $location): ConvertedMap {
-		$this->map[$y][$x] = $location->Id()->Id();
+		$id                     = $location->Id()->Id();
+		$this->map[$y][$x]      = $id;
+		$this->coordinates[$id] = new MapCoordinates($x, $y);
 		return $this;
 	}
 }

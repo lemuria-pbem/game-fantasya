@@ -57,13 +57,13 @@ class Converter
 
 	protected const HAS_RESOURCES = [Highland::class => true, Mountain::class => true, Glacier::class => true];
 
-	protected Dictionary $dictionary;
+	protected readonly Dictionary $dictionary;
 
-	protected HerbFinder $herbFinder;
+	protected readonly HerbFinder $herbFinder;
 
-	protected LuxuryFinder $luxuryFinder;
+	protected readonly LuxuryFinder $luxuryFinder;
 
-	protected float $maximum;
+	protected readonly float $maximum;
 
 	public static function convertLandscape(int $vegetation): ?string {
 		return match ($vegetation) {
