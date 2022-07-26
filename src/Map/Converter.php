@@ -138,14 +138,17 @@ class Converter
 	}
 
 	protected function calculatePeasants(string $landscape, array $goods): int {
-		if ($landscape === Glacier::class) {
-			return 0;
-		}
+		$factor = match ($landscape) {
+			Glacier::class => 0.0,
+			Plain::class   => 1.5,
+			Swamp::class   => 0.25,
+			default        => 1.0
+		};
 
 		$fishing  = $goods[Good::FISH] / ($this->maximum / $this->config->hunting);
 		$farming  = $goods[Good::CROP] / ($this->maximum / $this->config->farming);
 		$breeding = $goods[Good::MEAT] / ($this->maximum / $this->config->breeding);
-		return (int)floor(($fishing + $farming + $breeding) * self::WORKPLACES);
+		return (int)floor($factor * ($fishing + $farming + $breeding) * self::WORKPLACES);
 	}
 
 	protected function calculateSilver(int $peasants, float $fertility): int {

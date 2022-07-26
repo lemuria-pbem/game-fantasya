@@ -134,14 +134,14 @@ class HerbFinder
 		$peyote      = $this->count(Highland::class) + $this->count(Plain::class);
 		$sandreeker  = $this->count(Glacier::class) + $this->count(Mountain::class);
 		$waterfinder = $this->count(Forest::class) + $this->count(Swamp::class);
-		return $this->decide([Peyote::class => $peyote, Sandreeker::class => $sandreeker, Waterfinder::class => $waterfinder]);
+		return $this->takeFirst([Waterfinder::class => $waterfinder, Sandreeker::class => $sandreeker, Peyote::class => $peyote]);
 	}
 
 	protected function calculateForGlacier(): Herb {
 		$begonia     = $this->count(Desert::class) + $this->count(Plain::class);
 		$snowcrystal = $this->count(Forest::class) + $this->count(Swamp::class);
 		$hemlock     = $this->count(Highland::class) + $this->count(Mountain::class);
-		return $this->decide([IceBegonia::class => $begonia, Snowcrystal::class => $snowcrystal, WhiteHemlock::class => $hemlock]);
+		return $this->takeFirst([Snowcrystal::class => $snowcrystal, IceBegonia::class => $begonia, WhiteHemlock::class => $hemlock]);
 	}
 
 	protected function count(string $landscape): int {
@@ -162,6 +162,15 @@ class HerbFinder
 		$classes = current($counts);
 		$i       = array_rand($classes);
 		return $this->createHerb($classes[$i]);
+	}
+
+	protected function takeFirst(array $alternatives): Herb {
+		foreach ($alternatives as $class => $count) {
+			if ($count > 0) {
+				return $this->createHerb($class);
+			}
+		}
+		return $this->createHerb(key($alternatives));
 	}
 
 	private function createHerb(string $class): Herb {
