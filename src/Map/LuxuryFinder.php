@@ -199,7 +199,7 @@ class LuxuryFinder
 	}
 
 	protected function checkForSpice(int $index): void {
-		if ($this->temperature >= 20.0 && $this->trees < 300) {
+		if ($this->temperature >= 15.0 && $this->trees < 300) {
 			$this->luxuries[$index] = self::createCommodity(Spice::class);
 		}
 	}

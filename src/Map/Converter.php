@@ -55,6 +55,8 @@ class Converter
 
 	protected const MAX_GLACIER = 0.45;
 
+	protected const HAS_RESOURCES = [Highland::class => true, Mountain::class => true, Glacier::class => true];
+
 	protected Dictionary $dictionary;
 
 	protected HerbFinder $herbFinder;
@@ -106,7 +108,7 @@ class Converter
 			$this->addResources([
 				Peasant::class => $peasants,
 				Silver::class  => $this->calculateSilver($peasants, $data[Map::FERTILITY]),
-				Wood::class    => $this->calculateForest($data[Map::GOOD]),
+				Wood::class    => $this->calculateForest($landscape, $data[Map::GOOD]),
 				Stone::class   => $this->calculateStone($landscape, $data),
 				Iron::class    => $this->calculateIron($landscape, $data),
 				$animal        => $this->calculateAnimals($animal, $data[Map::GOOD], $data[Map::ALTITUDE])
@@ -150,12 +152,22 @@ class Converter
 		return (int)floor($peasants * self::MAX_SILVER * $fertility);
 	}
 
-	protected function calculateForest(array $goods): int {
+	protected function calculateForest(string $landscape, array $goods): int {
 		$forest = $goods[Good::WOOD] / ($this->maximum / $this->config->forestry);
-		return (int)floor($forest * self::WORKPLACES / Workplaces::TREE);
+		$trees  = (int)floor($forest * self::WORKPLACES / Workplaces::TREE);
+		if ($landscape === Forest::class) {
+			if ($trees < Forest::TREES) {
+				$trees = rand(600, $trees < 50 ? 649 : 699);
+			}
+		}
+		return $trees;
 	}
 
 	protected function calculateStone(string $landscape, array $data): int {
+		if (!isset(self::HAS_RESOURCES[$landscape])) {
+			return 0;
+		}
+
 		$difference = max(0, $data[Map::ALTITUDE] - $this->config->highland);
 		$maximum    = $this->config->maxHeight + $this->config->maxDiff - $this->config->highland;
 		$percentage = 1.0 - min($difference / $maximum, 1.0);
@@ -168,6 +180,10 @@ class Converter
 	}
 
 	protected function calculateIron(string $landscape, array $data): int {
+		if (!isset(self::HAS_RESOURCES[$landscape])) {
+			return 0;
+		}
+
 		$difference = max(0, $data[Map::ALTITUDE] - $this->config->highland);
 		$maximum    = $this->config->maxHeight + $this->config->maxDiff - $this->config->highland;
 		$percentage = min($difference / $maximum, 1.0);
@@ -187,11 +203,11 @@ class Converter
 			return (int)floor($percentage * self::MAX_GRIFFINS);
 		}
 
-		$animals    = $goods[Good::GAME] / ($this->maximum / $this->config->hunting);
+		$animals    = $goods[Good::GAME] / 10.0 / ($this->maximum / $this->config->hunting);
 		$workplaces = match ($animal) {
-			Horse::class    => Workplaces::HORSE,
-			Camel::class    => Workplaces::CAMEL,
-			Elephant::class => Workplaces::ELEPHANT,
+			Horse::class    => Workplaces::HORSE * 1.0,
+			Camel::class    => Workplaces::CAMEL * 3.0,
+			Elephant::class => Workplaces::ELEPHANT * 2.0,
 			default         => null
 		};
 		return $workplaces ? (int)floor($animals * self::WORKPLACES / $workplaces) : 0;

@@ -45,7 +45,7 @@ Maulbeere als Nahrungsquelle benötigt, die in gemäßigtem Klima gedeiht.
 | Luxusgut      | Landschaften                                            | Höhe      | Temperatur | Bäume  |
 |---------------|---------------------------------------------------------|-----------|------------|--------|
 | **Balsam**    | Wald, Sumpf, Hochland, Gebirge, Ebene                   |           | ≥ 20 °C    | ≥ 500  |
-| **Gewürze**   | Hochland, Ebene, Wüste                                  |           | ≥ 20 °C    | < 300  |
+| **Gewürze**   | Hochland, Ebene, Wüste                                  |           | ≥ 15 °C    | < 300  |
 | **Juwelen**   | Gebirge, Gletscher, Hochland                            | ≥ 650 m   |            |        |
 | **Myrrhe**    | Wüste, Hochland, Gebirge, Ebene                         | 350–800 m | ≥ 15 °C    | < 500  |
 | **Öl**        | Ebene, Wüste, Hochland, Gebirge                         |           | ≥ 15 °C    |        |
