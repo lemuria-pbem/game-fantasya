@@ -38,6 +38,7 @@ use Lemuria\Model\Fantasya\Landscape\Plain;
 use Lemuria\Model\Fantasya\Landscape\Swamp;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Tools\Lemuria\Map;
+use function Lemuria\getNamespace;
 
 class HerbFinder
 {
@@ -66,18 +67,22 @@ class HerbFinder
 		return $this;
 	}
 
-	public function setHerbage(): void {
+	public function setHerbage(string $herb = null): void {
 		$landscape = $this->region->Landscape();
-		$herb      = match ($landscape::class) {
-			Plain::class    => $this->calculateForPlain(),
-			Forest::class   => $this->calculateForForest(),
-			Highland::class => $this->calculateForHighland(),
-			Mountain::class => $this->calculateForMountain(),
-			Swamp::class    => $this->calculateForSwamp(),
-			Desert::class   => $this->calculateForDesert(),
-			Glacier::class  => $this->calculateForGlacier(),
-			default         => throw new LemuriaException('Invalid landscape ' . $landscape)
-		};
+		if ($herb) {
+			$herb = self::createHerb($herb);
+		} else {
+			$herb = match ($landscape::class) {
+				Plain::class    => $this->calculateForPlain(),
+				Forest::class   => $this->calculateForForest(),
+				Highland::class => $this->calculateForHighland(),
+				Mountain::class => $this->calculateForMountain(),
+				Swamp::class    => $this->calculateForSwamp(),
+				Desert::class   => $this->calculateForDesert(),
+				Glacier::class  => $this->calculateForGlacier(),
+				default         => throw new LemuriaException('Invalid landscape ' . $landscape)
+			};
+		}
 		$herbage = new Herbage($herb);
 		$herbage->setOccurrence(0.5 + (rand(0, 1000000) - 500000) / 10000000);
 		$this->region->setHerbage($herbage);

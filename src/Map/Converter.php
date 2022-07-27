@@ -2,9 +2,12 @@
 declare(strict_types = 1);
 namespace Lemuria\Alpha\Map;
 
+use function Lemuria\getClass;
+use function Lemuria\getNamespace;
 use Lemuria\Alpha\Map\Exception\MissingRegionException;
 use Lemuria\Alpha\Map\Exception\RegionTypeException;
 use Lemuria\Engine\Fantasya\Factory\Workplaces;
+use Lemuria\Exception\LemuriaException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Dictionary;
 use Lemuria\Model\Domain;
@@ -35,7 +38,6 @@ use Lemuria\Tools\Lemuria\Map;
 use Lemuria\Tools\Lemuria\MapConfig;
 use Lemuria\Tools\Lemuria\Moisture;
 use Lemuria\Tools\Lemuria\Terrain;
-use function Lemuria\getClass;
 
 class Converter
 {
@@ -65,6 +67,8 @@ class Converter
 
 	protected readonly float $maximum;
 
+	protected array $changes = [];
+
 	public static function convertLandscape(int $vegetation): ?string {
 		return match ($vegetation) {
 			Terrain::OCEAN,    Moisture::LAKE,        Area::ICE           => Ocean::class,
@@ -84,6 +88,16 @@ class Converter
 		$this->luxuryFinder = new LuxuryFinder($map);
 		$this->herbFinder   = new HerbFinder($map);
 		$this->maximum      = $config->square * 100.0;
+	}
+
+	public function addChanges(array $changes): Converter {
+		foreach ($changes as $change) {
+			if (!isset($change['x']) || !isset($change['y'])) {
+				throw new LemuriaException('Missing coordinates in changes.');
+			}
+			$this->changes[$change['y']][$change['x']] = $change;
+		}
+		return $this;
 	}
 
 	public function createRegion(int $x, int $y): Region {
@@ -120,6 +134,11 @@ class Converter
 	}
 
 	protected function getLandscape(int $x, int $y, int $vegetation): string {
+		$h = $x - $this->config->offsetX;
+		$v = $y - $this->config->offsetY;
+		if (isset($this->changes[$v][$h]['landscape'])) {
+			return $this->parseLandscape($this->changes[$v][$h]['landscape']);
+		}
 		$landscape = self::convertLandscape($vegetation);
 		if ($landscape) {
 			return $landscape;
@@ -229,6 +248,11 @@ class Converter
 	}
 
 	protected function setHerbage(Region $region, int $x, int $y): void {
-		$this->herbFinder->setRegion($region)->findNeighbours($x, $y)->setHerbage();
+		$herb = $this->changes[$y][$x]['herb'] ?? null;
+		$this->herbFinder->setRegion($region)->findNeighbours($x, $y)->setHerbage($herb);
+	}
+
+	protected function parseLandscape(string $landscape): string {
+		return getNamespace(Ocean::class) . '\\' . $landscape;
 	}
 }

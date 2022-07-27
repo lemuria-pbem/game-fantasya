@@ -40,6 +40,8 @@ try {
 	$map       = new Map($mapConfig, $json->read('map.json'), Map::TYPE);
 	$converter = new Converter($mapConfig, $map);
 	Lemuria::Log()->debug('Map and MapConfig read.');
+	$converter->addChanges($json->read('changes.json'));
+	Lemuria::Log()->debug('Map changes added.');
 
 	for ($y = $mapConfig->offsetY; $y < $mapConfig->maxY + 5; $y++) {
 		$v = $y - $mapConfig->offsetY;
