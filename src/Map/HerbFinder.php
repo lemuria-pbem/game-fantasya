@@ -38,7 +38,6 @@ use Lemuria\Model\Fantasya\Landscape\Plain;
 use Lemuria\Model\Fantasya\Landscape\Swamp;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Tools\Lemuria\Map;
-use function Lemuria\getNamespace;
 
 class HerbFinder
 {
