@@ -2,16 +2,13 @@
 declare(strict_types = 1);
 namespace Lemuria\Alpha;
 
-use Monolog\Logger;
+use Monolog\Level;
 
 use Lemuria\Engine\Fantasya\LemuriaLog;
 
-/**
- * @todo Upgrade to Monolog\Level.
- */
 final class AlphaLog extends LemuriaLog
 {
-	protected ?int $consoleLevel = Logger::ALERT;
+	protected ?Level $consoleLevel = Level::Alert;
 
-	protected ?int $fileLevel = Logger::DEBUG;
+	protected ?Level $fileLevel = Level::Debug;
 }

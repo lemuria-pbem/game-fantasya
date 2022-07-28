@@ -2,6 +2,7 @@
 /vendor
 
 /.idea/deployment.xml
+/.idea/symfony2.xml
 /.idea/webServers.xml
 /.idea/workspace.xml
 /bin/sync.sh
@@ -9,8 +10,10 @@
 /doc/Lemuria.pdf
 /storage/config.json
 /storage/config.local.json
+/storage/game/*.json
 /storage/game/*/*.json
 /storage/game/year.*/*/*.json
+/storage/log/converter.log
 /storage/log/lemuria.log
 /storage/log/simulation.log
 /storage/log/*/*.log
@@ -18,6 +21,7 @@
 /storage/orders/*/*.order
 /storage/orders/year.*/*/*.order
 /storage/report/*/*.zip
+/storage/turn/world.cr
 /storage/turn/*/*.*
 /storage/turn/year.*/*/*.*
 /web/css/report.min.css
