@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Alpha\Map\Exception;
+namespace Lemuria\Game\Fantasya\Map\Exception;
 
 class MissingRegionException extends ConvertException
 {

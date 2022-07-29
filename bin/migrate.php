@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-use Lemuria\Alpha\MigrateConfig;
+use Lemuria\Game\Fantasya\MigrateConfig;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
 

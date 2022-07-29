@@ -1,11 +1,11 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Alpha\Map;
+namespace Lemuria\Game\Fantasya\Map;
 
 use function Lemuria\getClass;
 use function Lemuria\getNamespace;
-use Lemuria\Alpha\Map\Exception\MissingRegionException;
-use Lemuria\Alpha\Map\Exception\RegionTypeException;
+use Lemuria\Game\Fantasya\Map\Exception\MissingRegionException;
+use Lemuria\Game\Fantasya\Map\Exception\RegionTypeException;
 use Lemuria\Engine\Fantasya\Factory\Workplaces;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Lemuria;

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Alpha\Model\World;
+namespace Lemuria\Game\Fantasya\Model\World;
 
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Model\Location;

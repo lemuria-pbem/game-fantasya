@@ -1,7 +1,7 @@
 <?php
 declare (strict_types = 1);
 
-use Lemuria\Alpha\LemuriaAlpha;
+use Lemuria\Game\Fantasya\LemuriaAlpha;
 
 require __DIR__ . '/../vendor/autoload.php';
 

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Alpha\Map;
+namespace Lemuria\Game\Fantasya\Map;
 
 use function Lemuria\isBetween;
 use Lemuria\Exception\LemuriaException;

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Alpha;
+namespace Lemuria\Game\Fantasya;
 
 use Lemuria\Model\Game;
 

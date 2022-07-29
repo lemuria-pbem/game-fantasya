@@ -1,6 +1,6 @@
-# Version 0.12
+# Version 1.0
 
-Dies ist die letzte Entwicklungsversion vor Version 1.0.
+Lemuria 1.0 wurde am 6. August 2022 veröffentlicht.
 
 ## Verbesserungen und Fehler
 

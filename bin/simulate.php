@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-use Lemuria\Alpha\AlphaSimulator;
+use Lemuria\Game\Fantasya\AlphaSimulator;
 use Lemuria\Engine\Message;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Lemuria;

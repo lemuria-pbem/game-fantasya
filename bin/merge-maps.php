@@ -1,10 +1,10 @@
 <?php
 declare(strict_types = 1);
 
-use Lemuria\Alpha\AlphaConfig;
-use Lemuria\Alpha\AlphaPathFactory;
-use Lemuria\Alpha\Map\Converter;
-use Lemuria\Alpha\Model\World\ConvertedMap;
+use Lemuria\Game\Fantasya\AlphaConfig;
+use Lemuria\Game\Fantasya\AlphaPathFactory;
+use Lemuria\Game\Fantasya\Map\Converter;
+use Lemuria\Game\Fantasya\Model\World\ConvertedMap;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Id;
 use Lemuria\Lemuria;
