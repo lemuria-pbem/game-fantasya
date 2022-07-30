@@ -14,13 +14,13 @@ use Lemuria\Model\Fantasya\Party\Census;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Region;
 
-final class AlphaSimulator
+final class FantasyaSimulator
 {
 	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => ' '];
 
 	private const LOG_FILE = 'simulation.log';
 
-	private readonly AlphaConfig $config;
+	private readonly FantasyaConfig $config;
 
 	public function __construct() {
 		$storage = realpath(__DIR__ . '/../storage');
@@ -28,13 +28,13 @@ final class AlphaSimulator
 			throw new DirectoryNotFoundException($storage);
 		}
 
-		$this->config = new AlphaConfig($storage);
+		$this->config = new FantasyaConfig($storage);
 		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 		Lemuria::load();
 	}
 
-	public function simulate(CommandFile $move): AlphaSimulator {
+	public function simulate(CommandFile $move): FantasyaSimulator {
 		Lemuria::Log()->debug('Simulating move.', ['move' => $move]);
 		Lemuria::Calendar()->nextRound();
 		$options = new TurnOptions();

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-use Lemuria\Game\Fantasya\AlphaSimulator;
+use Lemuria\Game\Fantasya\FantasyaSimulator;
 use Lemuria\Engine\Message;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Lemuria;
@@ -38,7 +38,7 @@ if ($argc === 3) {
 }
 
 try {
-	$simulator = new AlphaSimulator();
+	$simulator = new FantasyaSimulator();
 	$party     = Lemuria::Registry()->find($uuid);
 	if ($party instanceof Party) {
 		$orders = __DIR__ . '/../storage/orders/' . $simulator->Round() . '/' . $uuid . '.order';

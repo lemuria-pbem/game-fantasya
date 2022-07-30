@@ -16,7 +16,7 @@ use Lemuria\Renderer\Text\TextWriter;
 use Lemuria\Renderer\Text\UnicumWriter;
 use Lemuria\Renderer\Writer;
 
-class AlphaPathFactory implements PathFactory
+class FantasyaPathFactory implements PathFactory
 {
 	protected string $name;
 

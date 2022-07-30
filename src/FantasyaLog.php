@@ -6,7 +6,7 @@ use Monolog\Level;
 
 use Lemuria\Engine\Fantasya\LemuriaLog;
 
-final class AlphaLog extends LemuriaLog
+final class FantasyaLog extends LemuriaLog
 {
 	protected ?Level $consoleLevel = Level::Alert;
 

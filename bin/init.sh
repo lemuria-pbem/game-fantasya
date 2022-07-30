@@ -2,7 +2,7 @@
 
 GAME=lemuria
 BASE_DIR=/home/fantasya/games/$GAME
-BIN_DIR=$BASE_DIR/lemuria-alpha/bin
+BIN_DIR=$BASE_DIR/game-fantasya/bin
 TURN=0
 LOG_DIR=log
 EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria -vvv"

@@ -2,12 +2,12 @@
 
 GAME=lemuria
 BASE_DIR=/home/fantasya/games/$GAME
-ALPHA_DIR=$BASE_DIR/lemuria-alpha
-BIN_DIR=$ALPHA_DIR/bin
+SRC_DIR=$BASE_DIR/game-fantasya
+BIN_DIR=$SRC_DIR/bin
 LAST_TURN=`php8.1 $BIN_DIR/last-turn.php`
-LAST_NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$LAST_TURN/newcomers.json
+LAST_NEWCOMERS_FILE=$SRC_DIR/storage/game/$LAST_TURN/newcomers.json
 TURN=`expr $LAST_TURN + 1`
-NEWCOMERS_FILE=$ALPHA_DIR/storage/game/$TURN/newcomers.json
+NEWCOMERS_FILE=$SRC_DIR/storage/game/$TURN/newcomers.json
 EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria $GAME -vvv"
 LOG_DIR=log
 LOG=$LOG_DIR/run.log

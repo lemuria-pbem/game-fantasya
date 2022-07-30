@@ -1,18 +1,18 @@
 <?php
 declare (strict_types = 1);
 
-use Lemuria\Game\Fantasya\LemuriaAlpha;
+use Lemuria\Game\Fantasya\FantasyaGame;
 
 require realpath(__DIR__ . '/../vendor/autoload.php');
 
-$archives     = [];
-$lemuriaAlpha = new LemuriaAlpha();
+$archives = [];
+$fantasya = new FantasyaGame();
 try {
-	$archives = $lemuriaAlpha->init()->createReports()->createArchives();
+	$archives = $fantasya->init()->createReports()->createArchives();
 } catch (\Throwable $e) {
-	$lemuriaAlpha->logException($e);
+	$fantasya->logException($e);
 }
-$lemuriaAlpha->archiveLog();
+$fantasya->archiveLog();
 
 foreach ($archives as $archive) {
 	echo $archive . PHP_EOL;

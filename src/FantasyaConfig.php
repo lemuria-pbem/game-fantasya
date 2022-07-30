@@ -9,7 +9,7 @@ use Lemuria\Model\Fantasya\Exception\JsonException;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
 use Lemuria\Statistics;
 
-class AlphaConfig extends LemuriaConfig
+class FantasyaConfig extends LemuriaConfig
 {
 	public final const DEVELOPMENT_MODE = 'developmentMode';
 
@@ -57,7 +57,7 @@ class AlphaConfig extends LemuriaConfig
 
 	protected function createLog(string $logPath): Log {
 		$addErrorHandler = !$this[self::THROW_EXCEPTIONS];
-		return new AlphaLog($logPath, $addErrorHandler);
+		return new FantasyaLog($logPath, $addErrorHandler);
 	}
 
 	protected function overrideWithLocalConfig(string $storagePath): void {

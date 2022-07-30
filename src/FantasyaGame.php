@@ -34,13 +34,13 @@ use Lemuria\Renderer\Text\Wrapper\FileWrapper;
 use Lemuria\Version;
 use Lemuria\Version\VersionFinder;
 
-final class LemuriaAlpha
+final class FantasyaGame
 {
 	private const HTML_WRAPPER = __DIR__ . '/../resources/turn.html';
 
 	private const ZIP_OPTIONS = ['remove_all_path' => true];
 
-	private readonly AlphaConfig $config;
+	private readonly FantasyaConfig $config;
 
 	private readonly int $round;
 
@@ -63,13 +63,13 @@ final class LemuriaAlpha
 		if (!$this->storage) {
 			throw new DirectoryNotFoundException($this->storage);
 		}
-		$this->config          = new AlphaConfig($this->storage);
+		$this->config          = new FantasyaConfig($this->storage);
 		$this->round           = $this->config[LemuriaConfig::ROUND];
 		$this->nextRound       = $this->round + 1;
-		$this->debugBattles    = $this->config[AlphaConfig::DEBUG_BATTLES];
-		$this->debugParties    = array_fill_keys($this->config[AlphaConfig::DEBUG_PARTIES], true);
-		$this->createArchives  = $this->config[AlphaConfig::CREATE_ARCHIVES];
-		$this->throwExceptions = $this->config[AlphaConfig::THROW_EXCEPTIONS];
+		$this->debugBattles    = $this->config[FantasyaConfig::DEBUG_BATTLES];
+		$this->debugParties    = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
+		$this->createArchives  = $this->config[FantasyaConfig::CREATE_ARCHIVES];
+		$this->throwExceptions = $this->config[FantasyaConfig::THROW_EXCEPTIONS];
 	}
 
 	public function Round(): int {
@@ -160,7 +160,7 @@ final class LemuriaAlpha
 			throw new DirectoryNotFoundException($directory);
 		}
 		$directory  .= DIRECTORY_SEPARATOR . $this->nextRound;
-		$pathFactory = new AlphaPathFactory($directory);
+		$pathFactory = new FantasyaPathFactory($directory);
 		$version     = Lemuria::Version();
 
 		$p          = 0;

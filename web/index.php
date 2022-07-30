@@ -1,11 +1,11 @@
 <?php
 declare (strict_types = 1);
 
-use Lemuria\Game\Fantasya\LemuriaAlpha;
+use Lemuria\Game\Fantasya\FantasyaGame;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$lemuriaAlpha = new LemuriaAlpha();
+$fantasya = new FantasyaGame();
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -19,7 +19,7 @@ $lemuriaAlpha = new LemuriaAlpha();
 		<script type="text/javascript" src="/js/script.js"></script>
 	</head>
 	<body>
-		<?php foreach ($lemuriaAlpha->getReports() as $path): ?>
+		<?php foreach ($fantasya->getReports() as $path): ?>
 			<hr>
 			<div>
 				<?= file_get_contents($path) ?>

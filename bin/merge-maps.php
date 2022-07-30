@@ -1,8 +1,8 @@
 <?php
 declare(strict_types = 1);
 
-use Lemuria\Game\Fantasya\AlphaConfig;
-use Lemuria\Game\Fantasya\AlphaPathFactory;
+use Lemuria\Game\Fantasya\FantasyaConfig;
+use Lemuria\Game\Fantasya\FantasyaPathFactory;
 use Lemuria\Game\Fantasya\Map\Converter;
 use Lemuria\Game\Fantasya\Model\World\ConvertedMap;
 use Lemuria\Exception\DirectoryNotFoundException;
@@ -22,7 +22,7 @@ if (!$storage) {
 	throw new DirectoryNotFoundException($storage);
 }
 
-$config = new AlphaConfig($storage);
+$config = new FantasyaConfig($storage);
 Lemuria::init($config->setLogFile('converter.log'));
 Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 
@@ -69,7 +69,7 @@ try {
 	Lemuria::Log()->debug('New locations saved.');
 
 	$mapFile   = $storage . '/turn/world.cr';
-	$inspector = new WorldInspector(new AlphaPathFactory($storage));
+	$inspector = new WorldInspector(new FantasyaPathFactory($storage));
 	$inspector->setWorld($convertedMap)->setPath($mapFile)->render(new Id(0));
 	Lemuria::Log()->debug('Magellan map saved to ' . realpath($mapFile) . '.');
 } catch (\Throwable $e) {
