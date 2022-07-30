@@ -8,6 +8,7 @@ $(function() {
     const gotoId = $('#modal-goto-id');
     const navButton = $('#navbar-toggle');
     const statistics = '#statistics';
+    const alliances = '#alliances';
     const spellBook = $('#spell-book');
     const herbalBook = $('#herbal-book');
     const messagesButton = $('#messages-button');
@@ -106,6 +107,9 @@ $(function() {
         }
         if (event.key === '#') {
             return buttonHandled(event, toggleButton);
+        }
+        if (event.key === 'a') {
+            return locationHandled(event, alliances);
         }
         if (event.key === 'e') {
             return buttonHandled(event, messagesButton);
