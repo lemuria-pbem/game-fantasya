@@ -24,15 +24,15 @@ Lemuria::load();
 $map   = new Map(Lemuria::World());
 $ocean = Lemuria::Builder()->create(Ocean::class);
 foreach (Lemuria::Catalog()->getAll(Domain::LOCATION) as $region /* @var Region $region */) {
-	if ($region->Landscape() !== $ocean) {
+	if ($region->Landscape() === $ocean) {
 		$coordinates = Lemuria::World()->getCoordinates($region);
 		$map->add($coordinates, $region);
 	}
 }
 
-echo count($map) . ' islands on the map.' . PHP_EOL . PHP_EOL;
+echo count($map) . ' water areas on the map.' . PHP_EOL . PHP_EOL;
 foreach ($map as $island /* @var Island $island */) {
-	echo 'Island ' . $island->Id() . ': ' . $island->Origin() . ' - ' . $island->Width() . '/' . $island->Height() . '/' . $island->Size() . PHP_EOL;
+	echo 'Area ' . $island->Id() . ': ' . $island->Origin() . ' - ' . $island->Width() . '/' . $island->Height() . '/' . $island->Size() . PHP_EOL;
 	foreach ($island->getLocations() as $region) {
 		echo $region->Name() . ', ';
 	}
