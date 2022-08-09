@@ -4,8 +4,6 @@ Lemuria 1.0 wurde am 6. August 2022 veröffentlicht.
 
 ## Verbesserungen und Fehler
 
-- Monstervermehrung
-- Angriffsverhalten für Kraken
 
 ## Feature: Märkte
 
@@ -85,6 +83,7 @@ Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden.
 
 ## Ideen
 
+- neue Monster aussetzen
 - neue Gebäude, die Arbeitsplätze verdoppeln
   - Gebirge: Pilzhöhle
   - Sumpf: Elefantengehege
@@ -103,6 +102,7 @@ Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden.
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine 
 - Weltumseglung ermöglichen
 - Ereignis "Juwelen gefunden" beim Bergbau in Gebirgen/Gletschern ohne Luxuswaren
+- Ereignis "Tierangriff" wandelt Ressourcen-Tiere in Monstergruppen um
 - Umweltereignisse
 - Taktik ermöglicht Strategien im Kampf, STRATEGIE
 - Seekampf/Piraterie
