@@ -2,8 +2,9 @@
 
 Lemuria 1.0 wurde am 6. August 2022 veröffentlicht.
 
-## Verbesserungen und Fehler
+## Fehler/Verbesserungen
 
+- …
 
 ## Feature: Märkte
 
@@ -83,40 +84,60 @@ Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden.
 
 ## Ideen
 
-- neue Monster aussetzen
+### Ereignisse
+
+- Ereignis "Juwelen gefunden" beim Bergbau in Gebirgen/Gletschern ohne Luxuswaren
+- Ereignis "Tierangriff" wandelt Ressourcen-Tiere in Monstergruppen um
+- Umweltereignisse
+
+### Gebäude
+
 - neue Gebäude, die Arbeitsplätze verdoppeln
   - Gebirge: Pilzhöhle
   - Sumpf: Elefantengehege
   - Wald: Jagdhaus
   - Wüste: Oase
-- Flüsse als natürliche Kanäle modellieren
-  - Schleuse als Zollgebäude
 - besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
   - BESUCHEN zum Handel mit NPC-Ladenbesitzer
   - Steinkreis als Portal für Magier
+
+### Handel und Wirtschaft
+
 - fahrende NPC-Händler
 - automatischer Beschreibungstext mit Handelsangeboten für Einheit, Gebäude oder Region
-- Gerüchte durch NPC oder Bauern
-  - Monstervorkommen in Nachbarregionen
-  - Kämpfe in Nachbarregionen
-- Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine 
-- Weltumseglung ermöglichen
-- Ereignis "Juwelen gefunden" beim Bergbau in Gebirgen/Gletschern ohne Luxuswaren
-- Ereignis "Tierangriff" wandelt Ressourcen-Tiere in Monstergruppen um
-- Umweltereignisse
-- Taktik ermöglicht Strategien im Kampf, STRATEGIE
-- Seekampf/Piraterie
-- VORLAGE-Variante für Rotation von Befehlen
-- SABOTIEREN (Spion versenkt Schiff)
-- VERSENKEN (Schiff vor Entern bewahren)
-- EROBERN (fremden Hafen einnehmen)
-- Monsterrasse bestimmt maximalen Übermacht-Faktor
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
 - Besteuerung bei Nutzung fremder Infrastruktur
   - Hafenbenutzungsgebühr an den Hafenmeister
   - Kanalbenutzungsgebühr an den Besitzer
   - Handelssteuer an den Besitzer der größten Burg
   - Maut für Wagengespanne an den Besitzer der größten Burg
+
+### Kampf
+
+- Taktik ermöglicht Strategien im Kampf, STRATEGIE
+- Monsterrasse bestimmt maximalen Übermacht-Faktor
+- Seekampf/Piraterie
+  - VERSENKEN (Schiff vor Entern bewahren)
+  - EROBERN (fremden Hafen einnehmen)
+- SABOTIEREN (Spion versenkt Schiff)
+
+### Schifffahrt
+
+- Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
+
+### Umgebung/Welt
+
+- Flüsse als natürliche Kanäle modellieren
+  - Schleuse als Zollgebäude
+- Weltumseglung ermöglichen
+
+### Verschiedenes
+
+- neue Monsterrassen
+- Gerüchte durch NPC oder Bauern
+  - Monstervorkommen in Nachbarregionen
+  - Kämpfe in Nachbarregionen
+- VORLAGE-Variante für Rotation von Befehlen
 - Einstellen der erwünschten Reportformate
   - Textreport im Markdown-Format
 
