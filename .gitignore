@@ -22,6 +22,7 @@
 /storage/turn/year.*/*/*.*
 
 /composer.lock
+/bin/control.sh
 /bin/sync.sh
 /doc/Lemuria.pdf
 /doc/Map
