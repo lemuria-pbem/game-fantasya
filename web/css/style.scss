@@ -165,6 +165,18 @@ div.fixed-top.vh-100 {
     }
 }
 
+.announcement {
+    margin: 0.5rem 0 0;
+    blockquote {
+        margin: 0.25rem 0 0;
+        font-style: italic;
+        @media (min-width: breakpoint-min("lg")) {
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+    }
+}
+
 /* deprecated */
 .diplomacy > li {
     margin-bottom: 1rem;
