@@ -120,6 +120,7 @@ Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden.
   - VERSENKEN (Schiff vor Entern bewahren)
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
+- AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 
 ### Schifffahrt
 
