@@ -16,8 +16,8 @@ Der Herrscher der Region legt die Bedingungen für den Handel auf Märkten fest:
 
 - Er kann eine Marktgebühr für Händler festlegen.
 - Er kann verbieten, dass bestimmte Waren gehandelt werden.
-- Er kann über das Allianzrecht "Betreten" Händler vom Markt ausschließen.
-- Er kann über das Allianzrecht "Markt" Kunden vom Handel ausschließen.
+- Er kann über das Allianzrecht "Markt" Händler und Kunden vom Markt
+  ausschließen.
 
 ### Angebot und Nachfrage
 
