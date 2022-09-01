@@ -115,6 +115,10 @@ diese Weise kann ein Schwarzmarkt organisiert werden, um die
 Handelsbeschränkungen zu unterlaufen und über GEBEN-Befehle dennoch Waren
 auszutauschen.
 
+## Version 1.2
+
+- Update PHP 8.2
+
 ## Ideen
 
 ### Ereignisse
