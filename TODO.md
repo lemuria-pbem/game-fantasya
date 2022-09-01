@@ -6,18 +6,35 @@ Lemuria 1.0 wurde am 6. August 2022 veröffentlicht.
 
 - …
 
-## Feature: Märkte
+## Version 1.1: Märkte
 
 In Regionen mit einem Turm kann ein Markt gebaut werden. Händlereinheiten können
 den Markt betreten und preisen damit automatisch ihre Waren an. Um als Kunde mit
 einem Händler zu handeln, muss der Markt nicht betreten werden.
 
-Der Herrscher der Region legt die Bedingungen für den Handel auf Märkten fest:
+Der Marktaufseher als Besitzer des Marktes legt die Bedingungen für den Handel
+fest:
 
-- Er kann eine Marktgebühr für Händler festlegen.
-- Er kann verbieten, dass bestimmte Waren gehandelt werden.
-- Er kann über das Allianzrecht "Betreten" Händler vom Markt ausschließen.
-- Er kann über das Allianzrecht "Markt" Kunden vom Handel ausschließen.
+Er kann eine Marktgebühr für Händler festlegen. Diese ist entweder pro Person
+in der Händlereinheit zu entrichten oder als Prozentsatz der gehandelten Waren.
+
+- STEUERN 100 Silber
+- STEUERN 10 %
+
+Er kann verbieten oder erlauben, dass bestimmte Waren gehandelt werden.
+
+- VERBIETEN Alles
+- VERBIETEN Elefant Streitaxt Schilde Rüstungen
+- ERLAUBEN Alles
+- ERLAUBEN Holzschild Lederrüstung
+
+Er kann über das Allianzrecht "Markt" Händler und Kunden vom Markt ausschließen.
+Händler ausgeschlossener Parteien können den Markt nicht betreten und verlassen
+diesen, falls sie dort Händler sind. Ausgeschlossene Kunden Können keinen Handel
+treiben.
+
+- HELFEN 0 Markt
+- HELFEN 123 Markt Nicht
 
 ### Angebot und Nachfrage
 
@@ -27,7 +44,14 @@ es wird ein Stückpreis für eine maximale Menge definiert. Angebote und Gesuche
 erhalten beim Erstellen eine Nummer, die beim Handel und zum Beenden verwendet
 wird.
 
+- HANDEL Nummer …
 - BEENDEN Nummer
+
+Angebote und Gesuche sind einmalig und werden beim Handel automatisch beendet.
+Dies kann man über einen Wiederholen-Befehl verhindern und reaktivieren.
+
+- WIEDERHOLEN Nummer
+- WIEDERHOLEN Nummer Nicht
 
 #### Fix-Angebot
 
@@ -37,6 +61,8 @@ gehandelt.
 - ANGEBOT n Ware p Preis
 - NACHFRAGE n Ware p Preis
 
+- HANDEL Nummer
+
 #### Preisbereich mit Feilschen
 
 Eine feste Menge wird mit einer Preisvorstellung festgelegt, der Kunde kann
@@ -44,6 +70,8 @@ versuchen zu handeln.
 
 - ANGEBOT n Ware p-q Preis
 - NACHFRAGE n Ware p-q Preis
+
+- HANDEL Nummer x
 
 #### Stückpreis
 
@@ -53,6 +81,8 @@ Stückpreis-Angebot.
 - ANGEBOT n-m Ware p Preis
 - NACHFRAGE n-m Ware p Preis
 
+- HANDEL Nummer x
+
 #### Stückpreis mit Feilschen
 
 Werden Menge und Preis variabel gewählt, kann der Kunde versuchen, die
@@ -61,26 +91,33 @@ gewünschte Menge zu einem Wunschpreis zu handeln.
 - ANGEBOT n-m Ware p-q Preis
 - NACHFRAGE n-m Ware p-q Preis
 
+- HANDEL Nummer x y
+
 ### Gerüchte austauschen
 
-#### BESUCHEN
-
-Kunden können Händler besuchen, um mit ihnen Gerüchte auszutauschen.
-
-#### GERÜCHT
+#### Gerüchte
 
 Händler können mehrere kurze Texte festlegen, die sie den Besuchern erzählen.
-(Kunden können mit den besuchten Händlern über das herkömmliche BOTSCHAFT in
-Kontakt treten.)
 
-BESUCHEN und GERÜCHT funktionieren auch dann, wenn ihnen der Handel verboten
-ist. Auf diese Weise kann ein Schwarzmarkt organisiert werden, um die
+- GERÜCHT Text…
+
+Kunden können mit den besuchten Händlern über das herkömmliche BOTSCHAFT in
+Kontakt treten.
+
+#### Besuchen
+
+Kunden können Händler besuchen, um von ihnen Gerüchte zu erfahren.
+
+- BESUCHEN Einheit
+
+BESUCHEN funktioniert auch dann, wenn den Kunden der Handel verboten ist. Auf
+diese Weise kann ein Schwarzmarkt organisiert werden, um die
 Handelsbeschränkungen zu unterlaufen und über GEBEN-Befehle dennoch Waren
 auszutauschen.
 
-### Handel mit NPC
+## Version 1.2
 
-Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden. 
+- Update PHP 8.2
 
 ## Ideen
 
@@ -120,6 +157,7 @@ Auf Basis diese Märkte-Features können NPC-Händler umgesetzt werden.
   - VERSENKEN (Schiff vor Entern bewahren)
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
+- AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 
 ### Schifffahrt
 
