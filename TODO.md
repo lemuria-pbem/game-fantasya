@@ -4,7 +4,6 @@ Lemuria 1.0 wurde am 6. August 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- …
 
 ## Version 1.1: Märkte
 
