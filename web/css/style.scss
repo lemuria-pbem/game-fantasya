@@ -39,8 +39,13 @@ ul {
     */
 }
 
-.container-fluid .row > div ul {
-    padding-left: 0;
+.container-fluid .row {
+    > div ul {
+        padding-left: 0;
+    }
+    .pt-md-5, .pt-xl-5 {
+        padding-top: 4.25rem !important;
+    }
 }
 
 div.fixed-top.vh-100 {
