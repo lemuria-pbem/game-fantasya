@@ -265,3 +265,10 @@ div.fixed-top.vh-100 {
         }
     }
 }
+
+.market li .trade-flag {
+    color: transparentize($secondary, 0.7);
+    &.ppp-1, &.var-1, &.rep-1 {
+        color: $dark;
+    }
+}

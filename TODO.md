@@ -4,6 +4,7 @@ Lemuria 1.0 wurde am 6. August 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Gesuch nicht vorrätig - Logik umdrehen
 - Marktgebühren bezahlen
 - Einkommensprognose am Rundenende in Statistik aufnehmen
 - Parteimeldung für gesichtete Monster
