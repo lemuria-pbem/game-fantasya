@@ -1,122 +1,9 @@
-# Version 1.0
+# Version 1.1
 
-Lemuria 1.0 wurde am 6. August 2022 veröffentlicht.
+Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Gesuch nicht vorrätig - Logik umdrehen
-- Marktgebühren bezahlen
-- Einkommensprognose am Rundenende in Statistik aufnehmen
-- Parteimeldung für gesichtete Monster
-
-## Version 1.1: Märkte
-
-In Regionen mit einem Turm kann ein Markt gebaut werden. Händlereinheiten können
-den Markt betreten und preisen damit automatisch ihre Waren an. Um als Kunde mit
-einem Händler zu handeln, muss der Markt nicht betreten werden.
-
-Der Marktaufseher als Besitzer des Marktes legt die Bedingungen für den Handel
-fest:
-
-Er kann eine Marktgebühr für Händler festlegen. Diese ist entweder pro Person
-in der Händlereinheit zu entrichten oder als Prozentsatz der gehandelten Waren.
-
-- STEUERN 100 Silber
-- STEUERN 10 %
-
-Er kann verbieten oder erlauben, dass bestimmte Waren gehandelt werden.
-
-- VERBIETEN Alles
-- VERBIETEN Elefant Streitaxt Schilde Rüstungen
-- ERLAUBEN Alles
-- ERLAUBEN Holzschild Lederrüstung
-
-Er kann über das Allianzrecht "Markt" Händler und Kunden vom Markt ausschließen.
-Händler ausgeschlossener Parteien können den Markt nicht betreten und verlassen
-diesen, falls sie dort Händler sind. Ausgeschlossene Kunden Können keinen Handel
-treiben.
-
-- HELFEN 0 Markt
-- HELFEN 123 Markt Nicht
-
-### Angebot und Nachfrage
-
-Händler können Waren anbieten und Gesuche veröffentlichen. Dabei kann eine fixe
-Menge zu einem festen Preis oder in einem Preisbereich bestimmt werden, oder
-es wird ein Stückpreis für eine maximale Menge definiert. Angebote und Gesuche
-erhalten beim Erstellen eine Nummer, die beim Handel und zum Beenden verwendet
-wird.
-
-- HANDEL Nummer …
-- BEENDEN Nummer
-
-Angebote und Gesuche sind einmalig und werden beim Handel automatisch beendet.
-Dies kann man über einen Wiederholen-Befehl verhindern und reaktivieren.
-
-- WIEDERHOLEN Nummer
-- WIEDERHOLEN Nummer Nicht
-
-#### Fix-Angebot
-
-Es wird eine feste Menge an Ware gegen einen nicht verhandelbaren Preis
-gehandelt.
-
-- ANGEBOT n Ware p Preis
-- NACHFRAGE n Ware p Preis
-
-- HANDEL Nummer
-
-#### Preisbereich mit Feilschen
-
-Eine feste Menge wird mit einer Preisvorstellung festgelegt, der Kunde kann
-versuchen zu handeln.
-
-- ANGEBOT n Ware p-q Preis
-- NACHFRAGE n Ware p-q Preis
-
-- HANDEL Nummer x
-
-#### Stückpreis
-
-Wenn die Menge variabel und der Preis fest gewählt wird, handelt es sich um ein
-Stückpreis-Angebot.
-
-- ANGEBOT n-m Ware p Preis
-- NACHFRAGE n-m Ware p Preis
-
-- HANDEL Nummer x
-
-#### Stückpreis mit Feilschen
-
-Werden Menge und Preis variabel gewählt, kann der Kunde versuchen, die
-gewünschte Menge zu einem Wunschpreis zu handeln.
-
-- ANGEBOT n-m Ware p-q Preis
-- NACHFRAGE n-m Ware p-q Preis
-
-- HANDEL Nummer x y
-
-### Gerüchte austauschen
-
-#### Gerüchte
-
-Händler können mehrere kurze Texte festlegen, die sie den Besuchern erzählen.
-
-- GERÜCHT Text…
-
-Kunden können mit den besuchten Händlern über das herkömmliche BOTSCHAFT in
-Kontakt treten.
-
-#### Besuchen
-
-Kunden können Händler besuchen, um von ihnen Gerüchte zu erfahren.
-
-- BESUCHEN Einheit
-
-BESUCHEN funktioniert auch dann, wenn den Kunden der Handel verboten ist. Auf
-diese Weise kann ein Schwarzmarkt organisiert werden, um die
-Handelsbeschränkungen zu unterlaufen und über GEBEN-Befehle dennoch Waren
-auszutauschen.
 
 ## Version 1.2
 
@@ -165,6 +52,13 @@ auszutauschen.
 ### Schifffahrt
 
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
+
+### Statistik
+
+- Einkommensprognose am Rundenende
+- automatisches Verfolgen von Monstern und Fremdeinheiten
+  - Meldung bei Wiederentdeckung markierter Einheiten
+  - Parteimeldung für gesichtete Monster
 
 ### Umgebung/Welt
 
