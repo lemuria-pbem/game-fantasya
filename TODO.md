@@ -8,12 +8,24 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Version 1.2
 
-- Update PHP 8.2
-  - Enums in Konstanten
-  - Konstanten in Traits
-  - schreibgeschützte Klassen
-  - Random
-  - ksort/krsort prüfen
+### Seefahrt
+
+- Hafenbenutzungsgebühr an den Hafenmeister
+- Hafen erlaubt Ablegen in benachbarte Richtungen
+- Kanalbenutzungsgebühr an den Besitzer
+- Kanal erlaubt Ablegen in beliebige Richtungen
+
+### Umgebung/Welt
+
+- leere Regionen benennen
+
+### Update PHP 8.2
+ 
+- Enums in Konstanten
+- Konstanten in Traits
+- schreibgeschützte Klassen
+- Random
+- ksort/krsort prüfen
 
 ## Ideen
 
@@ -55,7 +67,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - SABOTIEREN (Spion versenkt Schiff)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 
-### Schifffahrt
+### Seefahrt
 
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
 
