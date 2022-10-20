@@ -18,6 +18,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 ### Umgebung/Welt
 
 - leere Regionen benennen
+- Weltumseglung ermöglichen
 
 ### Update PHP 8.2
  
@@ -82,7 +83,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 - Flüsse als natürliche Kanäle modellieren
   - Schleuse als Zollgebäude
-- Weltumseglung ermöglichen
 
 ### Verschiedenes
 
