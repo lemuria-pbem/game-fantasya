@@ -20,6 +20,11 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - leere Regionen benennen
 - Weltumseglung ermöglichen
 
+### Verschiedenes
+
+- Reise-Berechnung verbessern
+  - Pferde führen korrigieren (2 pro TP Reiten)
+
 ### Update PHP 8.2
  
 - Enums in Konstanten
