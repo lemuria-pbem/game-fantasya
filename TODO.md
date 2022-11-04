@@ -8,6 +8,10 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Version 1.2
 
+### Kampf
+
+- Kampf in Gebäuden und auf Schiffen begrenzen
+
 ### Seefahrt
 
 - Hafenbenutzungsgebühr an den Hafenmeister
@@ -22,8 +26,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ### Verschiedenes
 
-- Reise-Berechnung verbessern
-  - Pferde führen korrigieren (2 pro TP Reiten)
+- Reise-Berechnung vereinfachen
 
 ### Update PHP 8.2
  
