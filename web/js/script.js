@@ -23,7 +23,7 @@ const buttonHandled = function(event, button) {
 
 const gotoHandled = function(event) {
     event.preventDefault();
-    gotoModal.modal('show');
+    new bootstrap.Modal(gotoModal).show();
 };
 
 const locationHandled = function(event, location) {
@@ -55,26 +55,26 @@ toggleButton.addEventListener('click', () => {
     }
 });
 
-gotoModal.on('show.bs.modal', function() {
+gotoModal.addEventListener('show.bs.modal', () => {
     enableKeys = false;
 });
 
-gotoModal.on('shown.bs.modal', function() {
+gotoModal.addEventListener('shown.bs.modal', () => {
     gotoId.focus();
 });
 
-gotoModal.on('hide.bs.modal', function() {
+gotoModal.addEventListener('hide.bs.modal', () => {
     enableKeys = true;
 });
 
-gotoModal.on('hidden.bs.modal', function() {
-    gotoId.val('');
+gotoModal.addEventListener('hidden.bs.modal', () => {
+    gotoId.value = '';
 });
 
-gotoId.on('change', function() {
-    const id = 'unit-' + gotoId.val();
+gotoId.addEventListener('change', () => {
+    const id = 'unit-' + gotoId.value;
     if (document.getElementById(id)) {
-        gotoModal.modal('hide');
+        new bootstrap.Modal(gotoModal).hide();
         document.location.href = '#' + id;
     }
 });
@@ -116,13 +116,13 @@ document.addEventListener('keydown', (event) => {
         return buttonHandled(event, navButton);
     }
     if (event.key === 'k') {
-        return locationHandled(event, herbalBook.attr('href'));
+        return locationHandled(event, herbalBook.href);
     }
     if (event.key === 's') {
         return locationHandled(event, statistics);
     }
     if (event.key === 'z') {
-        return locationHandled(event, spellBook.attr('href'));
+        return locationHandled(event, spellBook.href);
     }
 });
 
