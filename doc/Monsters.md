@@ -91,7 +91,7 @@ ziehen sie weiter.
 
 #### Krake
 
-_Umherstreifen - Vermehren_
+_Umherstreifen - Vermehren - Angreifen_
 
 In den endlosen Weiten der Ozeane trifft man manchmal auf einzelne Kraken,
 selten auch mal auf kleine Gruppen von ihnen. Diese Begegnungen sind unter den
