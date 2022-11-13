@@ -2,7 +2,7 @@
 
 bootstrap=vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js
 source=web/js/script.js
-target=web/js/report.min.js
+target=web/js/report-12.min.js
 
 rm -f $target
 cp $bootstrap $target

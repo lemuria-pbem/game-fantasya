@@ -36,11 +36,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - Random
 - ksort/krsort prüfen
 
-### Update CSS/JS
-
-- Bootstrap auf 5.2 migrieren
-- jQuery entfernen, JS anpassen
-
 ## Ideen
 
 ### Ereignisse

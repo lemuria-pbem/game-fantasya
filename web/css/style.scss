@@ -2,10 +2,20 @@
 @import "../../vendor/twbs/bootstrap/scss/variables";
 @import "../../vendor/twbs/bootstrap/scss/mixins/breakpoints";
 
+$fontFamilySerif: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", Times, serif;
+
 $unicumColor: #e724c7;
 
 body {
     margin: 1rem;
+}
+
+body.fantasya-font {
+    font-family: $fontFamilySerif;
+}
+
+a {
+    text-decoration: none;
 }
 
 h2, h3, h4, h5 {
@@ -53,7 +63,7 @@ div.fixed-top.vh-100 {
     overflow-y: scroll;
 }
 
-.badge-dark {
+.badge-dark, .text-bg-magic {
     color: #fff;
     background-color: $unicumColor;
 }
@@ -63,11 +73,11 @@ div.fixed-top.vh-100 {
     font-size: 90%;
     padding: 0.15em 0.2em 0.15em;
     margin-left: 0.2em;
-    &.badge-danger {
+    &.badge-danger, &.text-bg-danger {
         color: $danger;
         background-color: $white;
     }
-    &.badge-success {
+    &.badge-success, &.text-bg-success {
         color: $success;
         background-color: $white;
     }
@@ -130,6 +140,7 @@ div.fixed-top.vh-100 {
     flex: unset;
     max-width: unset;
     padding: unset !important;
+    width: 100%;
 }
 
 .report {
