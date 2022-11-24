@@ -8,6 +8,10 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Version 1.2
 
+### Auswertung
+
+- Talentübersicht (Anzahl, Level, Ort)
+
 ### Kampf
 
 - Kampf in Gebäuden und auf Schiffen begrenzen
