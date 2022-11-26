@@ -4,7 +4,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- …
+- Angebote/Gesuche im Report sortieren
 
 ## Version 1.2
 
@@ -104,6 +104,10 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 ### Verschiedenes
 
 - neue Monsterrassen
+  - Wölfe
+- neue Zauber
+  - Zombies erwecken (Kampf oder Regionszauber)
+  - Ruhe in Frieden (Zombieinfektion verhindern)
 - Gerüchte durch NPC oder Bauern
   - Monstervorkommen in Nachbarregionen
   - Kämpfe in Nachbarregionen
