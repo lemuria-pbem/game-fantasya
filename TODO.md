@@ -31,6 +31,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 ### Verschiedenes
 
 - Reise-Berechnung vereinfachen
+- Monster-Parteien vereinheitlichen
 
 ### Update PHP 8.2
  
@@ -85,6 +86,15 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - SABOTIEREN (Spion versenkt Schiff)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 
+### Magie
+
+- neuer Zauber: Zombies erwecken (Kampf oder Regionszauber)
+- neuer Zauber: Ruhe in Frieden (Zombieinfektion verhindern)
+
+### Monster
+
+- neue Monsterrassen
+
 ### Seefahrt
 
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
@@ -103,7 +113,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ### Verschiedenes
 
-- neue Monsterrassen
 - Gerüchte durch NPC oder Bauern
   - Monstervorkommen in Nachbarregionen
   - Kämpfe in Nachbarregionen

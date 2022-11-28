@@ -112,8 +112,6 @@ class FantasyaReport
 				$writer->setFilter($filter)->render($id);
 				$writer = new OrderWriter($pathFactory);
 				$writer->render($id);
-				$writer = new BattleLogWriter($pathFactory);
-				$writer->render($id);
 				if ($party->SpellBook()->count() > 0) {
 					$writer = new SpellBookWriter($pathFactory);
 					$writer->render($id);
@@ -128,6 +126,9 @@ class FantasyaReport
 					$writer->render($unicum->Id());
 				}
 			}
+
+			$writer = new BattleLogWriter($pathFactory);
+			$writer->render($id);
 
 			$p++;
 			$hasVersion = true;
