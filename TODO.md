@@ -25,7 +25,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ### Umgebung/Welt
 
-- leere Regionen benennen
 - Weltumseglung ermöglichen
 
 ### Verschiedenes
