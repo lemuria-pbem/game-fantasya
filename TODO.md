@@ -8,6 +8,10 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Version 1.2
 
+### Auswertung
+
+- Talentübersicht (Anzahl, Level, Ort)
+
 ### Kampf
 
 - Kampf in Gebäuden und auf Schiffen begrenzen
@@ -27,6 +31,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 ### Verschiedenes
 
 - Reise-Berechnung vereinfachen
+- Monster-Parteien vereinheitlichen
 
 ### Update PHP 8.2
  
@@ -81,6 +86,22 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - SABOTIEREN (Spion versenkt Schiff)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 
+### Magie
+
+- neuer Zauber: Zombies erwecken (Kampf oder Regionszauber)
+- neuer Zauber: Ruhe in Frieden (Zombieinfektion verhindern)
+
+### Monster
+
+- neue Monsterrassen
+
+### NPC
+
+- Standardverhalten kann mit Befehlsliste überschrieben werden
+- Gerüchte durch NPC oder Bauern
+  - Monstervorkommen in Nachbarregionen
+  - Kämpfe in Nachbarregionen
+
 ### Seefahrt
 
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
@@ -99,10 +120,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ### Verschiedenes
 
-- neue Monsterrassen
-- Gerüchte durch NPC oder Bauern
-  - Monstervorkommen in Nachbarregionen
-  - Kämpfe in Nachbarregionen
 - VORLAGE-Variante für Rotation von Befehlen
 - Einstellen der erwünschten Reportformate
   - Textreport im Markdown-Format

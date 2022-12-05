@@ -12,7 +12,14 @@ zeigen.
 - Kobold - hinterlistiges Wesen, bekannt für ihr diebisches Verhalten
 - Krake - aggressiver Meeresbewohner
 - Skelett – untoter Humanoider, kann bewaffnet sein
+- Wolf – Wildtier, im Winter angriffslustig, ansonsten scheu
 - Zombie - untote Kreatur mit Verlangen nach Frischfleisch
+
+### Monsterparteien
+
+Alle Monsterarten gehören derselben Partei [m] an. Zombies bilden eine Ausnahme:
+Damit sie andere Monster wie Wildtiere oder Kobolde angreifen können, gehören
+sie einer eigenen Partei an, den Zombies [z].
 
 ## Monsterverhalten
 
@@ -26,6 +33,7 @@ mehreren Aktionen zusammensetzt.
 - Bewachen - dauerhaftes Bewachen einer Region
 - Bewohnen - dauerhaftes Aufhalten in einer Heimatregion
 - Feindsuche - Suche nach feindlichen Einheiten
+- Jagen - Suche nach leichter Angriffsbeute
 - Vermehren - Erzeugen neuer Monstergruppen
 - Taschendiebstahl - entdeckte Feinde werden bestohlen
 - Umherstreifen - umherwandern in der Region oder in eine Nachbarregion
@@ -112,6 +120,16 @@ also starke Gegner im Kampf sein - und Kampf ist auch das einzige, nach dem es
 sie giert. Skelette werden stets den selben Ort bewachen und jede erblickte
 Spielereinheit erbarmungslos angreifen.
 
+#### Wolf
+
+_Umherstreifen - Vermehren - Jagen_
+
+Wölfe streifen in Rudeln durch die Wildnis. Dabei meiden sie Sümpfe, Gletscher
+oder bewohnte Gegenden, sind scheu und halten sich bevorzugt in den Wäldern auf.
+Im Winter treibt sie der Hunger aber manchmal auch in die Nähe der Siedlungen,
+und dann greifen sie auf der Jagd nach Beute Alleinreisende oder kleine Gruppen
+an, solange sie in der Überzahl sind.
+
 #### Zombie
 
 _Umherstreifen - Feindsuche - Angreifen_
@@ -120,4 +138,6 @@ Zombies sind Untote ähnlich den Skeletten, doch haben sie noch verrottendes
 Fleisch auf den Knochen und sind normalerweise nicht mehr intelligent. Sie
 werden einzig von einem unstillbaren Hunger getrieben und streifen durch die
 Ebenen, Hochländer, Sümpfe und Wüsten, auf der Suche nach ihren nächsten Opfern,
-die sie ausnahmelos angreifen. Gebirgige Gegenden und Wälder meiden sie dagegen.
+die sie ausnahmelos angreifen. Sie greifen sogar Kobolde, Bären und andere Tiere
+an, um ihren Hunger zu stillen. Gebirgige Gegenden und Wälder meiden sie
+dagegen.
