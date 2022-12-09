@@ -95,6 +95,13 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 - neue Monsterrassen
 
+### NPC
+
+- Standardverhalten kann mit Befehlsliste überschrieben werden
+- Gerüchte durch NPC oder Bauern
+  - Monstervorkommen in Nachbarregionen
+  - Kämpfe in Nachbarregionen
+
 ### Seefahrt
 
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
@@ -113,9 +120,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ### Verschiedenes
 
-- Gerüchte durch NPC oder Bauern
-  - Monstervorkommen in Nachbarregionen
-  - Kämpfe in Nachbarregionen
 - VORLAGE-Variante für Rotation von Befehlen
 - Einstellen der erwünschten Reportformate
   - Textreport im Markdown-Format
