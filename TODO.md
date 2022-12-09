@@ -4,7 +4,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- …
+- Kampfzauber in Einheiten als Extension speichern
 
 ## Version 1.2
 
