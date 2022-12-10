@@ -54,7 +54,7 @@ try {
 			} else {
 				echo 'Parteimeldungen:' . PHP_EOL;
 			}
-			foreach ($messages as $message/* @var Message $message */) {
+			foreach ($messages as $message /* @var Message $message */) {
 				echo $simulator->render($message) . PHP_EOL;
 			}
 			$eol = true;
