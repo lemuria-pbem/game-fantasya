@@ -3,6 +3,9 @@ declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
 use Lemuria\Engine\Fantasya\LemuriaTurn;
+use Lemuria\Engine\Fantasya\Message\LemuriaMessage;
+use Lemuria\Engine\Fantasya\Message\Reliability;
+use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\TurnOptions;
 use Lemuria\Engine\Message;
@@ -17,6 +20,8 @@ use Lemuria\Model\Fantasya\Region;
 final class FantasyaSimulator
 {
 	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => ' '];
+
+	private const UNDETERMINED = 'S';
 
 	private const LOG_FILE = 'simulation.log';
 
@@ -40,7 +45,7 @@ final class FantasyaSimulator
 		$options = new TurnOptions();
 		$turn    = new LemuriaTurn($options->setIsSimulation(true));
 		$turn->add($move);
-		$turn->evaluate();
+		$turn->addProgress(new SimulationProgress(State::getInstance()))->evaluate();
 		return $this;
 	}
 
@@ -78,6 +83,12 @@ final class FantasyaSimulator
 	}
 
 	public function render(Message $message): string {
-		return '[' . self::LEVEL[$message->Level()] . '] ' . $message;
+		$level = self::LEVEL[$message->Level()];
+		if ($message instanceof LemuriaMessage) {
+			if ($message->MessageType()->Reliability() !== Reliability::Determined) {
+				$level = self::UNDETERMINED;
+			}
+		}
+		return '[' . $level . '] ' . $message;
 	}
 }
