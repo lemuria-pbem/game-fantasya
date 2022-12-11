@@ -41,18 +41,23 @@ mark {
     display: inline-block;
 }
 
+q {
+    &::before, &::after {
+        content: unset;
+    }
+}
+
 ul {
     list-style-position: inside;
     list-style-type: none;
-    /* alternative to [1]
     padding-left: 0;
-    */
 }
 
 .container-fluid .row {
     > div ul {
         padding-left: 0;
     }
+
     .pt-md-5, .pt-xl-5 {
         padding-top: 4.25rem !important;
     }
@@ -61,6 +66,14 @@ ul {
 div.fixed-top.vh-100 {
     left: unset;
     overflow-y: scroll;
+}
+
+ul.report .badge {
+    font-size: $font-size-base;
+}
+
+.badge.font-monospace {
+    padding: 0.4rem 0.5rem 0.2rem;
 }
 
 .badge-dark, .text-bg-magic {
@@ -73,10 +86,12 @@ div.fixed-top.vh-100 {
     font-size: 90%;
     padding: 0.15em 0.2em 0.15em;
     margin-left: 0.2em;
+
     &.badge-danger, &.text-bg-danger {
         color: $danger;
         background-color: $white;
     }
+
     &.badge-success, &.text-bg-success {
         color: $success;
         background-color: $white;
@@ -88,27 +103,36 @@ div.fixed-top.vh-100 {
     z-index: 1;
 }
 
-#navbar .nav-pills .nav-link {
-    &.region {
-        color: $success;
-        &:before {
-            content: '\1f333\a0';
-        }
+#navbar {
+    .navbar-brand {
+        margin-left: 1.0rem;
     }
-    &.construction {
-        color: $dark;
-        &:before {
-            content: '\1f3f0\a0';
+
+    .nav-pills .nav-link {
+        &.region {
+            color: $success;
+            &:before {
+                content: '\1f333\a0';
+            }
         }
-    }
-    &.vessel {
-        color: $primary;
-        &:before {
-            content: '\26f5\a0';
+
+        &.construction {
+            color: $dark;
+            &:before {
+                content: '\1f3f0\a0';
+            }
         }
-    }
-    &.active {
-        background-color: transparentize($primary, 0.7);
+
+        &.vessel {
+            color: $primary;
+            &:before {
+                content: '\26f5\a0';
+            }
+        }
+
+        &.active {
+            background-color: transparentize($primary, 0.7);
+        }
     }
 }
 
@@ -127,12 +151,18 @@ div.fixed-top.vh-100 {
 
 #acquaintances {
     margin-top: 0.75rem;
+
     small {
         display: block;
         margin: 0.5rem 0;
     }
+
     h4 {
         margin-top: 0.5rem;
+    }
+
+    .relation.font-monospace {
+        font-size: 90%;
     }
 }
 
@@ -144,9 +174,6 @@ div.fixed-top.vh-100 {
 }
 
 .report {
-    /* deprecated [1] */
-    padding-left: 0;
-
     .badge.text-monospace {
         font-size: 96%;
     }
@@ -161,7 +188,7 @@ div.fixed-top.vh-100 {
 
     .blockquote {
         margin: 0 1.0rem 0.5rem;
-        color: $info;
+        color: $primary;
         font-size: unset;
         font-style: italic;
     }
@@ -183,19 +210,16 @@ div.fixed-top.vh-100 {
 
 .announcement {
     margin: 0.5rem 0 0;
+
     blockquote {
         margin: 0.25rem 0 0;
         font-style: italic;
+
         @media (min-width: breakpoint-min("lg")) {
             display: inline-block;
             margin-left: 0.5em;
         }
     }
-}
-
-/* deprecated */
-.diplomacy > li {
-    margin-bottom: 1rem;
 }
 
 .statistics.table tbody {
@@ -209,6 +233,7 @@ div.fixed-top.vh-100 {
             color: $danger;
         }
     }
+
     .change-more {
         .less-is-good,
         &.less-is-good {
@@ -219,13 +244,16 @@ div.fixed-top.vh-100 {
             color: $success;
         }
     }
+
     .market.table {
         th.offer {
             color: $primary;
         }
     }
+
     table {
         margin-bottom: 0;
+
         tr {
             background-color: unset;
         }

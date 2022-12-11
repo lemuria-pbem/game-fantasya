@@ -32,12 +32,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - Reise-Berechnung vereinfachen
 - Monster-Parteien vereinheitlichen
 
-### Update CSS
-
-- IDs in Report ohne Serifen ausgeben
-- Statistik-Badges verbessern
-- Badges-Position verbessern
-
 ## Ideen
 
 ### Ereignisse
