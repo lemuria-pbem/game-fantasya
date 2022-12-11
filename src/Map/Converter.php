@@ -110,7 +110,7 @@ class Converter
 		}
 		$this->map->setX($x)->setY($y);
 
-		$id        = Lemuria::Catalog()->nextId(Domain::LOCATION);
+		$id        = Lemuria::Catalog()->nextId(Domain::Location);
 		$landscape = $this->getLandscape($x, $y, $data[Map::VEGETATION] ?? 0);
 
 		$region = new Region();

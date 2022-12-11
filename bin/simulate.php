@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 use Lemuria\Game\Fantasya\FantasyaSimulator;
-use Lemuria\Engine\Message;
+use Lemuria\Engine\Fantasya\Message\LemuriaMessage;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party;
@@ -54,7 +54,7 @@ try {
 			} else {
 				echo 'Parteimeldungen:' . PHP_EOL;
 			}
-			foreach ($messages as $message /* @var Message $message */) {
+			foreach ($messages as $message /* @var LemuriaMessage $message */) {
 				echo $simulator->render($message) . PHP_EOL;
 			}
 			$eol = true;

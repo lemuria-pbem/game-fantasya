@@ -16,7 +16,7 @@ use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Fantasya\Unit;
-use Lemuria\Version;
+use Lemuria\Version\Module;
 use Lemuria\Version\VersionFinder;
 
 final class FantasyaGame extends FantasyaReport
@@ -44,7 +44,7 @@ final class FantasyaGame extends FantasyaReport
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Turn starts.', ['config' => $this->config]);
 		Lemuria::load();
-		Lemuria::Log()->debug('The world has ' . count(Lemuria::Catalog()->getAll(Domain::LOCATION)) . ' regions.');
+		Lemuria::Log()->debug('The world has ' . count(Lemuria::Catalog()->getAll(Domain::Location)) . ' regions.');
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
 
@@ -53,10 +53,10 @@ final class FantasyaGame extends FantasyaReport
 		$options->setThrowExceptions($this->throwExceptions);
 		$this->turn = new LemuriaTurn($options);
 
-		$version                  = Lemuria::Version();
-		$version[Version::ENGINE] = $this->turn->getVersion();
-		$versionFinder            = new VersionFinder(__DIR__ . '/..');
-		$version[Version::GAME]   = $versionFinder->get();
+		$version                 = Lemuria::Version();
+		$version[Module::Engine] = $this->turn->getVersion();
+		$versionFinder           = new VersionFinder(__DIR__ . '/..');
+		$version[Module::Game]   = $versionFinder->get();
 
 		return $this;
 	}
@@ -177,8 +177,8 @@ final class FantasyaGame extends FantasyaReport
 	}
 
 	private function addMissingParties(Gathering $gathering): void {
-		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
-			if ($party->Type() === Type::PLAYER && !$gathering->has($party->Id())) {
+		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
+			if ($party->Type() === Type::Player && !$gathering->has($party->Id())) {
 				$this->turn->substitute($party);
 			}
 		}
