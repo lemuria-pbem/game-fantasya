@@ -32,18 +32,11 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - Reise-Berechnung vereinfachen
 - Monster-Parteien vereinheitlichen
 
-### Update PHP 8.2
- 
-- Enums in Konstanten
-- Konstanten in Traits
-- schreibgeschützte Klassen
-- Random
-- ksort/krsort prüfen
-
 ### Update CSS
 
 - IDs in Report ohne Serifen ausgeben
 - Statistik-Badges verbessern
+- Badges-Position verbessern
 
 ## Ideen
 
