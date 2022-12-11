@@ -23,9 +23,10 @@
 
 /composer.lock
 /bin/control.sh
+/bin/name-generator.sh
 /bin/sync.sh
 /doc/Lemuria.pdf
 /doc/Map
 /vendor
-/web/css/report.min.css
-/web/js/report.min.js
+/web/css/report*.min.css
+/web/js/report*.min.js
