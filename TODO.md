@@ -4,17 +4,27 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Kampfzauber in Einheiten als Extension speichern
+- spherische Welt aktivieren
 
 ## Version 1.2
 
 ### Auswertung
 
-- Talentübersicht (Anzahl, Level, Ort)
-
+- Talentübersicht (Anzahl, Level, Ort) im HTML-Report
+  - pro Talent Matrix als Pop-Up
+  - pro Region eine Zeile, Level in Spalten
+  - verweist auf Region bzw. größte Einheit mit dem Level
+  
 ### Kampf
 
 - Kampf in Gebäuden und auf Schiffen begrenzen
+  - Angreifer außerhalb kann nur Einheiten draußen angreifen
+    - in Verbindung mit BETRETEN ist Angriff drinnen möglich
+  - Angreifer drinnen kann Einheiten draußen angreifen
+  - Verteidiger verlassen automatisch für Dauer des Kampfes
+  - Verteidiger betreten automatisch für Kampf, wenn sie dürfen
+  - bei gleichzeitigem Angriff drinnen und draußen wird draußen gekämpft
+    - Angreifer verlässt automatisch für die Dauer des Kampfes 
 
 ### Seefahrt
 
@@ -23,14 +33,9 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - Kanalbenutzungsgebühr an den Besitzer
 - Kanal erlaubt Ablegen in beliebige Richtungen
 
-### Umgebung/Welt
-
-- Weltumseglung ermöglichen
-
 ### Verschiedenes
 
 - Reise-Berechnung vereinfachen
-- Monster-Parteien vereinheitlichen
 
 ## Ideen
 
