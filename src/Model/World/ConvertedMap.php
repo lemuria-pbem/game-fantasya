@@ -74,4 +74,8 @@ class ConvertedMap extends BaseMap
 		$this->coordinates[$id] = new MapCoordinates($x, $y);
 		return $this;
 	}
+
+	protected function getNeighbourCoordinates(Location $location): array {
+		throw new LemuriaException('Not implemented.');
+	}
 }

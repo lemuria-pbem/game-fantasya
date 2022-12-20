@@ -1,12 +1,10 @@
-# Version 1.1
+# Version 1.2
 
-Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
+Lemuria 1.2 wurde am xx. Dezember 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- …
-
-## Version 1.2
+- GEBEN nur mit ursprünglich vorhandenen Waren ausführen
 
 ### Auswertung
 
@@ -35,7 +33,6 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ### Verschiedenes
 
-- GEBEN nur mit ursprünglich vorhandenen Waren ausführen
 - Reise-Berechnung vereinfachen
 
 ## Ideen
