@@ -35,6 +35,7 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 
 ### Verschiedenes
 
+- GEBEN nur mit ursprünglich vorhandenen Waren ausführen
 - Reise-Berechnung vereinfachen
 
 ## Ideen
