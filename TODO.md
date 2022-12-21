@@ -4,7 +4,7 @@ Lemuria 1.2 wurde am xx. Dezember 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- GEBEN nur mit ursprünglich vorhandenen Waren ausführen
+- …
 
 ### Auswertung
 
