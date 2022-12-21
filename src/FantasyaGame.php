@@ -41,8 +41,11 @@ final class FantasyaGame extends FantasyaReport
 	}
 
 	public function init(): self {
+		$versionFinder = new VersionFinder(__DIR__ . '/..');
+		$gameVersion   = $versionFinder->get();
+
 		Lemuria::init($this->config);
-		Lemuria::Log()->debug('Turn starts.', ['config' => $this->config]);
+		Lemuria::Log()->debug('Turn starts (' . $gameVersion . ').', ['config' => $this->config]);
 		Lemuria::load();
 		Lemuria::Log()->debug('The world has ' . count(Lemuria::Catalog()->getAll(Domain::Location)) . ' regions.');
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
@@ -55,8 +58,7 @@ final class FantasyaGame extends FantasyaReport
 
 		$version                 = Lemuria::Version();
 		$version[Module::Engine] = $this->turn->getVersion();
-		$versionFinder           = new VersionFinder(__DIR__ . '/..');
-		$version[Module::Game]   = $versionFinder->get();
+		$version[Module::Game]   = $gameVersion;
 
 		return $this;
 	}
