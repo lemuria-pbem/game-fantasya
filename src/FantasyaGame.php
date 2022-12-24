@@ -180,7 +180,7 @@ final class FantasyaGame extends FantasyaReport
 
 	private function addMissingParties(Gathering $gathering): void {
 		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
-			if ($party->Type() === Type::Player && !$gathering->has($party->Id())) {
+			if ($party->Type() === Type::Player && !$party->hasRetired() && !$gathering->has($party->Id())) {
 				$this->turn->substitute($party);
 			}
 		}

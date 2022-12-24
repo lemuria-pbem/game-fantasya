@@ -13,6 +13,10 @@ Lemuria 1.2 wurde am xx. Dezember 2022 veröffentlicht.
   - pro Region eine Zeile, Level in Spalten
   - verweist auf Region bzw. größte Einheit mit dem Level
   
+### Handel
+
+- HANDEL mit automatischem Stückpreisangebot
+
 ### Kampf
 
 - Kampf in Gebäuden und auf Schiffen begrenzen

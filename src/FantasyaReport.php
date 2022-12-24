@@ -87,6 +87,10 @@ class FantasyaReport
 		$p          = 0;
 		$hasVersion = false;
 		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
+			if ($party->hasRetired() && $party->Retirement() < $this->nextRound) {
+				continue;
+			}
+
 			$id       = $party->Id();
 			$isPlayer = $party->Type() === Type::Player;
 			$filter   = $this->getMessageFilter($party);
@@ -165,6 +169,9 @@ class FantasyaReport
 		$archives = [];
 		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
 			if ($party->Type() !== Type::Player) {
+				continue;
+			}
+			if ($party->hasRetired() && $party->Retirement() < $this->nextRound) {
 				continue;
 			}
 
