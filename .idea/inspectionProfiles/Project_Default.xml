@@ -7,6 +7,12 @@
     <inspection_tool class="PhpFullyQualifiedNameUsageInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="IGNORE_GLOBAL_NAMESPACE" value="true" />
     </inspection_tool>
+    <inspection_tool class="PhpIllegalArrayKeyTypeInspection" enabled="true" level="WEAK WARNING" enabled_by_default="false" editorAttributes="INFO_ATTRIBUTES">
+      <scope name="All Changed Files" level="WEAK WARNING" enabled="true">
+        <option name="PHP8_SEVERITY" value="WEAK WARNING" />
+      </scope>
+      <option name="PHP8_SEVERITY" value="WEAK WARNING" />
+    </inspection_tool>
     <inspection_tool class="PhpIncludeInspection" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="PhpUnhandledExceptionInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="PhpUnnecessaryFullyQualifiedNameInspection" enabled="true" level="WARNING" enabled_by_default="true">

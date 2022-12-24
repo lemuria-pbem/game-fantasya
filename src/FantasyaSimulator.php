@@ -8,8 +8,8 @@ use Lemuria\Engine\Fantasya\Message\Reliability;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\TurnOptions;
-use Lemuria\Engine\Message;
 use Lemuria\Engine\Message\Filter\DebugFilter;
+use Lemuria\Engine\Message\Result;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
@@ -19,7 +19,7 @@ use Lemuria\Model\Fantasya\Region;
 
 final class FantasyaSimulator
 {
-	private const LEVEL = [Message::ERROR => 'F', Message::EVENT => 'E', Message::FAILURE => '!', Message::SUCCESS => ' '];
+	private const LEVEL = [Result::Error->value => 'F', Result::Event->value => 'E', Result::Failure->value => '!', Result::Success->value => ' '];
 
 	private const UNDETERMINED = 'S';
 
@@ -82,12 +82,10 @@ final class FantasyaSimulator
 		return $messages;
 	}
 
-	public function render(Message $message): string {
-		$level = self::LEVEL[$message->Level()];
-		if ($message instanceof LemuriaMessage) {
-			if ($message->MessageType()->Reliability() !== Reliability::Determined) {
-				$level = self::UNDETERMINED;
-			}
+	public function render(LemuriaMessage $message): string {
+		$level = self::LEVEL[$message->Result()->value];
+		if ($message->MessageType()->Reliability() !== Reliability::Determined) {
+			$level = self::UNDETERMINED;
 		}
 		return '[' . $level . '] ' . $message;
 	}

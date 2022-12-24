@@ -14,9 +14,8 @@ $fantasya = new FantasyaGame();
 		<title>Lemuria-Auswertung</title>
 		<link rel="stylesheet" href="/css/bootstrap.css"/>
 		<link rel="stylesheet" href="/css/style.css"/>
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
-		<script type="text/javascript" src="/js/script.js"></script>
+		<script defer type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+		<script defer type="text/javascript" src="/js/script.js"></script>
 	</head>
 	<body>
 		<?php foreach ($fantasya->getReports() as $path): ?>

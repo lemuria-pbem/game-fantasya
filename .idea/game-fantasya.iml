@@ -8,7 +8,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/lemuria" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/model-fantasya" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/components/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />

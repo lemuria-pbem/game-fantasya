@@ -1,20 +1,32 @@
-# Version 1.1
+# Version 1.2
 
-Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
+Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
 - …
 
-## Version 1.2
-
 ### Auswertung
 
-- Talentübersicht (Anzahl, Level, Ort)
+- Talentübersicht (Anzahl, Level, Ort) im HTML-Report
+  - pro Talent Matrix als Pop-Up
+  - pro Region eine Zeile, Level in Spalten
+  - verweist auf Region bzw. größte Einheit mit dem Level
+  
+### Handel
+
+- HANDEL mit automatischem Stückpreisangebot
 
 ### Kampf
 
 - Kampf in Gebäuden und auf Schiffen begrenzen
+  - Angreifer außerhalb kann nur Einheiten draußen angreifen
+    - in Verbindung mit BETRETEN ist Angriff drinnen möglich
+  - Angreifer drinnen kann Einheiten draußen angreifen
+  - Verteidiger verlassen automatisch für Dauer des Kampfes
+  - Verteidiger betreten automatisch für Kampf, wenn sie dürfen
+  - bei gleichzeitigem Angriff drinnen und draußen wird draußen gekämpft
+    - Angreifer verlässt automatisch für die Dauer des Kampfes 
 
 ### Seefahrt
 
@@ -23,29 +35,9 @@ Lemuria 1.1 wurde am 23. September 2022 veröffentlicht.
 - Kanalbenutzungsgebühr an den Besitzer
 - Kanal erlaubt Ablegen in beliebige Richtungen
 
-### Umgebung/Welt
-
-- leere Regionen benennen
-- Weltumseglung ermöglichen
-
 ### Verschiedenes
 
-- GEBEN nur mit ursprünglich vorhandenen Waren ausführen
 - Reise-Berechnung vereinfachen
-- Monster-Parteien vereinheitlichen
-
-### Update PHP 8.2
- 
-- Enums in Konstanten
-- Konstanten in Traits
-- schreibgeschützte Klassen
-- Random
-- ksort/krsort prüfen
-
-### Update CSS/JS
-
-- Bootstrap auf 5.2 migrieren
-- jQuery entfernen, JS anpassen
 
 ## Ideen
 

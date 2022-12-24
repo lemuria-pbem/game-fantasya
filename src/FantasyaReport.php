@@ -24,7 +24,7 @@ use Lemuria\Renderer\Text\SpellBookWriter;
 use Lemuria\Renderer\Text\TextWriter;
 use Lemuria\Renderer\Text\UnicumWriter;
 use Lemuria\Renderer\Text\Wrapper\FileWrapper;
-use Lemuria\Version;
+use Lemuria\Version\Module;
 use Lemuria\Version\VersionFinder;
 
 class FantasyaReport
@@ -66,11 +66,11 @@ class FantasyaReport
 		$options->setDebugBattles($this->debugBattles);
 		$options->setThrowExceptions(true);
 
-		$version                  = Lemuria::Version();
-		$versionFinder            = new VersionFinder(__DIR__ . '/../vendor/lemuria-pbem/engine-fantasya');
-		$version[Version::ENGINE] = $versionFinder->get();
-		$versionFinder            = new VersionFinder(__DIR__ . '/..');
-		$version[Version::GAME]   = $versionFinder->get();
+		$version                 = Lemuria::Version();
+		$versionFinder           = new VersionFinder(__DIR__ . '/../vendor/lemuria-pbem/engine-fantasya');
+		$version[Module::Engine] = $versionFinder->get();
+		$versionFinder           = new VersionFinder(__DIR__ . '/..');
+		$version[Module::Game]   = $versionFinder->get();
 
 		return $this;
 	}
@@ -86,16 +86,20 @@ class FantasyaReport
 
 		$p          = 0;
 		$hasVersion = false;
-		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
+		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
+			if ($party->hasRetired() && $party->Retirement() < $this->nextRound) {
+				continue;
+			}
+
 			$id       = $party->Id();
-			$isPlayer = $party->Type() === Type::PLAYER;
+			$isPlayer = $party->Type() === Type::Player;
 			$filter   = $this->getMessageFilter($party);
 			$pathFactory->setPrefix((string)$id);
 			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
 
 			$writer = new MagellanWriter($pathFactory);
 			if (!$hasVersion) {
-				$version[Version::RENDERERS] = $writer->getVersion();
+				$version[Module::Renderers] = $writer->getVersion();
 			}
 			if ($isPlayer) {
 				$writer->setFilter($filter)->render($id);
@@ -103,7 +107,7 @@ class FantasyaReport
 
 			$writer = new HtmlWriter($pathFactory);
 			if (!$hasVersion) {
-				$version[Version::RENDERERS] = $writer->getVersion();
+				$version[Module::Renderers] = $writer->getVersion();
 			}
 			$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
 
@@ -163,8 +167,11 @@ class FantasyaReport
 		}
 
 		$archives = [];
-		foreach (Lemuria::Catalog()->getAll(Domain::PARTY) as $party /* @var Party $party */) {
-			if ($party->Type() !== Type::PLAYER) {
+		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
+			if ($party->Type() !== Type::Player) {
+				continue;
+			}
+			if ($party->hasRetired() && $party->Retirement() < $this->nextRound) {
 				continue;
 			}
 

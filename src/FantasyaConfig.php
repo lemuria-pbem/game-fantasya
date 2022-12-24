@@ -3,6 +3,8 @@ declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Factory\Namer;
+use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
 use Lemuria\Statistics\Fantasya\LemuriaStatistics;
 use Lemuria\Log;
 use Lemuria\Model\Fantasya\Exception\JsonException;
@@ -44,6 +46,10 @@ class FantasyaConfig extends LemuriaConfig
 
 	public function Statistics(): Statistics {
 		return new LemuriaStatistics();
+	}
+
+	public function Namer(): Namer {
+		return new FantasyaNamer();
 	}
 
 	protected function initDefaults(): void {

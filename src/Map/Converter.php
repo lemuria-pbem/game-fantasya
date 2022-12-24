@@ -2,12 +2,12 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya\Map;
 
-use function Lemuria\getClass;
 use function Lemuria\getNamespace;
-use Lemuria\Game\Fantasya\Map\Exception\MissingRegionException;
-use Lemuria\Game\Fantasya\Map\Exception\RegionTypeException;
 use Lemuria\Engine\Fantasya\Factory\Workplaces;
 use Lemuria\Exception\LemuriaException;
+use Lemuria\Factory\Namer;
+use Lemuria\Game\Fantasya\Map\Exception\MissingRegionException;
+use Lemuria\Game\Fantasya\Map\Exception\RegionTypeException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Dictionary;
 use Lemuria\Model\Domain;
@@ -69,6 +69,8 @@ class Converter
 
 	protected array $changes = [];
 
+	private Namer $namer;
+
 	public static function convertLandscape(int $vegetation): ?string {
 		return match ($vegetation) {
 			Terrain::OCEAN,    Moisture::LAKE,        Area::ICE           => Ocean::class,
@@ -87,6 +89,7 @@ class Converter
 		$this->dictionary   = new Dictionary();
 		$this->luxuryFinder = new LuxuryFinder($map);
 		$this->herbFinder   = new HerbFinder($map);
+		$this->namer        = Lemuria::Namer();
 		$this->maximum      = $config->square * 100.0;
 	}
 
@@ -107,18 +110,16 @@ class Converter
 		}
 		$this->map->setX($x)->setY($y);
 
-		$id        = Lemuria::Catalog()->nextId(Domain::LOCATION);
+		$id        = Lemuria::Catalog()->nextId(Domain::Location);
 		$landscape = $this->getLandscape($x, $y, $data[Map::VEGETATION] ?? 0);
 
 		$region = new Region();
 		$region->setId($id);
 		$region->setLandscape(self::createLandscape($landscape));
-		if ($landscape === Ocean::class) {
-			$region->setName($this->dictionary->get('landscape.' . getClass($landscape)));
-		} else {
+		$region->setName($this->namer->name($region));
+		if ($landscape !== Ocean::class) {
 			$peasants = $this->calculatePeasants($landscape, $data[Map::GOOD]);
 			$animal   = $this->getAnimal($landscape);
-			$region->setName($this->dictionary->get('landscape.' . getClass($landscape)) . ' ' . $id);
 			$this->addResources([
 				Peasant::class => $peasants,
 				Silver::class  => $this->calculateSilver($peasants, $data[Map::FERTILITY]),
