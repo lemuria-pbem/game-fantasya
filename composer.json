@@ -19,13 +19,13 @@
 		"matthiasmullie/minify": "~1.3",
 		"twbs/bootstrap": "~5.2",
 
-		"lemuria-pbem/engine-fantasya": "~1.1.0",
-		"lemuria-pbem/lemuria": "~1.1.0",
-		"lemuria-pbem/model-fantasya": "~1.1.0",
-		"lemuria-pbem/renderer-magellan": "~1.1.0",
-		"lemuria-pbem/renderer-text": "~1.1.0",
-		"lemuria-pbem/statistics-fantasya": "~1.1.0",
-		"lemuria-pbem/tools-lemuria": "~1.1.0"
+		"lemuria-pbem/engine-fantasya": "~1.2.0",
+		"lemuria-pbem/lemuria": "~1.2.0",
+		"lemuria-pbem/model-fantasya": "~1.2.0",
+		"lemuria-pbem/renderer-magellan": "~1.2.0",
+		"lemuria-pbem/renderer-text": "~1.2.0",
+		"lemuria-pbem/statistics-fantasya": "~1.2.0",
+		"lemuria-pbem/tools-lemuria": "~1.2.0"
 	},
 	"repositories": [
 		{
