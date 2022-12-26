@@ -17,6 +17,7 @@ document.addEventListener('readystatechange', () => {
     const gotoId = document.getElementById('modal-goto-id');
     const navButton = document.getElementById('navbar-toggle');
     const statistics = '#statistics';
+    const talentStatistics = document.querySelectorAll('.talent-statistics.modal');
     const alliances = '#alliances';
     const spellBook = document.getElementById('spell-book');
     const herbalBook = document.getElementById('herbal-book');
@@ -26,6 +27,7 @@ document.addEventListener('readystatechange', () => {
     let classIndex = 0;
     let enableKeys = true;
     let messageIndex = 0;
+    let talentStatisticsTarget = null;
 
     const buttonHandled = function(event, button) {
         event.preventDefault();
@@ -85,7 +87,6 @@ document.addEventListener('readystatechange', () => {
             i = 0;
         }
         setBodyClass(i);
-
     });
 
     gotoModal.addEventListener('show.bs.modal', () => {
@@ -129,6 +130,32 @@ document.addEventListener('readystatechange', () => {
         }
     });
 
+    const initTalentStatistics = function() {
+        for (const a of document.querySelectorAll('.talent-statistics.modal table a')) {
+            a.addEventListener('mousedown', event => {
+                const unitId = event.target.getAttribute('data-unit');
+                if (unitId) {
+                    talentStatisticsTarget = 'unit-' + unitId;
+                } else {
+                    const regionId = event.target.getAttribute('data-region');
+                    if (regionId) {
+                        talentStatisticsTarget = 'region-' + regionId;
+                    }
+                }
+            });
+        }
+        for (const modal of talentStatistics) {
+            modal.addEventListener('hidden.bs.modal', event => {
+                if (talentStatisticsTarget) {
+                    window.setTimeout(function() {
+                        document.location.href = '#' + talentStatisticsTarget;
+                        talentStatisticsTarget = null;
+                    }, 0);
+                }
+            });
+        }
+    }
+
     document.addEventListener('keydown', (event) => {
         if (!enableKeys) {
             return;
@@ -160,5 +187,6 @@ document.addEventListener('readystatechange', () => {
     });
 
     initToggleState();
+    initTalentStatistics();
     initMessagesButton();
 });

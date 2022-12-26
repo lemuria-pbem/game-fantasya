@@ -6,13 +6,6 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 - …
 
-### Auswertung
-
-- Talentübersicht (Anzahl, Level, Ort) im HTML-Report
-  - pro Talent Matrix als Pop-Up
-  - pro Region eine Zeile, Level in Spalten
-  - verweist auf Region bzw. größte Einheit mit dem Level
-  
 ### Handel
 
 - HANDEL mit automatischem Stückpreisangebot
