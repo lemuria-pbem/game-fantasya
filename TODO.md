@@ -6,10 +6,6 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 - …
 
-### Handel
-
-- HANDEL mit automatischem Stückpreisangebot
-
 ### Kampf
 
 - Kampf in Gebäuden und auf Schiffen begrenzen
