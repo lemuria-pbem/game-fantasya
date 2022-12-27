@@ -307,7 +307,7 @@ ul.report .badge {
 
 .market li .trade-flag {
     color: transparentize($secondary, 0.7);
-    &.ppp-1, &.var-1, &.rep-1 {
+    &.ppp-1, &.ad-1, &.var-1, &.rep-1 {
         color: $dark;
     }
 }
