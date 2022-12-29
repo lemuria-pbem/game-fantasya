@@ -9,13 +9,9 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 ### Kampf
 
 - Kampf in Gebäuden und auf Schiffen begrenzen
-  - Angreifer außerhalb kann nur Einheiten draußen angreifen
-    - in Verbindung mit BETRETEN ist Angriff drinnen möglich
-  - Angreifer drinnen kann Einheiten draußen angreifen
-  - Verteidiger verlassen automatisch für Dauer des Kampfes
-  - Verteidiger betreten automatisch für Kampf, wenn sie dürfen
-  - bei gleichzeitigem Angriff drinnen und draußen wird draußen gekämpft
-    - Angreifer verlässt automatisch für die Dauer des Kampfes 
+  - Angreifer und Verteidiger verlassen automatisch für Kampfdauer
+  - Verteidiger betreten automatisch für Kampfdauer wenn möglich
+  - bei gleichzeitigem Angriff drinnen und draußen wird getrennt gekämpft
 
 ### Seefahrt
 
