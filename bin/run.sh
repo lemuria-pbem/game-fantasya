@@ -4,7 +4,7 @@ GAME=lemuria
 BASE_DIR=/home/fantasya/games/$GAME
 SRC_DIR=$BASE_DIR/game-fantasya
 BIN_DIR=$SRC_DIR/bin
-LAST_TURN=`php8.1 $BIN_DIR/last-turn.php`
+LAST_TURN=`php $BIN_DIR/last-turn.php`
 LAST_NEWCOMERS_FILE=$SRC_DIR/storage/game/$LAST_TURN/newcomers.json
 TURN=`expr $LAST_TURN + 1`
 NEWCOMERS_FILE=$SRC_DIR/storage/game/$TURN/newcomers.json
@@ -19,7 +19,7 @@ echo "Lemuria ZAT start: `date`" >> $LOG
 echo "Running turn $TURN..." >> $LOG
 echo "Running the game..." >> $LOG
 TIMER_START=`date +%s`
-ZAT_REPORTS=`php8.1 $BIN_DIR/turn.php`
+ZAT_REPORTS=`php $BIN_DIR/turn.php`
 ZAT_RESULT=$?
 echo "Lemuria exit code: $ZAT_RESULT" >> $LOG
 TIMER_END=`date +%s`
