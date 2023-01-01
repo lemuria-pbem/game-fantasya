@@ -35,6 +35,8 @@ class FantasyaConfig extends LemuriaConfig
 
 	private const THROW_EXCEPTIONS_DEFAULT = false;
 
+	private FantasyaNamer $namer;
+
 	/**
 	 * @throws JsonException
 	 */
@@ -42,6 +44,7 @@ class FantasyaConfig extends LemuriaConfig
 		parent::__construct($storagePath);
 		$this->overrideWithLocalConfig($storagePath);
 		$this->featureFlag->setIsDevelopment($this->offsetGet(self::DEVELOPMENT_MODE));
+		$this->namer = new FantasyaNamer();
 	}
 
 	public function Statistics(): Statistics {
@@ -49,7 +52,7 @@ class FantasyaConfig extends LemuriaConfig
 	}
 
 	public function Namer(): Namer {
-		return new FantasyaNamer();
+		return $this->namer;
 	}
 
 	protected function initDefaults(): void {

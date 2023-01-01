@@ -4,10 +4,15 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- …
+- Fehler in Befehlsfehlermeldungen übersetzen
+  - "Unit xxx not found."
+  - "No recipient parameter in trespass"
+- Magellan-Icons für Trophäen
+- neuer Landschaftstyp: See
 
 ### Kampf
 
+- neue, besser zu Rassen passende Waffen
 - Kampf in Gebäuden und auf Schiffen begrenzen
   - Angreifer und Verteidiger verlassen automatisch für Kampfdauer
   - Verteidiger betreten automatisch für Kampfdauer wenn möglich
@@ -45,6 +50,10 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Handel und Wirtschaft
 
+- Handelserweiterungen
+  - HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
+  - HANDEL x 10-20 <commodity> (bis 20 Stück, mindestens aber 10)
+  - WIEDERHOLEN
 - fahrende NPC-Händler
 - automatischer Beschreibungstext mit Handelsangeboten für Einheit, Gebäude oder Region
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
