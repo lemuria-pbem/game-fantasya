@@ -25,10 +25,12 @@ use Lemuria\Model\Fantasya\Landscape\Desert;
 use Lemuria\Model\Fantasya\Landscape\Forest;
 use Lemuria\Model\Fantasya\Landscape\Glacier;
 use Lemuria\Model\Fantasya\Landscape\Highland;
+use Lemuria\Model\Fantasya\Landscape\Lake;
 use Lemuria\Model\Fantasya\Landscape\Mountain;
 use Lemuria\Model\Fantasya\Landscape\Ocean;
 use Lemuria\Model\Fantasya\Landscape\Plain;
 use Lemuria\Model\Fantasya\Landscape\Swamp;
+use Lemuria\Model\Fantasya\Navigable;
 use Lemuria\Model\Fantasya\Quantity;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Singleton;
@@ -73,12 +75,13 @@ class Converter
 
 	public static function convertLandscape(int $vegetation): ?string {
 		return match ($vegetation) {
-			Terrain::OCEAN,    Moisture::LAKE,        Area::ICE           => Ocean::class,
+			Terrain::OCEAN,    Area::ICE                                  => Ocean::class,
 			Terrain::PLAIN,    Area::TUNDRA                               => Plain::class,
 			Area::RAIN_FOREST                                             => Forest::class,
 			Terrain::HIGHLAND, Area::HIGH_DESERT,     Area::HIGH_FOREST   => Highland::class,
 			Terrain::MOUNTAIN, Area::DESERT_MOUNTAIN, Area::RAIN_MOUNTAIN => Mountain::class,
 			Moisture::MOOR                                                => Swamp::class,
+			Moisture::LAKE                                                => Lake::class,
 			Moisture::OASIS,   Area::DESERT                               => Desert::class,
 			Area::GLACIER                                                 => Glacier::class,
 			default                                                       => null
@@ -110,14 +113,15 @@ class Converter
 		}
 		$this->map->setX($x)->setY($y);
 
-		$id        = Lemuria::Catalog()->nextId(Domain::Location);
-		$landscape = $this->getLandscape($x, $y, $data[Map::VEGETATION] ?? 0);
+		$id            = Lemuria::Catalog()->nextId(Domain::Location);
+		$landscape     = $this->getLandscape($x, $y, $data[Map::VEGETATION] ?? 0);
+		$landscapeItem = self::createLandscape($landscape);
 
 		$region = new Region();
 		$region->setId($id);
-		$region->setLandscape(self::createLandscape($landscape));
+		$region->setLandscape($landscapeItem);
 		$region->setName($this->namer->name($region));
-		if ($landscape !== Ocean::class) {
+		if (!($landscapeItem instanceof Navigable)) {
 			$peasants = $this->calculatePeasants($landscape, $data[Map::GOOD]);
 			$animal   = $this->getAnimal($landscape);
 			$this->addResources([

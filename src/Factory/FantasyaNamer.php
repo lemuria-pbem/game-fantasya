@@ -11,8 +11,7 @@ use Lemuria\Identifiable;
 use Lemuria\Lemuria;
 use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Factory\BuilderTrait;
-use Lemuria\Model\Fantasya\Landscape;
-use Lemuria\Model\Fantasya\Landscape\Ocean;
+use Lemuria\Model\Fantasya\Navigable;
 use Lemuria\Model\Fantasya\Region;
 
 class FantasyaNamer extends DefaultNamer
@@ -30,8 +29,6 @@ class FantasyaNamer extends DefaultNamer
 	 * @var array<string, int>
 	 */
 	protected array $count = [];
-
-	private ?Landscape $ocean = null;
 
 	public function __destruct() {
 		$this->updateNameLists();
@@ -68,11 +65,9 @@ class FantasyaNamer extends DefaultNamer
 	}
 
 	protected function location(Region $region): string {
-		if (!$this->ocean) {
-			$this->ocean = self::createLandscape(Ocean::class);
-		}
-		if ($region->Landscape() === $this->ocean) {
-			return self::dictionary()->get('landscape.' . $this->ocean);
+		$landscape = $region->Landscape();
+		if ($landscape instanceof Navigable) {
+			return self::dictionary()->get('landscape.' . $landscape);
 		}
 		return $this->next(__FUNCTION__);
 	}

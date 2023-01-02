@@ -12,7 +12,7 @@ cd $BASE_DIR
 touch $LOG
 
 echo "Lemuria init: `date`" >> $LOG
-ZAT_REPORTS=`php8.1 $BIN_DIR/init.php`
+ZAT_REPORTS=`php $BIN_DIR/init.php`
 ZAT_RESULT=$?
 echo "Lemuria exit code: $ZAT_RESULT" >> $LOG
 if [ $ZAT_RESULT -gt 0 ]

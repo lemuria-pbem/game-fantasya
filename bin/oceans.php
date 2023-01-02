@@ -5,7 +5,7 @@ use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Game\Fantasya\FantasyaConfig;
 use Lemuria\Lemuria;
 use Lemuria\Model\Domain;
-use Lemuria\Model\Fantasya\Landscape\Ocean;
+use Lemuria\Model\Fantasya\Navigable;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Model\World\Island\Island;
 use Lemuria\Model\World\Island\Map;
@@ -21,10 +21,9 @@ $config = new FantasyaConfig($storage);
 Lemuria::init($config->setLogFile('debug.log'));
 Lemuria::load();
 
-$map   = new Map(Lemuria::World());
-$ocean = Lemuria::Builder()->create(Ocean::class);
-foreach (Lemuria::Catalog()->getAll(Domain::LOCATION) as $region /* @var Region $region */) {
-	if ($region->Landscape() === $ocean) {
+$map = new Map(Lemuria::World());
+foreach (Lemuria::Catalog()->getAll(Domain::Location) as $region /* @var Region $region */) {
+	if ($region->Landscape() instanceof Navigable) {
 		$coordinates = Lemuria::World()->getCoordinates($region);
 		$map->add($coordinates, $region);
 	}

@@ -7,7 +7,7 @@ use Lemuria\Lemuria;
 use Lemuria\Id;
 use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Continent;
-use Lemuria\Model\Fantasya\Landscape\Ocean;
+use Lemuria\Model\Fantasya\Navigable;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
 use Lemuria\Model\World\Island\Island;
@@ -25,9 +25,8 @@ Lemuria::init($config->setLogFile('debug.log'));
 Lemuria::load();
 
 $map   = new Map(Lemuria::World());
-$ocean = Lemuria::Builder()->create(Ocean::class);
-foreach (Lemuria::Catalog()->getAll(Domain::LOCATION) as $region /* @var Region $region */) {
-	if ($region->Landscape() !== $ocean) {
+foreach (Lemuria::Catalog()->getAll(Domain::Location) as $region /* @var Region $region */) {
+	if (!($region->Landscape() instanceof Navigable)) {
 		$coordinates = Lemuria::World()->getCoordinates($region);
 		$map->add($coordinates, $region);
 	}
@@ -49,7 +48,7 @@ foreach ($map as $island /* @var Island $island */) {
 
 $continents = [];
 /** @var Continent $continent */
-$continent = Lemuria::Catalog()->get(new Id(1), Domain::CONTINENT);
+$continent = Lemuria::Catalog()->get(new Id(1), Domain::Continent);
 $continent->Landmass()->clear();
 for ($id = 1; $id <= 88; $id++) {
 	$continent->Landmass()->add(Region::get(new Id($id)));
@@ -59,7 +58,7 @@ $continents[] = $continent->serialize();
 $continent = new Continent();
 $continent->setName('Lemuria Beta');
 $continent->setDescription('Ein riesiger, neu entstandener Kontinent.');
-$continent->setId(Lemuria::Catalog()->nextId(Domain::CONTINENT));
+$continent->setId(Lemuria::Catalog()->nextId(Domain::Continent));
 for (; $id <= 5250; $id++) {
 	$continent->Landmass()->add(Region::get(new Id($id)));
 }
