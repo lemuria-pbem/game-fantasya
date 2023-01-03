@@ -4,9 +4,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Fehler in Befehlsfehlermeldungen übersetzen
-  - "Unit xxx not found."
-  - "No recipient parameter in trespass"
+- …
 
 ### Kampf
 
