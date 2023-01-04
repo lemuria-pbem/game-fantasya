@@ -22,7 +22,9 @@ document.addEventListener('readystatechange', () => {
     const spellBook = document.getElementById('spell-book');
     const herbalBook = document.getElementById('herbal-book');
     const messagesButton = document.getElementById('messages-button');
-    const messages = document.querySelectorAll('#world ul.report span.badge.text-bg-info, #world ul.report span.badge.text-bg-warning');
+    const messages = document.querySelectorAll(
+        '#world ul.report span.badge.text-bg-info, #world ul.report span.badge.text-bg-warning, #world ul.report span.badge.text-bg-danger'
+    );
 
     let classIndex = 0;
     let enableKeys = true;
@@ -42,27 +44,6 @@ document.addEventListener('readystatechange', () => {
     const locationHandled = function(event, location) {
         event.preventDefault();
         document.location.href = location;
-    };
-
-    const getToggleStateFromCss = function() {
-        const body = document.body.classList;
-        for (let i = 0; i < toggleClass.length; i++) {
-            if (toggleClass[i].length === body.length) {
-                let classes = toggleClass[i].slice();
-                let n = classes.length;
-                for (let c = 0; c < classes.length; c++) {
-                    if (body.contains(classes[c])) {
-                        classes[c] = null;
-                        n--;
-                        break;
-                    }
-                }
-                if (n === 0) {
-                    return i;
-                }
-            }
-        }
-        return 0;
     };
 
     const setBodyClass = function (index) {

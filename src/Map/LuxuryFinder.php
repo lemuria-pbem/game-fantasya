@@ -21,11 +21,11 @@ use Lemuria\Model\Fantasya\Landscape\Forest;
 use Lemuria\Model\Fantasya\Landscape\Glacier;
 use Lemuria\Model\Fantasya\Landscape\Highland;
 use Lemuria\Model\Fantasya\Landscape\Mountain;
-use Lemuria\Model\Fantasya\Landscape\Ocean;
 use Lemuria\Model\Fantasya\Landscape\Plain;
 use Lemuria\Model\Fantasya\Landscape\Swamp;
 use Lemuria\Model\Fantasya\Luxuries;
 use Lemuria\Model\Fantasya\Luxury;
+use Lemuria\Model\Fantasya\Navigable;
 use Lemuria\Model\Fantasya\Offer;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Tools\Lemuria\Map;
@@ -56,8 +56,8 @@ class LuxuryFinder
 
 	public function setLuxuries(): void {
 		$landscape = $this->region->Landscape();
-		if ($landscape instanceof Ocean) {
-			Lemuria::Log()->critical('Ocean ' . $this->region->Id() . ' will not have luxuries.');
+		if ($landscape instanceof Navigable) {
+			Lemuria::Log()->critical($landscape . ' ' . $this->region->Id() . ' will not have luxuries.');
 			return;
 		}
 		$resources = $this->region->Resources();

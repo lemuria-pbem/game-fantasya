@@ -12,7 +12,7 @@ try {
 } catch (\Throwable $e) {
 	$fantasya->logException($e);
 }
-$fantasya->archiveLog();
+$fantasya->shutdown()->archiveLog();
 
 foreach ($archives as $archive) {
 	echo $archive . PHP_EOL;

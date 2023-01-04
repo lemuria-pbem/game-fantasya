@@ -14,6 +14,7 @@
 /storage/log/simulation.log
 /storage/log/*/*.log
 /storage/log/year.*/*/*.log
+/storage/names/*.lst
 /storage/orders/*/*.order
 /storage/orders/year.*/*/*.order
 /storage/report/*/*.zip

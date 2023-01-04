@@ -10,6 +10,7 @@ use Lemuria\Engine\Fantasya\TurnOptions;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
+use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
 use Lemuria\Lemuria;
 use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Gathering;
@@ -115,6 +116,14 @@ final class FantasyaGame extends FantasyaReport
 		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
 		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
+
+		return $this;
+	}
+
+	public function shutdown(): self {
+		/** @var FantasyaNamer $namer */
+		$namer = $this->config->Namer();
+		$namer->updateNameLists();
 
 		return $this;
 	}

@@ -62,7 +62,7 @@ try {
 	Lemuria::Log()->debug('New world saved.');
 
 	$locations = [];
-	foreach (Lemuria::Catalog()->getAll(Domain::LOCATION) as $location /* @var Region $location */) {
+	foreach (Lemuria::Catalog()->getAll(Domain::Location) as $location /* @var Region $location */) {
 		$locations[] = $location->serialize();
 	}
 	$json->write('regions.json', $locations);
