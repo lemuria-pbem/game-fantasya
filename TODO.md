@@ -50,12 +50,10 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   - HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
   - HANDEL x 10-20 <commodity> (bis 20 Stück, mindestens aber 10)
   - WIEDERHOLEN
+  - MENGE, PREIS verändern Handel
 - fahrende NPC-Händler
-- automatischer Beschreibungstext mit Handelsangeboten für Einheit, Gebäude oder Region
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
 - Besteuerung bei Nutzung fremder Infrastruktur
-  - Hafenbenutzungsgebühr an den Hafenmeister
-  - Kanalbenutzungsgebühr an den Besitzer
   - Handelssteuer an den Besitzer der größten Burg
   - Maut für Wagengespanne an den Besitzer der größten Burg
 

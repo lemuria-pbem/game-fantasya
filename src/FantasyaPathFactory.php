@@ -37,7 +37,7 @@ class FantasyaPathFactory implements PathFactory
 
 	public function getPath(Writer $writer, mixed $object = null): string {
 		if ($writer instanceof BattleLogWriter && $object instanceof BattleLog) {
-			$fileName = $this->name . '.battle.' . $object->Location()->Id() . '.' . $object->Battle()->counter;
+			$fileName = $this->name . '.battle.' . $object->Location()->Id() . '.' . $object->Counter();
 			return $this->directory . DIRECTORY_SEPARATOR . $fileName . '.txt';
 		}
 		if ($writer instanceof HerbalBookWriter) {
