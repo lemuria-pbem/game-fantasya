@@ -9,6 +9,9 @@ document.addEventListener('readystatechange', () => {
 
     const loadingIndicator = document.getElementById('loading-indicator');
     const lemuriaReport = document.getElementById('lemuria-report');
+    const toggleHelp = document.getElementById('toggle-help');
+    const helpModal = document.getElementById('modal-help');
+    const helpModalBs = new bootstrap.Modal(helpModal);
     const toggleButton = document.getElementById('toggle-responsive');
     const toggleItem = 'LemuriaReportState';
     const gotoButton = document.getElementById('toggle-goto');
@@ -34,6 +37,11 @@ document.addEventListener('readystatechange', () => {
     const buttonHandled = function(event, button) {
         event.preventDefault();
         button.click();
+    };
+
+    const helpHandled = function(event) {
+        event.preventDefault();
+        helpModalBs.show();
     };
 
     const gotoHandled = function(event) {
@@ -140,6 +148,9 @@ document.addEventListener('readystatechange', () => {
     document.addEventListener('keydown', (event) => {
         if (!enableKeys) {
             return;
+        }
+        if (event.key === '?') {
+            return buttonHandled(event, toggleHelp);
         }
         if (event.key === '#') {
             return buttonHandled(event, toggleButton);
