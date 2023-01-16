@@ -7,7 +7,10 @@ $fontFamilySerif: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times
 $unicumColor: #e724c7;
 
 body {
-    margin: 1rem;
+    margin: 1rem 2rem 1rem 1rem;
+    @media (overflow-block: scroll) {
+        margin-right: 1rem;
+    }
 }
 
 body.fantasya-font {
@@ -136,17 +139,27 @@ ul.report .badge {
     }
 }
 
+#toggle-help {
+    position: absolute;
+    top: 1.0rem;
+}
+
 #toggle-responsive {
-    @media (min-width: breakpoint-min("lg")) {
+    @media (min-width: breakpoint-min("md")) {
         position: absolute;
         top: 5.0rem;
     }
 }
 
 #toggle-goto {
-    position: absolute;
-    right: 2.0rem;
-    top: 5.0rem;
+    @media (min-width: breakpoint-min("md")) {
+        position: absolute;
+        right: 2.0rem;
+        top: 5.0rem;
+    }
+    @media (min-width: breakpoint-min("md")) and (overflow-block: scroll) {
+        right: 1.0rem;
+    }
 }
 
 #acquaintances {
@@ -164,6 +177,14 @@ ul.report .badge {
     .relation.font-monospace {
         font-size: 90%;
     }
+}
+
+#modal-help li span {
+    font-weight: bold;
+    border: 1px solid #ddd;
+    padding: 0.5em;
+    margin-right: 0.25em;
+    line-height: 2.0em;
 }
 
 .non-responsive .container-fluid .row > div {
