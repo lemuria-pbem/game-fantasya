@@ -113,9 +113,25 @@ ul.report .badge {
 
     .nav-pills .nav-link {
         &.region {
-            color: $success;
+            color: $green;
             &:before {
                 content: '\1f333\a0';
+            }
+            &.desert:before {
+                content: '\1f3dc\a0';
+            }
+            &.glacier:before {
+                content: '\26f0\a0';
+            }
+            &.mountain:before {
+                content: '\1f3d4\a0';
+            }
+        }
+
+        &.navigable {
+            color: $blue-700;
+            &:before {
+                content: '\1f30a\a0';
             }
         }
 
@@ -127,7 +143,7 @@ ul.report .badge {
         }
 
         &.vessel {
-            color: $primary;
+            color: $blue;
             &:before {
                 content: '\26f5\a0';
             }
