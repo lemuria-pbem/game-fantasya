@@ -11,12 +11,12 @@ document.addEventListener('readystatechange', () => {
     const lemuriaReport = document.getElementById('lemuria-report');
     const toggleHelp = document.getElementById('toggle-help');
     const helpModal = document.getElementById('modal-help');
-    const helpModalBs = new bootstrap.Modal(helpModal);
+    const helpModalBs = helpModal ? new bootstrap.Modal(helpModal) : null;
     const toggleButton = document.getElementById('toggle-responsive');
     const toggleItem = 'LemuriaReportState';
     const gotoButton = document.getElementById('toggle-goto');
     const gotoModal = document.getElementById('modal-goto');
-    const gotoModalBs = new bootstrap.Modal(gotoModal);
+    const gotoModalBs = gotoModal ? new bootstrap.Modal(gotoModal) : null;
     const gotoId = document.getElementById('modal-goto-id');
     const navButton = document.getElementById('navbar-toggle');
     const statistics = '#statistics';
@@ -41,12 +41,12 @@ document.addEventListener('readystatechange', () => {
 
     const helpHandled = function(event) {
         event.preventDefault();
-        helpModalBs.show();
+        helpModalBs && helpModalBs.show();
     };
 
     const gotoHandled = function(event) {
         event.preventDefault();
-        gotoModalBs.show();
+        gotoModalBs && gotoModalBs.show();
     };
 
     const locationHandled = function(event, location) {
@@ -97,7 +97,7 @@ document.addEventListener('readystatechange', () => {
     gotoId.addEventListener('change', () => {
         const id = 'unit-' + gotoId.value;
         if (document.getElementById(id)) {
-            gotoModalBs.hide();
+            gotoModalBs && gotoModalBs.hide();
             document.location.href = '#' + id;
         }
     });
@@ -134,7 +134,7 @@ document.addEventListener('readystatechange', () => {
             });
         }
         for (const modal of talentStatistics) {
-            modal.addEventListener('hidden.bs.modal', event => {
+            modal.addEventListener('hidden.bs.modal', () => {
                 if (talentStatisticsTarget) {
                     window.setTimeout(function() {
                         document.location.href = '#' + talentStatisticsTarget;
@@ -150,7 +150,7 @@ document.addEventListener('readystatechange', () => {
             return;
         }
         if (event.key === '?') {
-            return buttonHandled(event, toggleHelp);
+            return helpHandled(event, toggleHelp);
         }
         if (event.key === '#') {
             return buttonHandled(event, toggleButton);
