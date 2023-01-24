@@ -178,6 +178,16 @@ ul.report .badge {
     }
 }
 
+#messages-button-config .dropdown-item {
+    span {
+        display: inline-block;
+        width: 1.0em;
+    }
+    &.option-set span::before {
+        content: '✔';
+    }
+}
+
 #acquaintances {
     margin-top: 0.75rem;
 

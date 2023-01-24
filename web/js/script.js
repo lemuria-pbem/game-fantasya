@@ -7,6 +7,12 @@ document.addEventListener('readystatechange', () => {
         ['fantasya-font']
     ];
 
+    let messagesConfig = {
+        'battle': true,
+        'guard': true,
+        'movement': true
+    };
+
     const loadingIndicator = document.getElementById('loading-indicator');
     const lemuriaReport = document.getElementById('lemuria-report');
     const toggleHelp = document.getElementById('toggle-help');
@@ -25,9 +31,12 @@ document.addEventListener('readystatechange', () => {
     const spellBook = document.getElementById('spell-book');
     const herbalBook = document.getElementById('herbal-book');
     const messagesButton = document.getElementById('messages-button');
-    const messages = document.querySelectorAll(
+    const messagesConfigurator = document.querySelectorAll('#messages-button-config .dropdown-item');
+    const messagesConfigItem = 'LemuriaMessagesConfig';
+    const messagesSelector = document.querySelectorAll(
         '#world ul.report span.badge.text-bg-info, #world ul.report span.badge.text-bg-warning, #world ul.report span.badge.text-bg-danger'
     );
+    let messages;
 
     let classIndex = 0;
     let enableKeys = true;
@@ -102,12 +111,74 @@ document.addEventListener('readystatechange', () => {
         }
     });
 
+    const isAllMessages = function () {
+        let isAll = true;
+        Object.values(messagesConfig).forEach((config) => {
+            isAll &= config;
+        });
+        return isAll;
+    };
+
     const initMessagesButton = function () {
+        if (isAllMessages()) {
+            messages = messagesSelector;
+        } else {
+            messages = [];
+            messagesSelector.forEach((message) => {
+                const section = message.dataset.section;
+                if (section) {
+                    if (messagesConfig[section]) {
+                        messages.push(message);
+                    }
+                } else {
+                    messages.push(message);
+                }
+            });
+        }
+
         if (messages.length) {
             document.getElementById('messages-button-count').innerText = messages.length.toString();
-            document.getElementById('messages-button-text').innerText = messages.length < 2 ? 'weiteres Ereignis' : 'weitere Ereignisse';
-            messagesButton.classList.remove('d-none');
+            document.getElementById('messages-button-text').innerText = messages.length === 1 ? 'weiteres Ereignis' : 'weitere Ereignisse';
+        } else {
+            document.getElementById('messages-button-count').innerText = '';
+            document.getElementById('messages-button-text').innerText = 'keine weiteren Ereignisse';
         }
+    };
+
+    const setMessagesConfig = function (configOption) {
+        const key = configOption.dataset.option;
+        const value = messagesConfig[key];
+        if (value) {
+            configOption.classList.add('option-set');
+        } else {
+            configOption.classList.remove('option-set');
+        }
+    };
+
+    const initMessagesConfig = function () {
+        const stored = window.localStorage.getItem(messagesConfigItem);
+        if (typeof stored === 'string') {
+            const parsed = JSON.parse(stored);
+            typeof parsed === 'object' && Object.keys(messagesConfig).forEach((key) => {
+                if (typeof parsed[key] === 'boolean') {
+                    messagesConfig[key] = parsed[key];
+                }
+            });
+        }
+        messagesConfigurator.forEach((config) => {
+            const key = config.dataset.option;
+            if (key && typeof messagesConfig[key] === 'boolean') {
+                setMessagesConfig(config);
+                config.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const config = event.target, key = config.dataset.option;
+                    messagesConfig[key] = !messagesConfig[key];
+                    setMessagesConfig(config);
+                    window.localStorage.setItem(messagesConfigItem, JSON.stringify(messagesConfig));
+                    initMessagesButton();
+                });
+            }
+        });
     };
 
     messagesButton.addEventListener('click', () => {
@@ -180,5 +251,6 @@ document.addEventListener('readystatechange', () => {
 
     initToggleState();
     initTalentStatistics();
+    initMessagesConfig();
     initMessagesButton();
 });
