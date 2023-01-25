@@ -9,6 +9,7 @@ zeigen.
 - Baumhirte - baumähnliches intelligentes Wesen
 - Elementar - verschiedene Unterarten, kann durch Zauber beschworen werden
 - Ghoul - abstoßende untote Kreatur, normalerweise friedlich
+- Greif - lebt in größeren Gruppen zurückgezogen in Gletscherregionen 
 - Kobold - hinterlistiges Wesen, bekannt für ihr diebisches Verhalten
 - Krake - aggressiver Meeresbewohner
 - Skelett – untoter Humanoider, kann bewaffnet sein
@@ -84,6 +85,29 @@ Sie leben in den Sümpfen und man sieht sie nur selten. Man sagt ihnen nach, das
 sie in kalten, mondlosen Nächten durch die Dörfer der Menschen streifen und
 kleine Kinder stehlen, aber im Gegensatz zu Kobolden bleiben sie entgegen aller
 Gerüchte unter sich.
+
+#### Greif
+
+_Bewohnen_
+
+In den zerklüfteten Gebirgen, dort wo es Gletscher gibt, kann man häufig größere
+Gruppen von Greifen beobachten, die sich das ganze Jahr über dort aufhalten und
+ihre Horste errichten. Greife sind riesige Vögel, die messerschafte Krallen an
+ihren Klauen haben und ihre Beute mit dem Schnabel in Nullkommanichts in Fetzen
+schneide – man will ihnen nicht als Gegner im Kampf gegenüberstehen.
+
+_Der Greif ist nicht als Monster, sondern als Tier-Ressource implementiert._
+
+##### Greifeneier
+
+Glücklicherweise leben sie derart zurückgezogen, dass von ihnen keine Gefahr
+ausgeht – es sei denn, man versucht ihre Eier zu stehlen, denn Gerüchten zufolge
+soll es möglich sein, gerade geschlüpfte Greifenküken abzurichten, um sie als
+fliegende Reittiere zu benutzen. Wer sich beim Eierdiebstahl ungeschickt, wird
+schnell ihre nächste Beute werden.
+
+_Das Greifenei ist als Ressource implementiert; der Greifenangriff ist als
+Ereignis implementiert, bei dem eine temporäre Monstereinheit erzeugt wird._
 
 #### Kobold
 
