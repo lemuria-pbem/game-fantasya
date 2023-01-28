@@ -31,6 +31,8 @@ class FantasyaReport
 {
 	private const HTML_WRAPPER = __DIR__ . '/../resources/turn.html';
 
+	private const HTML_WRAPPER_DEBUG = __DIR__ . '/../resources/turn.debug.html';
+
 	private const ZIP_OPTIONS = ['remove_all_path' => true];
 
 	protected readonly string $storage;
@@ -109,7 +111,7 @@ class FantasyaReport
 			if (!$hasVersion) {
 				$version[Module::Renderers] = $writer->getVersion();
 			}
-			$writer->add(new FileWrapper(self::HTML_WRAPPER))->setFilter($filter)->render($id);
+			$writer->add(new FileWrapper($this->getHtmlWrapper()))->setFilter($filter)->render($id);
 
 			if ($isPlayer) {
 				$writer = new TextWriter($pathFactory);
@@ -197,6 +199,15 @@ class FantasyaReport
 		}
 
 		return $archives;
+	}
+
+	protected function getHtmlWrapper(): string {
+		if (Lemuria::FeatureFlag()->IsDevelopment()) {
+			if (is_file(self::HTML_WRAPPER_DEBUG)) {
+				return self::HTML_WRAPPER_DEBUG;
+			}
+		}
+		return self::HTML_WRAPPER;
 	}
 
 	protected function getMessageFilter(Party $party): Filter {
