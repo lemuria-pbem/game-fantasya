@@ -25,6 +25,7 @@ document.addEventListener('readystatechange', () => {
     const gotoModalBs = gotoModal ? new bootstrap.Modal(gotoModal) : null;
     const gotoId = document.getElementById('modal-goto-id');
     const navButton = document.getElementById('navbar-toggle');
+    const mapButton = document.getElementById('toggle-map');
     const statistics = '#statistics';
     const talentStatistics = document.querySelectorAll('.talent-statistics.modal');
     const alliances = '#alliances';
@@ -45,7 +46,7 @@ document.addEventListener('readystatechange', () => {
 
     const buttonHandled = function(event, button) {
         event.preventDefault();
-        button.click();
+        button && button.click();
     };
 
     const helpHandled = function(event) {
@@ -243,6 +244,9 @@ document.addEventListener('readystatechange', () => {
         }
         if (event.key === 's') {
             return locationHandled(event, statistics);
+        }
+        if (event.key === 'w') {
+            return buttonHandled(event, mapButton);
         }
         if (event.key === 'z') {
             return locationHandled(event, spellBook.href);
