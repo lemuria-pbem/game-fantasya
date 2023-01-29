@@ -166,11 +166,34 @@ ul.report .badge {
 
 #modal-map {
     z-index: $zIndexMap;
-    .modal-fullscreen {
+    .modal-dialog {
         margin-left: 3vw;
         margin-top: 6vh;
         width: 94vw;
         height: 88vh;
+        max-width: unset;
+        .modal-content {
+            height: 100%;
+            .modal-body {
+                overflow-y: auto;
+            }
+        }
+    }
+
+    .modal-body > a {
+        color: inherit;
+        > div {
+            width: 64px;
+            height: 64px;
+            font-size: 12px;
+            line-height: 10px;
+            text-align: center;
+            overflow: hidden;
+            padding: 15px 5px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
     }
 }
 

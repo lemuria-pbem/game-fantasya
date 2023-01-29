@@ -23,7 +23,6 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Verschiedenes
 
-- Karte für HTML-Report
 - Reise-Berechnung vereinfachen
 
 ## Ideen
