@@ -25,6 +25,8 @@ document.addEventListener('readystatechange', () => {
     const gotoModalBs = gotoModal ? new bootstrap.Modal(gotoModal) : null;
     const gotoId = document.getElementById('modal-goto-id');
     const navButton = document.getElementById('navbar-toggle');
+    const mapButton = document.getElementById('toggle-map');
+    const mapModal = document.getElementById('modal-map');
     const statistics = '#statistics';
     const talentStatistics = document.querySelectorAll('.talent-statistics.modal');
     const alliances = '#alliances';
@@ -45,17 +47,17 @@ document.addEventListener('readystatechange', () => {
 
     const buttonHandled = function(event, button) {
         event.preventDefault();
-        button.click();
+        button?.click();
     };
 
     const helpHandled = function(event) {
         event.preventDefault();
-        helpModalBs && helpModalBs.show();
+        helpModalBs?.show();
     };
 
     const gotoHandled = function(event) {
         event.preventDefault();
-        gotoModalBs && gotoModalBs.show();
+        gotoModalBs?.show();
     };
 
     const locationHandled = function(event, location) {
@@ -75,8 +77,8 @@ document.addEventListener('readystatechange', () => {
         const stored = parseInt(window.localStorage.getItem(toggleItem));
         const last = isNaN(stored) ? 0 : stored;
         setBodyClass(last);
-        loadingIndicator && loadingIndicator.classList.add('d-none');
-        lemuriaReport && lemuriaReport.classList.remove('visually-hidden');
+        loadingIndicator?.classList.add('d-none');
+        lemuriaReport?.classList.remove('visually-hidden');
     };
 
     toggleButton.addEventListener('click', () => {
@@ -106,10 +108,21 @@ document.addEventListener('readystatechange', () => {
     gotoId.addEventListener('change', () => {
         const id = 'unit-' + gotoId.value;
         if (document.getElementById(id)) {
-            gotoModalBs && gotoModalBs.hide();
+            gotoModalBs?.hide();
             document.location.href = '#' + id;
         }
     });
+
+    const closeAllDialogs = function () {
+        if (mapModal) {
+            const modal = bootstrap.Modal.getInstance(mapModal);
+            modal?.hide();
+        }
+        if (helpModal) {
+            const modal = bootstrap.Modal.getInstance(helpModal);
+            modal?.hide();
+        }
+    };
 
     const isAllMessages = function () {
         let isAll = true;
@@ -216,6 +229,39 @@ document.addEventListener('readystatechange', () => {
         }
     }
 
+    const moveMapToTarget = function (target) {
+        if (!target.startsWith('#location-')) {
+            let location;
+            if (target.startsWith('#continent-')) {
+                const parent = document.getElementById(target.substring(1))?.parentElement;
+                location = parent?.dataset.firstLocation;
+            } else {
+                let parent = document.getElementById(target.substring(1));
+                do {
+                    parent = parent.parentElement;
+                    if (parent.localName === 'article' && parent.classList.contains('region')) {
+                        break;
+                    }
+                } while (parent);
+                location = parent?.dataset.id;
+            }
+            target = location ? '#' + location : null;
+        }
+        if (target) {
+            const id = target.substring(10);
+            const mapTile = document.getElementById('map-' + id);
+            mapTile?.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+        }
+    };
+
+    window.addEventListener('hashchange', () => {
+        moveMapToTarget(document.location.hash);
+    });
+
+    mapModal?.addEventListener('shown.bs.modal', () => {
+        moveMapToTarget(document.location.hash);
+    });
+
     document.addEventListener('keydown', (event) => {
         if (!enableKeys) {
             return;
@@ -244,8 +290,14 @@ document.addEventListener('readystatechange', () => {
         if (event.key === 's') {
             return locationHandled(event, statistics);
         }
+        if (event.key === 'w') {
+            return buttonHandled(event, mapButton);
+        }
         if (event.key === 'z') {
             return locationHandled(event, spellBook.href);
+        }
+        if (event.key === 'Escape') {
+            return closeAllDialogs();
         }
     });
 
