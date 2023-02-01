@@ -230,7 +230,7 @@ document.addEventListener('readystatechange', () => {
     }
 
     const moveMapToTarget = function (target) {
-        if (!target.startsWith('#location-')) {
+        if (target && !target.startsWith('#location-')) {
             let location;
             if (target.startsWith('#continent-')) {
                 const parent = document.getElementById(target.substring(1))?.parentElement;
