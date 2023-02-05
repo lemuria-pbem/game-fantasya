@@ -8,14 +8,15 @@ use Lemuria\Engine\Fantasya\Message\Reliability;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\TurnOptions;
+use Lemuria\Engine\Message;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Result;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
+
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party\Census;
 use Lemuria\Model\Fantasya\Party;
-use Lemuria\Model\Fantasya\Region;
 
 final class FantasyaSimulator
 {
@@ -54,7 +55,7 @@ final class FantasyaSimulator
 	}
 
 	/**
-	 * @return array(string=>array)
+	 * @return array<string, array<Message>>
 	 */
 	public function getReport(Party $party): array {
 		Lemuria::Log()->debug('Getting messages.');
@@ -68,7 +69,7 @@ final class FantasyaSimulator
 		}
 
 		$census = new Census($party);
-		foreach ($census->getAtlas() as $region /* @var Region $region */) {
+		foreach ($census->getAtlas() as $region) {
 			foreach ($census->getPeople($region) as $unit) {
 				$index = (string)$unit;
 				foreach (Lemuria::Report()->getAll($unit) as $message) {

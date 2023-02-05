@@ -54,7 +54,7 @@ try {
 			} else {
 				echo 'Parteimeldungen:' . PHP_EOL;
 			}
-			foreach ($messages as $message /* @var LemuriaMessage $message */) {
+			foreach ($messages as $message) {
 				echo $simulator->render($message) . PHP_EOL;
 			}
 			$eol = true;

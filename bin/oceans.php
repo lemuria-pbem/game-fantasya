@@ -22,7 +22,7 @@ Lemuria::init($config->setLogFile('debug.log'));
 Lemuria::load();
 
 $map = new Map(Lemuria::World());
-foreach (Lemuria::Catalog()->getAll(Domain::Location) as $region /* @var Region $region */) {
+foreach (Region::all() as $region) {
 	if ($region->Landscape() instanceof Navigable) {
 		$coordinates = Lemuria::World()->getCoordinates($region);
 		$map->add($coordinates, $region);
@@ -30,7 +30,7 @@ foreach (Lemuria::Catalog()->getAll(Domain::Location) as $region /* @var Region 
 }
 
 echo count($map) . ' water areas on the map.' . PHP_EOL . PHP_EOL;
-foreach ($map as $island /* @var Island $island */) {
+foreach ($map as $island) {
 	echo 'Area ' . $island->Id() . ': ' . $island->Origin() . ' - ' . $island->Width() . '/' . $island->Height() . '/' . $island->Size() . PHP_EOL;
 	foreach ($island->getLocations() as $region) {
 		echo $region->Name() . ', ';
