@@ -12,10 +12,10 @@ use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
 use Lemuria\Lemuria;
-use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
+use Lemuria\Model\Fantasya\Region;
 use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Version\Module;
 use Lemuria\Version\VersionFinder;
@@ -48,7 +48,7 @@ final class FantasyaGame extends FantasyaReport
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Turn starts (' . $gameVersion . ').', ['config' => $this->config]);
 		Lemuria::load();
-		Lemuria::Log()->debug('The world has ' . count(Lemuria::Catalog()->getAll(Domain::Location)) . ' regions.');
+		Lemuria::Log()->debug('The world has ' . count(Region::all()) . ' regions.');
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
 
@@ -180,7 +180,7 @@ final class FantasyaGame extends FantasyaReport
 	}
 
 	private function addDefaultOrders(Party $party, EntitySet $units): void {
-		foreach ($party->People() as $unit /* @var Unit $unit */) {
+		foreach ($party->People() as $unit) {
 			if (!$units->has($unit->Id())) {
 				$this->turn->substitute($unit);
 			}
@@ -188,7 +188,7 @@ final class FantasyaGame extends FantasyaReport
 	}
 
 	private function addMissingParties(Gathering $gathering): void {
-		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
+		foreach (Party::all() as $party) {
 			if ($party->Type() === Type::Player && !$party->hasRetired() && !$gathering->has($party->Id())) {
 				$this->turn->substitute($party);
 			}

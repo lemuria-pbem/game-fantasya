@@ -11,10 +11,8 @@ use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\CompositeFilter;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
-use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
-use Lemuria\Model\Fantasya\Unicum;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\BattleLogWriter;
 use Lemuria\Renderer\Text\HerbalBookWriter;
@@ -88,7 +86,7 @@ class FantasyaReport
 
 		$p          = 0;
 		$hasVersion = false;
-		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
+		foreach (Party::all() as $party) {
 			if ($party->hasRetired() && $party->Retirement() < $this->nextRound) {
 				continue;
 			}
@@ -127,7 +125,7 @@ class FantasyaReport
 					$writer->render($id);
 				}
 				$unica = new PartyUnica($party);
-				foreach ($unica->Treasury() as $unicum /* @var Unicum $unicum */) {
+				foreach ($unica->Treasury() as $unicum) {
 					$writer = new UnicumWriter($pathFactory);
 					$writer->render($unicum->Id());
 				}
@@ -145,7 +143,7 @@ class FantasyaReport
 	}
 
 	/**
-	 * @return string[]
+	 * @return array<string>
 	 */
 	public function createArchives(): array {
 		if (!$this->createArchives) {
@@ -169,7 +167,7 @@ class FantasyaReport
 		}
 
 		$archives = [];
-		foreach (Lemuria::Catalog()->getAll(Domain::Party) as $party /* @var Party $party */) {
+		foreach (Party::all() as $party) {
 			if ($party->Type() !== Type::Player) {
 				continue;
 			}
