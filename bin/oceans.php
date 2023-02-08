@@ -4,10 +4,8 @@ declare (strict_types = 1);
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Game\Fantasya\FantasyaConfig;
 use Lemuria\Lemuria;
-use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Navigable;
 use Lemuria\Model\Fantasya\Region;
-use Lemuria\Model\World\Island\Island;
 use Lemuria\Model\World\Island\Map;
 
 require realpath(__DIR__ . '/../vendor/autoload.php');

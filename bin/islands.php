@@ -10,7 +10,6 @@ use Lemuria\Model\Fantasya\Continent;
 use Lemuria\Model\Fantasya\Navigable;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
-use Lemuria\Model\World\Island\Island;
 use Lemuria\Model\World\Island\Map;
 
 require realpath(__DIR__ . '/../vendor/autoload.php');
