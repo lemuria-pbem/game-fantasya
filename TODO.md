@@ -14,13 +14,6 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   - Verteidiger betreten automatisch für Kampfdauer wenn möglich
   - bei gleichzeitigem Angriff drinnen und draußen wird getrennt gekämpft
 
-### Seefahrt
-
-- Hafenbenutzungsgebühr an den Hafenmeister
-- Hafen erlaubt Ablegen in benachbarte Richtungen
-- Kanalbenutzungsgebühr an den Besitzer
-- Kanal erlaubt Ablegen in beliebige Richtungen
-
 ## Ideen
 
 ### Ereignisse
@@ -78,6 +71,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 - Gerüchte durch NPC oder Bauern
   - Monstervorkommen in Nachbarregionen
   - Kämpfe in Nachbarregionen
+  - Gebühren in Nachbarregionen
 
 ### Seefahrt
 
