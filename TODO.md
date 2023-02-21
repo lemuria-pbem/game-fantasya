@@ -6,13 +6,6 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 - …
 
-### Kampf
-
-- neue, besser zu Rassen passende Waffen
-- Kampf in Gebäuden und auf Schiffen begrenzen
-  - keine zusätzlichen Verteidiger von draußen
-  - bei gleichzeitigem Angriff drinnen und draußen wird getrennt gekämpft
-
 ## Ideen
 
 ### Ereignisse
