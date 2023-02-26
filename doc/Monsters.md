@@ -6,12 +6,12 @@ zeigen.
 ## Monsterarten
 
 - Bär - Wildtier, normalerweise friedlich
-- Baumhirte - baumähnliches intelligentes Wesen
+- Baumhirte - baumähnliches intelligentes Wächterwesen
 - Elementar - verschiedene Unterarten, kann durch Zauber beschworen werden
 - Ghoul - abstoßende untote Kreatur, normalerweise friedlich
 - Greif - lebt in größeren Gruppen zurückgezogen in Gletscherregionen 
 - Kobold - hinterlistiges Wesen, bekannt für ihr diebisches Verhalten
-- Krake - aggressiver Meeresbewohner
+- Krake - gelegentlich aggressiver Meeresbewohner
 - Skelett – untoter Humanoider, kann bewaffnet sein
 - Wolf – Wildtier, im Winter angriffslustig, ansonsten scheu
 - Zombie - untote Kreatur mit Verlangen nach Frischfleisch

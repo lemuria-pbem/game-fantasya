@@ -12,6 +12,9 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 - Ereignis "Juwelen gefunden" beim Bergbau in Gebirgen/Gletschern ohne Luxuswaren
 - Ereignis "Tierangriff" wandelt Ressourcen-Tiere in Monstergruppen um
+  - Elefantenaufruhr
+  - Greifenwacht
+  - Wespenangriff
 - Umweltereignisse
 
 ### Gebäude
@@ -27,12 +30,22 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Handel und Wirtschaft
 
+- neue Luxuswaren
+  - Goldnuggets (produziert in Gletscherregionen)
+  - Perlen (produziert in Küstenebenen an Buchten)
+  - Whisky (produziert in Hochländern mit Wald)
+- neue Gebäude
+  - Schmelze (verarbeitet Goldnuggets zu Gold; braucht Holz)
+- neue Talente
+  - Metallurgie für Schmelze
+- neue Gegenstände
+  - Fackel (per BENUTZEN Fackel; als Waffe oder für Dungeons)
+  - Öllampe (benötigt Öl; für Dungeons)
 - Handelserweiterungen
   - HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
   - HANDEL x 10-20 <commodity> (bis 20 Stück, mindestens aber 10)
   - WIEDERHOLEN
   - MENGE, PREIS verändern Handel
-- fahrende NPC-Händler
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
 - Besteuerung bei Nutzung fremder Infrastruktur
   - Handelssteuer an den Besitzer der größten Burg
@@ -40,22 +53,34 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Kampf
 
+- neue Waffen
+  - Dolch (notwendig für Attentate)
 - Taktik ermöglicht Strategien im Kampf, STRATEGIE
+- Spionage + Tarnung ermöglicht Attentate auf Einzelpersonen
 - Monsterrasse bestimmt maximalen Übermacht-Faktor
+- Effekt "Vergiftung" durch Monster wie Spinnen oder Skorpione oder Waffen
 - Seekampf/Piraterie
   - VERSENKEN (Schiff vor Entern bewahren)
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 
-### Magie
+### Magie und Alchemie
 
-- neuer Zauber: Zombies erwecken (Kampf oder Regionszauber)
-- neuer Zauber: Ruhe in Frieden (Zombieinfektion verhindern)
+- neue Zauber
+  - Zombies erwecken (Kampf oder Regionszauber)
+  - Ruhe in Frieden (Zombieinfektion verhindern)
+  - Gegengift (Kampf)
+- neue Tränke
+  - Fackel (aus Holz, Öl; erzeugt Waffe)
+  - Waffengift (für Kampf), benötigt Giftblase
 
 ### Monster
 
 - neue Monsterrassen
+  - Riesenskorpion (Wüste, Hochland), Trophäe: Stachel
+  - Riesenspinne (Wald), Trophäe: Giftblase
+  - Wespen (Ebene, Wüste), mit Feuer zu bekämpfen, sterben im Winter
 
 ### NPC
 
@@ -64,6 +89,22 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   - Monstervorkommen in Nachbarregionen
   - Kämpfe in Nachbarregionen
   - Gebühren in Nachbarregionen
+- Händlercharaktere mit Geschäft
+- fahrende Händler (Alchemisten, Magier, Luxuswaren)
+- Räuber
+- Söldner, kann angeheuert werden
+- Piraten
+- Quest-Auftraggeber
+
+### Quests
+
+- mit bestimmtem Ziel
+  - geraubtes Unikum wiederbeschaffen
+  - entführte Person befreien
+  - Wespennest ausräuchern
+- offenes Ende
+  - Dungeon erkunden/Schatzsuche
+  - Monster bekämpfen, Trophäen eintauschen
 
 ### Seefahrt
 
@@ -100,3 +141,14 @@ werden, und Handel kann analog über Handelsrouten organisiert werden.
 - ALTERNATIVE für LERNEN ohne Lehrer
 - FORST, HERDE für automatisches Baumfällen und Dressieren
 - STEUERN auf Märkten legt einen Steuersatz fest
+
+#### Handel und Wirtschaft
+
+- Silber für Unterhalt mit Nahrung ersetzen
+- Rohstoffe als Vorstufe der Weiterverarbeitung einführen
+  - Bäume für Holz, Kohle (in Sägewerk, Köhlerei)
+  - Felsen für Stein (in Steinbruch)
+  - Erz für Eisen (in Schmelze)
+- neue Rohstoffe
+  - Kohle als Hilfsstoff für Schmelze
+- Schmelze verarbeitet Erz zu Eisen; braucht Kohle)
