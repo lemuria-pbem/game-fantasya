@@ -6,12 +6,12 @@ zeigen.
 ## Monsterarten
 
 - Bär - Wildtier, normalerweise friedlich
-- Baumhirte - baumähnliches intelligentes Wesen
+- Baumhirte - baumähnliches intelligentes Wächterwesen
 - Elementar - verschiedene Unterarten, kann durch Zauber beschworen werden
 - Ghoul - abstoßende untote Kreatur, normalerweise friedlich
 - Greif - lebt in größeren Gruppen zurückgezogen in Gletscherregionen 
 - Kobold - hinterlistiges Wesen, bekannt für ihr diebisches Verhalten
-- Krake - aggressiver Meeresbewohner
+- Krake - gelegentlich aggressiver Meeresbewohner
 - Skelett – untoter Humanoider, kann bewaffnet sein
 - Wolf – Wildtier, im Winter angriffslustig, ansonsten scheu
 - Zombie - untote Kreatur mit Verlangen nach Frischfleisch
@@ -38,6 +38,7 @@ mehreren Aktionen zusammensetzt.
 - Vermehren - Erzeugen neuer Monstergruppen
 - Taschendiebstahl - entdeckte Feinde werden bestohlen
 - Umherstreifen - umherwandern in der Region oder in eine Nachbarregion
+- Zerstreuen - bei zu großer Monsterzahl in eine Nachbarregion wandern
 
 ### Verhalten
 
@@ -111,7 +112,7 @@ Ereignis implementiert, bei dem eine temporäre Monstereinheit erzeugt wird._
 
 #### Kobold
 
-_Umherstreifen - Vermehren - Feindsuche - Taschendiebstahl_
+_Umherstreifen - Vermehren - Feindsuche - Taschendiebstahl - Zerstreuen_
 
 Kobolde organisieren sich in Gruppen, oft zu Dutzenden, und wandern in beinahe
 alle Regionen auf dem Kontinent. Einzig Gletscher meiden sie, denn dort gibt es
