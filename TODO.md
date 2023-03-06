@@ -6,6 +6,11 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 - …
 
+### Version 1.3
+
+- Übersetzungsgrammatik vereinheitlichen
+- Magellan-Konfiguration flexibilisieren
+
 ## Ideen
 
 ### Ereignisse
