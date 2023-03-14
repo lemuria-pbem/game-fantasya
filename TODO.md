@@ -8,6 +8,19 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Version 1.3
 
+#### Statistik
+
+- Mehr Regionsstatistik
+  - Anzahl Einheiten
+  - Anzahl Personen
+  - Versorgungsreserve (Silberpool)
+
+#### Auswertung
+
+- Talentliste: Einheiten-TW in Klammern anzeigen
+
+#### Refactoring
+
 - Übersetzungsgrammatik vereinheitlichen
 - Magellan-Konfiguration flexibilisieren
 
@@ -25,7 +38,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 ### Gebäude
 
 - neue Gebäude, die Arbeitsplätze verdoppeln
-  - Gebirge: Pilzhöhle
+  - Gebirge, Gletscher: Pilzhöhle
   - Sumpf: Elefantengehege
   - Wald: Jagdhaus
   - Wüste: Oase
@@ -38,6 +51,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 - neue Luxuswaren
   - Goldnuggets (produziert in Gletscherregionen)
   - Perlen (produziert in Küstenebenen an Buchten)
+  - Tabak (produziert in Ebenen/Hochländern)
   - Whisky (produziert in Hochländern mit Wald)
 - neue Gebäude
   - Schmelze (verarbeitet Goldnuggets zu Gold; braucht Holz)
@@ -133,7 +147,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 - Einstellen der erwünschten Reportformate
   - Textreport im Markdown-Format
 
-### Weiterentwicklung des Spielkonzepts
+## Weiterentwicklung des Spielkonzepts
 
 Die angedachte Weiterentwicklung hat das generelle Ziel, Mikromanagement zu
 reduzieren. Dabei würden viele Befehle und Konzepte aus Fantasya verworfen und
@@ -147,13 +161,14 @@ werden, und Handel kann analog über Handelsrouten organisiert werden.
 - FORST, HERDE für automatisches Baumfällen und Dressieren
 - STEUERN auf Märkten legt einen Steuersatz fest
 
-#### Handel und Wirtschaft
+### Handel und Wirtschaft
 
 - Silber für Unterhalt mit Nahrung ersetzen
 - Rohstoffe als Vorstufe der Weiterverarbeitung einführen
   - Bäume für Holz, Kohle (in Sägewerk, Köhlerei)
   - Felsen für Stein (in Steinbruch)
   - Erz für Eisen (in Schmelze)
+  - Argent für Silber (in Schmelze)
 - neue Rohstoffe
   - Kohle als Hilfsstoff für Schmelze
-- Schmelze verarbeitet Erz zu Eisen; braucht Kohle)
+- Schmelze verarbeitet Erz/Argent zu Eisen/Silber; braucht Kohle)

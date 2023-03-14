@@ -3,6 +3,7 @@
 /.idea/webServers.xml
 /.idea/workspace.xml
 
+/CHANGELOG.md
 /composer.lock
 /bin/control.sh
 /bin/name-generator.sh
