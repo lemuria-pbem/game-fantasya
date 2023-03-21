@@ -8,6 +8,15 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Version 1.3
 
+- Kampfausrüstung sinnvoller verteilen (z.B. gemischte Waffen)
+- ID-Änderung durch NUMMER an Defaultbefehle weitergeben
+- Handelserweiterungen
+  - HANDEL x <Anzahl> ohne Angabe des Guts
+  - HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
+  - HANDEL x 10-20 (bis 20 Stück, mindestens aber 10)
+  - WIEDERHOLEN [Alles]
+  - MENGE, PREIS verändern Handel
+
 #### Statistik
 
 - Mehr Regionsstatistik
@@ -23,6 +32,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 - Übersetzungsgrammatik vereinheitlichen
 - Magellan-Konfiguration flexibilisieren
+  - Konfigurationsoptionen recherchieren
 
 ## Ideen
 
@@ -60,11 +70,6 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 - neue Gegenstände
   - Fackel (per BENUTZEN Fackel; als Waffe oder für Dungeons)
   - Öllampe (benötigt Öl; für Dungeons)
-- Handelserweiterungen
-  - HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
-  - HANDEL x 10-20 <commodity> (bis 20 Stück, mindestens aber 10)
-  - WIEDERHOLEN
-  - MENGE, PREIS verändern Handel
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
 - Besteuerung bei Nutzung fremder Infrastruktur
   - Handelssteuer an den Besitzer der größten Burg
