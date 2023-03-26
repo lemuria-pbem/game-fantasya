@@ -36,6 +36,10 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ## Ideen
 
+### Einheiten
+
+- Ausdauer erhöht Tragkraft um Faktor ∜TW
+
 ### Ereignisse
 
 - Ereignis "Juwelen gefunden" beim Bergbau in Gebirgen/Gletschern ohne Luxuswaren

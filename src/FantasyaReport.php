@@ -109,7 +109,8 @@ class FantasyaReport
 			if (!$hasVersion) {
 				$version[Module::Renderers] = $writer->getVersion();
 			}
-			$writer->add(new FileWrapper($this->getHtmlWrapper()))->setFilter($filter)->render($id);
+			$wrapper = new FileWrapper($this->getHtmlWrapper());
+			$writer->add($wrapper->setParty($party))->setFilter($filter)->render($id);
 
 			if ($isPlayer) {
 				$writer = new TextWriter($pathFactory);
