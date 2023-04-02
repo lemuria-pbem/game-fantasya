@@ -8,7 +8,6 @@ use Lemuria\Game\Fantasya\Model\World\ConvertedMap;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Id;
 use Lemuria\Lemuria;
-use Lemuria\Model\Domain;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
 use Lemuria\Renderer\Magellan\WorldInspector;
