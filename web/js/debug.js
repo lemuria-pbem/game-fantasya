@@ -3,6 +3,7 @@ document.addEventListener('readystatechange', () => {
     let isDebugEnabled = false;
     let meta = {};
     let party = {uuid: ''};
+    let age = '', creationMessage;
 
     const getMetaTags = function() {
         const list = document.head.getElementsByTagName('meta');
@@ -31,6 +32,28 @@ document.addEventListener('readystatechange', () => {
                 }
             })
         }
+        if (meta.created) {
+            const now = new Date();
+            const created = new Date(meta.created);
+            let difference = Math.round((now[Symbol.toPrimitive]('number') - created[Symbol.toPrimitive]('number')) / 1000);
+            creationMessage = 'Report age is ' + difference + ' seconds (created at ' + meta.created + ').';
+            if (difference < 86400) {
+                if (difference < 3600) {
+                    if (difference < 60) {
+                        age = difference + ' Sekunden';
+                    } else {
+                        const minutes = Math.round(difference / 60);
+                        age = minutes + ' Minuten';
+                    }
+                } else {
+                    const hours = Math.round(difference / 3600);
+                    age = hours + ' Stunden';
+                }
+            } else {
+                age  = created.toLocaleDateString(undefined, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+                age += ', ' + created.toLocaleTimeString(undefined, {hour: "2-digit", minute: "2-digit"}) + ' Uhr';
+            }
+        }
     };
 
     const createDebugSection = function() {
@@ -40,14 +63,21 @@ document.addEventListener('readystatechange', () => {
             debugHeader.appendChild(document.createTextNode('Debugging'));
             eventHeader.before(debugHeader);
 
-            const partyDiv = document.createElement('p');
-            eventHeader.before(partyDiv);
+            const debugDiv = document.createElement('p');
+            debugDiv.classList.add('debugging');
+            eventHeader.before(debugDiv);
+
             const uuidLabel = document.createElement('strong');
             uuidLabel.appendChild(document.createTextNode('UUID'));
-            partyDiv.appendChild(uuidLabel)
+            debugDiv.appendChild(uuidLabel)
             const uuid = document.createElement('pre');
             uuid.appendChild(document.createTextNode(party.uuid));
-            partyDiv.appendChild(uuid);
+            debugDiv.appendChild(uuid);
+
+            const ageLabel = document.createElement('strong');
+            ageLabel.appendChild(document.createTextNode('Alter:'));
+            debugDiv.appendChild(ageLabel);
+            debugDiv.appendChild(document.createTextNode(' ' + age));
         }
     };
 
@@ -55,5 +85,6 @@ document.addEventListener('readystatechange', () => {
     initVariablesFromMeta();
     isDebugEnabled && console.log('Development & debugging mode enabled.');
     isDebugEnabled && console.log('This is a report for party ' + party.uuid + '.');
+    isDebugEnabled && console.log(creationMessage);
     isDebugEnabled && createDebugSection();
 });
