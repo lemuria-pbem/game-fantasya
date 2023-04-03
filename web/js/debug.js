@@ -3,7 +3,8 @@ document.addEventListener('readystatechange', () => {
     let isDebugEnabled = false;
     let meta = {};
     let party = {uuid: ''};
-    let age = '', creationMessage;
+    let move = {status: '', received: ''};
+    let received = null, age = '', creationMessage = '', moveMessage = '';
 
     const getMetaTags = function() {
         const list = document.head.getElementsByTagName('meta');
@@ -31,6 +32,24 @@ document.addEventListener('readystatechange', () => {
                     party[property[0]] = property[1];
                 }
             })
+        }
+        if (meta['fantasya-move']) {
+            meta['fantasya-move'].split(',').forEach((property) => {
+                property = property.trim().split('=');
+                if (property.length === 2) {
+                    move[property[0]] = property[1];
+                }
+            })
+            if (move.received) {
+                const date = new Date(move.received);
+                received = date.toLocaleDateString(undefined, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+                received += ', ' + date.toLocaleTimeString(undefined, {hour: "2-digit", minute: "2-digit"}) + ' Uhr';
+            }
+            if (move.status === 'none') {
+                moveMessage = 'No orders were received.';
+            } else if (move.status === 'sent') {
+                moveMessage = 'Orders were received at ' + move.received + '.';
+            }
         }
         if (meta.created) {
             const now = new Date();
@@ -74,6 +93,21 @@ document.addEventListener('readystatechange', () => {
             uuid.appendChild(document.createTextNode(party.uuid));
             debugDiv.appendChild(uuid);
 
+            const moveLabel = document.createElement('strong');
+            moveLabel.appendChild(document.createTextNode('Spielzug:'));
+            debugDiv.appendChild(moveLabel);
+            switch (move.status) {
+                case 'unknown' :
+                    debugDiv.appendChild(document.createTextNode(' unbekannt'));
+                    break;
+                case 'none' :
+                    debugDiv.appendChild(document.createTextNode(' keine Einsendung erhalten'));
+                    break;
+                default :
+                    debugDiv.appendChild(document.createTextNode(' ' + received));
+            }
+            debugDiv.appendChild(document.createElement('br'));
+
             const ageLabel = document.createElement('strong');
             ageLabel.appendChild(document.createTextNode('Alter:'));
             debugDiv.appendChild(ageLabel);
@@ -85,6 +119,7 @@ document.addEventListener('readystatechange', () => {
     initVariablesFromMeta();
     isDebugEnabled && console.log('Development & debugging mode enabled.');
     isDebugEnabled && console.log('This is a report for party ' + party.uuid + '.');
-    isDebugEnabled && console.log(creationMessage);
+    isDebugEnabled && moveMessage && console.log(moveMessage);
+    isDebugEnabled && creationMessage && console.log(creationMessage);
     isDebugEnabled && createDebugSection();
 });

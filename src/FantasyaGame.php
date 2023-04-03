@@ -80,6 +80,7 @@ final class FantasyaGame extends FantasyaReport
 			if ($party) {
 				$this->addDefaultOrders($party, $units);
 				$gathering->add($party);
+				$this->received[$party->Id()->Id()] = filemtime($path);
 			}
 		}
 		$this->addMissingParties($gathering);
@@ -191,6 +192,7 @@ final class FantasyaGame extends FantasyaReport
 		foreach (Party::all() as $party) {
 			if ($party->Type() === Type::Player && !$party->hasRetired() && !$gathering->has($party->Id())) {
 				$this->turn->substitute($party);
+				$this->received[$party->Id()->Id()] = 0;
 			}
 		}
 	}

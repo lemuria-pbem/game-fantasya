@@ -39,6 +39,8 @@ class FantasyaReport
 
 	protected int $nextRound;
 
+	protected array $received = [];
+
 	private readonly bool $debugBattles;
 
 	private readonly array $debugParties;
@@ -92,6 +94,7 @@ class FantasyaReport
 			}
 
 			$id       = $party->Id();
+			$received = $this->received[$id->Id()] ?? null;
 			$isPlayer = $party->Type() === Type::Player;
 			$filter   = $this->getMessageFilter($party);
 			$pathFactory->setPrefix((string)$id);
@@ -110,7 +113,7 @@ class FantasyaReport
 				$version[Module::Renderers] = $writer->getVersion();
 			}
 			$wrapper = new FileWrapper($this->getHtmlWrap());
-			$writer->add($wrapper->setWriter($writer))->setFilter($filter)->render($id);
+			$writer->add($wrapper->setWriter($writer)->setReceived($received))->setFilter($filter)->render($id);
 
 			if ($isPlayer) {
 				$writer = new TextWriter($pathFactory);
