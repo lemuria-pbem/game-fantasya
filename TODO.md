@@ -8,37 +8,25 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Version 1.3
 
+- Ausdauer erhöht Tragkraft um Faktor ∜TW
 - Kampfausrüstung sinnvoller verteilen (z.B. gemischte Waffen)
-- ID-Änderung durch NUMMER an Defaultbefehle weitergeben
 - Handelserweiterungen
   - HANDEL x <Anzahl> ohne Angabe des Guts
   - HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
   - HANDEL x 10-20 (bis 20 Stück, mindestens aber 10)
   - WIEDERHOLEN [Alles]
   - MENGE, PREIS verändern Handel
-
-#### Statistik
-
 - Mehr Regionsstatistik
   - Anzahl Einheiten
   - Anzahl Personen
   - Versorgungsreserve (Silberpool)
-
-#### Auswertung
-
-- Talentliste: Einheiten-TW in Klammern anzeigen
-
-#### Refactoring
-
+- Auswertung: in Talentliste Einheiten-TW in Klammern anzeigen
+- ID-Änderung durch NUMMER an Defaultbefehle weitergeben
 - Übersetzungsgrammatik vereinheitlichen
 - Magellan-Konfiguration flexibilisieren
   - Konfigurationsoptionen recherchieren
 
 ## Ideen
-
-### Einheiten
-
-- Ausdauer erhöht Tragkraft um Faktor ∜TW
 
 ### Ereignisse
 

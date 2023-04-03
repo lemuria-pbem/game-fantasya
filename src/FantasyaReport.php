@@ -39,6 +39,8 @@ class FantasyaReport
 
 	protected int $nextRound;
 
+	protected array $received = [];
+
 	private readonly bool $debugBattles;
 
 	private readonly array $debugParties;
@@ -92,6 +94,7 @@ class FantasyaReport
 			}
 
 			$id       = $party->Id();
+			$received = $this->received[$id->Id()] ?? null;
 			$isPlayer = $party->Type() === Type::Player;
 			$filter   = $this->getMessageFilter($party);
 			$pathFactory->setPrefix((string)$id);
@@ -109,8 +112,8 @@ class FantasyaReport
 			if (!$hasVersion) {
 				$version[Module::Renderers] = $writer->getVersion();
 			}
-			$wrapper = new FileWrapper($this->getHtmlWrapper());
-			$writer->add($wrapper->setParty($party))->setFilter($filter)->render($id);
+			$wrapper = new FileWrapper($this->getHtmlWrap());
+			$writer->add($wrapper->setWriter($writer)->setReceived($received))->setFilter($filter)->render($id);
 
 			if ($isPlayer) {
 				$writer = new TextWriter($pathFactory);
@@ -200,7 +203,7 @@ class FantasyaReport
 		return $archives;
 	}
 
-	protected function getHtmlWrapper(): string {
+	protected function getHtmlWrap(): string {
 		if (Lemuria::FeatureFlag()->IsDevelopment()) {
 			if (is_file(self::HTML_WRAPPER_DEBUG)) {
 				return self::HTML_WRAPPER_DEBUG;
