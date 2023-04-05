@@ -14,23 +14,23 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   - Alte Tiermonster sterben und hinterlassen verwesende Kadaver
     - Kraken werden an den Strand gespült
     - Bären verenden, Reißzähne können erbeutet werden
-- Ausdauer erhöht Tragkraft um Faktor ∜TW
-- Kampfausrüstung sinnvoller verteilen (z.B. gemischte Waffen)
-- Handelserweiterungen
-  - HANDEL x <Anzahl> ohne Angabe des Guts
-  - HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
-  - HANDEL x 10-20 (bis 20 Stück, mindestens aber 10)
-  - WIEDERHOLEN [Alles]
-  - MENGE, PREIS verändern Handel
-- Mehr Regionsstatistik
-  - Anzahl Einheiten
-  - Anzahl Personen
-  - Versorgungsreserve (Silberpool)
-- Auswertung: in Talentliste Einheiten-TW in Klammern anzeigen
-- ID-Änderung durch NUMMER an Defaultbefehle weitergeben
++ Ausdauer erhöht Tragkraft um Faktor ∜TW
++ Kampfausrüstung sinnvoller verteilen (z.B. gemischte Waffen)
++ Handelserweiterungen
+  + HANDEL x <Anzahl> ohne Angabe des Guts
+  + HANDEL x * / HANDEL x Alles (alles verfügbare handeln)
+  + HANDEL x 10-20 (bis 20 Stück, mindestens aber 10)
+  + WIEDERHOLEN [Alles]
+  + MENGE, PREIS verändern Handel
++ Mehr Regionsstatistik
+  + Anzahl Einheiten
+  + Anzahl Personen
+  + Versorgungsreserve (Silberpool)
++ Auswertung: in Talentliste Einheiten-TW in Klammern anzeigen
++ ID-Änderung durch NUMMER an Defaultbefehle weitergeben
 - Übersetzungsgrammatik vereinheitlichen
-- Magellan-Konfiguration flexibilisieren
-  - Konfigurationsoptionen recherchieren
++ Magellan-Konfiguration flexibilisieren
+  + Konfigurationsoptionen recherchieren
 - Report-Download konfigurierbar machen (über Webseite)
 
 ## Ideen
@@ -128,7 +128,6 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   - geraubtes Unikum wiederbeschaffen
   - entführte Person befreien
   - Wespennest ausräuchern
-  - herumstreunende Zombies ausrotten
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
   - Monster bekämpfen, Trophäen eintauschen
