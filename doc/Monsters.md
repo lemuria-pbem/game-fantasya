@@ -35,6 +35,7 @@ mehreren Aktionen zusammensetzt.
 - Bewohnen - dauerhaftes Aufhalten in einer Heimatregion
 - Feindsuche - Suche nach feindlichen Einheiten
 - Jagen - Suche nach leichter Angriffsbeute
+- Revierverhalten - Einzelgänger verteidigen ihr Revier
 - Vermehren - Erzeugen neuer Monstergruppen
 - Taschendiebstahl - entdeckte Feinde werden bestohlen
 - Umherstreifen - umherwandern in der Region oder in eine Nachbarregion
@@ -44,12 +45,13 @@ mehreren Aktionen zusammensetzt.
 
 #### Bär
 
-_Umherstreifen - Vermehren_
+_Umherstreifen - Vermehren_ - Revierverhalten
 
 Ein Bär streift stetig umher und wandert auf diese Weise im Laufe der Zeit über
 den ganzen Kontinent. Dabei bevorzugt er Wälder, betritt aber gelegentlich auch
 Gebirge, Hochländer oder Ebenen. Solange man ihn in Ruhe lässt, bleibt er
-friedlich.
+friedlich. Bären sind Einzelgänger. Gelegentlich kommt es zu Revierkämpfen bei
+aufeinandertreffenden Bären.
 
 #### Baumhirte
 
