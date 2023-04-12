@@ -8,6 +8,12 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 
 ### Version 1.3
 
+- Ereignisse
+  - Ereignis "Koboldseuche" hebt Tarnung auf
+  - Herumstreunende Zombies infizieren Bauern, die zu Zombies werden
+  - Alte Tiermonster sterben und hinterlassen verwesende Kadaver
+    - Kraken werden an den Strand gespült
+    - Bären verenden, Reißzähne können erbeutet werden
 - Ausdauer erhöht Tragkraft um Faktor ∜TW
 - Kampfausrüstung sinnvoller verteilen (z.B. gemischte Waffen)
 - Handelserweiterungen
@@ -25,6 +31,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
 - Übersetzungsgrammatik vereinheitlichen
 - Magellan-Konfiguration flexibilisieren
   - Konfigurationsoptionen recherchieren
+- Report-Download konfigurierbar machen (über Webseite)
 
 ## Ideen
 
@@ -118,6 +125,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   - geraubtes Unikum wiederbeschaffen
   - entführte Person befreien
   - Wespennest ausräuchern
+  - herumstreunende Zombies ausrotten
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
   - Monster bekämpfen, Trophäen eintauschen
