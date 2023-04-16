@@ -51,6 +51,9 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   - Sumpf: Elefantengehege
   - Wald: Jagdhaus
   - Wüste: Oase
+- Forsthaus: stoppt Bauernvermehrung, erhöht Wachstum
+- Kräuterhütte: +1, stoppt Schrumpfen im Winter, automatisches Forschen
+- Gewächshaus: Anbau regionsfremder Kräuter
 - besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
   - BESUCHEN zum Handel mit NPC-Ladenbesitzer
   - Steinkreis als Portal für Magier
