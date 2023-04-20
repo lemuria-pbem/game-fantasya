@@ -10,6 +10,7 @@ use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\CompositeFilter;
 use Lemuria\Exception\DirectoryNotFoundException;
+use Lemuria\Game\Fantasya\Renderer\Magellan\FantasyaHeader;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
@@ -85,6 +86,7 @@ class FantasyaReport
 		$directory  .= DIRECTORY_SEPARATOR . $this->nextRound;
 		$pathFactory = new FantasyaPathFactory($directory);
 		$version     = Lemuria::Version();
+		$header      = new FantasyaHeader();
 
 		$p          = 0;
 		$hasVersion = false;
@@ -105,7 +107,7 @@ class FantasyaReport
 				$version[Module::Renderers] = $writer->getVersion();
 			}
 			if ($isPlayer) {
-				$writer->setFilter($filter)->render($id);
+				$writer->setHeader($header)->setFilter($filter)->render($id);
 			}
 
 			$writer = new HtmlWriter($pathFactory);

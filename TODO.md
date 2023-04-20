@@ -28,7 +28,7 @@ Lemuria 1.2 wurde am 24. Dezember 2022 veröffentlicht.
   + Versorgungsreserve (Silberpool)
 + Auswertung: in Talentliste Einheiten-TW in Klammern anzeigen
 + ID-Änderung durch NUMMER an Defaultbefehle weitergeben
-- Übersetzungsgrammatik vereinheitlichen
++ Übersetzungsgrammatik vereinheitlichen
 + Magellan-Konfiguration flexibilisieren
   + Konfigurationsoptionen recherchieren
 + Report-Download konfigurierbar machen (über Webseite)
