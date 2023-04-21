@@ -67,7 +67,7 @@ class FantasyaNamer extends DefaultNamer
 	protected function location(Region $region): string {
 		$landscape = $region->Landscape();
 		if ($landscape instanceof Navigable) {
-			return self::dictionary()->get('landscape.' . $landscape);
+			return $this->translateSingleton($landscape);
 		}
 		return $this->next(__FUNCTION__);
 	}

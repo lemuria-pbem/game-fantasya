@@ -39,13 +39,14 @@ mehreren Aktionen zusammensetzt.
 - Vermehren - Erzeugen neuer Monstergruppen
 - Taschendiebstahl - entdeckte Feinde werden bestohlen
 - Umherstreifen - umherwandern in der Region oder in eine Nachbarregion
+- Verenden - alte, kranke oder verwundete Exemplare werden zu Kadavern
 - Zerstreuen - bei zu großer Monsterzahl in eine Nachbarregion wandern
 
 ### Verhalten
 
 #### Bär
 
-_Umherstreifen - Vermehren_ - Revierverhalten
+_Umherstreifen - Vermehren - Revierverhalten - Verenden_
 
 Ein Bär streift stetig umher und wandert auf diese Weise im Laufe der Zeit über
 den ganzen Kontinent. Dabei bevorzugt er Wälder, betritt aber gelegentlich auch
@@ -91,7 +92,7 @@ Gerüchte unter sich.
 
 #### Greif
 
-_Bewohnen_
+_Bewohnen - Verenden_
 
 In den zerklüfteten Gebirgen, dort wo es Gletscher gibt, kann man häufig größere
 Gruppen von Greifen beobachten, die sich das ganze Jahr über dort aufhalten und
@@ -114,7 +115,7 @@ Ereignis implementiert, bei dem eine temporäre Monstereinheit erzeugt wird._
 
 #### Kobold
 
-_Umherstreifen - Vermehren - Feindsuche - Taschendiebstahl - Zerstreuen_
+_Umherstreifen - Vermehren - Feindsuche - Taschendiebstahl - Zerstreuen - Verenden_
 
 Kobolde organisieren sich in Gruppen, oft zu Dutzenden, und wandern in beinahe
 alle Regionen auf dem Kontinent. Einzig Gletscher meiden sie, denn dort gibt es
@@ -126,7 +127,7 @@ ziehen sie weiter.
 
 #### Krake
 
-_Umherstreifen - Vermehren - Angreifen_
+_Umherstreifen - Vermehren - Angreifen - Verenden_
 
 In den endlosen Weiten der Ozeane trifft man manchmal auf einzelne Kraken,
 selten auch mal auf kleine Gruppen von ihnen. Diese Begegnungen sind unter den
@@ -149,7 +150,7 @@ Spielereinheit erbarmungslos angreifen.
 
 #### Wolf
 
-_Umherstreifen - Vermehren - Jagen_
+_Umherstreifen - Vermehren - Jagen - Verenden_
 
 Wölfe streifen in Rudeln durch die Wildnis. Dabei meiden sie Sümpfe, Gletscher
 oder bewohnte Gegenden, sind scheu und halten sich bevorzugt in den Wäldern auf.

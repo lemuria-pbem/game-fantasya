@@ -142,6 +142,8 @@ document.addEventListener('readystatechange', () => {
                 if (section) {
                     if (messagesConfig[section]) {
                         messages.push(message);
+                    } else if (messagesConfig[section] === undefined) {
+                        messages.push(message);
                     }
                 } else {
                     messages.push(message);
