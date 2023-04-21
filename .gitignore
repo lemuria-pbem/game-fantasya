@@ -6,6 +6,7 @@
 /CHANGELOG.md
 /composer.lock
 /bin/control.sh
+/bin/lemuria.sh
 /bin/name-generator.sh
 /bin/sync.sh
 /doc/Lemuria.pdf

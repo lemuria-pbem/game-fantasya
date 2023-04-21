@@ -125,6 +125,10 @@ ul.report .badge {
 #navbar {
     .navbar-brand {
         margin-left: 1.0rem;
+        margin-top: 0.5rem;
+    }
+    .nav > .navbar-brand:first-child {
+        margin-top: 0;
     }
     .nav-pills .nav-link {
         /* deprecated 1.3: remove &.region */
