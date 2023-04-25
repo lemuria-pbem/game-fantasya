@@ -15,7 +15,6 @@
 
 	"require": {
 		"php": "~8.2",
-		"ext-zip": "~1.21",
 		"matthiasmullie/minify": "~1.3",
 		"twbs/bootstrap": "~5.2",
 

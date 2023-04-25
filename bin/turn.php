@@ -8,7 +8,7 @@ require realpath(__DIR__ . '/../vendor/autoload.php');
 $archives = [];
 $fantasya = new FantasyaGame();
 try {
-	$archives = $fantasya->init()->readOrders()->initiate()->evaluate()->finish()->createReports()->createArchives();
+	$archives = $fantasya->init()->readOrders()->initiate()->evaluate()->finish()->createReports();
 } catch (\Throwable $e) {
 	$fantasya->logException($e);
 }

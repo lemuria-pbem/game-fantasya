@@ -19,8 +19,6 @@ class FantasyaConfig extends LemuriaConfig
 
 	public final const DEBUG_PARTIES = 'debugParties';
 
-	public final const CREATE_ARCHIVES = 'createArchives';
-
 	public final const THROW_EXCEPTIONS = 'throwExceptions';
 
 	protected final const LOCAL_CONFIG = 'config.local.json';
@@ -30,8 +28,6 @@ class FantasyaConfig extends LemuriaConfig
 	private const DEBUG_BATTLES_DEFAULT = false;
 
 	private const DEBUG_PARTIES_DEFAULT = [];
-
-	private const CREATE_ARCHIVES_DEFAULT = true;
 
 	private const THROW_EXCEPTIONS_DEFAULT = false;
 
@@ -60,7 +56,6 @@ class FantasyaConfig extends LemuriaConfig
 		$this->defaults[self::DEVELOPMENT_MODE] = self::DEVELOPMENT_MODE_DEFAULT;
 		$this->defaults[self::DEBUG_BATTLES]    = self::DEBUG_BATTLES_DEFAULT;
 		$this->defaults[self::DEBUG_PARTIES]    = self::DEBUG_PARTIES_DEFAULT;
-		$this->defaults[self::CREATE_ARCHIVES]  = self::CREATE_ARCHIVES_DEFAULT;
 		$this->defaults[self::THROW_EXCEPTIONS] = self::THROW_EXCEPTIONS_DEFAULT;
 	}
 
