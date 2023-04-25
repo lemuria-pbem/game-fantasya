@@ -2,7 +2,7 @@
 
 bootstrap=vendor/twbs/bootstrap/dist/css/bootstrap.min.css
 source=web/css/style.scss
-target=web/css/report-12.min.css
+target=web/css/report-13.min.css
 
 rm -f $target
 cp $bootstrap $target

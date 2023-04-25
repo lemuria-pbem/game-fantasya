@@ -32,8 +32,6 @@ class FantasyaReport
 
 	private const HTML_WRAPPER_DEBUG = __DIR__ . '/../resources/turn.debug.html';
 
-	private const ZIP_OPTIONS = ['remove_all_path' => true];
-
 	protected readonly string $storage;
 
 	protected FantasyaConfig $config;
@@ -46,8 +44,6 @@ class FantasyaReport
 
 	private readonly array $debugParties;
 
-	private readonly bool $createArchives;
-
 	public function __construct() {
 		$this->storage = realpath(__DIR__ . '/../storage');
 		if (!$this->storage) {
@@ -57,7 +53,6 @@ class FantasyaReport
 		$this->nextRound      = $this->config[LemuriaConfig::ROUND];
 		$this->debugBattles   = $this->config[FantasyaConfig::DEBUG_BATTLES];
 		$this->debugParties   = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
-		$this->createArchives = $this->config[FantasyaConfig::CREATE_ARCHIVES];
 	}
 
 	public function init(): self {
@@ -146,63 +141,6 @@ class FantasyaReport
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');
 
 		return $this;
-	}
-
-	/**
-	 * @return array<string>
-	 */
-	public function createArchives(): array {
-		if (!$this->createArchives) {
-			Lemuria::Log()->debug('Generating ZIP files has been disabled.');
-			return [];
-		}
-
-		Lemuria::Log()->debug('Generating ZIP files.');
-		$turnDir = realpath($this->storage . '/turn/' . $this->nextRound);
-		if (!$turnDir) {
-			throw new DirectoryNotFoundException($turnDir);
-		}
-		$reportDir = realpath($this->storage . '/report');
-		if (!$reportDir) {
-			throw new DirectoryNotFoundException($reportDir);
-		}
-		$reportDir .= DIRECTORY_SEPARATOR . $this->nextRound;
-		if (!is_dir($reportDir)) {
-			mkdir($reportDir);
-			chmod($reportDir, 0775);
-		}
-
-		$archives = [];
-		foreach (Party::all() as $party) {
-			if ($party->Type() !== Type::Player) {
-				continue;
-			}
-			if ($party->hasRetired() && $party->Retirement() < $this->nextRound) {
-				continue;
-			}
-
-			$id       = (string)$party->Id();
-			$name     = $this->nextRound . '-' . $id . '.zip';
-			$zipPath  = $reportDir . DIRECTORY_SEPARATOR . $name;
-			$turnPath = $turnDir . DIRECTORY_SEPARATOR . $id . '.*';
-
-			$zip    = new \ZipArchive();
-			$result = $zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
-			if (is_int($result)) {
-				throw new \RuntimeException('Could not create ZIP file.', $result);
-			}
-			$result = $zip->addGlob($turnPath, 0, self::ZIP_OPTIONS);
-			if (empty($result)) {
-				throw new \RuntimeException('No files were added to ZIP for party ' . $id . '.');
-			}
-			$result = $zip->close();
-			if (!$result) {
-				throw new \RuntimeException('Error on closing ZIP.');
-			}
-			$archives[] = $id . ':' . $party->Uuid() . ':' . $zipPath;
-		}
-
-		return $archives;
 	}
 
 	protected function getHtmlWrap(): string {
