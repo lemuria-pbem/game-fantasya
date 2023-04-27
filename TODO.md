@@ -4,7 +4,8 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Grammatikfehler: "viele Würzigen Wagemute" vs. "die Würzigen Wagemute"
+- Kampfbericht: Überrannt-Meldung ohne weitere Kämpfer nicht wiederholen
+- Debugging beschleunigen (nur ausgewählte Objekte verarbeiten)
 
 ## Ideen
 
