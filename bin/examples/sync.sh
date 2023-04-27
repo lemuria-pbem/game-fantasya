@@ -12,7 +12,6 @@ help() {
 	echo "\t-l   nur /log"
 	echo "\t-n   nur /names"
 	echo "\t-o   nur /orders"
-	echo "\t-r   nur /report"
 	echo "\t-t   nur /turn"
 	echo
 	echo "\t-h   Hilfe anzeigen"
@@ -29,7 +28,6 @@ do
 		l) path=/log/ ;;
 		n) path=/names/ ;;
 		o) path=/orders/ ;;
-		r) path=/report/ ;;
 		t) path=/turn/ ;;
 	esac
 done
