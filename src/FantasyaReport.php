@@ -5,7 +5,6 @@ namespace Lemuria\Game\Fantasya;
 use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\Message\Filter\PartyAnnouncementFilter;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
-use Lemuria\Engine\Fantasya\TurnOptions;
 use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\CompositeFilter;
@@ -40,8 +39,6 @@ class FantasyaReport
 
 	protected array $received = [];
 
-	private readonly bool $debugBattles;
-
 	private readonly array $debugParties;
 
 	public function __construct() {
@@ -49,20 +46,15 @@ class FantasyaReport
 		if (!$this->storage) {
 			throw new DirectoryNotFoundException($this->storage);
 		}
-		$this->config         = new FantasyaConfig($this->storage);
-		$this->nextRound      = $this->config[LemuriaConfig::ROUND];
-		$this->debugBattles   = $this->config[FantasyaConfig::DEBUG_BATTLES];
-		$this->debugParties   = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
+		$this->config       = new FantasyaConfig($this->storage);
+		$this->nextRound    = $this->config[LemuriaConfig::ROUND];
+		$this->debugParties = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
 	}
 
 	public function init(): self {
 		Lemuria::init($this->config);
 		Lemuria::load();
 		Lemuria::Log()->debug('Generating reports for round ' . $this->nextRound . '.');
-
-		$options = new TurnOptions();
-		$options->setDebugBattles($this->debugBattles);
-		$options->setThrowExceptions(true);
 
 		$version                 = Lemuria::Version();
 		$versionFinder           = new VersionFinder(__DIR__ . '/../vendor/lemuria-pbem/engine-fantasya');
@@ -86,7 +78,7 @@ class FantasyaReport
 		$p          = 0;
 		$hasVersion = false;
 		foreach (Party::all() as $party) {
-			if ($party->hasRetired() && $party->Retirement() < $this->nextRound) {
+			if (!$this->generateReportFor($party)) {
 				continue;
 			}
 
@@ -141,6 +133,10 @@ class FantasyaReport
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');
 
 		return $this;
+	}
+
+	protected function generateReportFor(Party $party): bool {
+		return !$party->hasRetired() || $party->Retirement() >= $this->nextRound;
 	}
 
 	protected function getHtmlWrap(): string {

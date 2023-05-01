@@ -4,7 +4,7 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Debugging beschleunigen (nur ausgewählte Objekte verarbeiten)
+- …
 
 ## Ideen
 
