@@ -6,7 +6,7 @@ use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
-use Lemuria\Engine\Fantasya\TurnOptions;
+use Lemuria\Engine\Fantasya\Turn\Options;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
@@ -20,15 +20,15 @@ use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Version\Module;
 use Lemuria\Version\VersionFinder;
 
-final class FantasyaGame extends FantasyaReport
+class FantasyaGame extends FantasyaReport
 {
+	protected readonly LemuriaTurn $turn;
+
 	private readonly int $round;
 
 	private readonly bool $debugBattles;
 
 	private readonly bool $throwExceptions;
-
-	private readonly LemuriaTurn $turn;
 
 	public function __construct() {
 		parent::__construct();
@@ -52,9 +52,7 @@ final class FantasyaGame extends FantasyaReport
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
 
-		$options = new TurnOptions();
-		$options->setDebugBattles($this->debugBattles);
-		$options->setThrowExceptions($this->throwExceptions);
+		$options    = $this->createOptions();
 		$this->turn = new LemuriaTurn($options);
 
 		$version                 = Lemuria::Version();
@@ -65,16 +63,11 @@ final class FantasyaGame extends FantasyaReport
 	}
 
 	public function readOrders(): self {
-		$dir  = $this->storage . '/orders/' . $this->round;
-		$path = realpath($dir);
-		if (!$path) {
-			throw new DirectoryNotFoundException($dir);
-		}
-		$parties = glob($path . DIRECTORY_SEPARATOR . '*.order');
-		Lemuria::Log()->debug('Found ' . count($parties) . ' order files.', ['orders' => $parties]);
+		$files = $this->findOrderFiles();
+		Lemuria::Log()->debug('Found ' . count($files) . ' order files.', ['orders' => $files]);
 
 		$gathering = new Gathering();
-		foreach ($parties as $path) {
+		foreach ($files as $path) {
 			$units = $this->turn->add(new CommandFile($path));
 			$party = $this->getPartyFrom($units);
 			if ($party) {
@@ -170,6 +163,37 @@ final class FantasyaGame extends FantasyaReport
 		return glob($dir . DIRECTORY_SEPARATOR . '*.html');
 	}
 
+	protected function createOptions(): Options {
+		$options = new Options();
+		return $options->setDebugBattles($this->debugBattles)->setThrowExceptions($this->throwExceptions);
+	}
+
+	protected function findOrderFiles(): array {
+		$dir  = $this->storage . '/orders/' . $this->round;
+		$path = realpath($dir);
+		if (!$path) {
+			throw new DirectoryNotFoundException($dir);
+		}
+		return glob($path . DIRECTORY_SEPARATOR . '*.order');
+	}
+
+	protected function addDefaultOrders(Party $party, EntitySet $units): void {
+		foreach ($party->People() as $unit) {
+			if (!$units->has($unit->Id())) {
+				$this->turn->substitute($unit);
+			}
+		}
+	}
+
+	protected function addMissingParties(Gathering $gathering): void {
+		foreach (Party::all() as $party) {
+			if ($party->Type() === Type::Player && !$party->hasRetired() && !$gathering->has($party->Id())) {
+				$this->turn->substitute($party);
+				$this->received[$party->Id()->Id()] = 0;
+			}
+		}
+	}
+
 	private function getPartyFrom(EntitySet $units): ?Party {
 		if ($units->count() > 0) {
 			$units->rewind();
@@ -178,22 +202,5 @@ final class FantasyaGame extends FantasyaReport
 			return $unit->Party();
 		}
 		return null;
-	}
-
-	private function addDefaultOrders(Party $party, EntitySet $units): void {
-		foreach ($party->People() as $unit) {
-			if (!$units->has($unit->Id())) {
-				$this->turn->substitute($unit);
-			}
-		}
-	}
-
-	private function addMissingParties(Gathering $gathering): void {
-		foreach (Party::all() as $party) {
-			if ($party->Type() === Type::Player && !$party->hasRetired() && !$gathering->has($party->Id())) {
-				$this->turn->substitute($party);
-				$this->received[$party->Id()->Id()] = 0;
-			}
-		}
 	}
 }

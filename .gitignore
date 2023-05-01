@@ -6,6 +6,7 @@
 /CHANGELOG.md
 /composer.lock
 /bin/control.sh
+/bin/debug-config.php
 /bin/lemuria.sh
 /bin/link-turn.sh
 /bin/name-generator.sh
