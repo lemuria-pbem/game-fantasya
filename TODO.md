@@ -124,8 +124,7 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 ### Verschiedenes
 
 - VORLAGE-Variante für Rotation von Befehlen
-- Einstellen der erwünschten Reportformate
-  - Textreport im Markdown-Format
+- Textreport im Markdown-Format
 
 ## Weiterentwicklung des Spielkonzepts
 
