@@ -40,19 +40,21 @@ mehreren Aktionen zusammensetzt.
 - Taschendiebstahl - entdeckte Feinde werden bestohlen
 - Umherstreifen - umherwandern in der Region oder in eine Nachbarregion
 - Verenden - alte, kranke oder verwundete Exemplare werden zu Kadavern
+- Winterschlaf - im Winter zieht sich das Tier zurück und ruht
 - Zerstreuen - bei zu großer Monsterzahl in eine Nachbarregion wandern
 
 ### Verhalten
 
 #### Bär
 
-_Umherstreifen - Vermehren - Revierverhalten - Verenden_
+_Umherstreifen - Vermehren - Revierverhalten - Winterschlaf - Verenden_
 
 Ein Bär streift stetig umher und wandert auf diese Weise im Laufe der Zeit über
 den ganzen Kontinent. Dabei bevorzugt er Wälder, betritt aber gelegentlich auch
 Gebirge, Hochländer oder Ebenen. Solange man ihn in Ruhe lässt, bleibt er
 friedlich. Bären sind Einzelgänger. Gelegentlich kommt es zu Revierkämpfen bei
-aufeinandertreffenden Bären.
+aufeinandertreffenden Bären. Im Winter verstecken Bären sich für den
+Winterschlaf.
 
 #### Baumhirte
 
