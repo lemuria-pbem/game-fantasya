@@ -17,7 +17,11 @@ $navColorDefault: $green;
 $navIconDefault: "\1f333\a0";
 $navColors: ("navigable": $blue-700, "construction": $dark, "vessel": $blue);
 $navColorIcons: ("navigable": "\1f30a\a0", "construction": "\1f3f0\a0", "vessel": "\26f5\a0");
-$navIcons: ("desert": "'\1f3dc\a0'", "glacier": "'\26f0\a0'", "mountain": "'\1f3d4\a0'");
+$navLandscapes: ("desert": "'\1f3dc\a0'", "glacier": "'\26f0\a0'", "mountain": "'\1f3d4\a0'");
+$navBuildings: (
+        "cabin": "'\1fa93\a0'", "lighthouse": "'\26ef\a0'", "market": "'\1f3db\a0'", "mine": "'\26cf\a0'",
+        "monument": "'\1f3ef\a0'", "port": "'\2693\a0'", "quarry": "'\1faa8\a0'", "sawmill": "'\1fab5\a0'"
+);
 $mapLandscapes: ("desert", "forest", "glacier", "highland", "lake", "mountain", "ocean", "plain", "swamp");
 
 $zIndexMap: $zindex-modal;
@@ -133,13 +137,12 @@ ul.report .badge {
         margin-top: 0;
     }
     .nav-pills .nav-link {
-        /* deprecated 1.3: remove &.region */
-        &.location, &.region {
+        &.location {
             color: $navColorDefault;
             &:before {
                 content: $navIconDefault;
             }
-            @each $landscape, $icon in $navIcons {
+            @each $landscape, $icon in $navLandscapes {
                 &.#{$landscape}:before {
                     content: #{$icon};
                 }
@@ -150,6 +153,13 @@ ul.report .badge {
                 color: $color;
                 &:before {
                     content: map-get($navColorIcons, $key);
+                }
+            }
+        }
+        &.construction {
+            @each $buiding, $icon in $navBuildings {
+                &.#{$buiding}:before {
+                    content: #{$icon};
                 }
             }
         }
