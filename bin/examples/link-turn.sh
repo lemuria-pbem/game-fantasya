@@ -24,3 +24,4 @@ ln -s ../storage/game/$NEXT game
 ln -s ../storage/orders/$TURN orders
 ln -s ../storage/turn/$NEXT reports
 ln -s ../storage/log/$NEXT/lemuria.log
+ln -s ../storage/log/$NEXT/run.log
