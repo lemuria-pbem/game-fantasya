@@ -6,6 +6,23 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 
 - …
 
+## Weiterentwicklung des Spielkonzepts
+
+Die angedachte Weiterentwicklung hat das generelle Ziel, Mikromanagement zu
+reduzieren. Dabei könnten viele Befehle und Konzepte aus Fantasya verworfen
+und stattdessen vom Spieler Rahmenbedingungen vorgegeben werden, aus denen
+„Kontingente“ von arbeitenden Bauern berechnet werden, die unter der Anleitung
+von „Meistereinheiten“ mit Erfahrung in bestimmten Talenten effektiver arbeiten
+können. Transporte können durch Einrichtung von Transportrouten automatisiert
+werden, und Handel kann analog über Handelsrouten organisiert werden.
+
+Weiterentwicklungskonzepte könnten auch als optional nutzbare Aufsätze auf die
+bestehende Spielmechanik geplant werden.
+
+### Reiche
+
+Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
+
 ## Ideen
 
 ### Ereignisse
@@ -33,13 +50,23 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 
 ### Handel und Wirtschaft
 
+- Silber für Unterhalt mit Nahrung ersetzen
+- MACHEN -<Grenze> <Ressource> für Bestandshaltung
+- neue Rohstoffe
+  - Kohle als Hilfsstoff für Schmelze
+- Rohstoffe als Vorstufe der Weiterverarbeitung einführen
+  - Bäume für Holz, Kohle (in Sägewerk, Köhlerei)
+  - Felsen für Stein (in Steinbruch)
+  - Erz für Eisen (in Schmelze)
+  - Argent für Silber (in Schmelze)
 - neue Luxuswaren
   - Goldnuggets (produziert in Gletscherregionen)
   - Perlen (produziert in Küstenebenen an Buchten)
   - Tabak (produziert in Ebenen/Hochländern)
   - Whisky (produziert in Hochländern mit Wald)
 - neue Gebäude
-  - Schmelze (verarbeitet Goldnuggets zu Gold; braucht Holz)
+  - Schmelze verarbeitet Goldnuggets zu Gold; braucht Holz
+  - Schmelze verarbeitet Erz/Argent zu Eisen/Silber; braucht Kohle
 - neue Talente
   - Metallurgie für Schmelze
 - neue Gegenstände
@@ -90,6 +117,7 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
   - Gebühren in Nachbarregionen
 - Händlercharaktere mit Geschäft
 - fahrende Händler (Alchemisten, Magier, Luxuswaren)
+- Spedition übernimmt Transporte für Silber
 - Räuber
 - Söldner, kann angeheuert werden
 - Piraten
@@ -98,9 +126,14 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 ### Quests
 
 - mit bestimmtem Ziel
+  - geraubte Beute wiederbeschaffen, Provision 
   - geraubtes Unikum wiederbeschaffen
   - entführte Person befreien
+  - Räuberbande bekämpfen
   - Wespennest ausräuchern
+  - Schiffspassage
+  - Warentransport
+    - Vertrauen aufbauen, um wertvolle Transporte zu bekommen
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
   - Monster bekämpfen, Trophäen eintauschen
@@ -123,31 +156,11 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 
 ### Verschiedenes
 
+- LERNEN <Talent> <Stufe>
+- ALTERNATIVE für automatische Alternativbefehle
+  - LEHREN ohne Schüler
+  - LERNEN <Talent> <Stufe>
+  - MACHEN -<Grenze> <Ressource>
 - VORLAGE-Variante für Rotation von Befehlen
+- TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
 - Textreport im Markdown-Format
-
-## Weiterentwicklung des Spielkonzepts
-
-Die angedachte Weiterentwicklung hat das generelle Ziel, Mikromanagement zu
-reduzieren. Dabei würden viele Befehle und Konzepte aus Fantasya verworfen und
-stattdessen vom Spieler Rahmenbedingungen vorgegeben, aus denen „Kontingente“
-von arbeitenden Bauern berechnet werden, die unter der Anleitung von
-„Meistereinheiten“ mit Erfahrung in bestimmten Talenten effektiver arbeiten
-können. Transporte können durch Einrichtung von Transportrouten automatisiert
-werden, und Handel kann analog über Handelsrouten organisiert werden.
-
-- ALTERNATIVE für LERNEN ohne Lehrer
-- FORST, HERDE für automatisches Baumfällen und Dressieren
-- STEUERN auf Märkten legt einen Steuersatz fest
-
-### Handel und Wirtschaft
-
-- Silber für Unterhalt mit Nahrung ersetzen
-- Rohstoffe als Vorstufe der Weiterverarbeitung einführen
-  - Bäume für Holz, Kohle (in Sägewerk, Köhlerei)
-  - Felsen für Stein (in Steinbruch)
-  - Erz für Eisen (in Schmelze)
-  - Argent für Silber (in Schmelze)
-- neue Rohstoffe
-  - Kohle als Hilfsstoff für Schmelze
-- Schmelze verarbeitet Erz/Argent zu Eisen/Silber; braucht Kohle)
