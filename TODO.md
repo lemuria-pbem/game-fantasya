@@ -1,6 +1,6 @@
-# Version 1.3
+# Version 1.4
 
-Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
+Lemuria 1.4 wurde am 28. Juli 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 

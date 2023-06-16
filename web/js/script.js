@@ -1,4 +1,4 @@
-/* Lemuria 1.3 */
+/* Lemuria 1.4 */
 document.addEventListener('readystatechange', () => {
     const toggleClass = [
         ['non-responsive'],
