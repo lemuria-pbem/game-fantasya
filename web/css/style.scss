@@ -16,11 +16,17 @@ $unicumColor: #e724c7;
 $navColorDefault: $green;
 $navIconDefault: "\1f333\a0";
 $navColors: ("navigable": $blue-700, "construction": $dark, "vessel": $blue);
-$navColorIcons: ("navigable": "\1f30a\a0", "construction": "\1f3f0\a0", "vessel": "\26f5\a0");
-$navLandscapes: ("desert": "'\1f3dc\a0'", "glacier": "'\26f0\a0'", "mountain": "'\1f3d4\a0'");
+$navColorIcons: ("navigable": "\1f30a\a0", "construction": "\1f3e0\a0", "vessel": "\26f5\a0");
+$navLandscapes: (
+        "desert": "'\1f3dc\a0'", "glacier": "'\1f3d4\a0'", "highland": "'\1f342\a0'", "mountain": "'\26f0\a0'",
+        "plain": "'\1f33e\a0'", "swamp": "'\1f33f\a0'"
+);
 $navBuildings: (
-        "cabin": "'\1fa93\a0'", "lighthouse": "'\26ef\a0'", "market": "'\1f3db\a0'", "mine": "'\26cf\a0'",
-        "monument": "'\1f3ef\a0'", "port": "'\2693\a0'", "quarry": "'\1faa8\a0'", "sawmill": "'\1fab5\a0'"
+        "site": "'\2692\a0'", "fort": "'\1f3f0\a0'", "tower": "'\1f3f0\a0'", "palace": "'\1f3f0\a0'",
+        "stronghold": "'\1f3f0\a0'", "citadel": "'\1f3f0\a0'", "acropolis": "'\1f3f0\a0'", "megapolis": "'\1f3f0\a0'",
+        "cabin": "'\1fa93\a0'", "lighthouse": "'\1f56f\a0'", "market": "'\1f3db\a0'", "mine": "'\26cf\a0'",
+        "monument": "'\1f3ef\a0'", "pit": "'\1f3da\a0'",  "port": "'\2693\a0'", "quarry": "'\1faa8\a0'",
+        "sawmill": "'\1fab5\a0'", "shack": "'\1f6d6\a0'",
 );
 $mapLandscapes: ("desert", "forest", "glacier", "highland", "lake", "mountain", "ocean", "plain", "swamp");
 

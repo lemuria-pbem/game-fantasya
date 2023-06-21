@@ -33,6 +33,8 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
   - Greifenwacht
   - Wespenangriff
 - Umweltereignisse
+  - „Trockenheit“ lässt Flüsse und Kanäle austrocknen
+  - „Erdrutsch“ zerstört Straße
 
 ### Gebäude
 
@@ -90,6 +92,7 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
+- BELAGERN von Straßen, um Reisen zu verhindern
 
 ### Magie und Alchemie
 
@@ -151,6 +154,7 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
 
 ### Umgebung/Welt
 
+- Kanäle analog zu Straßen modellieren (Gebäude „Kanal“ ersetzen)
 - Flüsse als natürliche Kanäle modellieren
   - Schleuse als Zollgebäude
 
