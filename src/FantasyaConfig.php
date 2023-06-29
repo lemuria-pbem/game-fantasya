@@ -29,7 +29,7 @@ class FantasyaConfig extends LemuriaConfig
 
 	private const DEBUG_PARTIES_DEFAULT = [];
 
-	private const THROW_EXCEPTIONS_DEFAULT = false;
+	private const THROW_EXCEPTIONS_DEFAULT = 'NONE';
 
 	private FantasyaNamer $namer;
 

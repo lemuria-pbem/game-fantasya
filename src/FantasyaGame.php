@@ -6,6 +6,7 @@ use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Engine\Fantasya\Turn\Option\ThrowOption;
 use Lemuria\Engine\Fantasya\Turn\Options;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
@@ -28,13 +29,13 @@ class FantasyaGame extends FantasyaReport
 
 	private readonly bool $debugBattles;
 
-	private readonly bool $throwExceptions;
+	private readonly ThrowOption $throwExceptions;
 
 	public function __construct() {
 		parent::__construct();
 		$this->round           = $this->nextRound++;
 		$this->debugBattles    = $this->config[FantasyaConfig::DEBUG_BATTLES];
-		$this->throwExceptions = $this->config[FantasyaConfig::THROW_EXCEPTIONS];
+		$this->throwExceptions = new ThrowOption($this->config[FantasyaConfig::THROW_EXCEPTIONS]);
 	}
 
 	public function Round(): int {
@@ -143,7 +144,7 @@ class FantasyaGame extends FantasyaReport
 	}
 
 	public function logException(\Throwable $throwable): self {
-		if ($this->throwExceptions) {
+		if ($this->throwExceptions[ThrowOption::ANY]) {
 			throw $throwable;
 		}
 		try {
