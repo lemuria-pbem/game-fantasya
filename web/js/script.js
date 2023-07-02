@@ -38,11 +38,16 @@ document.addEventListener('readystatechange', () => {
     const messagesSelector = document.querySelectorAll(
         '#world ul.report span.badge.text-bg-info, #world ul.report span.badge.text-bg-warning, #world ul.report span.badge.text-bg-danger'
     );
+    const documentsList = document.getElementById('documents-tabs');
+    const documentsButton = document.getElementById('documents-button');
+    const documentsModal = document.getElementById('modal-documents');
     let messages;
+    let documents = [];
 
     let classIndex = 0;
     let enableKeys = true;
     let messageIndex = 0;
+    let documentsIndex = 0;
     let talentStatisticsTarget = null;
 
     const buttonHandled = function(event, button) {
@@ -63,6 +68,24 @@ document.addEventListener('readystatechange', () => {
     const locationHandled = function(event, location) {
         event.preventDefault();
         document.location.href = location;
+    };
+
+    const documentHandled = function(event) {
+        event.preventDefault();
+        if (documentsModal) {
+            if (documentsModal.classList.contains('show')) {
+                document.getElementById(documents[documentsIndex]).classList.remove('active');
+                document.getElementById(documents[documentsIndex] + '-pane').classList.remove('active', 'show');
+                if (documentsIndex >= documents.length - 1) {
+                    documentsIndex = 0;
+                } else {
+                    documentsIndex++;
+                }
+                document.getElementById(documents[documentsIndex]).classList.add('active');
+                document.getElementById(documents[documentsIndex] + '-pane').classList.add('active', 'show');
+            }
+            documentsButton.click();
+        }
     };
 
     const setBodyClass = function (index) {
@@ -231,6 +254,16 @@ document.addEventListener('readystatechange', () => {
         }
     }
 
+    const initDocuments = function() {
+        if (documentsList) {
+            const n = documentsList.children.length;
+            for (let i = 0; i < n; i++) {
+                const id = documentsList.children.item(i).children.item(0).id;
+                documents.push(id);
+            }
+        }
+    }
+
     const moveMapToTarget = function (target) {
         if (target && !target.startsWith('#location-')) {
             let location;
@@ -277,6 +310,9 @@ document.addEventListener('readystatechange', () => {
         if (event.key === 'a') {
             return locationHandled(event, alliances);
         }
+        if (event.key === 'b') {
+            return documentHandled(event);
+        }
         if (event.key === 'e') {
             return buttonHandled(event, messagesButton);
         }
@@ -307,4 +343,5 @@ document.addEventListener('readystatechange', () => {
     initTalentStatistics();
     initMessagesConfig();
     initMessagesButton();
+    initDocuments();
 });
