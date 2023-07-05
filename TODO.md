@@ -4,7 +4,7 @@ Lemuria 1.4 wurde am 28. Juli 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- …
+- Platzberechnung bei BETRETEN und VERLASSEN verbessern
 
 ## Weiterentwicklung des Spielkonzepts
 
