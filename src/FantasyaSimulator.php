@@ -7,6 +7,7 @@ use Lemuria\Engine\Fantasya\Message\LemuriaMessage;
 use Lemuria\Engine\Fantasya\Message\Reliability;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Engine\Fantasya\Turn\Option\ThrowOption;
 use Lemuria\Engine\Fantasya\Turn\Options;
 use Lemuria\Engine\Message;
 use Lemuria\Engine\Message\Filter\DebugFilter;
@@ -43,8 +44,7 @@ final class FantasyaSimulator
 	public function simulate(CommandFile $move): FantasyaSimulator {
 		Lemuria::Log()->debug('Simulating move.', ['move' => $move]);
 		Lemuria::Calendar()->nextRound();
-		$options = new Options();
-		$turn    = new LemuriaTurn($options->setIsSimulation(true));
+		$turn = new LemuriaTurn($this->createOptions());
 		$turn->add($move);
 		$turn->addProgress(new SimulationProgress(State::getInstance()))->evaluate();
 		return $this;
@@ -89,5 +89,10 @@ final class FantasyaSimulator
 			$level = self::UNDETERMINED;
 		}
 		return '[' . $level . '] ' . $message;
+	}
+
+	protected function createOptions(): Options {
+		$options = new Options();
+		return $options->setThrowExceptions(new ThrowOption('NONE'))->setIsSimulation(true);
 	}
 }
