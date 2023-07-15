@@ -4,7 +4,17 @@ Lemuria 1.4 wurde am 28. Juli 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Reiche
+  - Transportkapazität abhängig von Entfernung
+- LEHREN und LERNEN nach Reisebefehlen ausführen
+  - bei Transporten im Reich weniger lernen
+  - bei Seereisen als Passagier weniger lernen
 - Platzberechnung bei BETRETEN und VERLASSEN verbessern
+- VORGABE Erkunden für Reisen in unbekannten Regionen
+  - Erkunden Nicht: keine alternativen Richtungen
+  - Erkunden: benachbarte Richtungen versuchen
+  - Erkunden Anlegen: Schiffe sollen an Land gehen
+  - Erkunden Ablegen: Schiff sollen an Land gehen und gleich wieder ablegen
 
 ## Weiterentwicklung des Spielkonzepts
 
@@ -92,7 +102,7 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
-- BELAGERN von Straßen, um Reisen zu verhindern
+- BELAGERN von Straßen, um Reisen zu verhindern und Reiche zu trennen
 
 ### Magie und Alchemie
 
@@ -143,11 +153,6 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
 
 ### Reisen und Seefahrt
 
-- VORGABE Erkunden für Reisen in unbekannten Regionen
-  - Erkunden Nicht: keine alternativen Richtungen
-  - Erkunden: benachbarte Richtungen versuchen
-  - Erkunden Anlegen: Schiffe sollen an Land gehen
-  - Erkunden Ablegen: Schiff sollen an Land gehen und gleich wieder ablegen
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
 
 ### Statistik
