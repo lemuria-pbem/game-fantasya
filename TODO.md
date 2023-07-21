@@ -141,8 +141,13 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
   - Dungeon erkunden/Schatzsuche
   - Monster bekämpfen, Trophäen eintauschen
 
-### Seefahrt
+### Reisen und Seefahrt
 
+- VORGABE Erkunden für Reisen in unbekannten Regionen
+  - Erkunden Nicht: keine alternativen Richtungen
+  - Erkunden: benachbarte Richtungen versuchen
+  - Erkunden Anlegen: Schiffe sollen an Land gehen
+  - Erkunden Ablegen: Schiff sollen an Land gehen und gleich wieder ablegen
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
 
 ### Statistik
