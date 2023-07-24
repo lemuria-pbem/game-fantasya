@@ -17,7 +17,6 @@ use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Fantasya\Region;
-use Lemuria\Model\Fantasya\Unit;
 use Lemuria\Version\Module;
 use Lemuria\Version\VersionFinder;
 
@@ -69,8 +68,10 @@ class FantasyaGame extends FantasyaReport
 
 		$gathering = new Gathering();
 		foreach ($files as $path) {
-			$units = $this->turn->add(new CommandFile($path));
-			$party = $this->getPartyFrom($units);
+			$this->turn->add(new CommandFile($path));
+			$result = $this->turn->getResult();
+			$party  = $result->Party();
+			$units  = $result->Units();
 			if ($party) {
 				$this->addDefaultOrders($party, $units);
 				$gathering->add($party);
@@ -193,15 +194,5 @@ class FantasyaGame extends FantasyaReport
 				$this->received[$party->Id()->Id()] = 0;
 			}
 		}
-	}
-
-	private function getPartyFrom(EntitySet $units): ?Party {
-		if ($units->count() > 0) {
-			$units->rewind();
-			/** @var Unit $unit */
-			$unit = $units->current();
-			return $unit->Party();
-		}
-		return null;
 	}
 }
