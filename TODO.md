@@ -1,20 +1,10 @@
 # Version 1.4
 
-Lemuria 1.4 wurde am 28. Juli 2023 veröffentlicht.
+Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Reiche
-  - Transportkapazität abhängig von Entfernung
-- LEHREN und LERNEN nach Reisebefehlen ausführen
-  - bei Transporten im Reich weniger lernen
-  - bei Seereisen als Passagier weniger lernen
-- Platzberechnung bei BETRETEN und VERLASSEN verbessern
-- VORGABE Erkunden für Reisen in unbekannten Regionen
-  - Erkunden Nicht: keine alternativen Richtungen
-  - Erkunden: benachbarte Richtungen versuchen
-  - Erkunden Anlegen: Schiffe sollen an Land gehen
-  - Erkunden Ablegen: Schiff sollen an Land gehen und gleich wieder ablegen
+- …
 
 ## Weiterentwicklung des Spielkonzepts
 
@@ -63,7 +53,6 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
 ### Handel und Wirtschaft
 
 - Silber für Unterhalt mit Nahrung ersetzen
-- MACHEN -<Grenze> <Ressource> für Bestandshaltung
 - neue Rohstoffe
   - Kohle als Hilfsstoff für Schmelze
 - Rohstoffe als Vorstufe der Weiterverarbeitung einführen
