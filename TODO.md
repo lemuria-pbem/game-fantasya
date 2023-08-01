@@ -6,23 +6,6 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 - …
 
-## Weiterentwicklung des Spielkonzepts
-
-Die angedachte Weiterentwicklung hat das generelle Ziel, Mikromanagement zu
-reduzieren. Dabei könnten viele Befehle und Konzepte aus Fantasya verworfen
-und stattdessen vom Spieler Rahmenbedingungen vorgegeben werden, aus denen
-„Kontingente“ von arbeitenden Bauern berechnet werden, die unter der Anleitung
-von „Meistereinheiten“ mit Erfahrung in bestimmten Talenten effektiver arbeiten
-können. Transporte können durch Einrichtung von Transportrouten automatisiert
-werden, und Handel kann analog über Handelsrouten organisiert werden.
-
-Weiterentwicklungskonzepte könnten auch als optional nutzbare Aufsätze auf die
-bestehende Spielmechanik geplant werden.
-
-### Reiche
-
-Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
-
 ## Ideen
 
 ### Ereignisse
@@ -168,3 +151,16 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
 - Textreport im Markdown-Format
+
+## Weiterentwicklung des Spielkonzepts
+
+Die angedachte Weiterentwicklung hat das generelle Ziel, Mikromanagement zu
+reduzieren. Dabei könnten viele Befehle und Konzepte aus Fantasya verworfen
+und stattdessen vom Spieler Rahmenbedingungen vorgegeben werden, aus denen
+„Kontingente“ von arbeitenden Bauern berechnet werden, die unter der Anleitung
+von „Meistereinheiten“ mit Erfahrung in bestimmten Talenten effektiver arbeiten
+können. Transporte können durch Einrichtung von Transportrouten automatisiert
+werden, und Handel kann analog über Handelsrouten organisiert werden.
+
+Weiterentwicklungskonzepte könnten auch als optional nutzbare Aufsätze auf die
+bestehende Spielmechanik geplant werden.
