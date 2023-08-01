@@ -100,6 +100,7 @@ Die Einführung des Reiche-Konzepts ist für die Version 1.4 vorgesehen.
   - Zombies erwecken (Kampf oder Regionszauber)
   - Ruhe in Frieden (Zombieinfektion verhindern)
   - Gegengift (Kampf)
+  - Baumhirten erwecken (benötigt Wasser des Lebens)
 - neue Tränke
   - Fackel (aus Holz, Öl; erzeugt Waffe)
   - Waffengift (für Kampf), benötigt Giftblase
