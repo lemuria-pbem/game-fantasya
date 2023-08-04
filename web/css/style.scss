@@ -31,6 +31,8 @@ $navBuildings: (
 );
 $mapLandscapes: ("desert", "forest", "glacier", "highland", "lake", "mountain", "ocean", "plain", "swamp");
 
+$statIconRealmCenter: "\1f451\a0";
+
 $zIndexMap: $zindex-modal;
 $zIndexNavbar: $zindex-modal + 5;
 $zIndexHelp: $zIndexNavbar + 1;
@@ -402,6 +404,10 @@ ul.report .badge {
             padding: 0 0 $table-cell-padding-y-sm;
         }
     }
+}
+
+.statistics.table tr.region.realm.center > th > a > span:before {
+    content: $statIconRealmCenter;
 }
 
 .market li .trade-flag {
