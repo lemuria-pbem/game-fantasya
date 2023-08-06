@@ -4,6 +4,7 @@ Lemuria 1.3 wurde am 29. April 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Refactoring der Kampfzauberlogik
 - …
 
 ## Weiterentwicklung des Spielkonzepts
