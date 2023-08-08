@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LEMURIA_ZERO_HOUR=`date +%s.%N`
+
 GAME=lemuria
 BASE_DIR=/home/fantasya/games/$GAME
 SRC_DIR=$BASE_DIR/game-fantasya

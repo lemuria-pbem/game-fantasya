@@ -18,6 +18,7 @@ use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party\Census;
 use Lemuria\Model\Fantasya\Party;
+use Lemuria\Profiler;
 
 final class FantasyaSimulator
 {
@@ -37,16 +38,20 @@ final class FantasyaSimulator
 
 		$this->config = new FantasyaConfig($storage);
 		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
+		Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 		Lemuria::load();
 	}
 
 	public function simulate(CommandFile $move): FantasyaSimulator {
+		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_init');
 		Lemuria::Log()->debug('Simulating move.', ['move' => $move]);
 		Lemuria::Calendar()->nextRound();
 		$turn = new LemuriaTurn($this->createOptions());
 		$turn->add($move);
+		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_add');
 		$turn->addProgress(new SimulationProgress(State::getInstance()))->evaluate();
+		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_simulate');
 		return $this;
 	}
 

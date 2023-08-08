@@ -17,6 +17,7 @@ use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Fantasya\Region;
+use Lemuria\Profiler;
 use Lemuria\Version\Module;
 use Lemuria\Version\VersionFinder;
 
@@ -47,7 +48,9 @@ class FantasyaGame extends FantasyaReport
 
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Turn starts (' . $gameVersion . ').', ['config' => $this->config]);
+		Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
 		Lemuria::load();
+		Lemuria::Profiler()->recordAndLog('FantasyaGame_load');
 		Lemuria::Log()->debug('The world has ' . count(Region::all()) . ' regions.');
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
@@ -80,6 +83,7 @@ class FantasyaGame extends FantasyaReport
 		}
 		$this->addMissingParties($gathering);
 
+		Lemuria::Profiler()->recordAndLog('FantasyaGame_read');
 		return $this;
 	}
 
@@ -94,15 +98,18 @@ class FantasyaGame extends FantasyaReport
 		} else {
 			Lemuria::Log()->debug('No newcomers to initiate.');
 		}
+		Lemuria::Profiler()->recordAndLog('FantasyaGame_initiate');
 		return $this;
 	}
 
 	public function evaluate(): self {
 		Lemuria::Log()->debug('Add effects and events.');
 		$this->turn->addScore(Lemuria::Score())->addProgress(new DefaultProgress(State::getInstance()));
+		Lemuria::Profiler()->recordAndLog('FantasyaGame_progress');
 		Lemuria::Log()->debug('Starting evaluation.');
 		$this->turn->evaluate();
 
+		Lemuria::Profiler()->recordAndLog('FantasyaGame_evaluate');
 		return $this;
 	}
 
@@ -113,6 +120,7 @@ class FantasyaGame extends FantasyaReport
 		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
 
+		Lemuria::Profiler()->recordAndLog('FantasyaGame_finish');
 		return $this;
 	}
 
@@ -121,6 +129,7 @@ class FantasyaGame extends FantasyaReport
 		$namer = $this->config->Namer();
 		$namer->updateNameLists();
 
+		Lemuria::Profiler()->recordAndLog('FantasyaGame_shutdown');
 		return $this;
 	}
 

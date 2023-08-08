@@ -13,6 +13,7 @@ use Lemuria\Game\Fantasya\Renderer\Magellan\FantasyaHeader;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
+use Lemuria\Profiler;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\Text\BattleLogWriter;
 use Lemuria\Renderer\Text\HerbalBookWriter;
@@ -53,6 +54,7 @@ class FantasyaReport
 
 	public function init(): self {
 		Lemuria::init($this->config);
+		Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
 		Lemuria::load();
 		Lemuria::Log()->debug('Generating reports for round ' . $this->nextRound . '.');
 
@@ -62,6 +64,7 @@ class FantasyaReport
 		$versionFinder           = new VersionFinder(__DIR__ . '/..');
 		$version[Module::Game]   = $versionFinder->get();
 
+		Lemuria::Profiler()->recordAndLog('FantasyaReport_load');
 		return $this;
 	}
 
@@ -129,6 +132,7 @@ class FantasyaReport
 
 			$p++;
 			$hasVersion = true;
+			Lemuria::Profiler()->recordAndLog('FantasyaReport_report-' . $id);
 		}
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');
 

@@ -5,8 +5,11 @@ use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Game\Fantasya\FantasyaSimulator;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party;
+use Lemuria\Profiler;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+putenv(Profiler::LEMURIA_ZERO_HOUR . '=' . microtime(true));
 
 const STDOUT_ONLY = '--stdout-only';
 
@@ -58,6 +61,8 @@ try {
 			}
 			$eol = true;
 		}
+		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_finished');
+		Lemuria::Profiler()->logTotalPeak();
 		exit(0);
 	}
 } catch (\Throwable $e) {
