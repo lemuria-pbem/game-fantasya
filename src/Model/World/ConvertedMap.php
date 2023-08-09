@@ -20,6 +20,10 @@ class ConvertedMap extends BaseMap
 		throw new LemuriaException('Not implemented.');
 	}
 
+	public function getAlternatives(Location $location, Direction $direction): Neighbours {
+		throw new LemuriaException('Not implemented.');
+	}
+
 	public function getPath(Location $start, Direction $direction, int $distance): Path {
 		throw new LemuriaException('Not implemented.');
 	}
@@ -76,6 +80,10 @@ class ConvertedMap extends BaseMap
 	}
 
 	protected function getNeighbourCoordinates(Location $location): array {
+		throw new LemuriaException('Not implemented.');
+	}
+
+	protected function getAlternativeCoordinates(Location $location, Direction $direction): array {
 		throw new LemuriaException('Not implemented.');
 	}
 }

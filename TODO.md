@@ -4,7 +4,6 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Refactoring der Kampfzauberlogik
 - …
 
 ## Ideen
@@ -144,11 +143,6 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ### Verschiedenes
 
-- LERNEN <Talent> <Stufe>
-- ALTERNATIVE für automatische Alternativbefehle
-  - LEHREN ohne Schüler
-  - LERNEN <Talent> <Stufe>
-  - MACHEN -<Grenze> <Ressource>
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
 - Textreport im Markdown-Format
