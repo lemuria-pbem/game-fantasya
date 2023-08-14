@@ -45,7 +45,7 @@ try {
 	if ($party instanceof Party) {
 		$orders = __DIR__ . '/../storage/orders/' . $simulator->Round() . '/' . $uuid . '.order';
 		$move   = new CommandFile($orders);
-		$report = $simulator->simulate($move)->getReport($party);
+		$report = $simulator->pick($party)->simulate($move)->getReport($party);
 		$eol    = false;
 		foreach ($report as $entity => $messages) {
 			if ($eol) {
