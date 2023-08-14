@@ -21,6 +21,8 @@ class FantasyaConfig extends LemuriaConfig
 
 	public final const THROW_EXCEPTIONS = 'throwExceptions';
 
+	public final const ENABLE_PROFILING = 'enableProfiling';
+
 	protected final const LOCAL_CONFIG = 'config.local.json';
 
 	private const DEVELOPMENT_MODE_DEFAULT = false;
@@ -30,6 +32,8 @@ class FantasyaConfig extends LemuriaConfig
 	private const DEBUG_PARTIES_DEFAULT = [];
 
 	private const THROW_EXCEPTIONS_DEFAULT = 'NONE';
+
+	private const ENABLE_PROFILING_DEFAULT = false;
 
 	private FantasyaNamer $namer;
 
@@ -57,6 +61,7 @@ class FantasyaConfig extends LemuriaConfig
 		$this->defaults[self::DEBUG_BATTLES]    = self::DEBUG_BATTLES_DEFAULT;
 		$this->defaults[self::DEBUG_PARTIES]    = self::DEBUG_PARTIES_DEFAULT;
 		$this->defaults[self::THROW_EXCEPTIONS] = self::THROW_EXCEPTIONS_DEFAULT;
+		$this->defaults[self::ENABLE_PROFILING] = self::ENABLE_PROFILING_DEFAULT;
 	}
 
 	protected function createLog(string $logPath): Log {
