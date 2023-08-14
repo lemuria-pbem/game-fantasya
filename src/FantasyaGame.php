@@ -33,9 +33,9 @@ class FantasyaGame extends FantasyaReport
 
 	public function __construct() {
 		parent::__construct();
-		$this->round           = $this->nextRound++;
-		$this->debugBattles    = $this->config[FantasyaConfig::DEBUG_BATTLES];
-		$this->throwExceptions = new ThrowOption($this->config[FantasyaConfig::THROW_EXCEPTIONS]);
+		$this->round            = $this->nextRound++;
+		$this->debugBattles     = $this->config[FantasyaConfig::DEBUG_BATTLES];
+		$this->throwExceptions  = new ThrowOption($this->config[FantasyaConfig::THROW_EXCEPTIONS]);
 	}
 
 	public function Round(): int {
@@ -48,9 +48,13 @@ class FantasyaGame extends FantasyaReport
 
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Turn starts (' . $gameVersion . ').', ['config' => $this->config]);
-		Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+		if ($this->profilingEnabled) {
+			Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+		}
 		Lemuria::load();
-		Lemuria::Profiler()->recordAndLog('FantasyaGame_load');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_load');
+		}
 		Lemuria::Log()->debug('The world has ' . count(Region::all()) . ' regions.');
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
@@ -83,7 +87,9 @@ class FantasyaGame extends FantasyaReport
 		}
 		$this->addMissingParties($gathering);
 
-		Lemuria::Profiler()->recordAndLog('FantasyaGame_read');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_read');
+		}
 		return $this;
 	}
 
@@ -98,18 +104,25 @@ class FantasyaGame extends FantasyaReport
 		} else {
 			Lemuria::Log()->debug('No newcomers to initiate.');
 		}
-		Lemuria::Profiler()->recordAndLog('FantasyaGame_initiate');
+
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_initiate');
+		}
 		return $this;
 	}
 
 	public function evaluate(): self {
 		Lemuria::Log()->debug('Add effects and events.');
 		$this->turn->addScore(Lemuria::Score())->addProgress(new DefaultProgress(State::getInstance()));
-		Lemuria::Profiler()->recordAndLog('FantasyaGame_progress');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_progress');
+		}
 		Lemuria::Log()->debug('Starting evaluation.');
 		$this->turn->evaluate();
 
-		Lemuria::Profiler()->recordAndLog('FantasyaGame_evaluate');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_evaluate');
+		}
 		return $this;
 	}
 
@@ -120,7 +133,9 @@ class FantasyaGame extends FantasyaReport
 		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
 
-		Lemuria::Profiler()->recordAndLog('FantasyaGame_finish');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_finish');
+		}
 		return $this;
 	}
 
@@ -129,11 +144,18 @@ class FantasyaGame extends FantasyaReport
 		$namer = $this->config->Namer();
 		$namer->updateNameLists();
 
-		Lemuria::Profiler()->recordAndLog('FantasyaGame_shutdown');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_shutdown');
+		}
 		return $this;
 	}
 
 	public function archiveLog(): self {
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordTotal();
+			Lemuria::Profiler()->logTotalPeak();
+		}
+
 		Lemuria::Log()->debug('Archiving log file.');
 		$logDir = realpath($this->storage . '/' . LemuriaConfig::LOG_DIR);
 		if (!$logDir) {
@@ -176,7 +198,7 @@ class FantasyaGame extends FantasyaReport
 
 	protected function createOptions(): Options {
 		$options = new Options();
-		return $options->setDebugBattles($this->debugBattles)->setThrowExceptions($this->throwExceptions);
+		return $options->setDebugBattles($this->debugBattles)->setThrowExceptions($this->throwExceptions)->setIsProfiling($this->profilingEnabled);
 	}
 
 	protected function findOrderFiles(): array {

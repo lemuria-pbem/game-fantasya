@@ -2,7 +2,6 @@
 declare (strict_types = 1);
 
 use Lemuria\Game\Fantasya\FantasyaReport;
-use Lemuria\Lemuria;
 use Lemuria\Profiler;
 
 require realpath(__DIR__ . '/../vendor/autoload.php');
@@ -14,4 +13,4 @@ $archives = $fantasya->init()->createReports();
 foreach ($archives as $archive) {
 	echo $archive . PHP_EOL;
 }
-Lemuria::Profiler()->logTotalPeak();
+$fantasya->logProfiler();

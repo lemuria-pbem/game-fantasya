@@ -40,6 +40,8 @@ class FantasyaReport
 
 	protected array $received = [];
 
+	protected readonly bool $profilingEnabled;
+
 	private readonly array $debugParties;
 
 	public function __construct() {
@@ -47,14 +49,18 @@ class FantasyaReport
 		if (!$this->storage) {
 			throw new DirectoryNotFoundException($this->storage);
 		}
-		$this->config       = new FantasyaConfig($this->storage);
-		$this->nextRound    = $this->config[LemuriaConfig::ROUND];
-		$this->debugParties = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
+		$this->config           = new FantasyaConfig($this->storage);
+		$this->nextRound        = $this->config[LemuriaConfig::ROUND];
+		$this->profilingEnabled = $this->config[FantasyaConfig::ENABLE_PROFILING];
+		$this->debugParties     = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
 	}
 
 	public function init(): self {
 		Lemuria::init($this->config);
-		Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+		if ($this->profilingEnabled) {
+			Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+		}
+
 		Lemuria::load();
 		Lemuria::Log()->debug('Generating reports for round ' . $this->nextRound . '.');
 
@@ -64,7 +70,9 @@ class FantasyaReport
 		$versionFinder           = new VersionFinder(__DIR__ . '/..');
 		$version[Module::Game]   = $versionFinder->get();
 
-		Lemuria::Profiler()->recordAndLog('FantasyaReport_load');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaReport_load');
+		}
 		return $this;
 	}
 
@@ -132,11 +140,20 @@ class FantasyaReport
 
 			$p++;
 			$hasVersion = true;
-			Lemuria::Profiler()->recordAndLog('FantasyaReport_report-' . $id);
+			if ($this->profilingEnabled) {
+				Lemuria::Profiler()->recordAndLog('FantasyaReport_report-' . $id);
+			}
 		}
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');
 
 		return $this;
+	}
+
+	public function logProfiler(): void {
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordTotal();
+			Lemuria::Profiler()->logTotalPeak();
+		}
 	}
 
 	protected function generateReportFor(Party $party): bool {

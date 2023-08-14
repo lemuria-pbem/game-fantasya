@@ -31,6 +31,8 @@ final class FantasyaSimulator
 
 	private readonly FantasyaConfig $config;
 
+	private readonly bool $profilingEnabled;
+
 	private ?Party $party = null;
 
 	public function __construct() {
@@ -39,9 +41,12 @@ final class FantasyaSimulator
 			throw new DirectoryNotFoundException($storage);
 		}
 
-		$this->config = new FantasyaConfig($storage);
+		$this->config           = new FantasyaConfig($storage);
+		$this->profilingEnabled = $this->config[FantasyaConfig::ENABLE_PROFILING];
 		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
-		Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+		if ($this->profilingEnabled) {
+			Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+		}
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 		Lemuria::load();
 	}
@@ -52,14 +57,20 @@ final class FantasyaSimulator
 	}
 
 	public function simulate(CommandFile $move): FantasyaSimulator {
-		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_init');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaSimulator_init');
+		}
 		Lemuria::Log()->debug('Simulating move.', ['move' => $move]);
 		Lemuria::Calendar()->nextRound();
 		$turn = new LemuriaTurn($this->createOptions());
 		$turn->add($move);
-		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_add');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaSimulator_add');
+		}
 		$turn->addProgress(new SimulationProgress(State::getInstance()))->evaluate();
-		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_simulate');
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaSimulator_simulate');
+		}
 		return $this;
 	}
 
@@ -104,9 +115,18 @@ final class FantasyaSimulator
 		return '[' . $level . '] ' . $message;
 	}
 
+	public function logProfiler(): void {
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaSimulator_finished');
+			Lemuria::Profiler()->recordTotal();
+			Lemuria::Profiler()->logTotalPeak();
+		}
+	}
+
 	protected function createOptions(): Options {
 		$options = new Options();
 		$options->setThrowExceptions(new ThrowOption('NONE'))->setIsSimulation(true);
+		$options->setIsProfiling($this->profilingEnabled);
 		if ($this->party) {
 			$cherryPicker = new SelectiveCherryPicker();
 			$options->setCherryPicker($cherryPicker->add($this->party));

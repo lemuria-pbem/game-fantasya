@@ -61,8 +61,7 @@ try {
 			}
 			$eol = true;
 		}
-		Lemuria::Profiler()->recordAndLog('FantasyaSimulator_finished');
-		Lemuria::Profiler()->logTotalPeak();
+		$simulator->logProfiler();
 		exit(0);
 	}
 } catch (\Throwable $e) {
