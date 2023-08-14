@@ -9,6 +9,7 @@ use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\Turn\Option\ThrowOption;
 use Lemuria\Engine\Fantasya\Turn\Options;
+use Lemuria\Engine\Fantasya\Turn\SelectiveCherryPicker;
 use Lemuria\Engine\Message;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Result;
@@ -30,6 +31,8 @@ final class FantasyaSimulator
 
 	private readonly FantasyaConfig $config;
 
+	private ?Party $party = null;
+
 	public function __construct() {
 		$storage = realpath(__DIR__ . '/../storage');
 		if (!$storage) {
@@ -41,6 +44,11 @@ final class FantasyaSimulator
 		Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 		Lemuria::load();
+	}
+
+	public function pick(Party $party): FantasyaSimulator {
+		$this->party = $party;
+		return $this;
 	}
 
 	public function simulate(CommandFile $move): FantasyaSimulator {
@@ -98,6 +106,11 @@ final class FantasyaSimulator
 
 	protected function createOptions(): Options {
 		$options = new Options();
-		return $options->setThrowExceptions(new ThrowOption('NONE'))->setIsSimulation(true);
+		$options->setThrowExceptions(new ThrowOption('NONE'))->setIsSimulation(true);
+		if ($this->party) {
+			$cherryPicker = new SelectiveCherryPicker();
+			$options->setCherryPicker($cherryPicker->add($this->party));
+		}
+		return $options;
 	}
 }
