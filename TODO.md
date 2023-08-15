@@ -146,6 +146,7 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
 - Textreport im Markdown-Format
+- Report im XML-Format für Fanalytics³
 
 ## Weiterentwicklung des Spielkonzepts
 
