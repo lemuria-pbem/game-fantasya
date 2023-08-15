@@ -42,7 +42,7 @@ class FantasyaGame extends FantasyaReport
 		return $this->round;
 	}
 
-	public function init(): self {
+	public function init(): static {
 		$versionFinder = new VersionFinder(__DIR__ . '/..');
 		$gameVersion   = $versionFinder->get();
 
@@ -69,7 +69,7 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
-	public function readOrders(): self {
+	public function readOrders(): static {
 		$files = $this->findOrderFiles();
 		Lemuria::Log()->debug('Found ' . count($files) . ' order files.', ['orders' => $files]);
 
@@ -93,7 +93,7 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
-	public function initiate(): self {
+	public function initiate(): static {
 		$n = Lemuria::Debut()->count();
 		if ($n > 0) {
 			Lemuria::Log()->debug('Initiate ' . $n . ' newcomers.');
@@ -111,7 +111,7 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
-	public function evaluate(): self {
+	public function evaluate(): static {
 		Lemuria::Log()->debug('Add effects and events.');
 		$this->turn->addScore(Lemuria::Score())->addProgress(new DefaultProgress(State::getInstance()));
 		if ($this->profilingEnabled) {
@@ -126,7 +126,7 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
-	public function finish(): self {
+	public function finish(): static {
 		$this->turn->prepareNext();
 		Lemuria::save();
 		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
@@ -139,7 +139,7 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
-	public function shutdown(): self {
+	public function shutdown(): static {
 		/** @var FantasyaNamer $namer */
 		$namer = $this->config->Namer();
 		$namer->updateNameLists();
@@ -150,7 +150,7 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
-	public function archiveLog(): self {
+	public function archiveLog(): static {
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordTotal();
 			Lemuria::Profiler()->logTotalPeak();
@@ -175,7 +175,7 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
-	public function logException(\Throwable $throwable): self {
+	public function logException(\Throwable $throwable): static {
 		if ($this->throwExceptions[ThrowOption::ANY]) {
 			throw $throwable;
 		}

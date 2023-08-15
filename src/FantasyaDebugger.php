@@ -22,7 +22,7 @@ class FantasyaDebugger extends FantasyaGame
 		return $this->cherryPicker;
 	}
 
-	public function init(): FantasyaDebugger {
+	public function init(): static {
 		parent::init();
 		Lemuria::Log()->debug('We are in debugging mode using SelectiveCherryPicker.');
 		if (function_exists('modifyAnythingForDebugging')) {
