@@ -96,7 +96,7 @@ class Converter
 		$this->maximum      = $config->square * 100.0;
 	}
 
-	public function addChanges(array $changes): Converter {
+	public function addChanges(array $changes): static {
 		foreach ($changes as $change) {
 			if (!isset($change['x']) || !isset($change['y'])) {
 				throw new LemuriaException('Missing coordinates in changes.');

@@ -406,7 +406,7 @@ ul.report .badge {
     }
 }
 
-.statistics.table tr.region.realm.center > th > a > span:before {
+.statistics.table tr.region.realm.center > th > a > span:first-child:before {
     content: $statIconRealmCenter;
 }
 

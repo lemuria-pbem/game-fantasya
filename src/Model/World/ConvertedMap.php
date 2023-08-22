@@ -28,7 +28,7 @@ class ConvertedMap extends BaseMap
 		throw new LemuriaException('Not implemented.');
 	}
 
-	public function insertX(int $count): ConvertedMap {
+	public function insertX(int $count): static {
 		$h = count($this->map);
 		for ($y = 0; $y < $h; $y++) {
 			$row           = array_fill(0, $count, null);
@@ -40,7 +40,7 @@ class ConvertedMap extends BaseMap
 		return $this;
 	}
 
-	public function addX(int $count): ConvertedMap {
+	public function addX(int $count): static {
 		$h   = count($this->map);
 		$row = array_fill(0, $count, null);
 		for ($y = 0; $y < $h; $y++) {
@@ -49,7 +49,7 @@ class ConvertedMap extends BaseMap
 		return $this;
 	}
 
-	public function insertY(int $count): ConvertedMap {
+	public function insertY(int $count): static {
 		$w         = count($this->map[0]);
 		$row       = array_fill(0, $w, null);
 		$rows      = array_fill(0, $count, $row);
@@ -60,7 +60,7 @@ class ConvertedMap extends BaseMap
 		return $this;
 	}
 
-	public function addY(int $count): ConvertedMap {
+	public function addY(int $count): static {
 		$w         = count($this->map[0]);
 		$row       = array_fill(0, $w, null);
 		$rows      = array_fill(0, $count, $row);
@@ -72,7 +72,7 @@ class ConvertedMap extends BaseMap
 		return isset($this->map[$y][$x]);
 	}
 
-	public function setLocation(int $x, int $y, Location $location): ConvertedMap {
+	public function setLocation(int $x, int $y, Location $location): static {
 		$id                     = $location->Id()->Id();
 		$this->map[$y][$x]      = $id;
 		$this->coordinates[$id] = new MapCoordinates($x, $y);

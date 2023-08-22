@@ -55,7 +55,7 @@ class FantasyaReport
 		$this->debugParties     = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
 	}
 
-	public function init(): self {
+	public function init(): static {
 		Lemuria::init($this->config);
 		if ($this->profilingEnabled) {
 			Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
@@ -76,7 +76,7 @@ class FantasyaReport
 		return $this;
 	}
 
-	public function createReports(): self {
+	public function createReports(): static {
 		$directory = realpath($this->storage . '/turn');
 		if (!$directory) {
 			throw new DirectoryNotFoundException($directory);

@@ -49,7 +49,7 @@ class LuxuryFinder
 	public function __construct(protected Map $map) {
 	}
 
-	public function setRegion(Region $region): LuxuryFinder {
+	public function setRegion(Region $region): static {
 		$this->region = $region;
 		return $this;
 	}

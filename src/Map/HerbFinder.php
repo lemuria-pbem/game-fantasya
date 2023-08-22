@@ -50,13 +50,13 @@ class HerbFinder
 	public function __construct(protected Map $map) {
 	}
 
-	public function setRegion(Region $region): HerbFinder {
+	public function setRegion(Region $region): static {
 		$this->region     = $region;
 		$this->neighbours = [];
 		return $this;
 	}
 
-	public function findNeighbours(int $x, int $y): HerbFinder {
+	public function findNeighbours(int $x, int $y): static {
 		$this->addNeighbour($this->map[++$y][--$x][Map::VEGETATION] ?? 0);
 		$this->addNeighbour($this->map[$y][++$x][Map::VEGETATION] ?? 0);
 		$this->addNeighbour($this->map[--$y][++$x][Map::VEGETATION] ?? 0);
