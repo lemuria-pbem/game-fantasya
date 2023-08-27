@@ -1,12 +1,105 @@
 <?php
 declare(strict_types = 1);
 
+use Lemuria\Engine\Fantasya\Factory\CommandPriority;
 use Lemuria\Engine\Fantasya\Turn\SelectiveCherryPicker;
+use Lemuria\Id;
+use Lemuria\Model\Fantasya\Unit;
 
-function configure(SelectiveCherryPicker $cherryPicker): void {
-	$cherryPicker->everyone()->everything();
+function configureDebugCherryPicker(SelectiveCherryPicker $cherryPicker): void {
+	$cherryPicker->none()->add('1');
+	//$cherryPicker->everything(); return;
+	$cherryPicker->nothing()
+		->run(CommandPriority::ORDER['EFFECT_BEFORE'])
+		->run(CommandPriority::ORDER['EVENT_BEFORE'])
+		->run(CommandPriority::ORDER['DefaultCommand'])
+		->run(CommandPriority::ORDER['Copy'])
+		->run(CommandPriority::ORDER['Origin'])
+		->run(CommandPriority::ORDER['Banner'])
+		->run(CommandPriority::ORDER['Presetting'])
+		->run(CommandPriority::ORDER['Name'])
+		->run(CommandPriority::ORDER['Describe'])
+		->run(CommandPriority::ORDER['Rumor'])
+		->run(CommandPriority::ORDER['Disguise'])
+		->run(CommandPriority::ORDER['Gather'])
+		->run(CommandPriority::ORDER['Loot'])
+		->run(CommandPriority::ORDER['Unguard'])
+		->run(CommandPriority::ORDER['Fight'])
+		->run(CommandPriority::ORDER['BattleSpell'])
+		->run(CommandPriority::ORDER['Help'])
+		->run(CommandPriority::ORDER['Contact'])
+		->run(CommandPriority::ORDER['Visit'])
+		->run(CommandPriority::ORDER['Announcement'])
+		->run(CommandPriority::ORDER['Take'])
+		->run(CommandPriority::ORDER['Read'])
+		->run(CommandPriority::ORDER['Apply'])
+		->run(CommandPriority::ORDER['Excert'])
+		->run(CommandPriority::ORDER['Bestow'])
+		->run(CommandPriority::ORDER['Give'])
+		->run(CommandPriority::ORDER['Repeat'])
+		->run(CommandPriority::ORDER['Accept'])
+		->run(CommandPriority::ORDER['Cancel'])
+		->run(CommandPriority::ORDER['Fee'])
+		->run(CommandPriority::ORDER['Forbid'])
+		->run(CommandPriority::ORDER['Allow'])
+		->run(CommandPriority::ORDER['Quota'])
+		->run(CommandPriority::ORDER['Abandon'])
+		->run(CommandPriority::ORDER['Enter'])
+		->run(CommandPriority::ORDER['Board'])
+		->run(CommandPriority::ORDER['Grant'])
+		->run(CommandPriority::ORDER['Leave'])
+		->run(CommandPriority::ORDER['Realm'])
+		->run(CommandPriority::ORDER['Reserve'])
+		->run(CommandPriority::ORDER['Dismiss'])
+		->run(CommandPriority::ORDER['Lose'])
+		->run(CommandPriority::ORDER['Cast'])
+		->run(CommandPriority::ORDER['Griffinegg'])
+		->run(CommandPriority::ORDER['Attack'])
+		->run(CommandPriority::ORDER['Recruit'])
+		->run(CommandPriority::ORDER['EFFECT_MIDDLE'])
+		->run(CommandPriority::ORDER['EVENT_MIDDLE'])
+		->run(CommandPriority::ORDER['Siege'])
+		->run(CommandPriority::ORDER['Smash'])
+		->run(CommandPriority::ORDER['Operate'])
+		->run(CommandPriority::ORDER['Spy'])
+		->run(CommandPriority::ORDER['Sell'])
+		->run(CommandPriority::ORDER['Buy'])
+		->run(CommandPriority::ORDER['Construction'])
+		->run(CommandPriority::ORDER['Vessel'])
+		->run(CommandPriority::ORDER["Road"])
+		->run(CommandPriority::ORDER['Commodity'])
+		->run(CommandPriority::ORDER['Herb'])
+		->run(CommandPriority::ORDER['RawMaterial'])
+		->run(CommandPriority::ORDER['Unknown'])
+		->run(CommandPriority::ORDER['Tax'])
+		->run(CommandPriority::ORDER['Entertain'])
+		->run(CommandPriority::ORDER['Steal'])
+		->run(CommandPriority::ORDER['Explore'])
+		->run(CommandPriority::ORDER['Unicum'])
+		->run(CommandPriority::ORDER['Write'])
+		->run(CommandPriority::ORDER['Devastate'])
+		->run(CommandPriority::ORDER['Travel'])
+		->run(CommandPriority::ORDER['Route'])
+		->run(CommandPriority::ORDER['Follow'])
+		->run(CommandPriority::ORDER['Teach'])
+		->run(CommandPriority::ORDER['Learn'])
+		->run(CommandPriority::ORDER['Offer'])
+		->run(CommandPriority::ORDER['Demand'])
+		->run(CommandPriority::ORDER['Amount'])
+		->run(CommandPriority::ORDER['Price'])
+		->run(CommandPriority::ORDER['Guard'])
+		->run(CommandPriority::ORDER['Sort'])
+		->run(CommandPriority::ORDER['Number'])
+		->run(CommandPriority::ORDER['Comment'])
+		->run(CommandPriority::ORDER['Migrate'])
+		->run(CommandPriority::ORDER['Initiate'])
+		->run(CommandPriority::ORDER['EFFECT_AFTER'])
+		->run(CommandPriority::ORDER['EVENT_AFTER'])
+	;
 }
 
+/*
 function modifyAnythingForDebugging(): void {
-	// Modify anything here that is needed for debugging.
+	Unit::get(Id::fromId('16'))->setSize(1)->Knowledge()->clear();
 }
+*/
