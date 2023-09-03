@@ -29,7 +29,7 @@
 /storage/names/*.lst
 /storage/orders/*/*.order
 /storage/orders/year.*/*/*.order
-/storage/report/*/*.zip
+/storage/scripts/*
 /storage/turn/world.cr
 /storage/turn/*/*.*
 /storage/turn/year.*/*/*.*
