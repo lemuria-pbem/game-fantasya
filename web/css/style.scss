@@ -11,7 +11,7 @@ $mapImagesPath: "img/map/";
 $iconFileType: "png";
 $fontFamilySerif: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", Times, serif;
 
-$unicumColor: #e724c7;
+$unicumColor: $pink-500;
 
 $navColorDefault: $green;
 $navIconDefault: "\1f333\a0";
@@ -327,6 +327,29 @@ ul.report .badge {
     }
 }
 
+.table-responsive {
+    .accordion-header {
+        margin-bottom: 0.5rem;
+    }
+    .accordion-button {
+        font-size: inherit;
+        padding: 0;
+        width: unset;
+        &::after {
+            margin-left: 0.5rem;
+        }
+        &:focus {
+            border: inherit;
+            box-shadow: inherit;
+        }
+        &:not(.collapsed) {
+            color: inherit;
+            background: inherit;
+            box-shadow: inherit;
+        }
+    }
+}
+
 .statistics.table tbody {
     .change-less {
         .less-is-good,
@@ -350,7 +373,7 @@ ul.report .badge {
     }
     .market.table {
         th.offer {
-            color: $primary;
+            color: $indigo-600;
         }
     }
     table {

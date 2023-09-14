@@ -29,6 +29,9 @@ document.addEventListener('readystatechange', () => {
     const mapModal = document.getElementById('modal-map');
     const statistics = '#statistics';
     const talentStatistics = document.querySelectorAll('.talent-statistics.modal');
+    const regionStatistics = '#region-statistics-responsive';
+    const regionStatisticsDivs = document.getElementById(regionStatistics.substring(1));
+    const regionStatisticsButtons = regionStatisticsDivs?.querySelectorAll('.accordion-button');
     const alliances = '#alliances';
     const spellBook = document.getElementById('spell-book');
     const herbalBook = document.getElementById('herbal-book');
@@ -324,6 +327,10 @@ document.addEventListener('readystatechange', () => {
         }
         if (event.key === 'k') {
             return locationHandled(event, herbalBook.href);
+        }
+        if (event.key === 'r') {
+            regionStatisticsButtons?.forEach((button) => buttonHandled(event, button));
+            return locationHandled(event, regionStatistics);
         }
         if (event.key === 's') {
             return locationHandled(event, statistics);
