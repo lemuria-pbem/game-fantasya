@@ -4,6 +4,10 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- BEWACHEN <Richtung> [Nicht]
+  - hält fremde Einheit bis zur eigenen Größe auf
+- Bewacher erkennen Bewaffnung/Rüstung
+- Transportmittel verbrauchen Tarnpunkte
 - …
 
 ## Ideen
@@ -106,6 +110,7 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 - neue Monsterrassen
   - Riesenskorpion (Wüste, Hochland), Trophäe: Stachel
   - Riesenspinne (Wald), Trophäe: Giftblase
+  - Riesenfrosch (Sumpf)
   - Sandwurm (bewegt sich durch große Wüstengebiete)
   - Wespen (Ebene, Wüste), mit Feuer zu bekämpfen, sterben im Winter
 
