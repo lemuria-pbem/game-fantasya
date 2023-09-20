@@ -103,8 +103,13 @@ div.fixed-top.vh-100 {
     z-index: $zIndexNavbar;
 }
 
-ul.report .badge {
-    font-size: $font-size-base;
+ul.report {
+    li {
+        overflow: auto;
+    }
+    .badge {
+        font-size: $font-size-base;
+    }
 }
 
 .badge.font-monospace {
@@ -305,6 +310,9 @@ ul.report .badge {
         list-style-type: none;
         margin: 0;
         padding: unset;
+        li {
+            overflow: auto;
+        }
     }
     ul {
         margin-bottom: unset;
