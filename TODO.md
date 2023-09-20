@@ -4,8 +4,6 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Bewacher erkennen Bewaffnung/Rüstung
-- Transportmittel verbrauchen Tarnpunkte
 - …
 
 ## Ideen
