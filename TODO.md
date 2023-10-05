@@ -136,6 +136,7 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
   - Schiffspassage
   - Warentransport
     - Vertrauen aufbauen, um wertvolle Transporte zu bekommen
+  - seltene Tiere beschaffen (Pegasi)
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
   - Monster bekämpfen, Trophäen eintauschen
