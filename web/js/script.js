@@ -9,6 +9,9 @@ document.addEventListener('readystatechange', () => {
 
     let messagesConfig = {
         'battle': true,
+        'filter-aboard': true,
+        'filter-layabout': true,
+        'filter-recreate': true,
         'guard': true,
         'movement': true
     };
