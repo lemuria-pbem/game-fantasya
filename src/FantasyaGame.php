@@ -4,6 +4,7 @@ namespace Lemuria\Game\Fantasya;
 
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
+use Lemuria\Engine\Fantasya\Script;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\Turn\Option\ThrowOption;
@@ -28,6 +29,8 @@ class FantasyaGame extends FantasyaReport
 	private readonly int $round;
 
 	private readonly bool $debugBattles;
+
+	private array $scripts = [];
 
 	public function __construct() {
 		parent::__construct();
@@ -90,6 +93,15 @@ class FantasyaGame extends FantasyaReport
 		return $this;
 	}
 
+	public function readScripts(): static {
+		foreach (Lemuria::Game()->getScripts() as $file => $data) {
+			$script = new Script($file, $data);
+			$this->turn->addScript($script);
+			$this->scripts[] = $script;
+		}
+		return $this;
+	}
+
 	public function initiate(): static {
 		$n = Lemuria::Debut()->count();
 		if ($n > 0) {
@@ -126,6 +138,14 @@ class FantasyaGame extends FantasyaReport
 	public function finish(): static {
 		$this->turn->prepareNext();
 		Lemuria::save();
+		$scripts = [];
+		foreach ($this->scripts as $script) {
+			$data = $script->Data();
+			if ($data->count() > 0) {
+				$scripts[$script->File()] = $data;
+			}
+		}
+		Lemuria::Game()->setScripts($scripts);
 		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
 		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
