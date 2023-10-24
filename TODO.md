@@ -1,9 +1,12 @@
-# Version 1.4
+# Version 1.5
 
-Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
+Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- NPC
+  - Standardverhalten kann mit Befehlsliste überschrieben werden
+  - Statistik in Auswertung ergänzen
 - …
 
 ## Ideen
@@ -125,7 +128,6 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ### NPC
 
-- Standardverhalten kann mit Befehlsliste überschrieben werden
 - Gerüchte durch NPC oder Bauern
   - Monstervorkommen in Nachbarregionen
   - Kämpfe in Nachbarregionen

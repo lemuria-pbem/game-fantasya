@@ -4,7 +4,6 @@ namespace Lemuria\Game\Fantasya;
 
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
-use Lemuria\Engine\Fantasya\Script;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Engine\Fantasya\Turn\Option\ThrowOption;
@@ -30,12 +29,12 @@ class FantasyaGame extends FantasyaReport
 
 	private readonly bool $debugBattles;
 
-	private array $scripts = [];
+	private FantasyaScripts $scripts;
 
 	public function __construct() {
 		parent::__construct();
-		$this->round        = $this->nextRound++;
-		$this->debugBattles = $this->config[FantasyaConfig::DEBUG_BATTLES];
+		$this->round           = $this->nextRound++;
+		$this->debugBattles    = $this->config[FantasyaConfig::DEBUG_BATTLES];
 	}
 
 	public function Round(): int {
@@ -59,8 +58,9 @@ class FantasyaGame extends FantasyaReport
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
 
-		$options    = $this->createOptions();
-		$this->turn = new LemuriaTurn($options);
+		$options       = $this->createOptions();
+		$this->turn    = new LemuriaTurn($options);
+		$this->scripts = new FantasyaScripts($this->turn);
 
 		$version                 = Lemuria::Version();
 		$version[Module::Engine] = $this->turn->getVersion();
@@ -94,11 +94,7 @@ class FantasyaGame extends FantasyaReport
 	}
 
 	public function readScripts(): static {
-		foreach (Lemuria::Game()->getScripts() as $file => $data) {
-			$script = new Script($file, $data);
-			$this->turn->addScript($script);
-			$this->scripts[] = $script;
-		}
+		$this->scripts->load();
 		return $this;
 	}
 
@@ -138,14 +134,7 @@ class FantasyaGame extends FantasyaReport
 	public function finish(): static {
 		$this->turn->prepareNext();
 		Lemuria::save();
-		$scripts = [];
-		foreach ($this->scripts as $script) {
-			$data = $script->Data();
-			if ($data->count() > 0) {
-				$scripts[$script->File()] = $data;
-			}
-		}
-		Lemuria::Game()->setScripts($scripts);
+		$this->scripts->save();
 		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
 		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');
