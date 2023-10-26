@@ -34,12 +34,10 @@ class FantasyaGame extends FantasyaReport
 
 	private readonly bool $debugBattles;
 
-	private FantasyaScripts $scripts;
-
 	public function __construct() {
 		parent::__construct();
-		$this->round           = $this->nextRound++;
-		$this->debugBattles    = $this->config[FantasyaConfig::DEBUG_BATTLES];
+		$this->round        = $this->nextRound++;
+		$this->debugBattles = $this->config[FantasyaConfig::DEBUG_BATTLES];
 	}
 
 	public function Round(): int {
@@ -63,9 +61,8 @@ class FantasyaGame extends FantasyaReport
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
 		Lemuria::Calendar()->nextRound();
 
-		$options       = $this->createOptions();
-		$this->turn    = new LemuriaTurn($options);
-		$this->scripts = new FantasyaScripts($this->turn);
+		$options    = $this->createOptions();
+		$this->turn = new LemuriaTurn($options);
 
 		$version                 = Lemuria::Version();
 		$version[Module::Engine] = $this->turn->getVersion();
@@ -91,15 +88,11 @@ class FantasyaGame extends FantasyaReport
 			}
 		}
 		$this->addMissingParties($gathering);
+		Lemuria::Scripts()->play();
 
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaGame_read');
 		}
-		return $this;
-	}
-
-	public function readScripts(): static {
-		$this->scripts->load();
 		return $this;
 	}
 
@@ -139,7 +132,6 @@ class FantasyaGame extends FantasyaReport
 	public function finish(): static {
 		$this->turn->prepareNext();
 		Lemuria::save();
-		$this->scripts->save();
 		$this->config[LemuriaConfig::ROUND] = $this->nextRound;
 		$this->config[LemuriaConfig::MDD]   = time();
 		Lemuria::Log()->debug('Turn ended.');

@@ -8,7 +8,9 @@ use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
 use Lemuria\Model\Fantasya\Commodity\Monster\Zombie;
 use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Game;
+use Lemuria\Scenario\Fantasya\LemuriaScripts;
 use Lemuria\Scenario\Fantasya\Storage\ScenarioGame;
+use Lemuria\Scenario\Scripts;
 use Lemuria\Statistics\Fantasya\LemuriaStatistics;
 use Lemuria\Log;
 use Lemuria\Model\Fantasya\Exception\JsonException;
@@ -65,6 +67,10 @@ class FantasyaConfig extends LemuriaConfig
 
 	public function Namer(): Namer {
 		return $this->namer;
+	}
+
+	public function Scripts(): Scripts {
+		return new LemuriaScripts();
 	}
 
 	protected function initDefaults(): void {
