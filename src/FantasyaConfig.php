@@ -5,6 +5,8 @@ namespace Lemuria\Game\Fantasya;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Factory\Namer;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
+use Lemuria\Model\Fantasya\Commodity\Monster\Zombie;
+use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Game;
 use Lemuria\Scenario\Fantasya\Storage\ScenarioGame;
 use Lemuria\Statistics\Fantasya\LemuriaStatistics;
@@ -24,6 +26,10 @@ class FantasyaConfig extends LemuriaConfig
 	public final const THROW_EXCEPTIONS = 'throwExceptions';
 
 	public final const ENABLE_PROFILING = 'enableProfiling';
+
+	public const PARTY_BY_TYPE = [Type::NPC->value => 'n', Type::Monster->value => 'm'];
+
+	public const PARTY_BY_RACE = [Zombie::class => 'z'];
 
 	protected final const LOCAL_CONFIG = 'config.local.json';
 
