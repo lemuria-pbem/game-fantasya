@@ -27,6 +27,7 @@
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/model-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-text" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-magellan" />
+      <path value="$PROJECT_DIR$/vendor/lemuria-pbem/scenario-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/statistics-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/tools-lemuria" />
       <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />

@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
-use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
+use Lemuria\Engine\Fantasya\Factory\ScenarioProgress;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\State;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
@@ -18,6 +18,7 @@ use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Fantasya\Region;
 use Lemuria\Profiler;
+use Lemuria\Scenario\Fantasya\Engine\Event\DelegatedScenario;
 use Lemuria\Version\Module;
 use Lemuria\Version\VersionFinder;
 
@@ -118,7 +119,7 @@ class FantasyaGame extends FantasyaReport
 
 	public function evaluate(): static {
 		Lemuria::Log()->debug('Add effects and events.');
-		$this->turn->addScore(Lemuria::Score())->addProgress(new DefaultProgress(State::getInstance()));
+		$this->turn->addScore(Lemuria::Score())->addProgress($this->createProgress());
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaGame_progress');
 		}
@@ -205,6 +206,13 @@ class FantasyaGame extends FantasyaReport
 	protected function createOptions(): Options {
 		$options = new Options();
 		return $options->setDebugBattles($this->debugBattles)->setThrowExceptions($this->throwExceptions)->setIsProfiling($this->profilingEnabled);
+	}
+
+	protected function createProgress(): ScenarioProgress {
+		$state    = State::getInstance();
+		$progress = new ScenarioProgress($state);
+		$scenario = new DelegatedScenario($state);
+		return $progress->insertScenario($scenario);
 	}
 
 	protected function findOrderFiles(): array {

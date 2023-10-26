@@ -23,6 +23,7 @@
 		"lemuria-pbem/model-fantasya": "dev-feature/NPC",
 		"lemuria-pbem/renderer-magellan": "dev-feature/NPC",
 		"lemuria-pbem/renderer-text": "dev-feature/NPC",
+		"lemuria-pbem/scenario-fantasya": "dev-feature/NPC",
 		"lemuria-pbem/statistics-fantasya": "dev-feature/NPC",
 		"lemuria-pbem/tools-lemuria": "dev-feature/NPC"
 	},
@@ -46,6 +47,10 @@
 		{
 			"type": "vcs",
 			"url": "git@github.com:lemuria-pbem/renderer-text.git"
+		},
+		{
+			"type": "vcs",
+			"url": "git@github.com:lemuria-pbem/scenario-fantasya.git"
 		},
 		{
 			"type": "vcs",

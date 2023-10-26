@@ -22,6 +22,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jc21/clitable" />
       <excludeFolder url="file://$MODULE_DIR$/turn" />
       <excludeFolder url="file://$MODULE_DIR$/storage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/scenario-fantasya" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

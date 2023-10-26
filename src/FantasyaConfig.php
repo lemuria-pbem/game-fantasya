@@ -5,6 +5,8 @@ namespace Lemuria\Game\Fantasya;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Factory\Namer;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
+use Lemuria\Model\Game;
+use Lemuria\Scenario\Fantasya\Storage\ScenarioGame;
 use Lemuria\Statistics\Fantasya\LemuriaStatistics;
 use Lemuria\Log;
 use Lemuria\Model\Fantasya\Exception\JsonException;
@@ -45,6 +47,10 @@ class FantasyaConfig extends LemuriaConfig
 		$this->overrideWithLocalConfig($storagePath);
 		$this->featureFlag->setIsDevelopment($this->offsetGet(self::DEVELOPMENT_MODE));
 		$this->namer = new FantasyaNamer();
+	}
+
+	public function Game(): Game {
+		return new ScenarioGame($this);
 	}
 
 	public function Statistics(): Statistics {
