@@ -160,6 +160,15 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ### Verschiedenes
 
+- Umbau/Verbesserung des Auswertungsablaufs
+  - Befehlsparser/Delegates/Immediates in LemuriaTurn vereinfachen
+  - Zweite Vorbereitungsphase einführen, um Abhängigkeiten besser zu lösen
+  - Komplex Aktivität/Alternative/Faulenzen/Simulation vereinfachen
+  - Befehlsgruppen definieren, um Einheiten zu kategorisieren
+    - Kampf/Kampfbeteiligung
+    - Lehren/Lernen
+    - Produktionsbefehl
+    - Reisebefehl
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
 - Textreport im Markdown-Format
