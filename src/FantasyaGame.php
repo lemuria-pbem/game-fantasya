@@ -29,13 +29,10 @@ class FantasyaGame extends FantasyaReport
 
 	private readonly bool $debugBattles;
 
-	private readonly ThrowOption $throwExceptions;
-
 	public function __construct() {
 		parent::__construct();
-		$this->round            = $this->nextRound++;
-		$this->debugBattles     = $this->config[FantasyaConfig::DEBUG_BATTLES];
-		$this->throwExceptions  = new ThrowOption($this->config[FantasyaConfig::THROW_EXCEPTIONS]);
+		$this->round        = $this->nextRound++;
+		$this->debugBattles = $this->config[FantasyaConfig::DEBUG_BATTLES];
 	}
 
 	public function Round(): int {
