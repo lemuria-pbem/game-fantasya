@@ -5,10 +5,12 @@ namespace Lemuria\Game\Fantasya;
 use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\Message\Filter\PartyAnnouncementFilter;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Engine\Fantasya\Turn\Option\ThrowOption;
 use Lemuria\Engine\Message\Filter;
 use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\CompositeFilter;
 use Lemuria\Exception\DirectoryNotFoundException;
+use Lemuria\Exception\LemuriaException;
 use Lemuria\Game\Fantasya\Renderer\Magellan\FantasyaHeader;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party;
@@ -42,6 +44,8 @@ class FantasyaReport
 
 	protected readonly bool $profilingEnabled;
 
+	protected readonly ThrowOption $throwExceptions;
+
 	private readonly array $debugParties;
 
 	public function __construct() {
@@ -52,7 +56,9 @@ class FantasyaReport
 		$this->config           = new FantasyaConfig($this->storage);
 		$this->nextRound        = $this->config[LemuriaConfig::ROUND];
 		$this->profilingEnabled = $this->config[FantasyaConfig::ENABLE_PROFILING];
+		$this->throwExceptions  = new ThrowOption($this->config[FantasyaConfig::THROW_EXCEPTIONS]);
 		$this->debugParties     = array_fill_keys($this->config[FantasyaConfig::DEBUG_PARTIES], true);
+		$this->setErrorHandler();
 	}
 
 	public function init(): static {
@@ -153,6 +159,16 @@ class FantasyaReport
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordTotal();
 			Lemuria::Profiler()->logTotalPeak();
+		}
+	}
+
+	protected function setErrorHandler(): void {
+		if ($this->throwExceptions[ThrowOption::PHP]) {
+			set_error_handler(function (int $errno, string $errstr, string $errfile, int $errline) {
+				$message  = 'PHP error ' . $errno . ': ' . $errstr . PHP_EOL;
+				$message .= 'in ' . $errfile . ':' . $errline . '.';
+				throw new LemuriaException($message);
+			});
 		}
 	}
 
