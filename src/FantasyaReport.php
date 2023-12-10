@@ -137,7 +137,7 @@ class FantasyaReport
 				$unica = new PartyUnica($party);
 				foreach ($unica->Treasury() as $unicum) {
 					$writer = new UnicumWriter($pathFactory);
-					$writer->render($unicum->Id());
+					$writer->setContext($unica)->render($unicum->Id());
 				}
 			}
 
