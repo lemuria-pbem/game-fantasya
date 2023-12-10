@@ -169,6 +169,8 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
     - Lehren/Lernen
     - Produktionsbefehl
     - Reisebefehl
+  - NUMMER in Befehlsvorlagen allgemeiner formulieren
+    - Nummernänderung gezielt aktivieren (z.B. VORLAGE GEBEN x)
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
 - Textreport im Markdown-Format
