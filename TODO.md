@@ -20,6 +20,7 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ### Gebäude
 
+- VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
 - neue Gebäude, die Arbeitsplätze verdoppeln
   - Gebirge, Gletscher: Pilzhöhle
   - Sumpf: Elefantengehege
