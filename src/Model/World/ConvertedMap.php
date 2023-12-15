@@ -9,6 +9,7 @@ use Lemuria\Model\World\BaseMap;
 use Lemuria\Model\World\Direction;
 use Lemuria\Model\World\MapCoordinates;
 use Lemuria\Model\World\Path;
+use Lemuria\Model\World\PathStrategy;
 
 class ConvertedMap extends BaseMap
 {
@@ -25,6 +26,10 @@ class ConvertedMap extends BaseMap
 	}
 
 	public function getPath(Location $start, Direction $direction, int $distance): Path {
+		throw new LemuriaException('Not implemented.');
+	}
+
+	public function findPath(Location $from, Location $to, string $pathStrategy): PathStrategy {
 		throw new LemuriaException('Not implemented.');
 	}
 
