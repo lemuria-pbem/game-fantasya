@@ -2,11 +2,53 @@
 
 Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
 
+## Neues
+
+- neue Gebäude
+  - Arbeitsplätze verdoppeln
+    - Gebirge, Gletscher: Pilzhöhle
+    - Sumpf: Elefantengehege
+    - Wald: Jagdhaus
+    - Wüste: Oase
+  - Forsthaus: stoppt Bauernvermehrung, erhöht Wachstum
+  - Kräuterhütte: +1, stoppt Schrumpfen im Winter, automatisches Forschen
+  - Gewächshaus: Anbau regionsfremder Kräuter
+  - besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
+- neue Zauber
+  - Zombies erwecken (Kampf oder Regionszauber)
+  - Ruhe in Frieden (Zombieinfektion verhindern)
+  - Baumhirten erwecken (benötigt Wasser des Lebens)
+  - Metalle entdecken (erhöht Bergwerk-Ausbeute und Gold-Chance)
+- neue Monsterrassen
+  - Riesenfrosch (Sumpf)
+  - Sandwurm (bewegt sich durch große Wüstengebiete)
+- VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
+- AUSRAUBEN überfällt Gegner ohne Kampfabsicht
+- BELAGERN von Straßen, um Reisen zu verhindern und Reiche zu trennen
+- BESUCHEN zum Handel mit NPC-Ladenbesitzer
+- Besteuerung bei Nutzung fremder Infrastruktur
+  - Handelssteuer an den Besitzer der größten Burg
+  - Maut für Wagengespanne an Grenzblockierer
+- Gerüchte durch NPC oder Bauern
+  - Monstervorkommen in Nachbarregionen
+  - Kämpfe in Nachbarregionen
+  - Gebühren in Nachbarregionen
+- NPC
+  - Händlercharaktere mit Geschäft
+  - fahrende Händler (Alchemisten, Magier, Luxuswaren)
+  - Räuber
+  - Quest-Auftraggeber
+- Quests
+  - mit bestimmtem Ziel
+    - geraubtes Unikum wiederbeschaffen
+    - entführte Person befreien
+    - Räuberbande bekämpfen
+    - Schiffspassage
+  - offenes Ende
+    - Monster bekämpfen, Trophäen eintauschen
+
 ## Fehler/Verbesserungen
 
-- NPC
-  - Standardverhalten kann mit Befehlsliste überschrieben werden
-  - Statistik in Auswertung ergänzen
 - …
 
 ## Ideen
@@ -29,18 +71,7 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
 
 ### Gebäude
 
-- VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
-- neue Gebäude, die Arbeitsplätze verdoppeln
-  - Gebirge, Gletscher: Pilzhöhle
-  - Sumpf: Elefantengehege
-  - Wald: Jagdhaus
-  - Wüste: Oase
-- Forsthaus: stoppt Bauernvermehrung, erhöht Wachstum
-- Kräuterhütte: +1, stoppt Schrumpfen im Winter, automatisches Forschen
-- Gewächshaus: Anbau regionsfremder Kräuter
-- besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
-  - BESUCHEN zum Handel mit NPC-Ladenbesitzer
-  - Steinkreis als Portal für Magier
+- Steinkreis als Portal für Magier
 
 ### Unikate
 
@@ -84,9 +115,6 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
   - Öllampe (benötigt Öl; für Dungeons)
   - Schwarzpulver (benötigt Kohle, Schwefel, Salz; für Kanonen)
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
-- Besteuerung bei Nutzung fremder Infrastruktur
-  - Handelssteuer an den Besitzer der größten Burg
-  - Maut für Wagengespanne an den Besitzer der größten Burg
 
 ### Kampf
 
@@ -101,17 +129,11 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
   - VERSENKEN (Schiff vor Entern bewahren)
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
-- AUSRAUBEN überfällt Gegner ohne Kampfabsicht
-- BELAGERN von Straßen, um Reisen zu verhindern und Reiche zu trennen
 
 ### Magie und Alchemie
 
 - neue Zauber
-  - Zombies erwecken (Kampf oder Regionszauber)
-  - Ruhe in Frieden (Zombieinfektion verhindern)
   - Gegengift (Kampf)
-  - Baumhirten erwecken (benötigt Wasser des Lebens)
-  - Metalle entdecken (erhöht Bergwerk-Ausbeute und Gold-Chance)
   - Quelle aufladen (lädt eine Magische Quelle auf)
 - neue Tränke
   - Fackel (aus Holz, Öl; erzeugt Waffe)
@@ -122,39 +144,24 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
 - neue Monsterrassen
   - Riesenskorpion (Wüste, Hochland), Trophäe: Stachel
   - Riesenspinne (Wald), Trophäe: Giftblase
-  - Riesenfrosch (Sumpf)
-  - Sandwurm (bewegt sich durch große Wüstengebiete)
   - Wespen (Ebene, Wüste), mit Feuer zu bekämpfen, sterben im Winter
 
 ### NPC
 
-- Gerüchte durch NPC oder Bauern
-  - Monstervorkommen in Nachbarregionen
-  - Kämpfe in Nachbarregionen
-  - Gebühren in Nachbarregionen
-- Händlercharaktere mit Geschäft
-- fahrende Händler (Alchemisten, Magier, Luxuswaren)
 - Spedition übernimmt Transporte für Silber
-- Räuber
 - Söldner, kann angeheuert werden
 - Piraten
-- Quest-Auftraggeber
 
 ### Quests
 
 - mit bestimmtem Ziel
   - geraubte Beute wiederbeschaffen, Provision 
-  - geraubtes Unikum wiederbeschaffen
-  - entführte Person befreien
-  - Räuberbande bekämpfen
   - Wespennest ausräuchern
-  - Schiffspassage
   - Warentransport
     - Vertrauen aufbauen, um wertvolle Transporte zu bekommen
   - seltene Tiere beschaffen (Pegasi)
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
-  - Monster bekämpfen, Trophäen eintauschen
 
 ### Reisen und Seefahrt
 
