@@ -14,6 +14,7 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
   - Kräuterhütte: +1, stoppt Schrumpfen im Winter, automatisches Forschen
   - Gewächshaus: Anbau regionsfremder Kräuter
   - besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
+- Insel der Pegasi
 - neue Zauber
   - Zombies erwecken (Kampf oder Regionszauber)
   - Ruhe in Frieden (Zombieinfektion verhindern)
@@ -48,6 +49,8 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
     - Monster bekämpfen, Trophäen eintauschen
 
 ## Fehler/Verbesserungen
+
+- einige Steine in Wüsten ergänzen
 
 - …
 
