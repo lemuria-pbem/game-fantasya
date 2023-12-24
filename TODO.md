@@ -172,6 +172,8 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
     - Reisebefehl
   - NUMMER in Befehlsvorlagen allgemeiner formulieren
     - Nummernänderung gezielt aktivieren (z.B. VORLAGE GEBEN x)
+- Refactoring
+  - Reassignment-Methoden spezifischer benennen (Kollision)
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
 - Textreport im Markdown-Format
