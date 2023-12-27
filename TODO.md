@@ -5,16 +5,8 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
 ## Neues
 
 - neue Gebäude
-  - Arbeitsplätze verdoppeln
-    - Gebirge, Gletscher: Pilzhöhle
-    - Sumpf: Elefantengehege
-    - Wald: Jagdhaus
-    - Wüste: Oase
-  - Forsthaus: stoppt Bauernvermehrung, erhöht Wachstum
-  - Kräuterhütte: +1, stoppt Schrumpfen im Winter, automatisches Forschen
-  - Gewächshaus: Anbau regionsfremder Kräuter
+  - Gewächshaus: Anbau regionsfremder Kräuter, stoppt Schrumpfen im Winter
   - besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
-- Insel der Pegasi
 - neue Zauber
   - Zombies erwecken (Kampf oder Regionszauber)
   - Ruhe in Frieden (Zombieinfektion verhindern)
@@ -49,8 +41,6 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
     - Monster bekämpfen, Trophäen eintauschen
 
 ## Fehler/Verbesserungen
-
-- einige Steine in Wüsten ergänzen
 
 - …
 
