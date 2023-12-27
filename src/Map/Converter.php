@@ -57,9 +57,9 @@ class Converter
 
 	protected const MIN_RESOURCES = 0.33;
 
-	protected const MAX_GLACIER = 0.45;
+	protected const STONE_FACTOR = [Desert::class => 0.13, Highland::class => 0.9, Mountain::class => 1.0, Glacier::class => 0.45];
 
-	protected const HAS_RESOURCES = [Highland::class => true, Mountain::class => true, Glacier::class => true];
+	protected const IRON_FACTOR = [Highland::class => 1.0, Mountain::class => 0.9, Glacier::class => 0.35];
 
 	protected readonly Dictionary $dictionary;
 
@@ -191,7 +191,8 @@ class Converter
 	}
 
 	protected function calculateStone(string $landscape, array $data): int {
-		if (!isset(self::HAS_RESOURCES[$landscape])) {
+		$factor = self::STONE_FACTOR[$landscape] ?? null;
+		if (!$factor) {
 			return 0;
 		}
 
@@ -200,14 +201,13 @@ class Converter
 		$percentage = 1.0 - min($difference / $maximum, 1.0);
 		$minimum    = self::MIN_RESOURCES * self::MAX_STONE;
 		$stone      = $minimum + $percentage * (self::MAX_STONE - $minimum);
-		if ($landscape === Glacier::class) {
-			$stone *= self::MAX_GLACIER;
-		}
+		$stone     *= $factor;
 		return (int)floor($stone);
 	}
 
 	protected function calculateIron(string $landscape, array $data): int {
-		if (!isset(self::HAS_RESOURCES[$landscape])) {
+		$factor = self::IRON_FACTOR[$landscape] ?? null;
+		if (!$factor) {
 			return 0;
 		}
 
@@ -215,11 +215,9 @@ class Converter
 		$maximum    = $this->config->maxHeight + $this->config->maxDiff - $this->config->highland;
 		$percentage = min($difference / $maximum, 1.0);
 		$minimum    = self::MIN_RESOURCES * self::MAX_IRON;
-		$stone      = $minimum + $percentage * (self::MAX_IRON - $minimum);
-		if ($landscape === Glacier::class) {
-			$stone *= self::MAX_GLACIER;
-		}
-		return (int)floor($stone);
+		$iron       = $minimum + $percentage * (self::MAX_IRON - $minimum);
+		$iron      *= $factor;
+		return (int)floor($iron);
 	}
 
 	protected function calculateAnimals(string $animal, array $goods, int $altitude): int {
