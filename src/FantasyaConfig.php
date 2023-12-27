@@ -2,13 +2,13 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
-use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
 use Lemuria\Factory\Namer;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
 use Lemuria\Model\Fantasya\Commodity\Monster\Zombie;
 use Lemuria\Model\Fantasya\Party\Type;
 use Lemuria\Model\Game;
 use Lemuria\Scenario\Fantasya\LemuriaScripts;
+use Lemuria\Scenario\Fantasya\ScenarioConfig;
 use Lemuria\Scenario\Fantasya\Storage\ScenarioGame;
 use Lemuria\Scenario\Scripts;
 use Lemuria\Statistics\Fantasya\LemuriaStatistics;
@@ -17,7 +17,7 @@ use Lemuria\Model\Fantasya\Exception\JsonException;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
 use Lemuria\Statistics;
 
-class FantasyaConfig extends LemuriaConfig
+class FantasyaConfig extends ScenarioConfig
 {
 	public final const DEVELOPMENT_MODE = 'developmentMode';
 
