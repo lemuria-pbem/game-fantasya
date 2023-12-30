@@ -4,17 +4,12 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
 
 ## Neues
 
-- neue Gebäude
-  - Gewächshaus: Anbau regionsfremder Kräuter, stoppt Schrumpfen im Winter
-  - besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
+- Gewächshaus: Anbau regionsfremder Kräuter, stoppt Schrumpfen im Winter
 - neue Zauber
   - Zombies erwecken (Kampf oder Regionszauber)
   - Ruhe in Frieden (Zombieinfektion verhindern)
   - Baumhirten erwecken (benötigt Wasser des Lebens)
   - Metalle entdecken (erhöht Bergwerk-Ausbeute und Gold-Chance)
-- neue Monsterrassen
-  - Riesenfrosch (Sumpf)
-  - Sandwurm (bewegt sich durch große Wüstengebiete)
 - VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 - BELAGERN von Straßen, um Reisen zu verhindern und Reiche zu trennen
