@@ -4,7 +4,6 @@ Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
 
 ## Neues
 
-- Gewächshaus: Anbau regionsfremder Kräuter, stoppt Schrumpfen im Winter
 - neue Zauber
   - Zombies erwecken (Kampf oder Regionszauber)
   - Ruhe in Frieden (Zombieinfektion verhindern)
