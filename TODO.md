@@ -1,6 +1,6 @@
 # Version 1.5
 
-Lemuria 1.5 wurde am xx. XXX 202x veröffentlicht.
+Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Neues
 
