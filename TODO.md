@@ -18,6 +18,12 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
   - „Trockenheit“ lässt Flüsse und Kanäle austrocknen
   - „Erdrutsch“ zerstört Straße
 
+### Reiche
+
+- Erweiterung über Außenposten und Straßen
+- Stationierung von TK in den Außenposten
+- Zwischenlagerung der Waren in den Außenposten
+
 ### Gebäude
 
 - VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
@@ -32,6 +38,15 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 - besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
   - BESUCHEN zum Handel mit NPC-Ladenbesitzer
   - Steinkreis als Portal für Magier
+
+### Unikate
+
+- Magische Quelle
+  - wird in Ebene gebaut und von Magiern aufgeladen
+  - zieht Pegasi an und verwandelt Pferde
+  - heilt Einheiten
+  - vergrößert Mallorn-Chance
+  - hält Bauern gesund, verringert Hunger, beschleunigt Heilung
 
 ### Handel und Wirtschaft
 
@@ -59,9 +74,6 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
   - Schmelze
     - verarbeitet Goldnuggets zu Gold; braucht Holz
     - verarbeitet Erz/Argent zu Eisen/Silber; braucht Kohle
-  - Magische Quelle
-    - vergrößert Mallorn-Chance
-    - hält Bauern gesund, verringert Hunger, beschleunigt Heilung
 - neue Talente
   - Metallurgie für Schmelze
 - neue Gegenstände
