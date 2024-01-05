@@ -5,9 +5,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 ## Neues
 
 - neue Zauber
-  - Zombies erwecken (Kampf oder Regionszauber)
-  - Ruhe in Frieden (Zombieinfektion verhindern)
-  - Baumhirten erwecken (benötigt Wasser des Lebens)
+  - Zombies erwecken (Gefallene oder verhungernde Bauern werden zu Zombie-Einheiten)
+  - Ruhe in Frieden (Entstehung von Zombies verhindern)
   - Metalle entdecken (erhöht Bergwerk-Ausbeute und Gold-Chance)
 - VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
