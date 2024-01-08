@@ -2,8 +2,10 @@
 
 bootstrap=vendor/twbs/bootstrap/dist/css/bootstrap.min.css
 source=web/css/style.scss
-target=web/css/report-14.min.css
+version=$(php scripts/web-version.php)
+target=web/css/report-$version.min.css
 
+echo "Generating $(basename $target)..."
 rm -f $target
 cp $bootstrap $target
 echo >> $target
