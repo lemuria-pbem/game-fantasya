@@ -12,7 +12,6 @@ use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
-use Lemuria\Id;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Factory\BuilderTrait;
 use Lemuria\Model\Fantasya\Gathering;
@@ -200,14 +199,7 @@ class FantasyaGame extends FantasyaReport
 	}
 
 	protected function createOptions(): Options {
-		$options = new Options();
-		$finder  = $options->Finder()->Party();
-		foreach (FantasyaConfig::PARTY_BY_TYPE as $type => $id) {
-			$finder->setId(Type::from($type), Id::fromId($id));
-		}
-		foreach (FantasyaConfig::PARTY_BY_RACE as $race => $id) {
-			$finder->setId(self::createRace($race), Id::fromId($id));
-		}
+		$options = $this->config->Options();
 		return $options->setDebugBattles($this->debugBattles)->setThrowExceptions($this->throwExceptions)->setIsProfiling($this->profilingEnabled);
 	}
 
