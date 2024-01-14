@@ -167,6 +167,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Umbau/Verbesserung des Auswertungsablaufs
   - Befehlsparser/Delegates/Immediates in LemuriaTurn vereinfachen
   - Zweite Vorbereitungsphase einführen, um Abhängigkeiten besser zu lösen
+  - Erstellung der Default-Befehle in eigener Phase
   - Komplex Aktivität/Alternative/Faulenzen/Simulation vereinfachen
   - Befehlsgruppen definieren, um Einheiten zu kategorisieren
     - Kampf/Kampfbeteiligung
