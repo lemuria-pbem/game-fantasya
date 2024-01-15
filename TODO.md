@@ -31,6 +31,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- NPC-Grammatik für Gerüchte verbessern
 - …
 
 ## Ideen
