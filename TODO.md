@@ -4,7 +4,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Neues
 
-- VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
 - BELAGERN von Straßen, um Reisen zu verhindern und Reiche zu trennen
 - BESUCHEN zum Handel mit NPC-Ladenbesitzer
