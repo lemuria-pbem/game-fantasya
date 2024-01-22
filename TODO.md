@@ -10,12 +10,17 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Besteuerung bei Nutzung fremder Infrastruktur
   - Handelssteuer an den Besitzer der größten Burg
   - Maut für Wagengespanne an Grenzblockierer
+- ANBIETEN von Unikaten
 - NPC
   - Händlercharaktere mit Geschäft
+  - Bankiers
   - fahrende Händler (Alchemisten, Magier, Luxuswaren)
   - Räuber
   - Quest-Auftraggeber
 - Quests
+  - Austausch von Gegenständen oder Waren
+    - Magier kauft Schriftrollen, Zauberbücher, Ringe an
+    - Bankgeschäfte (Silber leihen/zurückzahlen, sparen/abheben)
   - mit bestimmtem Ziel
     - geraubtes Unikum wiederbeschaffen
     - entführte Person befreien
