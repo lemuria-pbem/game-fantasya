@@ -334,6 +334,12 @@ ul.report {
         }
     }
 }
+.col-lg-6 > .announcement blockquote {
+    @media (min-width: breakpoint-min("lg")) {
+        display: block;
+        margin-left: 0;
+    }
+}
 
 .table-responsive {
     .accordion-header {
