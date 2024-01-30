@@ -30,6 +30,7 @@ document.addEventListener('readystatechange', () => {
     const navButton = document.getElementById('navbar-toggle');
     const mapButton = document.getElementById('toggle-map');
     const mapModal = document.getElementById('modal-map');
+    const announcements = '#announcements';
     const statistics = '#statistics';
     const talentStatistics = document.querySelectorAll('.talent-statistics.modal');
     const regionStatistics = '#region-statistics-responsive';
@@ -330,6 +331,9 @@ document.addEventListener('readystatechange', () => {
         }
         if (event.key === 'k') {
             return locationHandled(event, herbalBook.href);
+        }
+        if (event.key === 'n') {
+            return locationHandled(event, announcements);
         }
         if (event.key === 'r') {
             regionStatisticsButtons?.forEach((button) => buttonHandled(event, button));

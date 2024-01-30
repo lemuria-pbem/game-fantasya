@@ -324,6 +324,12 @@ ul.report {
 
 .announcement {
     margin: 0.5rem 0 0;
+    a {
+        font-weight: bold;
+    }
+    .badge a {
+        color: unset;
+    }
     blockquote {
         margin: 0.25rem 0 0;
         font-style: italic;
