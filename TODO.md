@@ -27,8 +27,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- VERKAUFEN <Ware> <min. Preis>
-- Handeln notwendig für Angebotserstellung
 - NPC-Grammatik für Gerüchte verbessern
 - …
 
@@ -49,6 +47,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Erweiterung über Außenposten und Straßen
 - Stationierung von TK in den Außenposten
 - Zwischenlagerung der Waren in den Außenposten
+- Ernte durch Fremdeinheiten verbieten 
 
 ### Gebäude
 
@@ -177,6 +176,13 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
     - Nummernänderung gezielt aktivieren (z.B. VORLAGE GEBEN x)
 - Refactoring
   - Reassignment-Methoden spezifischer benennen (Kollision)
+  - Konzept von Entity mit Singleton-Logik vereinheitlichen (Unikate + Quests)
+    - in lemuria-pbem/lemuria formalisieren
+  - Event-Queues einführen, allgemein mehr Observer-Patterns
+  - Befehlsstruktur vereinheitlichen
+    - Voraussetzungen und Bedingungen für die Ausführung
+    - Trigger und Folge-Events
+- Simulationsausgabe und -filterung verbessern
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN
   - für schnelle Einheitentransporte mit Fuhrwerken
