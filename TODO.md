@@ -5,10 +5,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 ## Neues
 
 - AUSRAUBEN überfällt Gegner ohne Kampfabsicht
-- BELAGERN von Straßen, um Reisen zu verhindern und Reiche zu trennen
-- Besteuerung bei Nutzung fremder Infrastruktur
-  - Handelssteuer an den Besitzer der größten Burg
-  - Maut für Wagengespanne an Grenzblockierer
 - NPC
   - Händlercharaktere mit Geschäft
   - Bankiers
@@ -95,6 +91,9 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Öllampe (benötigt Öl; für Dungeons)
   - Schwarzpulver (benötigt Kohle, Schwefel, Salz; für Kanonen)
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
+- Besteuerung bei Nutzung fremder Infrastruktur
+  - Handelssteuer an den Besitzer der größten Burg
+  - Maut für Wagengespanne an Grenzblockierer
 
 ### Kampf
 
