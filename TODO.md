@@ -2,31 +2,19 @@
 
 Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
-## Neues
-
-- AUSRAUBEN überfällt Gegner ohne Kampfabsicht
-- NPC
-  - Händlercharaktere mit Geschäft
-  - Bankiers
-  - Räuber
-  - Quest-Auftraggeber
-- Quests
-  - Austausch von Gegenständen oder Waren
-    - Bankgeschäfte (Silber leihen/zurückzahlen, sparen/abheben)
-  - mit bestimmtem Ziel
-    - geraubtes Unikum wiederbeschaffen
-    - entführte Person befreien
-    - Räuberbande bekämpfen
-    - Schiffspassage
-  - offenes Ende
-    - Monster bekämpfen, Trophäen eintauschen
-
 ## Fehler/Verbesserungen
 
-- NPC-Grammatik für Gerüchte verbessern
 - …
 
 ## Ideen
+
+### Einheiten
+
+- PRÄFIX einführen
+- ANREDE (Pronomen) einführen
+  - NPC-Grammatik für Gerüchte verbessern
+- Helden als Einpersoneneinheiten
+  - Unikate als Ausrüstung im Kampf (legendäre Gegenstände)
 
 ### Ereignisse
 
@@ -61,6 +49,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 ### Handel und Wirtschaft
 
 - Silber für Unterhalt mit Nahrung ersetzen
+- Rohstoffe müssen zuerst erkundet werden (Prospektion)
 - neue Rohstoffe
   - Kohle als Hilfsstoff für Schmelze
 - Rohstoffe als Vorstufe der Weiterverarbeitung einführen
@@ -127,20 +116,35 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ### NPC
 
+- Bankiers
 - Spedition übernimmt Transporte für Silber
+- Fährleute
 - Söldner, kann angeheuert werden
+- Räuber
 - Piraten
+- Quest-Auftraggeber
+- Lehrmeister und Spezialisten
+- Prospektoren für die Rohstoffsuche
+- BESUCHEN <Einheit> <Thema> für Informationsauskunft
+  - NPC merken sich Besucher, auf Nachfrage mit Thema Begegnung erzählen
 
 ### Quests
 
 - mit bestimmtem Ziel
   - geraubte Beute wiederbeschaffen, Provision 
+  - entführte Person befreien
+  - Räuberbande bekämpfen
   - Wespennest ausräuchern
   - Warentransport
     - Vertrauen aufbauen, um wertvolle Transporte zu bekommen
+  - Schiffspassage
   - seltene Tiere beschaffen (Pegasi)
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
+  - Monster bekämpfen, Trophäen eintauschen
+- Dienstleistungen
+  - Bankgeschäfte (Silber leihen/zurückzahlen, sparen/abheben)
+  - Anheuern (NPC folgt Auftraggeber)
 
 ### Reisen und Seefahrt
 
