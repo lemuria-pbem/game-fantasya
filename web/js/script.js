@@ -243,7 +243,7 @@ document.addEventListener('readystatechange', () => {
                 } else {
                     const regionId = event.target.getAttribute('data-region');
                     if (regionId) {
-                        talentStatisticsTarget = 'region-' + regionId;
+                        talentStatisticsTarget = 'location-' + regionId;
                     }
                 }
             });
