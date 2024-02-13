@@ -11,6 +11,7 @@
 /bin/lemuria.sh
 /bin/link-turn.sh
 /bin/name-generator.sh
+/bin/npc-map.php
 /bin/sync.sh
 
 /doc/Lemuria.pdf
