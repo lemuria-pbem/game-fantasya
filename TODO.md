@@ -4,6 +4,8 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- ausgeführte Befehle gehen nach NUMMER verloren
+- genutzte Transportkapazität geht nach NUMMER verloren 
 - …
 
 ## Ideen
