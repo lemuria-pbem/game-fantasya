@@ -87,11 +87,16 @@ class FantasyaGame extends FantasyaReport
 			}
 		}
 		$this->addMissingParties($gathering);
-		Lemuria::Scripts()->play();
 
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaGame_read');
 		}
+
+		Lemuria::Scripts()->play();
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_scripts');
+		}
+
 		return $this;
 	}
 
