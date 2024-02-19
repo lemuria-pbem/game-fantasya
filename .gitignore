@@ -5,14 +5,18 @@
 
 /CHANGELOG.md
 /composer.lock
+
 /bin/control.sh
 /bin/debug-config.php
 /bin/lemuria.sh
 /bin/link-turn.sh
 /bin/name-generator.sh
 /bin/sync.sh
+
 /doc/Lemuria.pdf
 /doc/Map
+
+/resources/NPC
 /resources/turn.debug.html
 
 /storage/config.json
@@ -23,6 +27,7 @@
 /storage/log/converter.log
 /storage/log/debug.log
 /storage/log/lemuria.log
+/storage/log/npc-map.log
 /storage/log/simulation.log
 /storage/log/*/*.log
 /storage/log/year.*/*/*.log
@@ -30,6 +35,7 @@
 /storage/orders/*/*.order
 /storage/orders/year.*/*/*.order
 /storage/scripts/*
+/storage/turn/npc.cr
 /storage/turn/world.cr
 /storage/turn/*/*.*
 /storage/turn/year.*/*/*.*
