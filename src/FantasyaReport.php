@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
+use function Lemuria\getClass;
 use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\Message\Filter\PartyAnnouncementFilter;
 use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
@@ -104,7 +105,7 @@ class FantasyaReport
 			$isPlayer = $party->Type() === Type::Player;
 			$filter   = $this->getMessageFilter($party);
 			$pathFactory->setPrefix((string)$id);
-			Lemuria::Log()->debug('Using ' . get_class($filter) . ' for report messages of Party ' . $id . '.');
+			Lemuria::Log()->debug('Using ' . getClass($filter) . ' for report messages of Party ' . $id . '.');
 
 			$writer = new MagellanWriter($pathFactory);
 			if (!$hasVersion) {
