@@ -124,7 +124,7 @@ final class FantasyaSimulator
 	}
 
 	protected function createOptions(): Options {
-		$options = new Options();
+		$options = $this->config->Options();
 		$options->setThrowExceptions(new ThrowOption('NONE'))->setIsSimulation(true);
 		$options->setIsProfiling($this->profilingEnabled);
 		if ($this->party) {
