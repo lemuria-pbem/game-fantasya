@@ -5,6 +5,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 ## Fehler/Verbesserungen
 
 - Nekromanten-NPC
+- GEBEN <unit> und GEBEN <unit> Einheit zusammenlegen
+- RESERVIEREN <Warenart>
 - …
 
 ## Ideen
