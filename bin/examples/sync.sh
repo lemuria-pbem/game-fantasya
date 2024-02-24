@@ -12,13 +12,14 @@ help() {
 	echo "\t-l   nur /log"
 	echo "\t-n   nur /names"
 	echo "\t-o   nur /orders"
+	echo "\t-s   nur /scripts"
 	echo "\t-t   nur /turn"
 	echo
 	echo "\t-h   Hilfe anzeigen"
 	exit 0
 }
 
-while getopts acghlnort what
+while getopts acghlnost what
 do
 	case $what in
 		a) path=/ ;;
@@ -28,6 +29,7 @@ do
 		l) path=/log/ ;;
 		n) path=/names/ ;;
 		o) path=/orders/ ;;
+		s) path=/scripts/ ;;
 		t) path=/turn/ ;;
 	esac
 done
