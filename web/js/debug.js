@@ -76,7 +76,7 @@ document.addEventListener('readystatechange', () => {
     };
 
     const createDebugSection = function() {
-        const eventHeader = document.getElementById('header').querySelector('h3');
+        const eventHeader = document.getElementById('party-report');
         if (eventHeader) {
             const debugHeader = document.createElement('h3');
             debugHeader.appendChild(document.createTextNode('Debugging'));

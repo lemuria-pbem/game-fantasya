@@ -5,16 +5,18 @@ zeigen.
 
 ## Monsterarten
 
-- Bär - Wildtier, normalerweise friedlich
-- Baumhirte - baumähnliches intelligentes Wächterwesen
-- Elementar - verschiedene Unterarten, kann durch Zauber beschworen werden
-- Ghoul - abstoßende untote Kreatur, normalerweise friedlich
-- Greif - lebt in größeren Gruppen zurückgezogen in Gletscherregionen 
-- Kobold - hinterlistiges Wesen, bekannt für ihr diebisches Verhalten
-- Krake - gelegentlich aggressiver Meeresbewohner
+- Bär – Wildtier, normalerweise friedlich
+- Baumhirte – baumähnliches intelligentes Wächterwesen
+- Elementar – verschiedene Unterarten, kann durch Zauber beschworen werden
+- Ghoul – abstoßende untote Kreatur, normalerweise friedlich
+- Greif – lebt in größeren Gruppen zurückgezogen in Gletscherregionen 
+- Kobold – hinterlistiges Wesen, bekannt für ihr diebisches Verhalten
+- Krake – gelegentlich aggressiver Meeresbewohner
+- Riesenfrosch – lauert Wanderern auf, die die Sümpfe durchstreifen
+- Sandwurm – gigantischer König der weiten Wüsten
 - Skelett – untoter Humanoider, kann bewaffnet sein
 - Wolf – Wildtier, im Winter angriffslustig, ansonsten scheu
-- Zombie - untote Kreatur mit Verlangen nach Frischfleisch
+- Zombie – untote Kreatur mit Verlangen nach Frischfleisch
 
 ### Monsterparteien
 
@@ -35,6 +37,7 @@ mehreren Aktionen zusammensetzt.
 - Bewohnen - dauerhaftes Aufhalten in einer Heimatregion
 - Feindsuche - Suche nach feindlichen Einheiten
 - Jagen - Suche nach leichter Angriffsbeute
+- Lauern - unbeweglich bleiben und auf Beute lauern
 - Revierverhalten - Einzelgänger verteidigen ihr Revier
 - Vermehren - Erzeugen neuer Monstergruppen
 - Taschendiebstahl - entdeckte Feinde werden bestohlen
@@ -138,6 +141,28 @@ neugierigen Tiere aufdringlich werden und sich den Schiffen nähern. Wenn man
 dabei versucht, sie abzuwehren, werden die Tiere dies als Angriff interpretieren
 und sich verteidigen. Kleine Boote scheinen die Kraken dabei nicht zu
 interessieren, große Segler oder Ruderschiffe ziehen sie jedoch magisch an.
+
+#### Riesenfrosch
+
+_Lauern - Vermehren - Angreifen - Winterschlaf_
+
+Die Sümpfe - gerade die großen und ausgedehnten - werden manchmal von riesigen
+Fröschen bewohnt. Gelegentlich lauern diese Tiere unvorsichtigen Wanderern auf,
+wenn diese vom Weg abkommen. Glücklicherweise sind die trägen Riesenfrösche
+durch ihr tief-grollendes Quaken relativ leicht zu bemerken. Stolpert man
+dennoch einmal über sie, sollte man sich jedoch vor ihren stacheligen Zungen in
+Acht nehmen, mit denen sie brennende Wunden aufreißen, die sich rasch entzünden.
+
+#### Sandwurm
+
+_Umherstreifen – Ausschau halten – Angreifen_
+
+Diese majestätischen Riesenwürmer kann man in den großen Wüsten antreffen. Sie
+halten sich nie lange an einem Ort auf und wühlen sich unterirdisch durch den
+Sandboden. An die Oberfläche kommen sie nur, wenn sie dort verräterische
+Geräusche vernehmen und Beute machen wollen. Wenn man unvorsichtig war und ein
+Sandwurm auftaucht, sollte man schleunigst das Weite suchen und sich auf
+felsigen Untergrund begeben, denn im Nahkampf hat man keine Chance gegen sie.
 
 #### Skelett
 

@@ -27,13 +27,14 @@
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/model-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-text" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/renderer-magellan" />
+      <path value="$PROJECT_DIR$/vendor/lemuria-pbem/scenario-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/statistics-fantasya" />
       <path value="$PROJECT_DIR$/vendor/lemuria-pbem/tools-lemuria" />
       <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
       <path value="$PROJECT_DIR$/vendor/jc21/clitable" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>

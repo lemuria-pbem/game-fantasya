@@ -1,12 +1,21 @@
-# Version 1.4
+# Version 1.5
 
-Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
+Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Nekromanten-NPC
 - …
 
 ## Ideen
+
+### Einheiten
+
+- PRÄFIX einführen
+- ANREDE (Pronomen) einführen
+  - NPC-Grammatik für Gerüchte verbessern
+- Helden als Einpersoneneinheiten
+  - Unikate als Ausrüstung im Kampf (legendäre Gegenstände)
 
 ### Ereignisse
 
@@ -23,21 +32,11 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 - Erweiterung über Außenposten und Straßen
 - Stationierung von TK in den Außenposten
 - Zwischenlagerung der Waren in den Außenposten
+- Ernte durch Fremdeinheiten verbieten 
 
 ### Gebäude
 
-- VERLASSE von Fremdeinheiten erzwingen (Übermacht muss vorhanden sein)
-- neue Gebäude, die Arbeitsplätze verdoppeln
-  - Gebirge, Gletscher: Pilzhöhle
-  - Sumpf: Elefantengehege
-  - Wald: Jagdhaus
-  - Wüste: Oase
-- Forsthaus: stoppt Bauernvermehrung, erhöht Wachstum
-- Kräuterhütte: +1, stoppt Schrumpfen im Winter, automatisches Forschen
-- Gewächshaus: Anbau regionsfremder Kräuter
-- besondere Gebäude/Orte wie Ruinen, Höhlen oder Geschäfte
-  - BESUCHEN zum Handel mit NPC-Ladenbesitzer
-  - Steinkreis als Portal für Magier
+- Steinkreis als Portal für Magier
 
 ### Unikate
 
@@ -51,6 +50,7 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 ### Handel und Wirtschaft
 
 - Silber für Unterhalt mit Nahrung ersetzen
+- Rohstoffe müssen zuerst erkundet werden (Prospektion)
 - neue Rohstoffe
   - Kohle als Hilfsstoff für Schmelze
 - Rohstoffe als Vorstufe der Weiterverarbeitung einführen
@@ -83,7 +83,7 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 - Luxuswarenangebot neu definieren, wenn der erste Bauer eine Region besiedelt
 - Besteuerung bei Nutzung fremder Infrastruktur
   - Handelssteuer an den Besitzer der größten Burg
-  - Maut für Wagengespanne an den Besitzer der größten Burg
+  - Maut für Wagengespanne an Grenzblockierer
 
 ### Kampf
 
@@ -98,17 +98,11 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
   - VERSENKEN (Schiff vor Entern bewahren)
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
-- AUSRAUBEN überfällt Gegner ohne Kampfabsicht
-- BELAGERN von Straßen, um Reisen zu verhindern und Reiche zu trennen
 
 ### Magie und Alchemie
 
 - neue Zauber
-  - Zombies erwecken (Kampf oder Regionszauber)
-  - Ruhe in Frieden (Zombieinfektion verhindern)
   - Gegengift (Kampf)
-  - Baumhirten erwecken (benötigt Wasser des Lebens)
-  - Metalle entdecken (erhöht Bergwerk-Ausbeute und Gold-Chance)
   - Quelle aufladen (lädt eine Magische Quelle auf)
 - neue Tränke
   - Fackel (aus Holz, Öl; erzeugt Waffe)
@@ -119,40 +113,39 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 - neue Monsterrassen
   - Riesenskorpion (Wüste, Hochland), Trophäe: Stachel
   - Riesenspinne (Wald), Trophäe: Giftblase
-  - Riesenfrosch (Sumpf)
-  - Sandwurm (bewegt sich durch große Wüstengebiete)
   - Wespen (Ebene, Wüste), mit Feuer zu bekämpfen, sterben im Winter
 
 ### NPC
 
-- Standardverhalten kann mit Befehlsliste überschrieben werden
-- Gerüchte durch NPC oder Bauern
-  - Monstervorkommen in Nachbarregionen
-  - Kämpfe in Nachbarregionen
-  - Gebühren in Nachbarregionen
-- Händlercharaktere mit Geschäft
-- fahrende Händler (Alchemisten, Magier, Luxuswaren)
+- Bankiers
 - Spedition übernimmt Transporte für Silber
-- Räuber
+- Fährleute
 - Söldner, kann angeheuert werden
+- Räuber
 - Piraten
 - Quest-Auftraggeber
+- Lehrmeister und Spezialisten
+- Prospektoren für die Rohstoffsuche
+- BESUCHEN <Einheit> <Thema> für Informationsauskunft
+  - NPC merken sich Besucher, auf Nachfrage mit Thema Begegnung erzählen
 
 ### Quests
 
 - mit bestimmtem Ziel
   - geraubte Beute wiederbeschaffen, Provision 
-  - geraubtes Unikum wiederbeschaffen
   - entführte Person befreien
   - Räuberbande bekämpfen
   - Wespennest ausräuchern
-  - Schiffspassage
   - Warentransport
     - Vertrauen aufbauen, um wertvolle Transporte zu bekommen
+  - Schiffspassage
   - seltene Tiere beschaffen (Pegasi)
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
   - Monster bekämpfen, Trophäen eintauschen
+- Dienstleistungen
+  - Bankgeschäfte (Silber leihen/zurückzahlen, sparen/abheben)
+  - Anheuern (NPC folgt Auftraggeber)
 
 ### Reisen und Seefahrt
 
@@ -176,6 +169,7 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
 - Umbau/Verbesserung des Auswertungsablaufs
   - Befehlsparser/Delegates/Immediates in LemuriaTurn vereinfachen
   - Zweite Vorbereitungsphase einführen, um Abhängigkeiten besser zu lösen
+  - Erstellung der Default-Befehle in eigener Phase
   - Komplex Aktivität/Alternative/Faulenzen/Simulation vereinfachen
   - Befehlsgruppen definieren, um Einheiten zu kategorisieren
     - Kampf/Kampfbeteiligung
@@ -186,8 +180,17 @@ Lemuria 1.4 wurde am 19. August 2023 veröffentlicht.
     - Nummernänderung gezielt aktivieren (z.B. VORLAGE GEBEN x)
 - Refactoring
   - Reassignment-Methoden spezifischer benennen (Kollision)
+  - Konzept von Entity mit Singleton-Logik vereinheitlichen (Unikate + Quests)
+    - in lemuria-pbem/lemuria formalisieren
+  - Event-Queues einführen, allgemein mehr Observer-Patterns
+  - Befehlsstruktur vereinheitlichen
+    - Voraussetzungen und Bedingungen für die Ausführung
+    - Trigger und Folge-Events
+- Simulationsausgabe und -filterung verbessern
 - VORLAGE-Variante für Rotation von Befehlen
-- TRANSPORTIEREN für schnelle Einheitentransporte mit Fuhrwerken
+- TRANSPORTIEREN
+  - für schnelle Einheitentransporte mit Fuhrwerken
+  - für Nekromanten: beschworene Untote mitnehmen
 - Textreport im Markdown-Format
 - Report im XML-Format für Fanalytics³
 

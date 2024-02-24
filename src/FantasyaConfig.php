@@ -2,17 +2,28 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
-use Lemuria\Engine\Fantasya\Storage\LemuriaConfig;
+use Lemuria\Engine\Fantasya\Turn\Options;
 use Lemuria\Factory\Namer;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
+use Lemuria\Id;
+use Lemuria\Model\Fantasya\Commodity\Monster\Zombie;
+use Lemuria\Model\Fantasya\Factory\BuilderTrait;
+use Lemuria\Model\Fantasya\Party\Type;
+use Lemuria\Model\Game;
+use Lemuria\Scenario\Fantasya\LemuriaScripts;
+use Lemuria\Scenario\Fantasya\ScenarioConfig;
+use Lemuria\Scenario\Fantasya\Storage\ScenarioGame;
+use Lemuria\Scenario\Scripts;
 use Lemuria\Statistics\Fantasya\LemuriaStatistics;
 use Lemuria\Log;
 use Lemuria\Model\Fantasya\Exception\JsonException;
 use Lemuria\Model\Fantasya\Storage\JsonProvider;
 use Lemuria\Statistics;
 
-class FantasyaConfig extends LemuriaConfig
+class FantasyaConfig extends ScenarioConfig
 {
+	use BuilderTrait;
+
 	public final const DEVELOPMENT_MODE = 'developmentMode';
 
 	public final const DEBUG_BATTLES = 'debugBattles';
@@ -24,6 +35,10 @@ class FantasyaConfig extends LemuriaConfig
 	public final const ENABLE_PROFILING = 'enableProfiling';
 
 	protected final const LOCAL_CONFIG = 'config.local.json';
+
+	protected const PARTY_BY_TYPE = [Type::NPC->value => 'n', Type::Monster->value => 'm'];
+
+	protected const PARTY_BY_RACE = [Zombie::class => 'z'];
 
 	private const DEVELOPMENT_MODE_DEFAULT = false;
 
@@ -37,6 +52,8 @@ class FantasyaConfig extends LemuriaConfig
 
 	private FantasyaNamer $namer;
 
+	private ?Options $options = null;
+
 	/**
 	 * @throws JsonException
 	 */
@@ -47,12 +64,27 @@ class FantasyaConfig extends LemuriaConfig
 		$this->namer = new FantasyaNamer();
 	}
 
+	public function Game(): Game {
+		return new ScenarioGame($this);
+	}
+
 	public function Statistics(): Statistics {
 		return new LemuriaStatistics();
 	}
 
 	public function Namer(): Namer {
 		return $this->namer;
+	}
+
+	public function Scripts(): Scripts {
+		return new LemuriaScripts($this->Options());
+	}
+
+	public function Options(): Options {
+		if (!$this->options) {
+			$this->initOptions();
+		}
+		return $this->options;
 	}
 
 	protected function initDefaults(): void {
@@ -62,6 +94,17 @@ class FantasyaConfig extends LemuriaConfig
 		$this->defaults[self::DEBUG_PARTIES]    = self::DEBUG_PARTIES_DEFAULT;
 		$this->defaults[self::THROW_EXCEPTIONS] = self::THROW_EXCEPTIONS_DEFAULT;
 		$this->defaults[self::ENABLE_PROFILING] = self::ENABLE_PROFILING_DEFAULT;
+	}
+
+	protected function initOptions(): void {
+		$this->options = new Options();
+		$finder        = $this->options->Finder()->Party();
+		foreach (self::PARTY_BY_TYPE as $type => $id) {
+			$finder->setId(Type::from($type), Id::fromId($id));
+		}
+		foreach (self::PARTY_BY_RACE as $race => $id) {
+			$finder->setId(self::createRace($race), Id::fromId($id));
+		}
 	}
 
 	protected function createLog(string $logPath): Log {

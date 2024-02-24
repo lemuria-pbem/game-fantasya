@@ -2,8 +2,10 @@
 
 bootstrap=vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js
 source=web/js/script.js
-target=web/js/report-14.min.js
+version=$(php scripts/web-version.php)
+target=web/js/report-$version.min.js
 
+echo "Generating $(basename $target)..."
 rm -f $target
 cp $bootstrap $target
 echo >> $target
