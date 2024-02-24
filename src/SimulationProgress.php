@@ -6,15 +6,15 @@ use Lemuria\Engine\Fantasya\Event\Layabout;
 use Lemuria\Engine\Fantasya\Event\Simulation\Maintenance;
 use Lemuria\Engine\Fantasya\Event\Simulation\Support;
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
+use Lemuria\Engine\Fantasya\State;
 
 final class SimulationProgress extends DefaultProgress
 {
 	public final const array EVENTS = [Maintenance::class, Support::class, Layabout::class];
 
-	/**
-	 * @return array<string>
-	 */
-	protected function getEvents(): array {
-		return self::EVENTS;
+	public function __construct(State $state) {
+		foreach (self::EVENTS as $event) {
+			$this->add(new $event($state));
+		}
 	}
 }
