@@ -9,7 +9,7 @@ use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 
 final class SimulationProgress extends DefaultProgress
 {
-	public final const EVENTS = [Maintenance::class, Support::class, Layabout::class];
+	public final const array EVENTS = [Maintenance::class, Support::class, Layabout::class];
 
 	/**
 	 * @return array<string>
