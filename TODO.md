@@ -4,15 +4,13 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Nekromanten-NPC
-- GEBEN <unit> und GEBEN <unit> Einheit zusammenlegen
-- RESERVIEREN <Warenart>
 - …
 
 ## Ideen
 
 ### Einheiten
 
+- GEBEN <unit> entfernen
 - PRÄFIX einführen
 - ANREDE (Pronomen) einführen
   - NPC-Grammatik für Gerüchte verbessern
@@ -28,6 +26,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Umweltereignisse
   - „Trockenheit“ lässt Flüsse und Kanäle austrocknen
   - „Erdrutsch“ zerstört Straße
+- Timer-Ereignisse aus INI-Datei laden
 
 ### Reiche
 
@@ -140,7 +139,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Wespennest ausräuchern
   - Warentransport
     - Vertrauen aufbauen, um wertvolle Transporte zu bekommen
-  - Schiffspassage
   - seltene Tiere beschaffen (Pegasi)
 - offenes Ende
   - Dungeon erkunden/Schatzsuche
@@ -148,6 +146,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Dienstleistungen
   - Bankgeschäfte (Silber leihen/zurückzahlen, sparen/abheben)
   - Anheuern (NPC folgt Auftraggeber)
+  - Fähren
 
 ### Reisen und Seefahrt
 
