@@ -6,7 +6,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 - KONTAKTIEREN und Kampfallianz kann Angriff auf getarnte Einheit führen [256]
 - Quote für Luxuswarenverkauf einführen (analog UNTERHALTEN)
-- Filter in HTML-Report für Botschaften
 - …
 
 ## Ideen
