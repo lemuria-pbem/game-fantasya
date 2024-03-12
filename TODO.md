@@ -4,7 +4,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Quote für Luxuswarenverkauf einführen (analog UNTERHALTEN)
 - …
 
 ## Ideen
@@ -188,6 +187,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Befehlsstruktur vereinheitlichen
     - Voraussetzungen und Bedingungen für die Ausführung
     - Trigger und Folge-Events
+  - Kampfinitialisierungslogik vereinfachen
 - Simulationsausgabe und -filterung verbessern
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN
