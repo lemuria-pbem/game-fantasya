@@ -1,5 +1,6 @@
 #!/bin/sh
 
+NPC_SCRIPTS=resources/NPC
 SERVER=host:path/to/game-fantasya
 
 help() {
@@ -15,11 +16,19 @@ help() {
 	echo "\t-s   nur /scripts"
 	echo "\t-t   nur /turn"
 	echo
+	echo "\t-S   NPC-Skripte hochladen"
+	echo
 	echo "\t-h   Hilfe anzeigen"
 	exit 0
 }
 
-while getopts acghlnost what
+uploadScripts() {
+	echo "Übertrage NPC-Skripte..."
+	rsync -avz $NPC_SCRIPTS/ $SERVER/storage/scripts/
+	exit 0
+}
+
+while getopts acghlnosSt what
 do
 	case $what in
 		a) path=/ ;;
@@ -30,6 +39,7 @@ do
 		n) path=/names/ ;;
 		o) path=/orders/ ;;
 		s) path=/scripts/ ;;
+		S) uploadScripts ;;
 		t) path=/turn/ ;;
 	esac
 done
