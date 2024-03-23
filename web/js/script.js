@@ -8,10 +8,11 @@ document.addEventListener('readystatechange', () => {
     ];
 
     let messagesConfig = {
-        'battle': true,
+        'battle': true, // deprecated
         'filter-aboard': true,
         'filter-announce': true,
         'filter-layabout': true,
+        'filter-combat': true,
         'filter-recreate': true,
         'guard': true,
         'movement': true
