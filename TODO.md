@@ -90,6 +90,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 - neue Waffen
   - Dolch (notwendig für Attentate)
+  - Kampfelch
   - Kanone (für Schiffe)
 - Taktik ermöglicht Strategien im Kampf, STRATEGIE
 - Spionage + Tarnung ermöglicht Attentate auf Einzelpersonen
