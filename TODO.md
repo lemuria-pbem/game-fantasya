@@ -4,6 +4,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Meldung an Markt, wenn NPC nicht handeln kann
+- Meldung an NPC bei Ankauf von Gegenständen
 - …
 
 ## Ideen
