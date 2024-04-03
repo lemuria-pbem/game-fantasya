@@ -16,6 +16,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - NPC-Grammatik für Gerüchte verbessern
 - Helden als Einpersoneneinheiten
   - Unikate als Ausrüstung im Kampf (legendäre Gegenstände)
+- Einheiten gefangennehmen und Lösegeld fordern
 
 ### Ereignisse
 
