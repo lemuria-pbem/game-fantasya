@@ -24,31 +24,40 @@ class FantasyaConfig extends ScenarioConfig
 {
 	use BuilderTrait;
 
-	public final const DEVELOPMENT_MODE = 'developmentMode';
+	public final const string DEVELOPMENT_MODE = 'developmentMode';
 
-	public final const DEBUG_BATTLES = 'debugBattles';
+	public final const string DEBUG_BATTLES = 'debugBattles';
 
-	public final const DEBUG_PARTIES = 'debugParties';
+	public final const string DEBUG_PARTIES = 'debugParties';
 
-	public final const THROW_EXCEPTIONS = 'throwExceptions';
+	public final const string THROW_EXCEPTIONS = 'throwExceptions';
 
-	public final const ENABLE_PROFILING = 'enableProfiling';
+	public final const string ENABLE_PROFILING = 'enableProfiling';
 
-	protected final const LOCAL_CONFIG = 'config.local.json';
+	protected final const string LOCAL_CONFIG = 'config.local.json';
 
-	protected const PARTY_BY_TYPE = [Type::NPC->value => 'n', Type::Monster->value => 'm'];
+	/**
+	 * @type array<int, string>
+	 */
+	protected const array PARTY_BY_TYPE = [Type::NPC->value => 'n', Type::Monster->value => 'm'];
 
-	protected const PARTY_BY_RACE = [Zombie::class => 'z'];
+	/**
+	 * @type array<string, string>
+	 */
+	protected const array PARTY_BY_RACE = [Zombie::class => 'z'];
 
-	private const DEVELOPMENT_MODE_DEFAULT = false;
+	private const bool DEVELOPMENT_MODE_DEFAULT = false;
 
-	private const DEBUG_BATTLES_DEFAULT = false;
+	private const bool DEBUG_BATTLES_DEFAULT = false;
 
-	private const DEBUG_PARTIES_DEFAULT = [];
+	/**
+	 * @type array<string>
+	 */
+	private const array DEBUG_PARTIES_DEFAULT = [];
 
-	private const THROW_EXCEPTIONS_DEFAULT = 'NONE';
+	private const string THROW_EXCEPTIONS_DEFAULT = 'NONE';
 
-	private const ENABLE_PROFILING_DEFAULT = false;
+	private const bool ENABLE_PROFILING_DEFAULT = false;
 
 	private FantasyaNamer $namer;
 
