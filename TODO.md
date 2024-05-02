@@ -95,7 +95,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Kanone (für Schiffe)
 - Taktik ermöglicht Strategien im Kampf, STRATEGIE
 - Spionage + Tarnung ermöglicht Attentate auf Einzelpersonen
-- Monsterrasse bestimmt maximalen Übermacht-Faktor
 - Effekt "Vergiftung" durch Monster wie Spinnen oder Skorpione oder Waffen
 - Seekampf/Piraterie
   - VERSENKEN (Schiff vor Entern bewahren)
@@ -169,6 +168,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ### Verschiedenes
 
+- PHP 8.4
+  - mb_ucfirst, mb_lcfirst, mb_trim verwenden
 - Umbau/Verbesserung des Auswertungsablaufs
   - Befehlsparser/Delegates/Immediates in LemuriaTurn vereinfachen
   - Zweite Vorbereitungsphase einführen, um Abhängigkeiten besser zu lösen

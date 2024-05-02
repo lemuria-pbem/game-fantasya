@@ -2,6 +2,7 @@
 
 NPC_SCRIPTS=resources/NPC
 SERVER=host:path/to/game-fantasya
+ROUND=$(grep '"round"' storage/config.local.json | cut -d ' ' -f 2 | cut -d ',' -f 1)
 
 help() {
 	echo sync.sh [option] - synchronisiert Spielstandsdaten
@@ -33,14 +34,14 @@ do
 	case $what in
 		a) path=/ ;;
 		c) path=/config.json ;;
-		g) path=/game/ ;;
+		g) path=/game/$ROUND/ ;;
 		h) help ;;
-		l) path=/log/ ;;
+		l) path=/log/$ROUND/ ;;
 		n) path=/names/ ;;
-		o) path=/orders/ ;;
+		o) path=/orders/$ROUND/ ;;
 		s) path=/scripts/ ;;
 		S) uploadScripts ;;
-		t) path=/turn/ ;;
+		t) path=/turn/$ROUND/ ;;
 	esac
 done
 
