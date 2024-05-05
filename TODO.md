@@ -191,6 +191,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
     - Voraussetzungen und Bedingungen für die Ausführung
     - Trigger und Folge-Events
   - Kampfinitialisierungslogik vereinfachen
+  - Enum „Numerus“ für singular/plural einführen 
 - Simulationsausgabe und -filterung verbessern
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN
