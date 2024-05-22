@@ -10,8 +10,8 @@
 			"email": "lemuria@online.de"
 		}
 	],
-	"version": "1.5.11",
-	"time": "2024-05-15",
+	"version": "1.5.12",
+	"time": "2024-05-22",
 
 	"require": {
 		"php": "~8.3",
