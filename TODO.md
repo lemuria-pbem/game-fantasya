@@ -49,6 +49,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - heilt Einheiten
   - vergrößert Mallorn-Chance
   - hält Bauern gesund, verringert Hunger, beschleunigt Heilung
+- Standarte
 
 ### Handel und Wirtschaft
 
@@ -110,6 +111,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - neue Tränke
   - Fackel (aus Holz, Öl; erzeugt Waffe)
   - Waffengift (für Kampf), benötigt Giftblase
+- Amulette
 
 ### Monster
 
