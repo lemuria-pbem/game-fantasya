@@ -183,8 +183,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
     - Lehren/Lernen
     - Produktionsbefehl
     - Reisebefehl
-  - NUMMER in Befehlsvorlagen allgemeiner formulieren
-    - Nummernänderung gezielt aktivieren (z.B. VORLAGE GEBEN x)
 - Refactoring
   - Reassignment-Methoden spezifischer benennen (Kollision)
   - Konzept von Entity mit Singleton-Logik vereinheitlichen (Unikate + Quests)
@@ -194,7 +192,10 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
     - Voraussetzungen und Bedingungen für die Ausführung
     - Trigger und Folge-Events
   - Kampfinitialisierungslogik vereinfachen
-  - Enum „Numerus“ für singular/plural einführen 
+  - Enum „Numerus“ für singular/plural einführen
+  - NUMMER am Anfang auswerten, um neue IDs in Befehlsvorlagen zu verwenden
+    - Globaler ID-Mapper für Engine und Scenario
+    - ID in NPC-Befehlen für neu erstellte Einheiten anpassen
 - Simulationsausgabe und -filterung verbessern
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN
