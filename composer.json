@@ -11,7 +11,7 @@
 		}
 	],
 	"version": "1.5.15",
-	"time": "2024-06-09",
+	"time": "2024-06-13",
 
 	"require": {
 		"php": "~8.3",
@@ -28,6 +28,10 @@
 		"lemuria-pbem/tools-lemuria": "~1.5.0"
 	},
 	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:sat-hub/cli-table.git"
+		},
 		{
 			"type": "vcs",
 			"url": "git@github.com:lemuria-pbem/engine-fantasya.git"

@@ -2,27 +2,26 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="Lemuria\Game\Fantasya\" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/engine-fantasya" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-magellan" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/lemuria" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/model-fantasya" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/twbs/bootstrap" />
+      <excludeFolder url="file://$MODULE_DIR$/storage" />
+      <excludeFolder url="file://$MODULE_DIR$/turn" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/engine-fantasya" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/lemuria" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/model-fantasya" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-magellan" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/renderer-text" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/scenario-fantasya" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/tools-lemuria" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/matthiasmullie/minify" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/matthiasmullie/path-converter" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/tools-lemuria" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/jc21/clitable" />
-      <excludeFolder url="file://$MODULE_DIR$/turn" />
-      <excludeFolder url="file://$MODULE_DIR$/storage" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/lemuria-pbem/scenario-fantasya" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sat-hub/cli-table" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twbs/bootstrap" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
