@@ -28,7 +28,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - „Trockenheit“ lässt Flüsse und Kanäle austrocknen
   - „Erdrutsch“ zerstört Straße
   - Erdbeben, Vulkanausbruch
-- Timer-Ereignisse aus INI-Datei laden
+- Administrationsereignisse auslagern
 
 ### Reiche
 

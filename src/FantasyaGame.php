@@ -11,6 +11,8 @@ use Lemuria\Engine\Fantasya\Turn\Options;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
+use Lemuria\Exception\LemuriaException;
+use Lemuria\Game\Fantasya\Event\TimerInjector;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Factory\BuilderTrait;
@@ -26,6 +28,8 @@ use Lemuria\Version\VersionFinder;
 class FantasyaGame extends FantasyaReport
 {
 	use BuilderTrait;
+
+	protected final const string TIMER_RESOURCE = __DIR__ . '/../resources/timer.php';
 
 	protected readonly LemuriaTurn $turn;
 
@@ -211,6 +215,14 @@ class FantasyaGame extends FantasyaReport
 	protected function createProgress(): ScenarioProgress {
 		$state    = State::getInstance();
 		$progress = new ScenarioProgress($state);
+
+		$timer = $progress->getTimer();
+		if (!$timer) {
+			throw new LemuriaException('No timer found in progress!');
+		}
+		$timedEvents = new TimerInjector(self::TIMER_RESOURCE);
+		$timedEvents->inject($timer);
+
 		$scenario = new DelegatedScenario($state);
 		return $progress->insertScenario($scenario);
 	}
