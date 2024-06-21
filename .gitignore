@@ -19,6 +19,7 @@
 /doc/Map
 
 /resources/NPC
+/resources/timer.php
 /resources/turn.debug.html
 
 /storage/config.json

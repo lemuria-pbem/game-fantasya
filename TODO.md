@@ -27,7 +27,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Umweltereignisse
   - „Trockenheit“ lässt Flüsse und Kanäle austrocknen
   - „Erdrutsch“ zerstört Straße
-- Timer-Ereignisse aus INI-Datei laden
+  - Erdbeben, Vulkanausbruch
+- Administrationsereignisse auslagern
 
 ### Reiche
 
@@ -63,7 +64,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Felsen für Stein (in Steinbruch)
   - Erz für Eisen (in Schmelze)
   - Argent für Silber (in Schmelze)
-  - Schwefel für Schwarzpulver (in Hochländern)
+  - Schwefel für Schwarzpulver (in Vulkanen)
   - Kohle für Schwarzpulver (in Hochländern)
   - Mithril als Bergbau-Fund (in Bergwerk)
 - neue Luxuswaren
@@ -110,6 +111,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Quelle aufladen (lädt eine Magische Quelle auf)
 - neue Tränke
   - Fackel (aus Holz, Öl; erzeugt Waffe)
+  - Schlaftrunk (lässt Wachen oder Bewaffnete im Gebäude/Schiff einschlafen, erlaubt Reise/Betreten)
   - Waffengift (für Kampf), benötigt Giftblase
 - Amulette
 
@@ -165,6 +167,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ### Umgebung/Welt
 
+- Vulkane
 - Kanäle analog zu Straßen modellieren (Gebäude „Kanal“ ersetzen)
 - Flüsse als natürliche Kanäle modellieren
   - Schleuse als Zollgebäude
