@@ -12,6 +12,7 @@ use Lemuria\Engine\Move\CommandFile;
 use Lemuria\EntitySet;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Exception\LemuriaException;
+use Lemuria\Game\Fantasya\Event\AdministratorInjector;
 use Lemuria\Game\Fantasya\Event\TimerInjector;
 use Lemuria\Game\Fantasya\Factory\FantasyaNamer;
 use Lemuria\Lemuria;
@@ -28,6 +29,8 @@ use Lemuria\Version\VersionFinder;
 class FantasyaGame extends FantasyaReport
 {
 	use BuilderTrait;
+
+	protected final const string ADMINISTRATOR_RESOURCE = __DIR__ . '/../resources/administrator.ini';
 
 	protected final const string TIMER_RESOURCE = __DIR__ . '/../resources/timer.php';
 
@@ -215,6 +218,13 @@ class FantasyaGame extends FantasyaReport
 	protected function createProgress(): ScenarioProgress {
 		$state    = State::getInstance();
 		$progress = new ScenarioProgress($state);
+
+		$administrator = $progress->getAdministrator();
+		if (!$administrator) {
+			throw new LemuriaException('No administrator found in progress!');
+		}
+		$administratorEvents = new AdministratorInjector(self::ADMINISTRATOR_RESOURCE);
+		$administratorEvents->inject($administrator);
 
 		$timer = $progress->getTimer();
 		if (!$timer) {
