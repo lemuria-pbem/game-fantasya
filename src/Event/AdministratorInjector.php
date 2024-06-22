@@ -10,7 +10,7 @@ use Lemuria\Storage\Ini\Section;
 use Lemuria\Storage\Ini\SectionList;
 use Lemuria\Storage\IniProvider;
 
-final readonly class AdministratorInjector
+final class AdministratorInjector
 {
 	use ReflectionTrait;
 
