@@ -1,5 +1,7 @@
 #!/bin/sh
 
+ADMIN_FILE=resources/administrator.ini
+TIMER_FILE=resources/timer.php
 NPC_SCRIPTS=resources/NPC
 SERVER=host:path/to/game-fantasya
 ROUND=$(grep '"round"' storage/config.local.json | cut -d ' ' -f 2 | cut -d ',' -f 1)
@@ -25,6 +27,7 @@ help() {
 
 uploadScripts() {
 	echo "Übertrage NPC-Skripte..."
+	rsync -avz $ADMIN_FILE $TIMER_FILE $SERVER/resources/
 	rsync -avz $NPC_SCRIPTS/ $SERVER/storage/scripts/
 	exit 0
 }
