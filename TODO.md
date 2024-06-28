@@ -54,7 +54,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 ### Handel und Wirtschaft
 
 - Silber für Unterhalt mit Nahrung ersetzen
-- Rohstoffe müssen zuerst erkundet werden (Prospektion)
+- Rohstoffe müssen zuerst erkundet werden (Prospektion mittels Bergbau)
 - neue Rohstoffe
   - Kohle als Hilfsstoff für Schmelze
 - Rohstoffe als Vorstufe der Weiterverarbeitung einführen
@@ -96,8 +96,12 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Kampfelch
   - Kanone (für Schiffe)
 - Taktik ermöglicht Strategien im Kampf, STRATEGIE
-- Spionage + Tarnung ermöglicht Attentate auf Einzelpersonen
+- Spionage + Tarnung nutzen
+  - Eindringen in befestigte Gebäude für Angriff
+  - Attentate auf Einzelpersonen
 - Effekt "Vergiftung" durch Monster wie Spinnen oder Skorpione oder Waffen
+- Gebäudekampf: Eindringen in unbefestigte Gebäude ermöglichen
+  - Abteilungsgröße durch freien Platz beschränkt, mindestens ein Kämpfer
 - Seekampf/Piraterie
   - VERSENKEN (Schiff vor Entern bewahren)
   - EROBERN (fremden Hafen einnehmen)
@@ -132,6 +136,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Quest-Auftraggeber
 - Lehrmeister und Spezialisten
 - Prospektoren für die Rohstoffsuche
+- Gefangene können nicht besucht werden
 - BESUCHEN <Einheit> <Thema> für Informationsauskunft
   - NPC merken sich Besucher, auf Nachfrage mit Thema Begegnung erzählen
 
