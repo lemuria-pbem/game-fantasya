@@ -27,7 +27,7 @@ help() {
 
 uploadScripts() {
 	echo "Übertrage NPC-Skripte..."
-	rsync -avz $ADMIN_FILE $TIMER_FILE $SERVER/resources/
+	scp $ADMIN_FILE $TIMER_FILE $SERVER/resources/
 	rsync -avz $NPC_SCRIPTS/ $SERVER/storage/scripts/
 	exit 0
 }

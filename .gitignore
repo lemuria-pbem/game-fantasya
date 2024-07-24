@@ -19,6 +19,7 @@
 /doc/Map
 
 /resources/NPC
+/resources/NPC_archive
 /resources/administrator.ini
 /resources/timer.php
 /resources/turn.debug.html

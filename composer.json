@@ -2,7 +2,7 @@
 	"name": "lemuria-pbem/game-fantasya",
 	"description": "This is Lemuria, the new Fantasya pbem game.",
 	"type": "library",
-	"keywords": ["atlantis", "eressea", "fantasy", "fantasya", "game", "lemuria", "pbem", "pbm", "pbm", "rpg", "strategy", "world"],
+	"keywords": ["atlantis", "eressea", "fantasy", "fantasya", "game", "lemuria", "pbem", "pbm", "rpg", "strategy", "world"],
 	"license": "GPL-3.0",
 	"authors": [
 		{
@@ -10,8 +10,8 @@
 			"email": "lemuria@online.de"
 		}
 	],
-	"version": "1.5.20",
-	"time": "2024-07-15",
+	"version": "1.5.21",
+	"time": "2024-07-24",
 
 	"require": {
 		"php": "~8.3",
