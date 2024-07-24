@@ -208,6 +208,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - TRANSPORTIEREN
   - für schnelle Einheitentransporte mit Fuhrwerken
   - für Nekromanten: beschworene Untote mitnehmen
+- Aktivitätskapazität einführen - unterschiedliche Teilzeit-Aktivitäten erlauben
 - Textreport im Markdown-Format
 - Report im XML-Format für Fanalytics³
 
