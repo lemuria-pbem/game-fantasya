@@ -1,9 +1,11 @@
 etc/images/icons/akropolis.gif
+etc/images/icons/alchemistenkueche.gif
 etc/images/icons/baer.gif
 etc/images/icons/baumhirte.gif
 etc/images/icons/baustelle.gif
 etc/images/icons/elefant.gif
 etc/images/icons/forsthaus.gif
+etc/images/icons/gewaechshaus.gif
 etc/images/icons/ghoul.gif
 etc/images/icons/greifenzucht.gif
 etc/images/icons/hoehle.gif
@@ -42,11 +44,13 @@ etc/images/icons/items/verbogene hellebarde.gif
 etc/images/icons/items/wolfsfell.gif
 etc/images/icons/items/zauberbuch.gif
 etc/images/icons/items/zweihaender.gif
+etc/images/icons/jagdhuette.gif
 etc/images/icons/juwelierskunst.gif
 etc/images/icons/kamel.gif
 etc/images/icons/katapultschiessen.gif
 etc/images/icons/kobold.gif
 etc/images/icons/krake.gif
+etc/images/icons/kraeuterhuette.gif
 etc/images/icons/megapolis.gif
 etc/images/icons/mine.gif
 etc/images/icons/oase.gif
