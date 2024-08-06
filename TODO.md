@@ -161,6 +161,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 ### Reisen und Seefahrt
 
 - Gepanzerte Schiffe, Eisenschiffe, Dampfmaschine
+- Fliegende Einheiten können auf Schiffen landen
+- Leuchttürme erhöhen Geschwindigkeit von Schiffen (analog Straßen)
 
 ### Statistik
 
