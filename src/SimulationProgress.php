@@ -7,10 +7,15 @@ use Lemuria\Engine\Fantasya\Event\Simulation\Maintenance;
 use Lemuria\Engine\Fantasya\Event\Simulation\Support;
 use Lemuria\Engine\Fantasya\Factory\DefaultProgress;
 use Lemuria\Engine\Fantasya\State;
+use Lemuria\Game\Fantasya\Event\UnicumRemovalEvent;
 
 final class SimulationProgress extends DefaultProgress
 {
-	public final const array EVENTS = [Maintenance::class, Support::class, Layabout::class];
+	public final const array EVENTS = [
+		UnicumRemovalEvent::class,
+		Maintenance::class,
+		Support::class, Layabout::class
+	];
 
 	public function __construct(State $state) {
 		foreach (self::EVENTS as $event) {
