@@ -35,7 +35,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Stationierung von TK in den Außenposten
 - Zwischenlagerung der Waren in den Außenposten
 - Ernte durch Fremdeinheiten verbieten
-- Reich an andere Partei übergeben
 
 ### Gebäude
 
