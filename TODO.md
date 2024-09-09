@@ -4,9 +4,12 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Fernkampf-Limit optimieren
+- Kommando zum Neuerstellen eines einzelnen Parteireports
 - Kampfzauber (Vorbereitung) trotz Friedenslied
 - Kampffortsetzung (nur Magie) ohne Kämpfer
 - Kampfzauber-Meldung stoppen, wenn Aura fehlt
+- MACHEN Temp erzeugt zu hohe Nummern
 - …
 
 ## Ideen
