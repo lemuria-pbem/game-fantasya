@@ -9,7 +9,11 @@ require realpath(__DIR__ . '/../vendor/autoload.php');
 putenv(Profiler::LEMURIA_ZERO_HOUR . '=' . microtime(true));
 
 $fantasya = new FantasyaReport();
-$archives = $fantasya->init()->createReports();
+$fantasya->init();
+if ($argc >= 2) {
+	$fantasya->only($argv[1]);
+}
+$archives = $fantasya->createReports();
 foreach ($archives as $archive) {
 	echo $archive . PHP_EOL;
 }
