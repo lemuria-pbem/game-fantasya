@@ -13,6 +13,7 @@ use Lemuria\Engine\Message\Filter\CompositeFilter;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Game\Fantasya\Renderer\Magellan\FantasyaHeader;
+use Lemuria\Id;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
@@ -42,6 +43,8 @@ class FantasyaReport
 	protected int $nextRound;
 
 	protected array $received = [];
+
+	protected array $parties = [];
 
 	protected readonly bool $profilingEnabled;
 
@@ -83,6 +86,11 @@ class FantasyaReport
 		return $this;
 	}
 
+	public function only(string $party): static {
+		$this->parties[] = Party::get(Id::fromId($party));
+		return $this;
+	}
+
 	public function createReports(): static {
 		$directory = realpath($this->storage . '/turn');
 		if (!$directory) {
@@ -95,7 +103,11 @@ class FantasyaReport
 
 		$p          = 0;
 		$hasVersion = false;
-		foreach (Party::all() as $party) {
+		if (empty($this->parties)) {
+			$this->parties = Party::all();
+		}
+
+		foreach ($this->parties as $party) {
 			if (!$this->generateReportFor($party)) {
 				continue;
 			}
