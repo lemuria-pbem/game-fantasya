@@ -4,6 +4,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Lehrer-Auftrag soll von gleicher Partei übernommen werden können
 - Kampfzauber (Vorbereitung) trotz Friedenslied
 - Kampffortsetzung (nur Magie) ohne Kämpfer
 - Kampfzauber-Meldung stoppen, wenn Aura fehlt
