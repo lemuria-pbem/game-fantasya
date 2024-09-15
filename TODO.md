@@ -4,7 +4,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Lehrer-Auftrag soll von gleicher Partei übernommen werden können
 - Kampfzauber (Vorbereitung) trotz Friedenslied
 - Kampffortsetzung (nur Magie) ohne Kämpfer
 - Kampfzauber-Meldung stoppen, wenn Aura fehlt
@@ -33,6 +32,15 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - „Trockenheit“ lässt Flüsse und Kanäle austrocknen
   - „Erdrutsch“ zerstört Straße
   - Erdbeben, Vulkanausbruch
+
+### Parteien
+
+- BANNER erweitern, um verschiedene Parteibanner zu definieren
+- Banner auf Gebäuden und Schiffen hissen
+  - Durchreisende und Leuchttürme sehen Banner statt Parteinummer
+- Einheiten sammeln Banner anderer Parteien bei Begegnungen
+- Banner-Grafiken für HTML-Report hinterlegen
+  - Spieler können Grafiken für eigene Banner hochladen
 
 ### Reiche
 
@@ -197,6 +205,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
     - Lehren/Lernen
     - Produktionsbefehl
     - Reisebefehl
+  - Möglichkeit zur Stornierung von Befehlen für NPCs
 - Refactoring
   - Reassignment-Methoden spezifischer benennen (Kollision)
   - Konzept von Entity mit Singleton-Logik vereinheitlichen (Unikate + Quests)
@@ -210,6 +219,10 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - NUMMER am Anfang auswerten, um neue IDs in Befehlsvorlagen zu verwenden
     - Globaler ID-Mapper für Engine und Scenario
     - ID in NPC-Befehlen für neu erstellte Einheiten anpassen
+- Spielleitungsübersicht
+  - Verwendung der Befehle - neue Features besser überprüfen
+  - Parteigröße vergleichen
+  - Welt-Situation
 - Simulationsausgabe und -filterung verbessern
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN
