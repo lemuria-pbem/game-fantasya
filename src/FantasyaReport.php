@@ -32,9 +32,9 @@ use Lemuria\Version\VersionFinder;
 
 class FantasyaReport
 {
-	private const HTML_WRAPPER = __DIR__ . '/../resources/turn.html';
+	private const string HTML_WRAPPER = __DIR__ . '/../resources/turn.html';
 
-	private const HTML_WRAPPER_DEBUG = __DIR__ . '/../resources/turn.debug.html';
+	private const string HTML_WRAPPER_DEBUG = __DIR__ . '/../resources/turn.debug.html';
 
 	protected readonly string $storage;
 

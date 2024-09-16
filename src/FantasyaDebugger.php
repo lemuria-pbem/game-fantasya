@@ -26,6 +26,7 @@ class FantasyaDebugger extends FantasyaGame
 		parent::init();
 		Lemuria::Log()->debug('We are in debugging mode using SelectiveCherryPicker.');
 		if (function_exists('modifyAnythingForDebugging')) {
+			/** @noinspection PhpUndefinedFunctionInspection */
 			modifyAnythingForDebugging();
 		}
 		return $this;

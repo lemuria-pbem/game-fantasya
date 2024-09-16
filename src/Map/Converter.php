@@ -45,21 +45,27 @@ class Converter
 {
 	use BuilderTrait;
 
-	protected const WORKPLACES = 10000;
+	protected const int WORKPLACES = 10000;
 
-	protected const MAX_SILVER = 6 * 3 * 10;
+	protected const int MAX_SILVER = 6 * 3 * 10;
 
-	protected const MAX_STONE = 130;
+	protected const int MAX_STONE = 130;
 
-	protected const MAX_IRON = 110;
+	protected const int MAX_IRON = 110;
 
-	protected const MAX_GRIFFINS = 30;
+	protected const int MAX_GRIFFINS = 30;
 
-	protected const MIN_RESOURCES = 0.33;
+	protected const float MIN_RESOURCES = 0.33;
 
-	protected const STONE_FACTOR = [Desert::class => 0.13, Highland::class => 0.9, Mountain::class => 1.0, Glacier::class => 0.45];
+	/**
+	 * @type array<string, float>
+	 */
+	protected const array STONE_FACTOR = [Desert::class => 0.13, Highland::class => 0.9, Mountain::class => 1.0, Glacier::class => 0.45];
 
-	protected const IRON_FACTOR = [Highland::class => 1.0, Mountain::class => 0.9, Glacier::class => 0.35];
+	/**
+	 * @type array<string, float>
+	 */
+	protected const array IRON_FACTOR = [Highland::class => 1.0, Mountain::class => 0.9, Glacier::class => 0.35];
 
 	protected readonly Dictionary $dictionary;
 

@@ -7,15 +7,15 @@ use Lemuria\Renderer\Magellan\MailTo;
 
 class FantasyaHeader implements Header, MailTo
 {
-	private const GAME = 'Lemuria';
+	private const string GAME = 'Lemuria';
 
-	private const MAX_UNITS = 1000;
+	private const int MAX_UNITS = 1000;
 
-	private const ERA = 1;
+	private const int ERA = 1;
 
-	private const COMMAND = 'Lemuria Befehle';
+	private const string COMMAND = 'Lemuria Befehle';
 
-	private const ADDRESS = 'lemuria@fantasya-pbem.de';
+	private const string ADDRESS = 'lemuria@fantasya-pbem.de';
 
 	public function Game(): string {
 		return self::GAME;

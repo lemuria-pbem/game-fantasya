@@ -17,6 +17,9 @@ final class SimulationProgress extends DefaultProgress
 		Support::class, Layabout::class
 	];
 
+	/**
+	 * @noinspection PhpMissingParentConstructorInspection
+	 */
 	public function __construct(State $state) {
 		foreach (self::EVENTS as $event) {
 			$this->add(new $event($state));

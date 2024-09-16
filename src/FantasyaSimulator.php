@@ -23,11 +23,14 @@ use Lemuria\Profiler;
 
 final class FantasyaSimulator
 {
-	private const LEVEL = [Result::Error->value => 'F', Result::Event->value => 'E', Result::Failure->value => '!', Result::Success->value => ' '];
+	/**
+	 * @type array<string, string>
+	 */
+	private const array LEVEL = [Result::Error->value => 'F', Result::Event->value => 'E', Result::Failure->value => '!', Result::Success->value => ' '];
 
-	private const UNDETERMINED = 'S';
+	private const string UNDETERMINED = 'S';
 
-	private const LOG_FILE = 'simulation.log';
+	private const string LOG_FILE = 'simulation.log';
 
 	private readonly FantasyaConfig $config;
 
