@@ -18,7 +18,7 @@ class FantasyaNamer extends DefaultNamer
 {
 	use BuilderTrait;
 
-	protected const STORAGE = __DIR__ . '/../../storage/names';
+	protected const string STORAGE = __DIR__ . '/../../storage/names';
 
 	/**
 	 * @var array<string, array<string>>

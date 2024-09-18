@@ -50,5 +50,7 @@
 
 /web/css/report.min.css
 /web/js/report.min.js
+/web/css/index-*.min.css
 /web/css/report-*.min.css
+/web/js/index-*.min.js
 /web/js/report-*.min.js

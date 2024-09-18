@@ -91,4 +91,12 @@ class ConvertedMap extends BaseMap
 	protected function getAlternativeCoordinates(Location $location, Direction $direction): array {
 		throw new LemuriaException('Not implemented.');
 	}
+
+	protected function calculate2DPosition(float &$x, float &$y, Direction $direction): float {
+		throw new LemuriaException('Not implemented.');
+	}
+
+	protected function calculateDirectionFrom2D(float $x, float $y): Direction {
+		throw new LemuriaException('Not implemented.');
+	}
 }

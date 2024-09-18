@@ -10,8 +10,8 @@
 			"email": "lemuria@online.de"
 		}
 	],
-	"version": "1.5.27",
-	"time": "2024-09-10",
+	"version": "1.5.28",
+	"time": "2024-09-18",
 
 	"require": {
 		"php": "~8.3",
@@ -74,19 +74,27 @@
 	},
 
 	"scripts": {
+		"compile-index-css": "scripts/compile-index-scss.sh",
 		"compile-report-css": "scripts/compile-report-scss.sh",
+		"minify-index-js": "scripts/minify-index-js.sh",
 		"minify-report-js": "scripts/minify-report-js.sh",
 		"post-install-cmd": [
+			"@compile-index-css",
 			"@compile-report-css",
+			"@minify-index-js",
 			"@minify-report-js"
 		],
 		"post-update-cmd": [
+			"@compile-index-css",
 			"@compile-report-css",
+			"@minify-index-js",
 			"@minify-report-js"
 		]
 	},
 	"scripts-descriptions": {
+		"compile-index-css": "Compile Bootstrap and index.scss to index.min.css.",
 		"compile-report-css": "Compile Bootstrap and style.scss to report.min.css.",
+		"minify-index-js": "Concatenate and minify Bootstrap and index.js to index.min.js.",
 		"minify-report-js": "Concatenate and minify Bootstrap and script.js to report.min.js."
 	}
 }
