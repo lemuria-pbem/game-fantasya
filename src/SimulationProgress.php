@@ -11,6 +11,9 @@ use Lemuria\Game\Fantasya\Event\UnicumRemovalEvent;
 
 final class SimulationProgress extends DefaultProgress
 {
+	/**
+	 * @type array<string>
+	 */
 	public final const array EVENTS = [
 		UnicumRemovalEvent::class,
 		Maintenance::class,

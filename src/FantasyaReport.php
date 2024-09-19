@@ -42,14 +42,23 @@ class FantasyaReport
 
 	protected int $nextRound;
 
+	/**
+	 * @var array<int, int>
+	 */
 	protected array $received = [];
 
+	/**
+	 * @var array<Party>
+	 */
 	protected array $parties = [];
 
 	protected readonly bool $profilingEnabled;
 
 	protected readonly ThrowOption $throwExceptions;
 
+	/**
+	 * @var array<string, true>
+	 */
 	private readonly array $debugParties;
 
 	public function __construct() {

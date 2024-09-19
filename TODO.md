@@ -226,6 +226,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Parteigröße vergleichen
   - Welt-Situation
 - Simulationsausgabe und -filterung verbessern
+- BEWACHEN mit mehreren Richtungen teilt Einheit auf
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN
   - für schnelle Einheitentransporte mit Fuhrwerken
