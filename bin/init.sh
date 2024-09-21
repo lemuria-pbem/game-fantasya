@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GAME=lemuria
-BASE_DIR=/home/fantasya/games/$GAME
+BASE_DIR=/home/lemuria/games/$GAME
 BIN_DIR=$BASE_DIR/game-fantasya/bin
 TURN=0
 LOG_DIR=log

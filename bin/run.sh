@@ -3,7 +3,7 @@
 export LEMURIA_ZERO_HOUR=`date +%s.%N`
 
 GAME=lemuria
-BASE_DIR=/home/fantasya/games/$GAME
+BASE_DIR=/home/lemuria/games/$GAME
 SRC_DIR=$BASE_DIR/game-fantasya
 BIN_DIR=$SRC_DIR/bin
 LAST_TURN=`php $BIN_DIR/last-turn.php`
