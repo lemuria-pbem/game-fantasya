@@ -4,10 +4,12 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Notice: tempnam(): file created in the system's temporary directory (website/src/Service/TempDirService.php:22)
 - Kampfzauber (Vorbereitung) trotz Friedenslied
 - Kampffortsetzung (nur Magie) ohne Kämpfer
 - Kampfzauber-Meldung stoppen, wenn Aura fehlt
 - Übersichtsseite für HTML-Auswertung
+- Ersetzen der Zugriffe zwischen Webseite und Spiel durch APIs
 - MACHEN Temp erzeugt zu hohe Nummern
 - …
 
