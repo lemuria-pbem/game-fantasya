@@ -7,6 +7,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - Kampfzauber (Vorbereitung) trotz Friedenslied
 - Kampffortsetzung (nur Magie) ohne Kämpfer
 - Kampfzauber-Meldung stoppen, wenn Aura fehlt
+- Mehrfachregistrierung eines Singleton prüfen
+- Fehlermeldung für NPCs, die nicht gereist sind
 - Übersichtsseite für HTML-Auswertung
 - MACHEN Temp erzeugt zu hohe Nummern
 - …
@@ -211,7 +213,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Reassignment-Methoden spezifischer benennen (Kollision)
   - Konzept von Entity mit Singleton-Logik vereinheitlichen (Unikate + Quests)
     - in lemuria-pbem/lemuria formalisieren
-  - Event-Queues einführen, allgemein mehr Observer-Patterns
+  - Event-Dispatcher einführen, allgemein mehr Observer-Patterns
+    - PHP-Attribut zur Kennzeichnung, welche Events erzeugt werden
   - Befehlsstruktur vereinheitlichen
     - Voraussetzungen und Bedingungen für die Ausführung
     - Trigger und Folge-Events
@@ -225,10 +228,12 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - Parteigröße vergleichen
   - Welt-Situation
 - Simulationsausgabe und -filterung verbessern
+- BEWACHEN mit mehreren Richtungen teilt Einheit auf
 - VORLAGE-Variante für Rotation von Befehlen
 - TRANSPORTIEREN
   - für schnelle Einheitentransporte mit Fuhrwerken
   - für Nekromanten: beschworene Untote mitnehmen
+- Ersetzen der Zugriffe zwischen Webseite und Spiel durch APIs
 - Aktivitätskapazität einführen - unterschiedliche Teilzeit-Aktivitäten erlauben
 - Textreport im Markdown-Format
 - Report im XML-Format für Fanalytics³

@@ -4,6 +4,7 @@ namespace Lemuria\Game\Fantasya;
 
 use Lemuria\Engine\Fantasya\Combat\BattleLog;
 use Lemuria\Exception\LemuriaException;
+use Lemuria\Game\Fantasya\Renderer\IndexWriter;
 use Lemuria\Model\Fantasya\Unicum;
 use Lemuria\Renderer\Magellan\MagellanWriter;
 use Lemuria\Renderer\PathFactory;
@@ -61,6 +62,9 @@ class FantasyaPathFactory implements PathFactory
 		if ($writer instanceof UnicumWriter && $object instanceof Unicum) {
 			$fileName = $this->name . '.' . $object->Composition() . '_' . $object->Id();
 			return $this->directory . DIRECTORY_SEPARATOR . $fileName . '.txt';
+		}
+		if ($writer instanceof IndexWriter) {
+			return $this->directory . DIRECTORY_SEPARATOR . 'index.html';
 		}
 		throw new LemuriaException('Unsupported renderer: ' . $writer::class);
 	}
