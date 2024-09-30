@@ -8,6 +8,7 @@ use Lemuria\Exception\FileException;
 use Lemuria\Exception\FileNotFoundException;
 use Lemuria\Exception\LemuriaException;
 use Lemuria\Game\Fantasya\FantasyaPathFactory;
+use Lemuria\Game\Fantasya\Renderer\Index\ReportCollection;
 use Lemuria\Id;
 use Lemuria\Renderer\PathFactory;
 use Lemuria\Renderer\Writer;
@@ -54,6 +55,11 @@ class IndexWriter implements Writer
 
 	public function getVersion(): VersionTag {
 		return $this->version;
+	}
+
+	public function setReportCollection(ReportCollection $collection): static {
+		$this->view->setReportCollection($collection);
+		return $this;
 	}
 
 	public function setWrapperFrom(string $pathToWrapper): static {

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/*! Lemuria 1.5 */
+
+@import "../../vendor/twbs/bootstrap/scss/functions";
+@import "../../vendor/twbs/bootstrap/scss/variables";
+@import "../../vendor/twbs/bootstrap/scss/mixins/breakpoints";
+
+body {
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.badge.font-monospace {
+  padding: 0.4rem 0.5rem 0.2rem;
+}
+
+#administrator-index {
+  .row > div {
+    text-wrap: balance;
+    .party {
+      font-weight: bold;
+    }
+    .no-reports {
+      opacity: 0.4;
+    }
+  }
+}
