@@ -2,7 +2,6 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
-use Lemuria\Game\Fantasya\Renderer\Index\ReportCollection;
 use function Lemuria\getClass;
 use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\Message\Filter\PartyAnnouncementFilter;
@@ -13,7 +12,7 @@ use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\CompositeFilter;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Exception\LemuriaException;
-use Lemuria\Game\Fantasya\Renderer\IndexWriter;
+use Lemuria\Game\Fantasya\Renderer\Index\ReportCollection;
 use Lemuria\Game\Fantasya\Renderer\Magellan\FantasyaHeader;
 use Lemuria\Id;
 use Lemuria\Lemuria;
