@@ -70,6 +70,7 @@ final class FantasyaSimulator
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaSimulator_add');
 		}
+		$turn->addScore(new SimulationScore($this->party));
 		$turn->addProgress(new SimulationProgress(State::getInstance()))->evaluate();
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaSimulator_simulate');

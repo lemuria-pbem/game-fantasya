@@ -1,8 +1,5 @@
 #!/bin/sh
 
-echo "Index CSS generation skipped."
-exit
-
 bootstrap=vendor/twbs/bootstrap/dist/css/bootstrap.min.css
 source=web/css/index.scss
 version=$(php scripts/web-version.php)

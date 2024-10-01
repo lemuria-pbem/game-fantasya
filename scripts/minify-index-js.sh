@@ -1,8 +1,5 @@
 #!/bin/sh
 
-echo "Index JS generation skipped."
-exit
-
 bootstrap=vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js
 source=web/js/index.js
 version=$(php scripts/web-version.php)

@@ -4,13 +4,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Kampfzauber (Vorbereitung) trotz Friedenslied
-- Kampffortsetzung (nur Magie) ohne Kämpfer
-- Kampfzauber-Meldung stoppen, wenn Aura fehlt
-- Mehrfachregistrierung eines Singleton prüfen
-- Fehlermeldung für NPCs, die nicht gereist sind
-- Übersichtsseite für HTML-Auswertung
-- MACHEN Temp erzeugt zu hohe Nummern
 - …
 
 ## Ideen
@@ -121,6 +114,8 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - VERSENKEN (Schiff vor Entern bewahren)
   - EROBERN (fremden Hafen einnehmen)
 - SABOTIEREN (Spion versenkt Schiff)
+- Kampffortsetzung (nur Magie) ohne Kämpfer - Kampfzauber-Anwendbarkeit in jeder Runde prüfen
+- Kampfzauber-Meldung stoppen, wenn Aura fehlt - Auraverlauf festhalten
 
 ### Magie und Alchemie
 
@@ -223,6 +218,10 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
   - NUMMER am Anfang auswerten, um neue IDs in Befehlsvorlagen zu verwenden
     - Globaler ID-Mapper für Engine und Scenario
     - ID in NPC-Befehlen für neu erstellte Einheiten anpassen
+  - NPC-Szenarios allgemein verbessern
+    - Abhängigkeiten durch Event-Dispatcher reduzieren
+    - Unterbrechen der Aktionskette ermöglichen (z.B. Markt/Schiffspassage)
+    - Fehlermeldung für NPCs, die nicht gereist sind
 - Spielleitungsübersicht
   - Verwendung der Befehle - neue Features besser überprüfen
   - Parteigröße vergleichen

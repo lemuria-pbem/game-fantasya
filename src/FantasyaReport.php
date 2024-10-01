@@ -2,7 +2,6 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya;
 
-use Lemuria\Game\Fantasya\Renderer\Index\ReportCollection;
 use function Lemuria\getClass;
 use Lemuria\Engine\Fantasya\Factory\PartyUnica;
 use Lemuria\Engine\Fantasya\Message\Filter\PartyAnnouncementFilter;
@@ -13,6 +12,7 @@ use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Filter\CompositeFilter;
 use Lemuria\Exception\DirectoryNotFoundException;
 use Lemuria\Exception\LemuriaException;
+use Lemuria\Game\Fantasya\Renderer\Index\ReportCollection;
 use Lemuria\Game\Fantasya\Renderer\IndexWriter;
 use Lemuria\Game\Fantasya\Renderer\Magellan\FantasyaHeader;
 use Lemuria\Id;
@@ -133,7 +133,7 @@ class FantasyaReport
 			$isPlayer = $party->Type() === Type::Player;
 			$filter   = $this->getMessageFilter($party);
 			$pathFactory->setPrefix((string)$id);
-			$collection->register($party);
+			$collection->register($party, $received);
 			Lemuria::Log()->debug('Using ' . getClass($filter) . ' for report messages of Party ' . $id . '.');
 
 			$writer = new MagellanWriter($pathFactory);
@@ -142,8 +142,8 @@ class FantasyaReport
 			}
 			if ($isPlayer) {
 				$writer->setHeader($header)->setFilter($filter)->render($id);
+				$collection->add($writer, $party); //TODO
 			}
-			$collection->add($writer, $party); //TODO
 
 			$writer = new HtmlWriter($pathFactory);
 			if (!$hasVersion) {
@@ -180,7 +180,9 @@ class FantasyaReport
 
 			$writer = new BattleLogWriter($pathFactory);
 			$writer->render($id);
-			//TODO Add battle logs to index.
+			foreach (Lemuria::Hostilities()->findFor($party) as $battleLog) {
+				$collection->add($writer, $battleLog); //TODO
+			}
 
 			$p++;
 			$hasVersion = true;
@@ -189,9 +191,12 @@ class FantasyaReport
 			}
 		}
 
-		//TODO Übersicht aktivieren.
-		//$writer = new IndexWriter($pathFactory);
-		//$writer->setWrapperFrom(self::INDEX_WRAPPER)->render();
+		$writer = new IndexWriter($pathFactory);
+		$writer->setReportCollection($collection)->setWrapperFrom(self::INDEX_WRAPPER)->render();
+		if ($this->profilingEnabled) {
+			Lemuria::Profiler()->recordAndLog('FantasyaReport_index');
+		}
+
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');
 
 		return $this;
