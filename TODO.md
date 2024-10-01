@@ -4,8 +4,6 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
-- Übersichtsseite für HTML-Auswertung
-- MACHEN Temp erzeugt zu hohe Nummern
 - …
 
 ## Ideen
