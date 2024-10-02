@@ -15,7 +15,6 @@ use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Result;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
-
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party\Census;
 use Lemuria\Model\Fantasya\Party;
@@ -48,7 +47,7 @@ final class FantasyaSimulator
 		$this->profilingEnabled = $this->config[FantasyaConfig::ENABLE_PROFILING];
 		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
 		if ($this->profilingEnabled) {
-			Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
 		}
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
 		Lemuria::load();

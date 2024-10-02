@@ -57,7 +57,7 @@ class FantasyaGame extends FantasyaReport
 		Lemuria::init($this->config);
 		Lemuria::Log()->debug('Turn starts (' . $gameVersion . ').', ['config' => $this->config]);
 		if ($this->profilingEnabled) {
-			Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
 		}
 		Lemuria::load();
 		if ($this->profilingEnabled) {

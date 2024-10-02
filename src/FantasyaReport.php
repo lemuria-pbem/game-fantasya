@@ -83,7 +83,7 @@ class FantasyaReport
 	public function init(): static {
 		Lemuria::init($this->config);
 		if ($this->profilingEnabled) {
-			Lemuria::Log()->debug('Profiler [' . Profiler::RECORD_ZERO . ']: ' . Lemuria::Profiler()->getRecord(Profiler::RECORD_ZERO));
+			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
 		}
 
 		Lemuria::load();
