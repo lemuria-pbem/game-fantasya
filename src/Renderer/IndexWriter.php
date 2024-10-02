@@ -3,6 +3,8 @@ declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya\Renderer;
 
 use function Lemuria\getClass;
+use Lemuria\Dispatcher\Attribute\Emit;
+use Lemuria\Dispatcher\Event\Renderer\Written;
 use Lemuria\Engine\Message\Filter;
 use Lemuria\Exception\FileException;
 use Lemuria\Exception\FileNotFoundException;
@@ -10,6 +12,7 @@ use Lemuria\Exception\LemuriaException;
 use Lemuria\Game\Fantasya\FantasyaPathFactory;
 use Lemuria\Game\Fantasya\Renderer\Index\ReportCollection;
 use Lemuria\Id;
+use Lemuria\Lemuria;
 use Lemuria\Renderer\PathFactory;
 use Lemuria\Renderer\Writer;
 use Lemuria\Version\VersionFinder;
@@ -42,6 +45,7 @@ class IndexWriter implements Writer
 		return $this;
 	}
 
+	#[Emit(Written::class)]
 	public function render(Id $entity = null): static {
 		$report = $this->view->generate();
 		$report = str_replace(self::BODY, $report, $this->wrapper);
@@ -49,6 +53,7 @@ class IndexWriter implements Writer
 		if (!file_put_contents($path, $report)) {
 			throw new \RuntimeException('Could not create report in ' . $path . '.');
 		}
+		Lemuria::Dispatcher()->dispatch(new Written($this, $entity ?? new Id(0), $path));
 
 		return $this;
 	}

@@ -2,13 +2,14 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya\Renderer\Index;
 
+use Lemuria\Dispatcher\Event\Renderer\Written;
 use Lemuria\Exception\LemuriaException;
+use Lemuria\Game\Fantasya\Renderer\IndexWriter;
 use Lemuria\Id;
+use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Gathering;
 use Lemuria\Model\Fantasya\Party;
 use Lemuria\Model\Fantasya\Party\Type;
-use Lemuria\Renderer\PathFactory;
-use Lemuria\Renderer\Writer;
 
 class ReportCollection
 {
@@ -19,7 +20,9 @@ class ReportCollection
 
 	protected Party $current;
 
-	public function __construct(protected readonly PathFactory $pathFactory) {
+	public function __construct(private readonly IndexWriter $writer) {
+		$event = new Written($writer->setReportCollection($this), new Id(0), '');
+		Lemuria::Register()->addListener($event, $this->onWritten(...));
 	}
 
 	public function Parties(): Gathering {
@@ -72,12 +75,15 @@ class ReportCollection
 		return $this;
 	}
 
-	/**
-	 * @todo Replace with event listener.
-	 */
-	public function add(Writer $writer, mixed $object = null): static {
-		$reports = $this->party[$this->current->Id()->Id()];
-		$reports->add(Report::fromWriter($writer), basename($this->pathFactory->getPath($writer, $object)));
+	private function onWritten(Written $event): static {
+		if ($event->writer instanceof IndexWriter) {
+			if ($event->writer === $this->writer) {
+				Lemuria::Register()->removeListener($event, $this->onWritten(...));
+			}
+		} else {
+			$reports = $this->party[$this->current->Id()->Id()];
+			$reports->add(Report::fromWriter($event->writer), basename($event->path));
+		}
 		return $this;
 	}
 }

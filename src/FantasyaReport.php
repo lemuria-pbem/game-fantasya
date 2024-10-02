@@ -115,7 +115,8 @@ class FantasyaReport
 		$pathFactory = new FantasyaPathFactory($directory);
 		$version     = Lemuria::Version();
 		$header      = new FantasyaHeader();
-		$collection  = new ReportCollection($pathFactory); //TODO Replace with collection listening to events.
+		$indexWriter = new IndexWriter($pathFactory);
+		$collection  = new ReportCollection($indexWriter);
 
 		$p          = 0;
 		$hasVersion = false;
@@ -142,7 +143,6 @@ class FantasyaReport
 			}
 			if ($isPlayer) {
 				$writer->setHeader($header)->setFilter($filter)->render($id);
-				$collection->add($writer, $party); //TODO
 			}
 
 			$writer = new HtmlWriter($pathFactory);
@@ -151,38 +151,29 @@ class FantasyaReport
 			}
 			$wrapper = new FileWrapper($this->getHtmlWrap());
 			$writer->add($wrapper->setWriter($writer)->setReceived($received))->setFilter($filter)->render($id);
-			$collection->add($writer, $party); //TODO
 
 			if ($isPlayer) {
 				$writer = new TextWriter($pathFactory);
 				$writer->setFilter($filter)->render($id);
-				$collection->add($writer, $party); //TODO
 				$writer = new OrderWriter($pathFactory);
 				$writer->render($id);
-				$collection->add($writer, $party); //TODO
 				if ($party->SpellBook()->count() > 0) {
 					$writer = new SpellBookWriter($pathFactory);
 					$writer->render($id);
-					$collection->add($writer, $party); //TODO
 				}
 				if ($party->HerbalBook()->count() > 0) {
 					$writer = new HerbalBookWriter($pathFactory);
 					$writer->render($id);
-					$collection->add($writer, $party); //TODO
 				}
 				$unica = new PartyUnica($party);
 				foreach ($unica->Treasury() as $unicum) {
 					$writer = new UnicumWriter($pathFactory);
 					$writer->setContext($unica)->render($unicum->Id());
-					$collection->add($writer, $unicum); //TODO
 				}
 			}
 
 			$writer = new BattleLogWriter($pathFactory);
 			$writer->render($id);
-			foreach (Lemuria::Hostilities()->findFor($party) as $battleLog) {
-				$collection->add($writer, $battleLog); //TODO
-			}
 
 			$p++;
 			$hasVersion = true;
@@ -191,8 +182,7 @@ class FantasyaReport
 			}
 		}
 
-		$writer = new IndexWriter($pathFactory);
-		$writer->setReportCollection($collection)->setWrapperFrom(self::INDEX_WRAPPER)->render();
+		$indexWriter->setWrapperFrom(self::INDEX_WRAPPER)->render();
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaReport_index');
 		}
