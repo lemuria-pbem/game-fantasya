@@ -4,6 +4,10 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 
 ## Fehler/Verbesserungen
 
+- Profiler
+  - FantasyaSimulator_init dauert fast 4 Sekunden
+  - LemuriaTurn_priority-99 dauert fast 20 Sekunden
+- Verwürfeln der Befehle in Simulation vermeiden
 - …
 
 ## Ideen
