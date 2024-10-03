@@ -24,6 +24,7 @@
 /resources/timer.php
 /resources/turn.debug.html
 
+/storage/cache/*.bin
 /storage/config.json
 /storage/config.local.json
 /storage/game/*.json

@@ -2,6 +2,9 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya\Simulation;
 
+use Lemuria\Cache\FastCache;
+use Lemuria\Dispatcher\Event\FastCache\Persisting;
+use Lemuria\Dispatcher\Event\FastCache\Restored;
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\Message\LemuriaMessage;
 use Lemuria\Engine\Fantasya\Message\Reliability;
@@ -30,7 +33,11 @@ final class FantasyaSimulator
 
 	private const string UNDETERMINED = 'S';
 
+	private const string CACHE_DIRECTORY = __DIR__ . '/../../storage/cache';
+
 	private const string LOG_FILE = 'simulation.log';
+
+	private static ?self $instance = null;
 
 	private readonly SimulationConfig $config;
 
@@ -40,6 +47,18 @@ final class FantasyaSimulator
 
 	private ?Party $party = null;
 
+	public static function boot(): self {
+		Lemuria::boot();
+		Lemuria::Register()->addListener(new Restored(new FastCache()), self::onRestored(...));
+		Lemuria::restoreFrom(self::CACHE_DIRECTORY);
+		if (!self::$instance) {
+			self::$instance = new self();
+			Lemuria::Register()->addListener(new Persisting(new FastCache()), self::onPersisting(...));
+			Lemuria::storeTo(self::CACHE_DIRECTORY);
+		}
+		return self::$instance;
+	}
+
 	public function __construct() {
 		$storage = realpath(__DIR__ . '/../../storage');
 		if (!$storage) {
@@ -48,6 +67,7 @@ final class FantasyaSimulator
 
 		$this->config           = new SimulationConfig($storage);
 		$this->profilingEnabled = $this->config[FantasyaConfig::ENABLE_PROFILING];
+
 		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
 		Lemuria::Profiler()->setEnabled($this->profilingEnabled);
 		if ($this->profilingEnabled) {
@@ -141,5 +161,13 @@ final class FantasyaSimulator
 			$options->setCherryPicker($cherryPicker->add($this->party));
 		}
 		return $options;
+	}
+
+	private static function onRestored(Restored $event): void {
+		self::$instance = $event->cache->get(__CLASS__);
+	}
+
+	private static function onPersisting(Persisting $event): void {
+		$event->cache->set(self::$instance);
 	}
 }
