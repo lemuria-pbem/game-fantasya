@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Game\Fantasya;
+namespace Lemuria\Game\Fantasya\Simulation;
 
 use Lemuria\Engine\Fantasya\Event\Layabout;
 use Lemuria\Engine\Fantasya\Event\Simulation\Maintenance;

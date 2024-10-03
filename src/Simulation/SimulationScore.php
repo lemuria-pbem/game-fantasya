@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Game\Fantasya;
+namespace Lemuria\Game\Fantasya\Simulation;
 
 use Lemuria\Engine\Fantasya\Effect;
 use Lemuria\Engine\Fantasya\Effect\AbstractPartyEffect;

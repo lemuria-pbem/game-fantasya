@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-namespace Lemuria\Game\Fantasya;
+namespace Lemuria\Game\Fantasya\Simulation;
 
 use Lemuria\Engine\Fantasya\LemuriaTurn;
 use Lemuria\Engine\Fantasya\Message\LemuriaMessage;
@@ -15,6 +15,7 @@ use Lemuria\Engine\Message\Filter\DebugFilter;
 use Lemuria\Engine\Message\Result;
 use Lemuria\Engine\Move\CommandFile;
 use Lemuria\Exception\DirectoryNotFoundException;
+use Lemuria\Game\Fantasya\FantasyaConfig;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party\Census;
 use Lemuria\Model\Fantasya\Party;
@@ -31,7 +32,7 @@ final class FantasyaSimulator
 
 	private const string LOG_FILE = 'simulation.log';
 
-	private readonly FantasyaConfig $config;
+	private readonly SimulationConfig $config;
 
 	private readonly Options $options;
 
@@ -40,12 +41,12 @@ final class FantasyaSimulator
 	private ?Party $party = null;
 
 	public function __construct() {
-		$storage = realpath(__DIR__ . '/../storage');
+		$storage = realpath(__DIR__ . '/../../storage');
 		if (!$storage) {
 			throw new DirectoryNotFoundException($storage);
 		}
 
-		$this->config           = new FantasyaConfig($storage);
+		$this->config           = new SimulationConfig($storage);
 		$this->profilingEnabled = $this->config[FantasyaConfig::ENABLE_PROFILING];
 		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
 		Lemuria::Profiler()->setEnabled($this->profilingEnabled);
