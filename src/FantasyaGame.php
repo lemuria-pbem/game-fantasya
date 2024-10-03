@@ -40,6 +40,8 @@ class FantasyaGame extends FantasyaReport
 
 	private readonly bool $debugBattles;
 
+	private readonly Monitor $monitor;
+
 	public function __construct() {
 		parent::__construct();
 		$this->round        = $this->nextRound++;
@@ -56,6 +58,8 @@ class FantasyaGame extends FantasyaReport
 
 		Lemuria::init($this->config);
 		Lemuria::Profiler()->setEnabled($this->profilingEnabled);
+		$this->monitor = new Monitor();
+
 		Lemuria::Log()->debug('Turn starts (' . $gameVersion . ').', ['config' => $this->config]);
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
