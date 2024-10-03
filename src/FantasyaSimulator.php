@@ -33,6 +33,8 @@ final class FantasyaSimulator
 
 	private readonly FantasyaConfig $config;
 
+	private readonly Options $options;
+
 	private readonly bool $profilingEnabled;
 
 	private ?Party $party = null;
@@ -49,7 +51,9 @@ final class FantasyaSimulator
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
 		}
+
 		Lemuria::Log()->debug('Loading Lemuria.', ['storage' => $storage]);
+		$this->options = $this->createOptions();
 		Lemuria::load();
 	}
 
@@ -64,7 +68,7 @@ final class FantasyaSimulator
 		}
 		Lemuria::Log()->debug('Simulating move.', ['move' => $move]);
 		Lemuria::Calendar()->nextRound();
-		$turn = new LemuriaTurn($this->createOptions());
+		$turn = new LemuriaTurn($this->options);
 		$turn->add($move);
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaSimulator_add');
