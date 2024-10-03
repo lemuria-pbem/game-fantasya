@@ -55,13 +55,14 @@ class FantasyaGame extends FantasyaReport
 		$gameVersion   = $versionFinder->get();
 
 		Lemuria::init($this->config);
+		Lemuria::Profiler()->setEnabled($this->profilingEnabled);
 		Lemuria::Log()->debug('Turn starts (' . $gameVersion . ').', ['config' => $this->config]);
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
 		}
 		Lemuria::load();
 		if ($this->profilingEnabled) {
-			Lemuria::Profiler()->recordAndLog('FantasyaGame_load');
+			Lemuria::Profiler()->sum()->recordAndLog('FantasyaGame_load')->resetSum();
 		}
 		Lemuria::Log()->debug('The world has ' . count(Region::all()) . ' regions.');
 		Lemuria::Log()->debug('Evaluating round ' . $this->nextRound . '.', ['calendar' => Lemuria::Calendar()]);
@@ -101,7 +102,7 @@ class FantasyaGame extends FantasyaReport
 
 		Lemuria::Scripts()->play();
 		if ($this->profilingEnabled) {
-			Lemuria::Profiler()->recordAndLog('FantasyaGame_scripts');
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_scripts')->resetSum();
 		}
 
 		return $this;
@@ -120,7 +121,7 @@ class FantasyaGame extends FantasyaReport
 		}
 
 		if ($this->profilingEnabled) {
-			Lemuria::Profiler()->recordAndLog('FantasyaGame_initiate');
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_initiate')->resetSum();
 		}
 		return $this;
 	}
@@ -135,7 +136,7 @@ class FantasyaGame extends FantasyaReport
 		$this->turn->evaluate();
 
 		if ($this->profilingEnabled) {
-			Lemuria::Profiler()->recordAndLog('FantasyaGame_evaluate');
+			Lemuria::Profiler()->sum()->recordAndLog('FantasyaGame_evaluate')->resetSum();
 		}
 		return $this;
 	}
@@ -148,7 +149,7 @@ class FantasyaGame extends FantasyaReport
 		Lemuria::Log()->debug('Turn ended.');
 
 		if ($this->profilingEnabled) {
-			Lemuria::Profiler()->recordAndLog('FantasyaGame_finish');
+			Lemuria::Profiler()->recordAndLog('FantasyaGame_finish')->resetSum();
 		}
 		return $this;
 	}

@@ -82,6 +82,7 @@ class FantasyaReport
 
 	public function init(): static {
 		Lemuria::init($this->config);
+		Lemuria::Profiler()->setEnabled($this->profilingEnabled);
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
 		}
@@ -96,7 +97,7 @@ class FantasyaReport
 		$version[Module::Game]   = $versionFinder->get();
 
 		if ($this->profilingEnabled) {
-			Lemuria::Profiler()->recordAndLog('FantasyaReport_load');
+			Lemuria::Profiler()->recordAndLog('FantasyaReport_load')->resetSum();
 		}
 		return $this;
 	}
@@ -178,13 +179,13 @@ class FantasyaReport
 			$p++;
 			$hasVersion = true;
 			if ($this->profilingEnabled) {
-				Lemuria::Profiler()->recordAndLog('FantasyaReport_report-' . $id);
+				Lemuria::Profiler()->sum()->recordAndLog('FantasyaReport_report-' . $id);
 			}
 		}
 
 		$indexWriter->setWrapperFrom(self::INDEX_WRAPPER)->render();
 		if ($this->profilingEnabled) {
-			Lemuria::Profiler()->recordAndLog('FantasyaReport_index');
+			Lemuria::Profiler()->sum()->recordAndLog('FantasyaReport_index');
 		}
 
 		Lemuria::Log()->debug('Report generation finished for ' . $p . ' parties.');

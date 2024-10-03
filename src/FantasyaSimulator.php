@@ -48,6 +48,7 @@ final class FantasyaSimulator
 		$this->config           = new FantasyaConfig($storage);
 		$this->profilingEnabled = $this->config[FantasyaConfig::ENABLE_PROFILING];
 		Lemuria::init($this->config->setLogFile(self::LOG_FILE));
+		Lemuria::Profiler()->setEnabled($this->profilingEnabled);
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->logRecord([Profiler::RECORD_ZERO, Profiler::RECORD_BUILDER]);
 		}
