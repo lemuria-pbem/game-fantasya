@@ -11,6 +11,8 @@ LAST_NEWCOMERS_FILE=$SRC_DIR/storage/game/$LAST_TURN/newcomers.json
 TURN=`expr $LAST_TURN + 1`
 NEWCOMERS_FILE=$SRC_DIR/storage/game/$TURN/newcomers.json
 EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria $GAME -vvv"
+CLEAR_CACHE_COMMAND="php $BIN_DIR/simulate.php --clear-cache"
+BUILD_CACHE_COMMAND="php $BIN_DIR/simulate.php --build-cache"
 LOG_DIR=log
 LOG=$LOG_DIR/run.log
 
@@ -53,3 +55,7 @@ echo "Finished." >> $LOG
 
 # Move run log to the game log directory of this turn.
 mv $LOG $LOG_DIR/$TURN/
+
+# Rebuild the simulation FastCache.
+$CLEAR_CACHE_COMMAND >> $LOG 2>&1
+$BUILD_CACHE_COMMAND >> $LOG 2>&1

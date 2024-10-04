@@ -74,6 +74,8 @@
 	},
 
 	"scripts": {
+		"build-simulation-cache": "php bin/simulate.php --build-cache",
+		"clear-simulation-cache": "php bin/simulate.php --clear-cache",
 		"compile-index-css": "scripts/compile-index-scss.sh",
 		"compile-report-css": "scripts/compile-report-scss.sh",
 		"minify-index-js": "scripts/minify-index-js.sh",
@@ -88,10 +90,14 @@
 			"@compile-index-css",
 			"@compile-report-css",
 			"@minify-index-js",
-			"@minify-report-js"
+			"@minify-report-js",
+			"@clear-simulation-cache",
+			"@build-simulation-cache"
 		]
 	},
 	"scripts-descriptions": {
+		"build-simulation-cache": "Build a FastCache with the latest game data for fast simultation.",
+		"clear-simulation-cache": "Clear the simulation FastCache.",
 		"compile-index-css": "Compile Bootstrap and index.scss to index.min.css.",
 		"compile-report-css": "Compile Bootstrap and style.scss to report.min.css.",
 		"minify-index-js": "Concatenate and minify Bootstrap and index.js to index.min.js.",
