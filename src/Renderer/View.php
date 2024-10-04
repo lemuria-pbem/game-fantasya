@@ -64,7 +64,7 @@ class View
 
 	public function when(): string {
 		$timestamp = $this->current->Received();
-		return $timestamp ? \DateTimeImmutable::createFromFormat('U', (string)$timestamp)->format('d.m.y H:i') : '';
+		return $timestamp ? date('d.m.y H:i', $timestamp) : '';
 	}
 
 	public function report(Report $report): bool {
