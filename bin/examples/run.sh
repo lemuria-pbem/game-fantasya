@@ -3,14 +3,14 @@
 export LEMURIA_ZERO_HOUR=`date +%s.%N`
 
 GAME=lemuria
-BASE_DIR=/home/lemuria/games/$GAME
+BASE_DIR=/path/to/games/$GAME
 SRC_DIR=$BASE_DIR/game-fantasya
 BIN_DIR=$SRC_DIR/bin
 LAST_TURN=`php $BIN_DIR/last-turn.php`
 LAST_NEWCOMERS_FILE=$SRC_DIR/storage/game/$LAST_TURN/newcomers.json
 TURN=`expr $LAST_TURN + 1`
 NEWCOMERS_FILE=$SRC_DIR/storage/game/$TURN/newcomers.json
-EMAIL_COMMAND="php /var/customers/webs/fantasya/website/bin/console send:lemuria $GAME -vvv"
+EMAIL_COMMAND="php /path/to/fantasya/website/bin/console send:lemuria $GAME -vvv"
 CLEAR_CACHE_COMMAND="php $BIN_DIR/simulate.php --clear-cache"
 BUILD_CACHE_COMMAND="php $BIN_DIR/simulate.php --build-cache"
 LOG_DIR=log
