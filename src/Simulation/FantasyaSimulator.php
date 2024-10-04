@@ -47,16 +47,28 @@ final class FantasyaSimulator
 
 	private ?Party $party = null;
 
-	public static function boot(): self {
-		Lemuria::boot();
-		Lemuria::Register()->addListener(new Restored(new FastCache()), self::onRestored(...));
-		Lemuria::restoreFrom(self::CACHE_DIRECTORY);
-		if (!self::$instance) {
-			self::$instance = new self();
-			Lemuria::Register()->addListener(new Persisting(new FastCache()), self::onPersisting(...));
-			Lemuria::storeTo(self::CACHE_DIRECTORY);
+	public static function boot(BootOption $option = BootOption::NoCache): self|bool|null {
+		switch ($option) {
+			case BootOption::BuildCache :
+				self::$instance = new self();
+				Lemuria::Register()->addListener(new Persisting(new FastCache()), self::onPersisting(...));
+				Lemuria::storeTo(self::CACHE_DIRECTORY, __CLASS__);
+				return null;
+			case BootOption::ClearCache :
+				return FastCache::delete(self::CACHE_DIRECTORY, __CLASS__);
+			/** @noinspection PhpMissingBreakStatementInspection */
+			case BootOption::FromCache :
+				Lemuria::boot();
+				Lemuria::Register()->addListener(new Restored(new FastCache()), self::onRestored(...));
+				Lemuria::restoreFrom(self::CACHE_DIRECTORY, __CLASS__);
+				if (self::$instance) {
+					return self::$instance;
+				}
+				// There is no break here intentionally!
+			default :
+				self::$instance = new self();
+				return self::$instance;
 		}
-		return self::$instance;
 	}
 
 	public function __construct() {

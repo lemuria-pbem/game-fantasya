@@ -7,6 +7,9 @@ use Lemuria\Lemuria;
 
 final class SimulationHostilities extends LemuriaHostilities
 {
+	/**
+	 * @noinspection PhpUnnecessaryStaticReferenceInspection
+	 */
 	public function load(): static {
 		Lemuria::Log()->debug('Loading hostilities skipped in simulation.');
 		return $this;

@@ -7,6 +7,9 @@ use Lemuria\Lemuria;
 
 final class SimulationReport extends LemuriaReport
 {
+	/**
+	 * @noinspection PhpUnnecessaryStaticReferenceInspection
+	 */
 	public function load(): static {
 		Lemuria::Log()->debug('Loading report skipped in simulation.');
 		return $this;

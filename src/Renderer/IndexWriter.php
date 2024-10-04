@@ -31,6 +31,7 @@ class IndexWriter implements Writer
 	protected string $wrapper = self::BODY;
 
 	public function __construct(PathFactory $pathFactory) {
+		/** @noinspection PhpConditionAlreadyCheckedInspection */
 		if ($pathFactory instanceof FantasyaPathFactory) {
 			$this->pathFactory = $pathFactory;
 		} else {

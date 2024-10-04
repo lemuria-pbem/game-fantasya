@@ -7,6 +7,9 @@ use Lemuria\Scenario\Fantasya\LemuriaScripts;
 
 final class SimulationScripts extends LemuriaScripts
 {
+	/**
+	 * @noinspection PhpUnnecessaryStaticReferenceInspection
+	 */
 	public function load(): static {
 		Lemuria::Log()->debug('Loading scripts skipped in simulation.');
 		return $this;

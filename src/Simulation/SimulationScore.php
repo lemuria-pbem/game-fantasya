@@ -1,4 +1,7 @@
 <?php
+/**
+ * @noinspection PhpUnnecessaryStaticReferenceInspection
+ */
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya\Simulation;
 

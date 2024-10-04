@@ -2,46 +2,73 @@
 declare(strict_types = 1);
 
 use Lemuria\Engine\Move\CommandFile;
+use Lemuria\Game\Fantasya\Simulation\BootOption;
 use Lemuria\Game\Fantasya\Simulation\FantasyaSimulator;
 use Lemuria\Lemuria;
 use Lemuria\Model\Fantasya\Party;
-use Lemuria\Profiler;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-putenv(Profiler::LEMURIA_ZERO_HOUR . '=' . microtime(true));
+const BUILD_CACHE   = '--build-cache';
+const CLEAR_CACHE   = '--clear-cache';
+const FAST          = '--fast';
+const HELP          = ['-h', '--help'];
+const STDOUT_ONLY   = '--stdout-only';
+const ALL_KNOWN     = [BUILD_CACHE, CLEAR_CACHE, FAST, STDOUT_ONLY];
+const WITH_ARGUMENT = [FAST, STDOUT_ONLY];
+const NO_ARGUMENT   = [BUILD_CACHE, CLEAR_CACHE, ...HELP];
 
-const STDOUT_ONLY = '--stdout-only';
+$option     = $argc > 1 && str_starts_with($argv[1], '-') ? $argv[1] : null;
+$stdoutOnly = $option === STDOUT_ONLY ? true : $argc > 2 && $argv[2] === STDOUT_ONLY;
+$max        = $option ? ($option === STDOUT_ONLY ? 2 : ($stdoutOnly ? 3 : 2)) : ($stdoutOnly ? 2 : 1);
+$uuid       = $argc > $max ? $argv[$max] : null;
 
-if ($argc < 2) {
-	file_put_contents('php://stderr', 'Fehler: Keine Partei-UUID angegeben.' . PHP_EOL);
-	exit(1);
-}
+$isHelp      = $argc < 2 || in_array($option, HELP);
+$tooManyArgs = $argc > ++$max;
+$unknownOpt  = $option && !in_array($option, ALL_KNOWN);
+$needsArg    = $option && in_array($option, WITH_ARGUMENT) && !$uuid;
+$noArgOption = $option && in_array($option, NO_ARGUMENT) && $uuid;
+$tooManyOpts = in_array($option, NO_ARGUMENT) && $stdoutOnly;
+$abort       = ($isHelp || $tooManyArgs || $unknownOpt || $needsArg || $noArgOption || $tooManyOpts);
 
-$uuid       = $argv[1];
-$stdoutOnly = false;
-if ($argc === 3) {
-	$stdoutOnly = $argv[2] === STDOUT_ONLY;
-	if ($uuid === STDOUT_ONLY) {
-		if ($stdoutOnly) {
-			file_put_contents('php://stderr', 'Fehler: Keine Partei-UUID angegeben.' . PHP_EOL);
-			exit(1);
-		}
-		$uuid       = $argv[2];
-		$stdoutOnly = true;
+if ($abort) {
+	if ($isHelp) {
+		echo 'Aufruf: php simulate.php [option] [UUID]' . PHP_EOL;
+		echo PHP_EOL;
+		echo 'Optionen:' . PHP_EOL;
+		echo '  --build-cache   Cache neu aufbauen' . PHP_EOL;
+		echo '  --clear-cache   Cache löschen' . PHP_EOL;
+		echo '  --fast          Simulation für UUID aus Cache starten' . PHP_EOL;
+		echo '  --help, -h      Hilfe anzeigen' . PHP_EOL;
+		echo '  --stdout-only   Fehlermeldungen aus STDERR unterdrücken' . PHP_EOL;
+		exit(0);
 	}
-	if (!$stdoutOnly) {
-		file_put_contents('php://stderr', 'Fehler: Unbekannter Parameter angegeben.' . PHP_EOL);
-		exit(1);
-	}
-} elseif ($argc > 3) {
-	file_put_contents('php://stderr', 'Fehler: Zu viele Parameter angegeben.' . PHP_EOL);
+	file_put_contents('php://stderr', 'Eingabefehler! Hilfe aufrufen mit --help.' . PHP_EOL);
 	exit(1);
 }
 
 try {
-	$simulator = new FantasyaSimulator();
-	$party     = Lemuria::Registry()->find($uuid);
+	switch ($option) {
+		case BUILD_CACHE :
+			FantasyaSimulator::boot(BootOption::BuildCache);
+			echo 'Simulation cache created.' . PHP_EOL;
+			exit(0);
+		case CLEAR_CACHE :
+			$result = FantasyaSimulator::boot(BootOption::ClearCache);
+			if ($result) {
+				echo 'Simulation cache cleared.' . PHP_EOL;
+				exit(0);
+			}
+			echo 'Simulation cache file not found.' . PHP_EOL;
+			exit(1);
+		case FAST :
+			$simulator = FantasyaSimulator::boot(BootOption::FromCache);
+			break;
+		default :
+			$simulator = FantasyaSimulator::boot();
+	}
+
+	$party = Lemuria::Registry()->find($uuid);
 	if ($party instanceof Party) {
 		$orders = __DIR__ . '/../storage/orders/' . $simulator->Round() . '/' . $uuid . '.order';
 		$move   = new CommandFile($orders);
