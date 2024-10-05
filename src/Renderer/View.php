@@ -50,6 +50,10 @@ class View
 		return $this;
 	}
 
+	public function round(): int {
+		return Lemuria::Calendar()->Round();
+	}
+
 	public function received(): bool {
 		return (bool)$this->current->Received();
 	}
