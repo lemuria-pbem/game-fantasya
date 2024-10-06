@@ -118,6 +118,7 @@ class FantasyaReport
 		$header      = new FantasyaHeader();
 		$indexWriter = new IndexWriter($pathFactory);
 		$collection  = new ReportCollection($indexWriter);
+		$this->setTurnTimesToIndex($indexWriter);
 
 		$p          = 0;
 		$hasVersion = false;
@@ -230,5 +231,10 @@ class FantasyaReport
 		}
 		$filter = new CompositeFilter();
 		return $filter->add(new DebugFilter())->add(new PartyAnnouncementFilter());
+	}
+
+	protected function setTurnTimesToIndex(IndexWriter $writer): void {
+		//TODO Set parameters from config.
+		//$writer->setTurnTime();
 	}
 }

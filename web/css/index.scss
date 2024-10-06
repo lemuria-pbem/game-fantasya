@@ -10,6 +10,10 @@ body {
   margin: 1rem 1rem 1rem 1rem;
 }
 
+header {
+  margin: 1.0rem 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -19,6 +23,9 @@ a {
 }
 
 #administrator-index {
+  .container-fluid {
+    padding: 0;
+  }
   .row > div {
     text-wrap: balance;
     .party {
@@ -27,5 +34,14 @@ a {
     .no-reports {
       opacity: 0.4;
     }
+  }
+}
+
+#navigation {
+  .previous:after {
+    content: ' |'
+  }
+  .next:before {
+    content: '| '
   }
 }

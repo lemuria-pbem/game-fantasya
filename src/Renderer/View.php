@@ -2,6 +2,7 @@
 declare(strict_types = 1);
 namespace Lemuria\Game\Fantasya\Renderer;
 
+use Lemuria\Game\Fantasya\Renderer\Index\Navigation;
 use Lemuria\Game\Fantasya\Renderer\Index\Report;
 use Lemuria\Game\Fantasya\Renderer\Index\ReportCollection;
 use Lemuria\Game\Fantasya\Renderer\Index\Reports;
@@ -11,15 +12,18 @@ use Lemuria\Model\Fantasya\Party\Type;
 
 class View
 {
-	protected ReportCollection $collection;
+	protected readonly ReportCollection $collection;
 
 	protected ?array $variables = null;
 
-	protected Party $party;
+	private Party $party;
 
 	private Reports $current;
 
 	private array|string|null $report;
+
+	public function __construct(protected readonly Navigation $navigation) {
+	}
 
 	public function isDevelopment(): bool {
 		return Lemuria::FeatureFlag()->IsDevelopment();
@@ -64,7 +68,7 @@ class View
 
 	public function when(): string {
 		$timestamp = $this->current->Received();
-		return $timestamp ? \DateTimeImmutable::createFromFormat('U', (string)$timestamp)->format('d.m.y H:i') : '';
+		return $timestamp ? date('d.m.y H:i', $timestamp) : '';
 	}
 
 	public function report(Report $report): bool {
