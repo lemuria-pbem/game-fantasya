@@ -7,10 +7,10 @@ use Lemuria\Game\Fantasya\Renderer\View;
 
 /** @var View $this */
 
-$round    = $this->round();
-$previous = $round - 1;
-$next     = $round + 1;
-
+$round    = $this->navigation->Round();
+$previous = $this->navigation->Previous();
+$next     = $this->navigation->Next();
+$nextAt   = $this->navigation->NextAt();
 $tabIndex = 0;
 
 ?>
@@ -21,11 +21,11 @@ $tabIndex = 0;
 			<div class="row justify-content-between">
 				<div class="col-auto">erstellt am <?= date('d.m.Y H:i') . ' Uhr' ?></div>
 				<div id="navigation" class="col-auto">
-					<?php if ($previous > 0): ?>
+					<?php if ($previous): ?>
 						<a href="#" class="previous" data-round="<?= $previous ?>">← <?= number($previous) ?></a>
 					<?php endif ?>
 					<span class="current">Runde <?= number($round) ?></span>
-					<a class="next" href="#" data-round="<?= $next ?>"><?= number($next) ?> →</a>
+					<a class="next d-none" href="#" data-round="<?= $next ?>" data-next-at="<?= $nextAt ?>"><?= number($next) ?> →</a>
 				</div>
 			</div>
 		</div>

@@ -7,8 +7,15 @@ document.addEventListener('readystatechange', () => {
 
     const navigation = document.querySelectorAll('#navigation > a');
     navigation.forEach((link) => {
-        const round = link.dataset['round'];
+        const round = link.dataset.round;
         link.setAttribute('href', href + '/' + round + '/index.html');
+        const nextAt = link.dataset.nextAt;
+        if (nextAt) {
+            const timestamp = 1000 * nextAt;
+            if (Date.now() > timestamp) {
+                link.classList.remove('d-none');
+            }
+        }
     });
 
     const popoverTriggers = document.querySelectorAll('[data-bs-toggle="popover"]');

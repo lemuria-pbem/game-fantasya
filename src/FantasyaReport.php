@@ -192,6 +192,7 @@ class FantasyaReport
 		}
 
 		$writer = new IndexWriter($pathFactory);
+		$this->setTurnTimesToIndex($writer);
 		$writer->setReportCollection($collection)->setWrapperFrom(self::INDEX_WRAPPER)->render();
 		if ($this->profilingEnabled) {
 			Lemuria::Profiler()->recordAndLog('FantasyaReport_index');
@@ -239,5 +240,10 @@ class FantasyaReport
 		}
 		$filter = new CompositeFilter();
 		return $filter->add(new DebugFilter())->add(new PartyAnnouncementFilter());
+	}
+
+	protected function setTurnTimesToIndex(IndexWriter $writer): void {
+		//TODO Set parameters from config.
+		//$writer->setTurnTime();
 	}
 }
