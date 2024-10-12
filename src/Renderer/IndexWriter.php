@@ -106,7 +106,7 @@ class IndexWriter implements Writer
 
 	protected function createNavigation(): Navigation {
 		$round  = Lemuria::Calendar()->Round();
-		$nextAt = $this->getCurrentRoundTimestamp() + $this->turnInterval;
+		$nextAt = $this->getCurrentRoundTimestamp();
 		return new Navigation($round, $nextAt, $this->firstRound);
 	}
 
