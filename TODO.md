@@ -181,6 +181,7 @@ Lemuria 1.5 wurde am 2. März 2024 veröffentlicht.
 - automatisches Verfolgen von Monstern und Fremdeinheiten
   - Meldung bei Wiederentdeckung markierter Einheiten
   - Parteimeldung für gesichtete Monster
+- fixe Kopfzeile für lange Tabellen
 
 ### Umgebung/Welt
 

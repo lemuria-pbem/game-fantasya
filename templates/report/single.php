@@ -12,7 +12,7 @@ $party = $this->variables[0];
 /** @var Report $report */
 $report = $this->variables[1];
 
-$target = $report->name . '-' . $party->Id();
+$target = $report->name . '-' . $party->Id() . '-' . $this->navigation->Round();
 
 ?>
 <?php if ($this->report($report)): ?>
