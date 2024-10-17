@@ -466,6 +466,13 @@ ul.report {
     content: $statIconRealmCenter;
 }
 
+.talent-statistics .modal-dialog-scrollable .modal-body {
+    padding-top: 0;
+    .table thead.sticky-top > tr > th {
+        padding-top: $modal-inner-padding;
+    }
+}
+
 .market li .trade-flag {
     color: transparentize($secondary, 0.7);
     &.ppp-1, &.ad-1, &.var-1, &.rep-1 {
